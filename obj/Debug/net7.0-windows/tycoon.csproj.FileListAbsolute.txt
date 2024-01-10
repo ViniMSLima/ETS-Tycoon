@@ -1,0 +1,15 @@
+C:\Users\disrct\Desktop\tycoon\bin\Debug\net7.0-windows\tycoon.exe
+C:\Users\disrct\Desktop\tycoon\bin\Debug\net7.0-windows\tycoon.deps.json
+C:\Users\disrct\Desktop\tycoon\bin\Debug\net7.0-windows\tycoon.runtimeconfig.json
+C:\Users\disrct\Desktop\tycoon\bin\Debug\net7.0-windows\tycoon.dll
+C:\Users\disrct\Desktop\tycoon\bin\Debug\net7.0-windows\tycoon.pdb
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\tycoon.csproj.AssemblyReference.cache
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\tycoon.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\tycoon.AssemblyInfoInputs.cache
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\tycoon.AssemblyInfo.cs
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\tycoon.csproj.CoreCompileInputs.cache
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\tycoon.dll
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\refint\tycoon.dll
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\tycoon.pdb
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\tycoon.genruntimeconfig.cache
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\ref\tycoon.dll

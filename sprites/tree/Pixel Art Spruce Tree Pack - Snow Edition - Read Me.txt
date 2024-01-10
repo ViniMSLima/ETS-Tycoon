@@ -1,0 +1,56 @@
+
+
+Snow is animated for each tree!
+
+Colors for each tree - Yellow, Green, Green/Teal, Teal, Cold, Night
+
+Each tree color has it's own snow variant.
+Snow is covering the trees in two ways: Medium amount of snow and High amount of snow.
+
+Pack contains individual sprites, as well as spritesheet for each tree variant.
+
+Tree Types: (High snow variants are 1 pixel taller)
+
+Triangle Spruce Tree (example: Triangle Spruce Tree - High Snow - 45x77)
+ - Size: 45x76
+ 
+Tiny Spruce Tree
+ - Size: 38x68
+ 
+Thick Spruce Tree
+ - Size: 64x104
+ 
+Spruce Tree
+ - Size: 51x87
+ 
+Small Pine Tree
+ - Size: 51x85
+ 
+Slim Spruce Tree
+ - Size: 48x92
+
+Pine Trees
+ - Size: 52x96
+ 
+Pico Pine Tree
+ - Size: 31x52
+ 
+Large Spruce Tree
+ - Size: 74x128
+ 
+Bubble Pine Tree
+ - Size: 51x91
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
