@@ -8,15 +8,14 @@ public class Apprentice
     private Image img;
     public Apprentice()
     {
-        X = 600;
-        Y = 500;
-        this.img = Bitmap.FromFile("down.png");
+       
+        this.img = Bitmap.FromFile("./sprites/apprentice/stand/down.png");
     }
 
     public void Draw(Graphics g)
     {
         g.DrawImage(img, 
-            X - 70, Y - 70, 140, 140
+            X, Y, 40, 50
         );
     }
 

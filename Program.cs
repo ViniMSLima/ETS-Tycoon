@@ -9,11 +9,24 @@ Bitmap bmp = null;
 Graphics g = null;
 sound.SoundLocation = "./soundtracks/And_so_it_begins.wav";
 
-Apprentice hero = new();
+Apprentice hero = new()
+{
+    X = 800,
+    Y = 600
+};
+
 Player player = new()
 {
     Money = 100,
     Level = 1
+};
+
+Room digitalRoom = new()
+{
+    PositionX = 400,
+    PositionY = 200,
+    floorImg = Bitmap.FromFile("./sprites/floor.png"),
+    tableImg = Bitmap.FromFile("./sprites/table.png"),
 };
 
 var pb = new PictureBox {
@@ -48,7 +61,9 @@ timer.Tick += (o, e) =>
 {
     g.Clear(Color.White);
     
+    digitalRoom.Draw(g);
     hero.Draw(g);
+    digitalRoom.DrawTable(g, 600, 500);
     player.DrawInfo(g, player, pb);
     
     pb.Refresh();
