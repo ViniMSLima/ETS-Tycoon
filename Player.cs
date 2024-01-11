@@ -20,25 +20,24 @@ public class Player
 
     public void DrawInfo(Graphics g, Player player, PictureBox pb)
     {
-        g.DrawImage(this.Coin,
-            5, 3, 80, 70
-        );
 
         PictureBox coinImg = new()
         {
             Width = 80,
             Height = 80,
+            BackColor = Color.FromArgb(0, 0, 0, 0),
             ImageLocation = "./sprites/coin/coin.gif",
             SizeMode = PictureBoxSizeMode.StretchImage
         };
 
         Label money = new()
         {
-            Location = new Point(90, 30),
-            Text = $"Coins: {player.Money}",
+            Location = new Point(70, 20),
+            Text = $"{player.Money}",
+            BackColor = Color.FromArgb(0, 0, 0, 0),
             Width = 300,
             Height = 100,
-            Font = new Font("Calibri", 30, FontStyle.Bold)
+            Font = new Font("Calibri", 40, FontStyle.Bold)
         };
 
         pb.Controls.Add(money);

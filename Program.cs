@@ -21,12 +21,20 @@ Player player = new()
     Level = 1
 };
 
-Room digitalRoom = new()
+DigitalRoom digitalRoom = new()
 {
-    PositionX = 400,
-    PositionY = 200,
-    floorImg = Bitmap.FromFile("./sprites/floor.png"),
-    tableImg = Bitmap.FromFile("./sprites/table.png"),
+    PositionX = 800,
+    PositionY = 300,
+    FloorImg = Bitmap.FromFile("./sprites/floor.png"),
+    TableImg = Bitmap.FromFile("./sprites/table.png"),
+};
+
+DigitalRoom SalaETS = new()
+{
+    PositionX = 450,
+    PositionY = 120,
+    FloorImg = Bitmap.FromFile("./sprites/floor.png"),
+    TableImg = Bitmap.FromFile("./sprites/table.png"),
 };
 
 var pb = new PictureBox {
@@ -60,10 +68,11 @@ form.Load += (o, e) =>
 timer.Tick += (o, e) =>
 {
     g.Clear(Color.White);
+    g.DrawImage(Bitmap.FromFile("grid.jpg"), 0, 0, 2000, 1500);
     
     digitalRoom.Draw(g);
+    SalaETS.Draw(g);
     hero.Draw(g);
-    digitalRoom.DrawTable(g, 600, 500);
     player.DrawInfo(g, player, pb);
     
     pb.Refresh();
