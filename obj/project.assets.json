@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\tycoon\\tycoon.csproj",
-      "projectName": "tycoon",
-      "projectPath": "C:\\Users\\disrct\\Desktop\\tycoon\\tycoon.csproj",
+      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\tycoon\\winformsApp.csproj",
+      "projectName": "winformsApp",
+      "projectPath": "C:\\Users\\disrct\\Desktop\\tycoon\\winformsApp.csproj",
       "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\disrct\\Desktop\\tycoon\\obj\\",
       "projectStyle": "PackageReference",

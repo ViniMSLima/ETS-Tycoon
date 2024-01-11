@@ -1,0 +1,72 @@
+C:\Users\sii5ct\Desktop\winformsApp\bin\Debug\net7.0-windows\winformsApp.exe
+C:\Users\sii5ct\Desktop\winformsApp\bin\Debug\net7.0-windows\winformsApp.deps.json
+C:\Users\sii5ct\Desktop\winformsApp\bin\Debug\net7.0-windows\winformsApp.runtimeconfig.json
+C:\Users\sii5ct\Desktop\winformsApp\bin\Debug\net7.0-windows\winformsApp.dll
+C:\Users\sii5ct\Desktop\winformsApp\bin\Debug\net7.0-windows\winformsApp.pdb
+C:\Users\sii5ct\Desktop\winformsApp\obj\Debug\net7.0-windows\winformsApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sii5ct\Desktop\winformsApp\obj\Debug\net7.0-windows\winformsApp.AssemblyInfoInputs.cache
+C:\Users\sii5ct\Desktop\winformsApp\obj\Debug\net7.0-windows\winformsApp.AssemblyInfo.cs
+C:\Users\sii5ct\Desktop\winformsApp\obj\Debug\net7.0-windows\winformsApp.csproj.CoreCompileInputs.cache
+C:\Users\sii5ct\Desktop\winformsApp\obj\Debug\net7.0-windows\winformsApp.dll
+C:\Users\sii5ct\Desktop\winformsApp\obj\Debug\net7.0-windows\refint\winformsApp.dll
+C:\Users\sii5ct\Desktop\winformsApp\obj\Debug\net7.0-windows\winformsApp.pdb
+C:\Users\sii5ct\Desktop\winformsApp\obj\Debug\net7.0-windows\winformsApp.genruntimeconfig.cache
+C:\Users\sii5ct\Desktop\winformsApp\obj\Debug\net7.0-windows\ref\winformsApp.dll
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\3 - Desenvolvimento de Sistemas 2023\01 - Arquivos a serem disponibilizados\Desktop Dev\emptyApp\bin\Debug\net7.0-windows\winformsApp.exe
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\3 - Desenvolvimento de Sistemas 2023\01 - Arquivos a serem disponibilizados\Desktop Dev\emptyApp\bin\Debug\net7.0-windows\winformsApp.deps.json
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\3 - Desenvolvimento de Sistemas 2023\01 - Arquivos a serem disponibilizados\Desktop Dev\emptyApp\bin\Debug\net7.0-windows\winformsApp.runtimeconfig.json
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\3 - Desenvolvimento de Sistemas 2023\01 - Arquivos a serem disponibilizados\Desktop Dev\emptyApp\bin\Debug\net7.0-windows\winformsApp.dll
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\3 - Desenvolvimento de Sistemas 2023\01 - Arquivos a serem disponibilizados\Desktop Dev\emptyApp\bin\Debug\net7.0-windows\winformsApp.pdb
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\3 - Desenvolvimento de Sistemas 2023\01 - Arquivos a serem disponibilizados\Desktop Dev\emptyApp\obj\Debug\net7.0-windows\winformsApp.GeneratedMSBuildEditorConfig.editorconfig
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\3 - Desenvolvimento de Sistemas 2023\01 - Arquivos a serem disponibilizados\Desktop Dev\emptyApp\obj\Debug\net7.0-windows\winformsApp.AssemblyInfoInputs.cache
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\3 - Desenvolvimento de Sistemas 2023\01 - Arquivos a serem disponibilizados\Desktop Dev\emptyApp\obj\Debug\net7.0-windows\winformsApp.AssemblyInfo.cs
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\3 - Desenvolvimento de Sistemas 2023\01 - Arquivos a serem disponibilizados\Desktop Dev\emptyApp\obj\Debug\net7.0-windows\winformsApp.csproj.CoreCompileInputs.cache
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\3 - Desenvolvimento de Sistemas 2023\01 - Arquivos a serem disponibilizados\Desktop Dev\emptyApp\obj\Debug\net7.0-windows\winformsApp.dll
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\3 - Desenvolvimento de Sistemas 2023\01 - Arquivos a serem disponibilizados\Desktop Dev\emptyApp\obj\Debug\net7.0-windows\refint\winformsApp.dll
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\3 - Desenvolvimento de Sistemas 2023\01 - Arquivos a serem disponibilizados\Desktop Dev\emptyApp\obj\Debug\net7.0-windows\winformsApp.pdb
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\3 - Desenvolvimento de Sistemas 2023\01 - Arquivos a serem disponibilizados\Desktop Dev\emptyApp\obj\Debug\net7.0-windows\winformsApp.genruntimeconfig.cache
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\3 - Desenvolvimento de Sistemas 2023\01 - Arquivos a serem disponibilizados\Desktop Dev\emptyApp\obj\Debug\net7.0-windows\ref\winformsApp.dll
+C:\Users\sii5ct\Desktop\emptyApp\bin\Debug\net7.0-windows\winformsApp.exe
+C:\Users\sii5ct\Desktop\emptyApp\bin\Debug\net7.0-windows\winformsApp.deps.json
+C:\Users\sii5ct\Desktop\emptyApp\bin\Debug\net7.0-windows\winformsApp.runtimeconfig.json
+C:\Users\sii5ct\Desktop\emptyApp\bin\Debug\net7.0-windows\winformsApp.dll
+C:\Users\sii5ct\Desktop\emptyApp\bin\Debug\net7.0-windows\winformsApp.pdb
+C:\Users\sii5ct\Desktop\emptyApp\obj\Debug\net7.0-windows\winformsApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sii5ct\Desktop\emptyApp\obj\Debug\net7.0-windows\winformsApp.AssemblyInfoInputs.cache
+C:\Users\sii5ct\Desktop\emptyApp\obj\Debug\net7.0-windows\winformsApp.AssemblyInfo.cs
+C:\Users\sii5ct\Desktop\emptyApp\obj\Debug\net7.0-windows\winformsApp.csproj.CoreCompileInputs.cache
+C:\Users\sii5ct\Desktop\emptyApp\obj\Debug\net7.0-windows\winformsApp.dll
+C:\Users\sii5ct\Desktop\emptyApp\obj\Debug\net7.0-windows\refint\winformsApp.dll
+C:\Users\sii5ct\Desktop\emptyApp\obj\Debug\net7.0-windows\winformsApp.pdb
+C:\Users\sii5ct\Desktop\emptyApp\obj\Debug\net7.0-windows\winformsApp.genruntimeconfig.cache
+C:\Users\sii5ct\Desktop\emptyApp\obj\Debug\net7.0-windows\ref\winformsApp.dll
+C:\Users\disrct\Desktop\faustoApp\bin\Debug\net7.0-windows\winformsApp.exe
+C:\Users\disrct\Desktop\faustoApp\bin\Debug\net7.0-windows\winformsApp.deps.json
+C:\Users\disrct\Desktop\faustoApp\bin\Debug\net7.0-windows\winformsApp.runtimeconfig.json
+C:\Users\disrct\Desktop\faustoApp\bin\Debug\net7.0-windows\winformsApp.dll
+C:\Users\disrct\Desktop\faustoApp\bin\Debug\net7.0-windows\winformsApp.pdb
+C:\Users\disrct\Desktop\faustoApp\obj\Debug\net7.0-windows\winformsApp.csproj.AssemblyReference.cache
+C:\Users\disrct\Desktop\faustoApp\obj\Debug\net7.0-windows\winformsApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\disrct\Desktop\faustoApp\obj\Debug\net7.0-windows\winformsApp.AssemblyInfoInputs.cache
+C:\Users\disrct\Desktop\faustoApp\obj\Debug\net7.0-windows\winformsApp.AssemblyInfo.cs
+C:\Users\disrct\Desktop\faustoApp\obj\Debug\net7.0-windows\winformsApp.csproj.CoreCompileInputs.cache
+C:\Users\disrct\Desktop\faustoApp\obj\Debug\net7.0-windows\winformsApp.dll
+C:\Users\disrct\Desktop\faustoApp\obj\Debug\net7.0-windows\refint\winformsApp.dll
+C:\Users\disrct\Desktop\faustoApp\obj\Debug\net7.0-windows\winformsApp.pdb
+C:\Users\disrct\Desktop\faustoApp\obj\Debug\net7.0-windows\winformsApp.genruntimeconfig.cache
+C:\Users\disrct\Desktop\faustoApp\obj\Debug\net7.0-windows\ref\winformsApp.dll
+C:\Users\disrct\Desktop\tycoon\bin\Debug\net7.0-windows\winformsApp.exe
+C:\Users\disrct\Desktop\tycoon\bin\Debug\net7.0-windows\winformsApp.deps.json
+C:\Users\disrct\Desktop\tycoon\bin\Debug\net7.0-windows\winformsApp.runtimeconfig.json
+C:\Users\disrct\Desktop\tycoon\bin\Debug\net7.0-windows\winformsApp.dll
+C:\Users\disrct\Desktop\tycoon\bin\Debug\net7.0-windows\winformsApp.pdb
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\winformsApp.csproj.AssemblyReference.cache
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\winformsApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\winformsApp.AssemblyInfoInputs.cache
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\winformsApp.AssemblyInfo.cs
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\winformsApp.csproj.CoreCompileInputs.cache
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\winformsApp.dll
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\refint\winformsApp.dll
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\winformsApp.pdb
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\winformsApp.genruntimeconfig.cache
+C:\Users\disrct\Desktop\tycoon\obj\Debug\net7.0-windows\ref\winformsApp.dll

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ilkn2GrmR6GnMNWjS6Nl5FFdgLqfQSR7aMmBdDzNT+/CGS1Emt9K89MLSGBMqmxOZIbypWHOZNu4bFQRfy5sdg==",
+  "dgSpecHash": "y54iwb38wreBgmAWwtDJoDAPVO3BBmS0ELeGCcUUtg7FeEqHazhpGhhHJq4nalhkMee+ekwJwJsJSXuBz4Qh1g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\disrct\\Desktop\\tycoon\\tycoon.csproj",
+  "projectFilePath": "C:\\Users\\disrct\\Desktop\\tycoon\\winformsApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

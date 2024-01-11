@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v7.0": {
-      "tycoon/1.0.0": {
+      "winformsApp/1.0.0": {
         "runtime": {
-          "tycoon.dll": {}
+          "winformsApp.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "tycoon/1.0.0": {
+    "winformsApp/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
