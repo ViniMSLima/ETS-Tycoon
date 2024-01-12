@@ -33,7 +33,7 @@ public class Player
         Label money = new()
         {
             Location = new Point(70, 20),
-            Text = $"{player.Money}",
+            Text = $"${player.Money}",
             BackColor = Color.FromArgb(0, 0, 0, 0),
             Width = 300,
             Height = 100,
