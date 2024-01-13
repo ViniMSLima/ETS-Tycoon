@@ -1,28 +1,46 @@
 using System.Drawing;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 public class Table
 {
+    public Image img { get; set; }
     public PointF[] Points { get; set; }
-    public Image Image { get; set; }
-
+    public float PositionX { get; set; }
+    public float PositionY { get; set; }
     public int Price { get; set; }
+    public bool Buy { get; set; }
 
-
-    public Table(Graphics g, Image img, PointF[] pts)
+    public Table()
     {
-        this.Image = img;
-        this.Points = pts;
+        this.Buy = false;
+    }
+
+    public void Draw(Graphics g)
+    {
+        float h = 40, w = 90;
 
         Pen pen = new(Color.Red, 5f);
 
-        g.DrawPolygon(pen, pts);
+        PointF[] test = new PointF[]{
+            new(0, 0),
+            new(h, 0),
+            new(h, w),
+            new(0, w),
+            new(0, 0),
+        }.ToIsometric(PositionX, PositionY);
 
+        this.Points = test;
+
+        g.DrawPolygon(pen, test);
+
+        g.DrawImage(img,
+            PositionX - 120, PositionY - 145, 200, 200
+        );
     }
 
-    public bool point_in_polygon(PointF point)
+    public bool Point_in_polygon(PointF point, Player player)
     {
+
         int num_vertices = this.Points.Length;
         double x = point.X, y = point.Y;
         bool inside = false;
@@ -71,8 +89,24 @@ public class Table
             p1 = p2;
         }
 
-        // Return the value of the inside flag
-        MessageBox.Show(inside.ToString());
+        if (this.Buy == false)
+        {
+            if (inside)
+            {
+                this.img = Bitmap.FromFile("sprites/table/buy_table_down.png");
+                this.Buy = true;
+                player.Money -= this.Price;
+            }
+        }
+
         return inside;
+    }
+
+    public void BuyCheck()
+    {
+        if (this.Buy == true)
+        {
+            this.img = Bitmap.FromFile("sprites/table/table.png");
+        }
     }
 }

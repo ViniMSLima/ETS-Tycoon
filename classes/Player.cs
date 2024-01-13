@@ -15,10 +15,12 @@ public class Player
 
     public Player()
     {
+        Money = 100;
+        Level = 1;
         this.Coin = Bitmap.FromFile("./sprites/coin/coin.gif");
     }
 
-    public void DrawInfo(Graphics g, Player player, PictureBox pb)
+    public void DrawInfo(Graphics g, PictureBox pb)
     {
 
         PictureBox coinImg = new()
@@ -32,8 +34,8 @@ public class Player
 
         Label money = new()
         {
-            Location = new Point(70, 20),
-            Text = $"${player.Money}",
+            Location = new Point(70, 10),
+            Text = $"${Money}",
             BackColor = Color.FromArgb(0, 0, 0, 0),
             Width = 300,
             Height = 100,

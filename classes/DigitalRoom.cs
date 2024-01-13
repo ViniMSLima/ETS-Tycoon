@@ -1,14 +1,16 @@
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Dynamic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 public class DigitalRoom : Room
 {
     public PointF[] Polygon { get; set; }
+
+    public DigitalRoom()
+    {
+        this.FloorImg = Bitmap.FromFile("./sprites/floor/floor.png");
+        this.TableImg = Bitmap.FromFile("./sprites/table/table.png");
+    }
 
     public float Rad(float angle)
         => angle * MathF.PI / 180;
@@ -19,26 +21,17 @@ public class DigitalRoom : Room
             PositionX, PositionY, 900, 900
         );
 
-        float h = 70, w = 170;
+        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 510, PositionY + 145, 200, 200);
+        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 680, PositionY + 230, 200, 200);
 
-        PointF[] table1Pts = new PointF[]{
-            new PointF(0, 0),
-            new PointF(h, 0),
-            new PointF(h, w),
-            new PointF(0, w),
-            new PointF(0, 0),
-        }.ToIsometric(PositionX + 650, PositionY + 325);
-
-        Table table1  = new(g, this.TableImg, table1Pts);
-
-        g.DrawImage(Bitmap.FromFile("./sprites/table/table.png"), PositionX + 510, PositionY + 145, 200, 200);
-        g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 680, PositionY + 230, 200, 200);
-
-        g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 410, PositionY + 195, 200, 200);
-        g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 570, PositionY + 285, 200, 200);
+        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 410, PositionY + 195, 200, 200);
+        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 570, PositionY + 285, 200, 200);
 
         g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 300, PositionY + 250, 200, 200);
-        g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 460, PositionY + 340, 200, 200);
+        g.DrawImage(Bitmap.FromFile("./sprites/table/table.png"), PositionX + 460, PositionY + 340, 200, 200);
+
+
+        float h = 70, w = 170;
 
         float x = 1100, y = 300;
               w = 200;
@@ -54,13 +47,13 @@ public class DigitalRoom : Room
             new PointF(0, 0),
         }.ToIsometric(x, y);
 
-        Polygon = test;
+        this.Polygon = test;
 
-        g.DrawPolygon(pen, test);
+        g.DrawPolygon(pen, this.Polygon);
     }
 
 
-    public bool point_in_polygon(PointF point)
+    public bool Point_in_polygon(PointF point)
     {
         int num_vertices = this.Polygon.Length;
         double x = point.X, y = point.Y;
