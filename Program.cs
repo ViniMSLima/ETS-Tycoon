@@ -88,7 +88,7 @@ form.KeyDown += (o, e) =>
 
 pb.MouseDown += (o, e) =>
 {
-    tb.Point_in_polygon(e.Location, player);
+    tb.Point_in_polygon(e.Location);
 };
 
 pb.MouseUp += (o, e) =>

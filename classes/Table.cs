@@ -38,7 +38,7 @@ public class Table
         );
     }
 
-    public bool Point_in_polygon(PointF point, Player player)
+    public bool Point_in_polygon(PointF point)
     {
 
         int num_vertices = this.Points.Length;
@@ -89,14 +89,17 @@ public class Table
             p1 = p2;
         }
 
-        if (this.Buy == false)
+        if (this.Buy == false && inside)
         {
-            if (inside)
+            if (Player.Money >= this.Price)
             {
                 this.img = Bitmap.FromFile("sprites/table/buy_table_down.png");
                 this.Buy = true;
-                player.Money -= this.Price;
+                Player.Money -= this.Price;
             }
+            else 
+                MessageBox.Show("Not enough money!");
+                
         }
 
         return inside;

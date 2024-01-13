@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 public class Player
 {
-    public int Money { get; set; }
+    public static int Money { get; set; }
     public int Level { get; set; }
     public float X { get; set; }
     public float Y { get; set; }
@@ -32,7 +32,7 @@ public class Player
         this.Label = new()
         {
             Location = new Point(70, 10),
-            Text = $"${Money}",
+            Text = $"${Player.Money}",
             BackColor = Color.FromArgb(0, 0, 0, 0),
             Width = 300,
             Height = 100,
@@ -44,7 +44,6 @@ public class Player
     {
         pb.Controls.Add(this.CoinImg);
         pb.Controls.Add(this.Label);
-        this.Label.Text = $"${this.Money}";
-
+        this.Label.Text = $"${Player.Money}";
     }
 }
