@@ -8,6 +8,8 @@ public class Player
     public int Level { get; set; }
     public float X { get; set; }
     public float Y { get; set; }
+    public PictureBox CoinImg { get; set; }
+    public Label Label { get; set; }
     public List<Apprentice> Apprentices { get; set; }
     public List<Instructor> Instructors { get; set; }
 
@@ -17,13 +19,8 @@ public class Player
     {
         Money = 100;
         Level = 1;
-        this.Coin = Bitmap.FromFile("./sprites/coin/coin.gif");
-    }
 
-    public void DrawInfo(Graphics g, PictureBox pb)
-    {
-
-        PictureBox coinImg = new()
+        this.CoinImg = new()
         {
             Width = 80,
             Height = 80,
@@ -32,7 +29,7 @@ public class Player
             SizeMode = PictureBoxSizeMode.StretchImage
         };
 
-        Label money = new()
+        this.Label = new()
         {
             Location = new Point(70, 10),
             Text = $"${Money}",
@@ -41,8 +38,13 @@ public class Player
             Height = 100,
             Font = new Font("Calibri", 40, FontStyle.Bold)
         };
+    }
 
-        pb.Controls.Add(money);
-        pb.Controls.Add(coinImg);
+    public void DrawInfo(Graphics g, PictureBox pb)
+    {
+        pb.Controls.Add(this.CoinImg);
+        pb.Controls.Add(this.Label);
+        this.Label.Text = $"${this.Money}";
+
     }
 }
