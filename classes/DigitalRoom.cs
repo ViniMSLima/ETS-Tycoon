@@ -68,29 +68,17 @@ public class DigitalRoom : Room
             if (p2.X > p1.X)
                 maxx = p2.X;
 
-            if (y > miny)
+            if (y > miny && y <= maxy && x <= maxx)
             {
+                double x_intersection
+                    = (y - p1.Y) * (p2.X - p1.X)
+                            / (p2.Y - p1.Y)
+                        + p1.X;
 
-                if (y <= maxy)
-                {
-
-                    if (x <= maxx)
-                    {
-
-                        double x_intersection
-                            = (y - p1.Y) * (p2.X - p1.X)
-                                  / (p2.Y - p1.Y)
-                              + p1.X;
-
-
-                        if (p1.X == p2.X
-                            || x <= x_intersection)
-                        {
-                            inside = !inside;
-                        }
-                    }
-                }
+                if (p1.X == p2.X || x <= x_intersection)
+                    inside = !inside;      
             }
+            
             p1 = p2;
         }
 
@@ -102,16 +90,14 @@ public class DigitalRoom : Room
     public override void BuyCheckAll()
     {
         foreach (Table Tb in Tables)
-        {
             Tb.BuyCheck();
-        }
+        
     }
 
-    public override void ClickCheckAll(System.Drawing.Point a)
+    public override void ClickCheckAll(System.Drawing.Point point)
     {
         foreach (Table Tb in Tables)
-        {
-            Tb.Point_in_polygon(a);
-        }
+            Tb.ClickCheck(point);
+        
     }
 }

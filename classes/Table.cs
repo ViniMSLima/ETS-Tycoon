@@ -1,17 +1,13 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-public class Table
+public class Table : RoomStructure
 {
-    public Image img { get; set; }
-    public PointF[] Points { get; set; }
-    public int Price { get; set; } = 20;
-    public bool Buy { get; set; }
-
     public Table()
     {
         this.Buy = false;
         this.img = Bitmap.FromFile("sprites/table/buy_table.png");
+        this.Price = 20;
     }
 
     public void Draw(Graphics g, float roomX, float roomY)
@@ -34,7 +30,7 @@ public class Table
         );
     }
 
-    public void Point_in_polygon(PointF point)
+    public void ClickCheck(PointF point)
     {
 
         int num_vertices = this.Points.Length;
@@ -48,40 +44,24 @@ public class Table
             p2 = this.Points[i % num_vertices];
 
             float miny = p1.Y;
-            if (p2.Y < p1.Y)
-                miny = p2.Y;
+            if (p2.Y < p1.Y) miny = p2.Y;
 
             float maxy = p1.Y;
-            if (p2.Y > p1.Y)
-                maxy = p2.Y;
+            if (p2.Y > p1.Y) maxy = p2.Y;
 
             float maxx = p1.X;
-            if (p2.X > p1.X)
-                maxx = p2.X;
+            if (p2.X > p1.X) maxx = p2.X;
 
-            if (y > miny)
+            if (y > miny && y <= maxy && x <= maxx)
             {
+                double x_intersection = 
+                (y - p1.Y) * (p2.X - p1.X) / 
+                (p2.Y - p1.Y) + p1.X;
 
-                if (y <= maxy)
-                {
-
-                    if (x <= maxx)
-                    {
-
-                        double x_intersection
-                            = (y - p1.Y) * (p2.X - p1.X)
-                                  / (p2.Y - p1.Y)
-                              + p1.X;
-
-
-                        if (p1.X == p2.X
-                            || x <= x_intersection)
-                        {
-                            inside = !inside;
-                        }
-                    }
-                }
+                if (p1.X == p2.X || x <= x_intersection)
+                    inside = !inside;      
             }
+            
             p1 = p2;
         }
 
@@ -102,7 +82,6 @@ public class Table
             this.Buy = true;
             Player.Money -= this.Price;
         }
-
         else
         {
             MessageBox.Show("Not enough money!");
