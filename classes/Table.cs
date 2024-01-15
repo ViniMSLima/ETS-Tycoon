@@ -5,14 +5,13 @@ public class Table
 {
     public Image img { get; set; }
     public PointF[] Points { get; set; }
-    public float PositionX { get; set; }
-    public float PositionY { get; set; }
-    public int Price { get; set; }
+    public int Price { get; set; } = 20;
     public bool Buy { get; set; }
 
     public Table()
     {
         this.Buy = false;
+        this.img = Bitmap.FromFile("sprites/table/buy_table.png");
     }
 
     public void Draw(Graphics g, float roomX, float roomY)
@@ -27,14 +26,13 @@ public class Table
             new(h, w),
             new(0, w),
             new(0, 0),
-        }.ToIsometric(PositionX, PositionY);
+        }.ToIsometric(roomX + 120, roomY + 145);
 
         this.Points = test;
 
         g.DrawPolygon(pen, test);
 
-        g.DrawImage(img,
-            PositionX - 120, PositionY - 145, 200, 200
+        g.DrawImage(img, roomX, roomY, 200, 200
         );
     }
 
@@ -89,6 +87,7 @@ public class Table
             p1 = p2;
         }
 
+
         if (this.Buy == false && inside)
         {
             if (Player.Money >= this.Price)
@@ -101,6 +100,9 @@ public class Table
                 MessageBox.Show("Not enough money!");
                 
         }
+        if(this.Buy = true && inside) 
+            this.BuyApprentice();
+    
 
         return inside;
     }
@@ -111,5 +113,10 @@ public class Table
         {
             this.img = Bitmap.FromFile("sprites/table/table.png");
         }
+    }
+
+    public void BuyApprentice()
+    {
+        
     }
 }

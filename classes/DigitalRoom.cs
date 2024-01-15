@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Security.Cryptography;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -12,22 +13,19 @@ public class DigitalRoom : Room
         this.FloorImg = Bitmap.FromFile("./sprites/floor/floor.png");
         this.TableImg = Bitmap.FromFile("./sprites/table/table.png");
 
-        float[] PositionsX = {PositionX + 510, PositionX + 680, PositionX + 410,
+        float[] a = {PositionX + 510, PositionX + 680, PositionX + 410,
                               PositionX + 570, PositionX + 300, PositionX + 460};
+
+        float[] b = {PositionY + 145, PositionY + 230, PositionY + 195,
+                              PositionY + 285, PositionY + 250, PositionY + 340};
+
+        this.PositionsX = a;
+        this.PositionsY = b;
 
         for(int i = 0; i < 6; i++)
         {
             this.Tables.Add(new());
         }
-
-        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 510, PositionY + 145, 200, 200);
-        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 680, PositionY + 230, 200, 200);
-
-        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 410, PositionY + 195, 200, 200);
-        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 570, PositionY + 285, 200, 200);
-
-        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 300, PositionY + 250, 200, 200);
-        // g.DrawImage(Bitmap.FromFile("./sprites/table/table.png"), PositionX + 460, PositionY + 340, 200, 200);
     }
 
     public float Rad(float angle)
@@ -41,43 +39,13 @@ public class DigitalRoom : Room
 
         for(int i = 0; i < 6; i++)
         {
-            this.Tables[i].Draw(g, PositionX + 510, PositionY + 145);
+            this.Tables[i].Draw(g, PositionX + PositionsX[i], PositionY + PositionsY[i]);
         }
-
-        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 510, PositionY + 145, 200, 200);
-        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 680, PositionY + 230, 200, 200);
-
-        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 410, PositionY + 195, 200, 200);
-        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 570, PositionY + 285, 200, 200);
-
-        g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 300, PositionY + 250, 200, 200);
-        g.DrawImage(Bitmap.FromFile("./sprites/table/table.png"), PositionX + 460, PositionY + 340, 200, 200);
-
-
-        float h = 70, w = 170;
-
-        float x = 1100, y = 300;
-              w = 200;
-              h = 400;
-
-        Pen pen = new(Color.Red, 5f);
-
-        PointF[] test = new PointF[]{
-            new PointF(0, 0),
-            new PointF(w, 0),
-            new PointF(w, h),
-            new PointF(0, h),
-            new PointF(0, 0),
-        }.ToIsometric(x, y);
-
-        this.Polygon = test;
-
-        g.DrawPolygon(pen, this.Polygon);
     }
 
 
     public bool Point_in_polygon(PointF point)
-    {
+    {   
         int num_vertices = this.Polygon.Length;
         double x = point.X, y = point.Y;
         bool inside = false;
@@ -129,5 +97,21 @@ public class DigitalRoom : Room
         // Return the value of the inside flag
         MessageBox.Show(inside.ToString());
         return inside;
+    }
+
+    public override void BuyCheckAll()
+    {
+        foreach(Table Tb in Tables)
+        {
+            Tb.BuyCheck();
+        }
+    }
+
+    public override void ClickCheckAll(System.Drawing.Point a)
+    {
+        foreach(Table Tb in Tables)
+        {
+            Tb.Point_in_polygon(a);
+        }
     }
 }

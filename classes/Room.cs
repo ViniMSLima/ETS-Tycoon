@@ -15,6 +15,12 @@ public class Room
     public Image FloorImg { get; set; }
     public Image TableImg { get; set; }
     public List<Table> Tables { get; set; } = new List<Table>();
+    public float[] PositionsX { get; set; }
+    public float[] PositionsY { get; set; }
     public virtual void Draw(Graphics g) {}
+    public virtual void BuyCheckAll() {}
+    public virtual void ClickCheckAll(System.Drawing.Point a) {}
+
+
 
 }
