@@ -6,9 +6,6 @@ public class RoomStructure
     public PointF[] Points { get; set; }
     public int Price { get; set; }
     public bool Buy { get; set; }
-    
-    public RoomStructure()
-    {
 
-    }
+    public virtual void Draw(Graphics g, float roomX, float roomY) {}
 }

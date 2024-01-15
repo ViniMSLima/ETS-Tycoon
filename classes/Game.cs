@@ -11,6 +11,12 @@ public class Game : Form
     public PictureBox Pb { get; set; }
     public List<Room> Rooms { get; set; } = new();
 
+    public static bool OpenApprenticeStore { get; set; }
+    public static bool OpenInstructorStore { get; set; }
+
+    public Store ApprenticeStore { get; set; } = new();
+    public Store InstructorStore { get; set; } = new();
+
     public Game()
     {
         Bitmap bmp = null;
@@ -78,7 +84,7 @@ public class Game : Form
         {
             foreach (Room r in Rooms)
             {
-                r.ClickCheckAll(e.Location);
+                r.ClickCheckAll(e.Location, G);
             }
         };
 
@@ -89,18 +95,20 @@ public class Game : Form
                 r.BuyCheckAll();
             }
         };
-
     }
 
     public void Tick()
     {
         G.Clear(Color.White);
-        G.DrawImage(Bitmap.FromFile("./sprites/background/grid.jpg"), 0, 0, 2200, 1900);
+        G.DrawImage(Bitmap.FromFile("./sprites/backgrounds/grid.jpg"), 0, 0, 2200, 1900);
 
         foreach (Room r in Rooms)
-        {
             r.Draw(G);
-        }
+
+        if(OpenApprenticeStore)
+            this.ApprenticeStore.Draw(G);
+        if(OpenInstructorStore)
+            this.InstructorStore.Draw(G);
 
         this.Player.DrawInfo(G, Pb);
         this.Pb.Refresh();

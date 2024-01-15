@@ -1,4 +1,6 @@
+using System.DirectoryServices.ActiveDirectory;
 using System.Drawing;
+using System.Net.Http.Headers;
 using System.Windows.Forms;
 
 public class Table : RoomStructure
@@ -10,7 +12,7 @@ public class Table : RoomStructure
         this.Price = 20;
     }
 
-    public void Draw(Graphics g, float roomX, float roomY)
+    public override void Draw(Graphics g, float roomX, float roomY)
     {
         float h = 40, w = 90;
 
@@ -30,9 +32,8 @@ public class Table : RoomStructure
         );
     }
 
-    public void ClickCheck(PointF point)
+    public void ClickCheck(PointF point, Graphics g)
     {
-
         int num_vertices = this.Points.Length;
         double x = point.X, y = point.Y;
         bool inside = false;
@@ -68,7 +69,7 @@ public class Table : RoomStructure
         if (inside)
         {
             if (this.Buy == true)
-                BuyApprentice();
+                BuyApprentice(g);
             else
                 BuyTable();
         }
@@ -95,8 +96,8 @@ public class Table : RoomStructure
             this.img = Bitmap.FromFile("sprites/table/table.png");
     }
 
-    public void BuyApprentice()
+    public void BuyApprentice(Graphics g)
     {
-        //TO DO
+        Game.OpenApprenticeStore = true;
     }
 }

@@ -1,7 +1,5 @@
 using System;
 using System.Drawing;
-using System.Security.Cryptography;
-using System.Threading;
 using System.Windows.Forms;
 
 public class DigitalRoom : Room
@@ -11,7 +9,6 @@ public class DigitalRoom : Room
     public DigitalRoom()
     {
         this.FloorImg = Bitmap.FromFile("./sprites/floor/floor.png");
-        this.TableImg = Bitmap.FromFile("./sprites/table/table.png");
 
         float[] a = {PositionX + 510, PositionX + 680, PositionX + 410,
                               PositionX + 570, PositionX + 300, PositionX + 460};
@@ -24,7 +21,7 @@ public class DigitalRoom : Room
 
         for (int i = 0; i < 6; i++)
         {
-            this.Tables.Add(new());
+            this.Structures.Add(new Table());
         }
     }
 
@@ -38,13 +35,11 @@ public class DigitalRoom : Room
         );
 
         for (int i = 0; i < 6; i++)
-        {
-            this.Tables[i].Draw(g, PositionX + PositionsX[i], PositionY + PositionsY[i]);
-        }
+            this.Structures[i].Draw(g, PositionX + PositionsX[i], PositionY + PositionsY[i]);
+        
     }
 
-
-    public bool Point_in_polygon(PointF point)
+    public void ClickCheck(PointF point)
     {
         int num_vertices = this.Polygon.Length;
         double x = point.X, y = point.Y;
@@ -57,47 +52,42 @@ public class DigitalRoom : Room
             p2 = this.Polygon[i % num_vertices];
 
             float miny = p1.Y;
-            if (p2.Y < p1.Y)
-                miny = p2.Y;
+            if (p2.Y < p1.Y) miny = p2.Y;
 
             float maxy = p1.Y;
-            if (p2.Y > p1.Y)
-                maxy = p2.Y;
+            if (p2.Y > p1.Y) maxy = p2.Y;
 
             float maxx = p1.X;
-            if (p2.X > p1.X)
-                maxx = p2.X;
+            if (p2.X > p1.X) maxx = p2.X;
 
             if (y > miny && y <= maxy && x <= maxx)
             {
                 double x_intersection
-                    = (y - p1.Y) * (p2.X - p1.X)
-                            / (p2.Y - p1.Y)
-                        + p1.X;
+                    = (y - p1.Y) * (p2.X - p1.X)/ 
+                      (p2.Y - p1.Y) + p1.X;
 
                 if (p1.X == p2.X || x <= x_intersection)
                     inside = !inside;      
             }
-            
+
             p1 = p2;
         }
 
         // Return the value of the inside flag
         MessageBox.Show(inside.ToString());
-        return inside;
     }
 
     public override void BuyCheckAll()
     {
-        foreach (Table Tb in Tables)
+        foreach (Table Tb in Structures)
             Tb.BuyCheck();
         
     }
 
-    public override void ClickCheckAll(System.Drawing.Point point)
+    public override void ClickCheckAll(System.Drawing.Point point, Graphics g)
     {
-        foreach (Table Tb in Tables)
-            Tb.ClickCheck(point);
+        foreach (Table Tb in Structures)
+            Tb.ClickCheck(point, g);
         
     }
 }
