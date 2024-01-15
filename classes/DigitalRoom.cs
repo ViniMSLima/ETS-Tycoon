@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 public class DigitalRoom : Room
@@ -10,6 +11,23 @@ public class DigitalRoom : Room
     {
         this.FloorImg = Bitmap.FromFile("./sprites/floor/floor.png");
         this.TableImg = Bitmap.FromFile("./sprites/table/table.png");
+
+        float[] PositionsX = {PositionX + 510, PositionX + 680, PositionX + 410,
+                              PositionX + 570, PositionX + 300, PositionX + 460};
+
+        for(int i = 0; i < 6; i++)
+        {
+            this.Tables.Add(new());
+        }
+
+        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 510, PositionY + 145, 200, 200);
+        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 680, PositionY + 230, 200, 200);
+
+        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 410, PositionY + 195, 200, 200);
+        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 570, PositionY + 285, 200, 200);
+
+        // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 300, PositionY + 250, 200, 200);
+        // g.DrawImage(Bitmap.FromFile("./sprites/table/table.png"), PositionX + 460, PositionY + 340, 200, 200);
     }
 
     public float Rad(float angle)
@@ -20,6 +38,11 @@ public class DigitalRoom : Room
         g.DrawImage(FloorImg,
             PositionX, PositionY, 900, 900
         );
+
+        for(int i = 0; i < 6; i++)
+        {
+            this.Tables[i].Draw(g, PositionX + 510, PositionY + 145);
+        }
 
         // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 510, PositionY + 145, 200, 200);
         // g.DrawImage(Bitmap.FromFile("./sprites/table/buy_table.png"), PositionX + 680, PositionY + 230, 200, 200);

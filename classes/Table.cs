@@ -15,7 +15,7 @@ public class Table
         this.Buy = false;
     }
 
-    public void Draw(Graphics g)
+    public void Draw(Graphics g, float roomX, float roomY)
     {
         float h = 40, w = 90;
 

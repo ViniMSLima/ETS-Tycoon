@@ -72,7 +72,7 @@ timer.Tick += (o, e) =>
     hero.Draw(g);
     player.DrawInfo(g, pb);
     
-    tb.Draw(g);
+    tb.Draw(g, 500, 500);
     pb.Refresh();
 };
 

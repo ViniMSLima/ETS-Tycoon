@@ -14,8 +14,7 @@ public class Room
     public int SizeY { get; set; }
     public Image FloorImg { get; set; }
     public Image TableImg { get; set; }
-    public List<Table> Tables { get; set; }
-
+    public List<Table> Tables { get; set; } = new List<Table>();
     public virtual void Draw(Graphics g) {}
 
 }
