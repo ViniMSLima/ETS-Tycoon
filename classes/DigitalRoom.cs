@@ -36,7 +36,7 @@ public class DigitalRoom : Room
 
         for (int i = 0; i < 6; i++)
             this.Structures[i].Draw(g, PositionX + PositionsX[i], PositionY + PositionsY[i]);
-        
+
     }
 
     public void ClickCheck(PointF point)
@@ -63,11 +63,11 @@ public class DigitalRoom : Room
             if (y > miny && y <= maxy && x <= maxx)
             {
                 double x_intersection
-                    = (y - p1.Y) * (p2.X - p1.X)/ 
+                    = (y - p1.Y) * (p2.X - p1.X) /
                       (p2.Y - p1.Y) + p1.X;
 
                 if (p1.X == p2.X || x <= x_intersection)
-                    inside = !inside;      
+                    inside = !inside;
             }
 
             p1 = p2;
@@ -81,13 +81,13 @@ public class DigitalRoom : Room
     {
         foreach (Table Tb in Structures)
             Tb.BuyCheck();
-        
+
     }
 
     public override void ClickCheckAll(System.Drawing.Point point, Graphics g)
     {
         foreach (Table Tb in Structures)
             Tb.ClickCheck(point, g);
-        
+
     }
 }

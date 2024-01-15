@@ -55,14 +55,14 @@ public class Table : RoomStructure
 
             if (y > miny && y <= maxy && x <= maxx)
             {
-                double x_intersection = 
-                (y - p1.Y) * (p2.X - p1.X) / 
+                double x_intersection =
+                (y - p1.Y) * (p2.X - p1.X) /
                 (p2.Y - p1.Y) + p1.X;
 
                 if (p1.X == p2.X || x <= x_intersection)
-                    inside = !inside;      
+                    inside = !inside;
             }
-            
+
             p1 = p2;
         }
 

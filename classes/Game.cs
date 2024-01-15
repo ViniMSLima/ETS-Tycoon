@@ -59,6 +59,7 @@ public class Game : Form
                 Pb.Width,
                 Pb.Height
             );
+
             G = Graphics.FromImage(bmp);
             G.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
             G.Clear(Color.Black);
@@ -83,17 +84,13 @@ public class Game : Form
         Pb.MouseDown += (o, e) =>
         {
             foreach (Room r in Rooms)
-            {
                 r.ClickCheckAll(e.Location, G);
-            }
         };
 
         Pb.MouseUp += (o, e) =>
         {
             foreach (Room r in Rooms)
-            {
                 r.BuyCheckAll();
-            }
         };
     }
 
@@ -105,9 +102,9 @@ public class Game : Form
         foreach (Room r in Rooms)
             r.Draw(G);
 
-        if(OpenApprenticeStore)
+        if (OpenApprenticeStore)
             this.ApprenticeStore.Draw(G);
-        if(OpenInstructorStore)
+        if (OpenInstructorStore)
             this.InstructorStore.Draw(G);
 
         this.Player.DrawInfo(G, Pb);

@@ -1,6 +1,6 @@
 using System.Drawing;
 
-public class Store 
+public class Store
 {
     public Store()
     {
