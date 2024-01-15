@@ -19,13 +19,13 @@ public class Apprentice
 
     public void Draw(Graphics g)
     {
-        g.DrawImage(img, 
+        g.DrawImage(img,
             X, Y, 40, 50
         );
     }
 
     public void Move()
     {
-       
+
     }
 }

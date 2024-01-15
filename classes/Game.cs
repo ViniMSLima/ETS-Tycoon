@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-public class Game
+public class Game : Form
 {
     public Graphics G { get; set; }
     public Bitmap Bmp { get; set; }
@@ -15,6 +15,10 @@ public class Game
     {
         Bitmap bmp = null;
         Graphics g = null;
+        System.Media.SoundPlayer sound = new()
+        {
+            SoundLocation = "./soundtracks/And_so_it_begins.wav"
+        };
 
         var timer = new Timer
         {
@@ -31,46 +35,36 @@ public class Game
         {
             Dock = DockStyle.Fill,
         };
-    }
 
-    public void Tick()
-    {
-        G.Clear(Color.White);
-        G.DrawImage(Bitmap.FromFile("./sprites/background/grid.jpg"), 0, 0, 2200, 1900);
+        WindowState = FormWindowState.Maximized;
+        FormBorderStyle = FormBorderStyle.None;
 
-        foreach (Room r in Rooms)
+        DigitalRoom SalaETS = new()
         {
-            r.Draw(G);
-        }
-
-        this.Player.DrawInfo(G, Pb);
-        this.Pb.Refresh();
-    }
-
-    public void Load(Timer timer, System.Media.SoundPlayer sound)
-    {
-        var form = new Form
-        {
-            WindowState = FormWindowState.Maximized,
-            FormBorderStyle = FormBorderStyle.None,
-            Controls = { Pb }
+            PositionX = 450,
+            PositionY = 120
         };
 
-        form.Load += (o, e) =>
+        Rooms.Add(SalaETS);
+
+        this.Load += (o, e) =>
         {
-            Bmp = new Bitmap(
+            bmp = new Bitmap(
                 Pb.Width,
                 Pb.Height
             );
-            G = Graphics.FromImage(Bmp);
+            G = Graphics.FromImage(bmp);
             G.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
             G.Clear(Color.Black);
-            Pb.Image = Bmp;
+            Pb.Image = bmp;
             timer.Start();
             sound.PlayLooping();
         };
 
-        form.KeyDown += (o, e) =>
+        Controls.Add(Pb);
+        timer.Tick += (o, e) => this.Tick();
+
+        KeyDown += (o, e) =>
         {
             switch (e.KeyCode)
             {
@@ -96,14 +90,19 @@ public class Game
             }
         };
 
-        form.KeyUp += (o, e) =>
-        {
-            // switch (e.KeyCode)
-            // {
-
-            // }
-        };
-
     }
 
+    public void Tick()
+    {
+        G.Clear(Color.White);
+        G.DrawImage(Bitmap.FromFile("./sprites/background/grid.jpg"), 0, 0, 2200, 1900);
+
+        foreach (Room r in Rooms)
+        {
+            r.Draw(G);
+        }
+
+        this.Player.DrawInfo(G, Pb);
+        this.Pb.Refresh();
+    }
 }

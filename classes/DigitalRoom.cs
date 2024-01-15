@@ -22,7 +22,7 @@ public class DigitalRoom : Room
         this.PositionsX = a;
         this.PositionsY = b;
 
-        for(int i = 0; i < 6; i++)
+        for (int i = 0; i < 6; i++)
         {
             this.Tables.Add(new());
         }
@@ -37,7 +37,7 @@ public class DigitalRoom : Room
             PositionX, PositionY, 900, 900
         );
 
-        for(int i = 0; i < 6; i++)
+        for (int i = 0; i < 6; i++)
         {
             this.Tables[i].Draw(g, PositionX + PositionsX[i], PositionY + PositionsY[i]);
         }
@@ -45,7 +45,7 @@ public class DigitalRoom : Room
 
 
     public bool Point_in_polygon(PointF point)
-    {   
+    {
         int num_vertices = this.Polygon.Length;
         double x = point.X, y = point.Y;
         bool inside = false;
@@ -101,7 +101,7 @@ public class DigitalRoom : Room
 
     public override void BuyCheckAll()
     {
-        foreach(Table Tb in Tables)
+        foreach (Table Tb in Tables)
         {
             Tb.BuyCheck();
         }
@@ -109,7 +109,7 @@ public class DigitalRoom : Room
 
     public override void ClickCheckAll(System.Drawing.Point a)
     {
-        foreach(Table Tb in Tables)
+        foreach (Table Tb in Tables)
         {
             Tb.Point_in_polygon(a);
         }

@@ -34,7 +34,7 @@ public class Table
         );
     }
 
-    public bool Point_in_polygon(PointF point)
+    public void Point_in_polygon(PointF point)
     {
 
         int num_vertices = this.Points.Length;
@@ -87,53 +87,37 @@ public class Table
 
         if (inside)
         {
-            if (this.Buy)
+            if (this.Buy == true)
                 BuyApprentice();
             else
                 BuyTable();
         }
-
-        return inside;
     }
 
     public void BuyTable()
     {
         this.img = Bitmap.FromFile("sprites/table/buy_table_down.png");
         if (Player.Money >= this.Price)
-                {
-                    this.Buy = true;
-                    Player.Money -= this.Price;
-                }
+        {
+            this.Buy = true;
+            Player.Money -= this.Price;
+        }
 
-                else
-                {
-                    MessageBox.Show("Not enough money!");
-                    this.img = Bitmap.FromFile("sprites/table/buy_table.png");
-                }
+        else
+        {
+            MessageBox.Show("Not enough money!");
+            this.img = Bitmap.FromFile("sprites/table/buy_table.png");
+        }
     }
 
     public void BuyCheck()
     {
-        if(this.Buy)
+        if (this.Buy)
             this.img = Bitmap.FromFile("sprites/table/table.png");
     }
 
     public void BuyApprentice()
     {
-        // this.img = Bitmap.FromFile("sprites/table/table_down.png");
-
-        Apprentice apprentice = new();
-
-        if (Player.Money >= this.Price)
-                {
-                    this.Buy = true;
-                    Player.Money -= this.Price;
-                }
-
-                else
-                {
-                    MessageBox.Show("Not enough money!");
-                    this.img = Bitmap.FromFile("sprites/table/buy_table.png");
-                }
+        //TO DO
     }
 }

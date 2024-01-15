@@ -17,9 +17,9 @@ public class Room
     public List<Table> Tables { get; set; } = new List<Table>();
     public float[] PositionsX { get; set; }
     public float[] PositionsY { get; set; }
-    public virtual void Draw(Graphics g) {}
-    public virtual void BuyCheckAll() {}
-    public virtual void ClickCheckAll(System.Drawing.Point a) {}
+    public virtual void Draw(Graphics g) { }
+    public virtual void BuyCheckAll() { }
+    public virtual void ClickCheckAll(System.Drawing.Point a) { }
 
 
 
