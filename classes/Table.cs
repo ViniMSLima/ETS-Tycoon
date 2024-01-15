@@ -30,8 +30,6 @@ public class Table
 
         this.Points = test;
 
-        g.DrawPolygon(pen, test);
-
         g.DrawImage(img, roomX, roomY, 200, 200
         );
     }
@@ -87,36 +85,55 @@ public class Table
             p1 = p2;
         }
 
-
-        if (this.Buy == false && inside)
+        if (inside)
         {
-            if (Player.Money >= this.Price)
-            {
-                this.img = Bitmap.FromFile("sprites/table/buy_table_down.png");
-                this.Buy = true;
-                Player.Money -= this.Price;
-            }
-            else 
-                MessageBox.Show("Not enough money!");
-                
+            if (this.Buy)
+                BuyApprentice();
+            else
+                BuyTable();
         }
-        if(this.Buy = true && inside) 
-            this.BuyApprentice();
-    
 
         return inside;
     }
 
+    public void BuyTable()
+    {
+        this.img = Bitmap.FromFile("sprites/table/buy_table_down.png");
+        if (Player.Money >= this.Price)
+                {
+                    this.Buy = true;
+                    Player.Money -= this.Price;
+                }
+
+                else
+                {
+                    MessageBox.Show("Not enough money!");
+                    this.img = Bitmap.FromFile("sprites/table/buy_table.png");
+                }
+    }
+
     public void BuyCheck()
     {
-        if (this.Buy == true)
-        {
+        if(this.Buy)
             this.img = Bitmap.FromFile("sprites/table/table.png");
-        }
     }
 
     public void BuyApprentice()
     {
-        
+        // this.img = Bitmap.FromFile("sprites/table/table_down.png");
+
+        Apprentice apprentice = new();
+
+        if (Player.Money >= this.Price)
+                {
+                    this.Buy = true;
+                    Player.Money -= this.Price;
+                }
+
+                else
+                {
+                    MessageBox.Show("Not enough money!");
+                    this.img = Bitmap.FromFile("sprites/table/buy_table.png");
+                }
     }
 }

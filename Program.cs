@@ -9,13 +9,7 @@ Bitmap bmp = null;
 Graphics g = null;
 sound.SoundLocation = "./soundtracks/And_so_it_begins.wav";
 
-Game game = new();
 Player player = new();
-
-var timer = new Timer {
-    Interval = 20,
-    //20000 ticks/second
-};
 
 DigitalRoom SalaETS = new()
 {
@@ -25,6 +19,11 @@ DigitalRoom SalaETS = new()
 
 var pb = new PictureBox {
     Dock = DockStyle.Fill,
+};
+
+var timer = new Timer {
+    Interval = 20,
+    //20000 ticks/second
 };
 
 var form = new Form {
