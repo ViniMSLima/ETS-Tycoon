@@ -1,5 +1,7 @@
 using System.Drawing;
 using Characters;
+using EtsTycoon;
+
 
 public class Structure
 {
