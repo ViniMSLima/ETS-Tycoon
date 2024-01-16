@@ -131,7 +131,7 @@ public class Game : Form
         Apprentice Eric = new("Eric Coutinho", "18", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
         Apprentice Felipe = new("Felipe Vieira", "19", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
         Apprentice Guilherme = new("Guilherme Proença", "18", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
-        Apprentice GuilhermeTavares = new("Guilherme Tavares", "18", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
+        Apprentice Tavares = new("Guilherme Tavares", "18", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
         Apprentice Juan = new("Juan Campos", "22", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
         Apprentice Lander = new("Lander Gerotto", "19", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
         Apprentice Luis = new("Luis dos Santos", "19", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);

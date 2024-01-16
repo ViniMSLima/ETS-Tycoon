@@ -14,7 +14,7 @@ public class Player
 
     public Player()
     {
-        Money = 100;
+        Money = 300;
         Level = 1;
         CoinPerSecond = 1;
 

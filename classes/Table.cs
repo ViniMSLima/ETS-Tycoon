@@ -99,11 +99,11 @@ public class Table : RoomStructure
             if (this.Buy == true)
                 BuyApprentice(g);
             else
-                BuyTable();
+                BuyStructure();
         }
     }
 
-    public void BuyTable()
+    public void BuyStructure()
     {
         this.Img = Bitmap.FromFile("sprites/table/buy_table_down.png");
         if (Player.Money >= this.Price)
@@ -126,12 +126,19 @@ public class Table : RoomStructure
 
     public void BuyApprentice(Graphics g)
     {
-        // Game.OpenApprenticeStore = true;
+        Game.OpenApprenticeStore = true;
 
-        this.Apprentice = new("Vinícius Lima", "19", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
+        if(Player.Money >= 300 && this.Apprentice == null)
+        {
+            this.Apprentice = new("Vinícius Lima", "19", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
+            Player.CoinPerSecond += this.Apprentice.CoinPerSecond;
+            Player.Money -= this.Apprentice.Salary; 
+        }
 
-        
-        Player.CoinPerSecond += this.Apprentice.CoinPerSecond;
+        else
+        {
+            MessageBox.Show("meme");
+        }
     }
 
     private void DrawText(Graphics g, string text, PointF point)
