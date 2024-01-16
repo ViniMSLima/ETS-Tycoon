@@ -1,6 +1,7 @@
 using System.Drawing;
+using Characters;
 
-public class RoomStructure
+public class Structure
 {
     public Image Img { get; set; }
     public PointF[] Points { get; set; }

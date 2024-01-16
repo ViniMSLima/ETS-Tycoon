@@ -1,6 +1,7 @@
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
+using System.Drawing;
+using Characters;
 
 public class Player
 {
@@ -14,7 +15,7 @@ public class Player
 
     public Player()
     {
-        Money = 300;
+        Money = 400;
         Level = 1;
         CoinPerSecond = 1;
 

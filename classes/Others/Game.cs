@@ -1,6 +1,8 @@
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
+using System.Drawing;
+using Characters;
+using Rooms;
 
 public class Game : Form
 {
