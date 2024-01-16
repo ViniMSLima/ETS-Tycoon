@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.Drawing;
 
 public class Apprentice
@@ -7,13 +5,17 @@ public class Apprentice
     public string Name { get; set; }
     public string Age { get; set; }
     public Image img;
-    public static List<Apprentice> Apprentices { get; set; } = new List<Apprentice>();
     public int CoinPerSecond { get; set; }
     public int Salary { get; set; }
 
-    public Apprentice()
+    public Apprentice(string name, string age, string imgPath, int coinPerSecond, int salary)
     {
-        this.img = Bitmap.FromFile("./sprites/apprentice/stand/down.png");
-        Apprentices.Add(this);
+        this.Name = name;
+        this.Age = age;
+        this.img = Bitmap.FromFile(imgPath);
+        this.CoinPerSecond = coinPerSecond;
+        this.Salary = salary;
+        this.img = Bitmap.FromFile("./sprites/apprentice/table/table_apprentice1.png");
+        Game.Apprentices.Add(this);
     }
 }

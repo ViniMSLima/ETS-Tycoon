@@ -5,9 +5,8 @@ using System.Windows.Forms;
 public class Player
 {
     public static int Money { get; set; }
+    public static int CoinPerSecond { get; set; }
     public int Level { get; set; }
-    public float X { get; set; }
-    public float Y { get; set; }
     public PictureBox CoinImg { get; set; }
     public Label Label { get; set; }
     public List<Apprentice> Apprentices { get; set; }
@@ -17,6 +16,7 @@ public class Player
     {
         Money = 100;
         Level = 1;
+        CoinPerSecond = 1;
 
         this.CoinImg = new()
         {
@@ -29,7 +29,7 @@ public class Player
 
         this.Label = new()
         {
-            Location = new Point(70, 10),
+            Location = new Point(80, 20),
             Text = $"${Player.Money}",
             BackColor = Color.FromArgb(0, 0, 0, 0),
             Width = 300,

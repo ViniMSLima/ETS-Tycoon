@@ -1,5 +1,6 @@
 using System.DirectoryServices.ActiveDirectory;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Net.Http.Headers;
 using System.Windows.Forms;
 
@@ -39,17 +40,24 @@ public class Table : RoomStructure
 
         if (this.Buy && this.Apprentice != null)
         {
-            if(Index){
+            if (Index)
+            {
                 this.Img = ApprenticeAnimation[0];
                 Index = !Index;
-            } else {
+            }
+            else
+            {
                 this.Img = ApprenticeAnimation[1];
                 Index = !Index;
             }
         }
-        
+
         g.DrawImage(Img, roomX, roomY, 200, 200
         );
+
+        if (this.Apprentice != null)
+            DrawText(g, this.Apprentice.Name, new(roomX + 40, roomY + 30));
+
     }
 
     public void ClickCheck(PointF point, Graphics g)
@@ -112,13 +120,31 @@ public class Table : RoomStructure
 
     public void BuyCheck()
     {
-        if(this.Buy)
+        if (this.Buy)
             this.Img = Bitmap.FromFile("sprites/table/table.png");
     }
 
     public void BuyApprentice(Graphics g)
     {
         // Game.OpenApprenticeStore = true;
-        this.Apprentice = new();
+
+        this.Apprentice = new("Vinícius Lima", "19", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
+
+        
+        Player.CoinPerSecond += this.Apprentice.CoinPerSecond;
+    }
+
+    private void DrawText(Graphics g, string text, PointF point)
+    {
+        Bitmap bmp = new("./sprites/A.png");
+
+        Color textColor = Color.Black;
+        SolidBrush textBrush = new(textColor);
+
+        Font font = new("Arial", 12, FontStyle.Bold);
+        SizeF textSize = g.MeasureString(text, font);
+
+        g.DrawImage(bmp, point.X - 25, point.Y - 82, textSize.Width + 40, textSize.Height + 170);
+        g.DrawString(text, font, textBrush, point);
     }
 }
