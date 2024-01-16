@@ -13,8 +13,6 @@ public class Player
     public List<Apprentice> Apprentices { get; set; }
     public List<Instructor> Instructors { get; set; }
 
-    public Image Coin { get; set; }
-
     public Player()
     {
         Money = 100;

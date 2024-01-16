@@ -5,11 +5,20 @@ using System.Windows.Forms;
 
 public class Table : RoomStructure
 {
+    public bool Index { get; set; }
     public Table()
     {
+        Index = false;
         this.Buy = false;
-        this.img = Bitmap.FromFile("sprites/table/buy_table.png");
+        this.Img = Bitmap.FromFile("sprites/table/buy_table.png");
         this.Price = 20;
+
+        Image[] a = {
+            Bitmap.FromFile("sprites/table/table_apprentice1.png"),
+            Bitmap.FromFile("sprites/table/table_apprentice2.png"),
+        };
+
+        this.ApprenticeAnimation = a;
     }
 
     public override void Draw(Graphics g, float roomX, float roomY)
@@ -28,7 +37,18 @@ public class Table : RoomStructure
 
         this.Points = test;
 
-        g.DrawImage(img, roomX, roomY, 200, 200
+        if (this.Buy && this.Apprentice != null)
+        {
+            if(Index){
+                this.Img = ApprenticeAnimation[0];
+                Index = !Index;
+            } else {
+                this.Img = ApprenticeAnimation[1];
+                Index = !Index;
+            }
+        }
+        
+        g.DrawImage(Img, roomX, roomY, 200, 200
         );
     }
 
@@ -77,7 +97,7 @@ public class Table : RoomStructure
 
     public void BuyTable()
     {
-        this.img = Bitmap.FromFile("sprites/table/buy_table_down.png");
+        this.Img = Bitmap.FromFile("sprites/table/buy_table_down.png");
         if (Player.Money >= this.Price)
         {
             this.Buy = true;
@@ -86,18 +106,19 @@ public class Table : RoomStructure
         else
         {
             MessageBox.Show("Not enough money!");
-            this.img = Bitmap.FromFile("sprites/table/buy_table.png");
+            this.Img = Bitmap.FromFile("sprites/table/buy_table.png");
         }
     }
 
     public void BuyCheck()
     {
-        if (this.Buy)
-            this.img = Bitmap.FromFile("sprites/table/table.png");
+        if(this.Buy)
+            this.Img = Bitmap.FromFile("sprites/table/table.png");
     }
 
     public void BuyApprentice(Graphics g)
     {
-        Game.OpenApprenticeStore = true;
+        // Game.OpenApprenticeStore = true;
+        this.Apprentice = new();
     }
 }
