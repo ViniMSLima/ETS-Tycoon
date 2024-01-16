@@ -53,7 +53,7 @@ namespace EtsTycoon
             DigitalRoom SalaETS = new()
             {
                 PositionX = 450,
-                PositionY = 120
+                PositionY = 200
             };
 
             Rooms.Add(SalaETS);

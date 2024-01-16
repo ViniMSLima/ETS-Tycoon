@@ -12,18 +12,24 @@ namespace Rooms
 
         public DigitalRoom()
         {
-            this.FloorImg = Bitmap.FromFile("./sprites/floor/floor.png");
+            this.FloorImg = Bitmap.FromFile("./sprites/floor/aaa.png");
 
-            float[] a = {PositionX + 510, PositionX + 680, PositionX + 410,
-                              PositionX + 570, PositionX + 300, PositionX + 460};
+            float[] a = {PositionX + 126, PositionX + 221, PositionX + 362, PositionX + 457,
+                         PositionX + 226,
+                         PositionX + 326,
+                         PositionX + 486,
+                         PositionX + 586};
 
-            float[] b = {PositionY + 145, PositionY + 230, PositionY + 195,
-                              PositionY + 285, PositionY + 250, PositionY + 340};
+            float[] b = {PositionY + 158, PositionY + 206, PositionY + 281, PositionY + 329,
+                         PositionY + 108,
+                         PositionY + 58,
+                         PositionY - 32,
+                         PositionY - 82};
 
             this.PositionsX = a;
             this.PositionsY = b;
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < a.Length; i++)
             {
                 this.Structures.Add(new Table());
             }
@@ -32,10 +38,10 @@ namespace Rooms
         public override void Draw(Graphics g)
         {
             g.DrawImage(FloorImg,
-                PositionX, PositionY, 900, 900
+                PositionX, PositionY, 800+80*4, 450+45*4
             );
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < this.Structures.Count; i++)
                 this.Structures[i].Draw(g, PositionX + PositionsX[i], PositionY + PositionsY[i]);
 
         }
