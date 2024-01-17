@@ -110,8 +110,12 @@ namespace EtsTycoon
             G.Clear(Color.White);
             G.DrawImage(Bitmap.FromFile("./sprites/backgrounds/grid.jpg"), 0, 0, 2200, 1900);
 
+            G.DrawImage(Bitmap.FromFile("./sprites/crosswalk.png"), 350, 50, 800, 400);
+            G.DrawImage(Bitmap.FromFile("./sprites/crosswalk.png"), -120, 285, 800, 400);
+
             foreach (Room r in Rooms)
                 r.Draw(G);
+
 
             if (OpenApprenticeStore)
                 ApStore.Draw(G);
