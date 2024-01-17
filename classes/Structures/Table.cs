@@ -56,12 +56,12 @@ namespace Structures
                 const int speed = 3;
                 if (Index < speed)
                 {
-                    this.Img = ApprenticeAnimation[0];
+                    this.Img = this.Apprentice.img[0];
                     Index++;
                 }
                 else
                 {
-                    this.Img = ApprenticeAnimation[1];
+                    this.Img = this.Apprentice.img[1];
                     Index++;
                     if (Index > 2 * speed)
                         Index = 0;
@@ -146,7 +146,8 @@ namespace Structures
 
             if (Player.Money >= 300 && this.Apprentice == null)
             {
-                this.Apprentice = new("Tavares", "18", "./sprites/apprentice/table/tavares/tavares1.png", 1, 300);
+                this.Apprentice = Game.Apprentices[17];
+
                 Player.CoinPerSecond += this.Apprentice.CoinPerSecond;
                 Player.Money -= this.Apprentice.Salary;
             }

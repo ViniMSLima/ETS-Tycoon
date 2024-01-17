@@ -131,7 +131,15 @@ namespace Structures
 
             if (Player.Money >= 300 && this.Apprentice == null)
             {
-                this.Apprentice = new("Vinícius Lima", "19", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
+                this.Apprentice = new(
+                    "Vinícius Lima", 
+                    "19", 
+                    "./sprites/apprentice/table/vini/vini1.png",
+                    "./sprites/apprentice/table/vini/vini2.png", 
+                    1, 
+                    300
+                );
+
                 Player.CoinPerSecond += this.Apprentice.CoinPerSecond;
                 Player.Money -= this.Apprentice.Salary;
             }

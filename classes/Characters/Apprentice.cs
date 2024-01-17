@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Drawing;
 using EtsTycoon;
 
@@ -7,18 +8,17 @@ namespace Characters
     {
         public string Name { get; set; }
         public string Age { get; set; }
-        public Image img;
+        public List<Image> img { get; set; }
         public int CoinPerSecond { get; set; }
         public int Salary { get; set; }
 
-        public Apprentice(string name, string age, string imgPath, int coinPerSecond, int salary)
+        public Apprentice(string name, string age, string img1Path, string img2Path, int coinPerSecond, int salary)
         {
             this.Name = name;
             this.Age = age;
-            this.img = Bitmap.FromFile(imgPath);
             this.CoinPerSecond = coinPerSecond;
             this.Salary = salary;
-            this.img = Bitmap.FromFile("./sprites/apprentice/table/table_apprentice1.png");
+            this.img = new(){Bitmap.FromFile(img1Path), Bitmap.FromFile(img2Path)};
             Game.Apprentices.Add(this);
         }
     }
