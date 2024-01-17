@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
+using MotherClasses;
 using Characters;
 using Rooms;
-using MotherClasses;
 
 namespace EtsTycoon
 {
@@ -20,8 +20,16 @@ namespace EtsTycoon
         public static bool OpenInstructorStore { get; set; }
         public ApprenticeStore ApStore { get; set; } = new();
         public InstructorStore InStore { get; set; } = new();
+        public Dictionary<string, Image> Images { get; set; } = new()
+        {
+            {"grid", Bitmap.FromFile("./sprites/backgrounds/grid.jpg")},
+            {"crosswalk", Bitmap.FromFile("./sprites/crosswalk.png")},
+            {"limpador", Bitmap.FromFile("./sprites/limpador.png")},
+            {"limpador2", Bitmap.FromFile("./sprites/limpador2.png")},
+        };
         public static List<Apprentice> Apprentices { get; set; } = new List<Apprentice>();
-        public static PointF PositionNPC { get; set; }= new(1150, -200);
+        public static PointF GeneralPosition { get; set; }= new(0, 0);
+        public static PointF PositionNPC { get; set; }= new(1150 + GeneralPosition.X, -200 + GeneralPosition.X);
 
         public Game()
         {
@@ -108,11 +116,11 @@ namespace EtsTycoon
         public void Tick()
         {
             G.Clear(Color.White);
-            G.DrawImage(Bitmap.FromFile("./sprites/backgrounds/grid.jpg"), 0, 0, 2500, 1900);
+            G.DrawImage(Images["grid"], 0, 0, 2500, 1900);
 
-            G.DrawImage(Bitmap.FromFile("./sprites/crosswalk.png"), 350, 50, 800, 400);
-            G.DrawImage(Bitmap.FromFile("./sprites/crosswalk.png"), -120, 285, 800, 400);
-            G.DrawImage(Bitmap.FromFile("./sprites/limpador.png"), PositionNPC.X, PositionNPC.Y, 200, 200);
+            G.DrawImage(Images["crosswalk"], 350, 50, 800, 400);
+            G.DrawImage(Images["crosswalk"], -120, 285, 800, 400);
+            G.DrawImage(Images["limpador"], PositionNPC.X, PositionNPC.Y, 200, 200);
             
             if(PositionNPC.X < -200)
                 Game.PositionNPC = new(1350, -300);

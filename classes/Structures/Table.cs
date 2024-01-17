@@ -1,14 +1,15 @@
 using System.Windows.Forms;
 using System.Drawing;
 using EtsTycoon;
+using Characters;
 
 namespace Structures
 {
-
-
     public class Table : Structure
     {
         public bool Index { get; set; }
+        Bitmap NameBar { get; set; }= new("./sprites/A.png");
+
         public Table()
         {
             Index = false;
@@ -16,10 +17,20 @@ namespace Structures
             this.Img = Bitmap.FromFile("sprites/table/buy_table.png");
             this.Price = 20;
 
-            Image[] a = {
-            Bitmap.FromFile("sprites/table/table_apprentice1.png"),
-            Bitmap.FromFile("sprites/table/table_apprentice2.png"),
-        };
+            Image[] a = 
+            {
+                Bitmap.FromFile("sprites/table/table_apprentice1.png"),
+                Bitmap.FromFile("sprites/table/table_apprentice2.png"),
+            };
+
+            this.Images = new()
+            {
+                {"table", Bitmap.FromFile("sprites/table/table.png")},
+                {"buy_table", Bitmap.FromFile("sprites/table/buy_table.png")},
+                {"buy_table_down", Bitmap.FromFile("sprites/table/buy_table_down.png")},
+                {"table_apprentice1", Bitmap.FromFile("sprites/table/table_apprentice1.png")},
+                {"table_apprentice2", Bitmap.FromFile("sprites/table/table_apprentice2.png")},
+            };
 
             this.ApprenticeAnimation = a;
         }
@@ -107,7 +118,7 @@ namespace Structures
 
         public void BuyStructure()
         {
-            this.Img = Bitmap.FromFile("sprites/table/buy_table_down.png");
+            this.Img = Images["buy_table_down"];
             if (Player.Money >= this.Price)
             {
                 this.Buy = true;
@@ -116,17 +127,17 @@ namespace Structures
             else
             {
                 MessageBox.Show("Not enough money!");
-                this.Img = Bitmap.FromFile("sprites/table/buy_table.png");
+                this.Img = Images["buy_table"];
             }
         }
 
         public void BuyCheck()
         {
             if (this.Buy)
-                this.Img = Bitmap.FromFile("sprites/table/table.png");
+                this.Img = Images["table"];
         }
 
-        public void BuyApprentice(Graphics g)
+        public void BuyApprentice(Graphics g /*, Apprentice apprentice*/)
         {
             Game.OpenApprenticeStore = true;
 
@@ -145,15 +156,13 @@ namespace Structures
 
         private void DrawText(Graphics g, string text, PointF point)
         {
-            Bitmap bmp = new("./sprites/A.png");
-
             Color textColor = Color.Black;
             SolidBrush textBrush = new(textColor);
 
             Font font = new("Arial", 12, FontStyle.Bold);
             SizeF textSize = g.MeasureString(text, font);
 
-            g.DrawImage(bmp, point.X - 22, point.Y - 82, textSize.Width + 40, textSize.Height + 170);
+            g.DrawImage(NameBar, point.X - 22, point.Y - 82, textSize.Width + 40, textSize.Height + 170);
             g.DrawString(text, font, textBrush, point);
         }
     }
