@@ -15,7 +15,7 @@ namespace EtsTycoon
         public Timer Tmr { get; set; }
         public int TickCounter { get; set; }
         public Player Player { get; set; }
-        public PictureBox Pb { get; set; }
+        public static PictureBox Pb { get; set; }
         public List<Room> Rooms { get; set; } = new();
         public static bool OpenApprenticeStore { get; set; }
         public static bool OpenInstructorStore { get; set; }
@@ -58,7 +58,7 @@ namespace EtsTycoon
             this.Bmp = bmp;
             this.Player = new();
 
-            this.Pb = new()
+            Pb = new()
             {
                 Dock = DockStyle.Fill,
             };
@@ -197,8 +197,8 @@ namespace EtsTycoon
             if (OpenInstructorStore)
                 InStore.Draw(G);
 
-            this.Player.DrawInfo(Pb);
-            this.Pb.Refresh();
+            Player.DrawInfo(Pb);
+            Pb.Refresh();
 
             TickCounter = 0;
             Player.UpdateMoney();
