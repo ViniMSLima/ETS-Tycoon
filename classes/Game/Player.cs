@@ -2,12 +2,13 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
 using Characters;
+using System;
 
 namespace EtsTycoon
 {
     public class Player
     {
-        public static int Money { get; set; }
+        public static float Money { get; set; }
         public static int CoinPerSecond { get; set; }
         public int Level { get; set; }
         public PictureBox CoinImg { get; set; }
@@ -45,7 +46,16 @@ namespace EtsTycoon
         {
             pb.Controls.Add(this.CoinImg);
             pb.Controls.Add(this.Label);
-            this.Label.Text = $"${Player.Money} - {Player.CoinPerSecond} Coin/second";
+            this.Label.Text = $"${MathF.Round(Player.Money)} - {Player.CoinPerSecond} Coin/second";
+        }
+
+        DateTime last = DateTime.Now;
+        public void UpdateMoney()
+        {
+            var now = DateTime.Now;
+            var time = (float)(now - last).TotalSeconds;
+            Money += CoinPerSecond * time;
+            last = now;
         }
     }
 

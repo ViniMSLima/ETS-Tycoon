@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Linq;
 using Structures;
 using MotherClasses;
+using EtsTycoon;
 
 namespace Rooms
 {
@@ -41,11 +42,11 @@ namespace Rooms
         public override void Draw(Graphics g)
         {
             g.DrawImage(FloorImg,
-                PositionX, PositionY, 800+80*4, 450+45*4
+                PositionX + Game.GeneralPosition.X, PositionY + Game.GeneralPosition.Y, 800+80*4, 450+45*4
             );
 
             for (int i = 0; i < this.Structures.Count; i++)
-                this.Structures[i].Draw(g, PositionX + PositionsX[i], PositionY + PositionsY[i]);
+                this.Structures[i].Draw(g, PositionX + PositionsX[i] + Game.GeneralPosition.X, PositionY + PositionsY[i] + Game.GeneralPosition.Y);
         }
 
         public override void ClickCheck(PointF point)

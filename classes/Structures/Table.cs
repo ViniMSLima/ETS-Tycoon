@@ -7,20 +7,20 @@ namespace Structures
 {
     public class Table : Structure
     {
-        public bool Index { get; set; }
+        public int Index { get; set; }
         Bitmap NameBar { get; set; }= new("./sprites/A.png");
 
         public Table()
         {
-            Index = false;
+            Index = 0;
             this.Buy = false;
             this.Img = Bitmap.FromFile("sprites/table/buy_table.png");
             this.Price = 20;
 
             Image[] a = 
             {
-                Bitmap.FromFile("sprites/table/table_apprentice1.png"),
-                Bitmap.FromFile("sprites/table/table_apprentice2.png"),
+                Bitmap.FromFile("./sprites/apprentice/table/vini/Vini1.png"),
+                Bitmap.FromFile("./sprites/apprentice/table/vini/Vini2.png"),
             };
 
             this.Images = new()
@@ -28,8 +28,8 @@ namespace Structures
                 {"table", Bitmap.FromFile("sprites/table/table.png")},
                 {"buy_table", Bitmap.FromFile("sprites/table/buy_table.png")},
                 {"buy_table_down", Bitmap.FromFile("sprites/table/buy_table_down.png")},
-                {"table_apprentice1", Bitmap.FromFile("sprites/table/table_apprentice1.png")},
-                {"table_apprentice2", Bitmap.FromFile("sprites/table/table_apprentice2.png")},
+                {"table_apprentice1", Bitmap.FromFile("./sprites/apprentice/table/vini/Vini1.png")},
+                {"table_apprentice2", Bitmap.FromFile("./sprites/apprentice/table/vini/Vini2.png")},
             };
 
             this.ApprenticeAnimation = a;
@@ -53,15 +53,18 @@ namespace Structures
 
             if (this.Buy && this.Apprentice != null)
             {
-                if (Index)
+                const int speed = 3;
+                if (Index < speed)
                 {
                     this.Img = ApprenticeAnimation[0];
-                    Index = !Index;
+                    Index++;
                 }
                 else
                 {
                     this.Img = ApprenticeAnimation[1];
-                    Index = !Index;
+                    Index++;
+                    if (Index > 2 * speed)
+                        Index = 0;
                 }
             }
 
@@ -109,10 +112,9 @@ namespace Structures
 
             if (inside)
             {
-                if (this.Buy == true)
+                if (this.Buy)
                     BuyApprentice(g);
-                else
-                    BuyStructure();
+                else BuyStructure();
             }
         }
 
@@ -143,7 +145,7 @@ namespace Structures
 
             if (Player.Money >= 300 && this.Apprentice == null)
             {
-                this.Apprentice = new("Nome", "19", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
+                this.Apprentice = new("Vinícius Lima", "19", "./sprites/apprentice/table/vini/Vini1.png", 1, 300);
                 Player.CoinPerSecond += this.Apprentice.CoinPerSecond;
                 Player.Money -= this.Apprentice.Salary;
             }

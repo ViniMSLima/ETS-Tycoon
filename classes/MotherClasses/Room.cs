@@ -11,8 +11,8 @@ namespace MotherClasses
         public int Level { get; set; }
         public List<Apprentice> RoomAprentices { get; set; }
         public Instructor RoomInstructor { get; set; }
-        public int PositionX { get; set; }
-        public int PositionY { get; set; }
+        public float PositionX { get; set; }
+        public float PositionY { get; set; }
         public int SizeX { get; set; }
         public int SizeY { get; set; }
         public Image FloorImg { get; set; }
