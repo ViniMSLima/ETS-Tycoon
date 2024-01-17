@@ -58,7 +58,7 @@ namespace Structures
             );
 
             if (this.Apprentice != null)
-                DrawText(g, this.Apprentice.Name, new PointF(roomX + 40, roomY + 30));
+                DrawText(g, this.Apprentice.Name, new PointF(roomX + 100, roomY + 30));
 
         }
 
@@ -153,7 +153,7 @@ namespace Structures
             Font font = new("Arial", 12, FontStyle.Bold);
             SizeF textSize = g.MeasureString(text, font);
 
-            g.DrawImage(bmp, point.X - 25, point.Y - 82, textSize.Width + 40, textSize.Height + 170);
+            g.DrawImage(bmp, point.X - 22, point.Y - 82, textSize.Width + 40, textSize.Height + 170);
             g.DrawString(text, font, textBrush, point);
         }
     }
