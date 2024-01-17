@@ -127,11 +127,18 @@ namespace EtsTycoon
 
             Pb.MouseDown += (o, e) =>
             {
-                DragAndHold = true;
-                PrevMouse = e.Location;
+                bool voidClick = true, ClickCheck;
 
-                foreach (Room r in Rooms)
-                    r.ClickCheckAll(e.Location, G);
+                foreach (Room r in Rooms){
+                    ClickCheck = r.ClickCheckAll(e.Location, G);
+                    if(ClickCheck)
+                        voidClick = false;
+                }
+
+                if(voidClick){
+                    DragAndHold = true;
+                    PrevMouse = e.Location;
+                }
             };
 
             Pb.MouseUp += (o, e) =>
@@ -156,7 +163,7 @@ namespace EtsTycoon
         public void Tick()
         {
             G.Clear(Color.White);
-            G.DrawImage(Images["grid"], 0, 0, 2500, 1900);
+            G.DrawImage(Images["grid"], 0, 0, 2540, 1900);
 
             const int speed = 3;
             if (Index < speed)

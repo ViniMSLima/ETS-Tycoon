@@ -1,3 +1,4 @@
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Drawing;
 using Characters;
@@ -23,6 +24,6 @@ namespace MotherClasses
         public virtual void Draw(Graphics g) { }
         public virtual void BuyCheckAll() { }
         public virtual void ClickCheck(PointF point) { }
-        public virtual void ClickCheckAll(System.Drawing.Point a, Graphics g) { }
+        public virtual bool ClickCheckAll(System.Drawing.Point a, Graphics g) { return false; }
     }
 }

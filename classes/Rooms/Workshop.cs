@@ -84,10 +84,18 @@ namespace Rooms
                 Tb.BuyCheck();
         }
 
-        public override void ClickCheckAll(System.Drawing.Point point, Graphics g)
+        public override bool ClickCheckAll(System.Drawing.Point point, Graphics g)
         {
+            bool a, b = false;
+
             foreach (Table Tb in Structures.Cast<Table>())
-                Tb.ClickCheck(point, g);
+            {
+                a = Tb.ClickCheck(point, g);
+                if(a)
+                    b = true;
+            }
+
+            return b;
         }
     }
 }

@@ -19,8 +19,8 @@ namespace Structures
 
             Image[] a = 
             {
-                Bitmap.FromFile("./sprites/apprentice/table/vini/Vini1.png"),
-                Bitmap.FromFile("./sprites/apprentice/table/vini/Vini2.png"),
+                Bitmap.FromFile("./sprites/apprentice/table/tavares/tavares1.png"),
+                Bitmap.FromFile("./sprites/apprentice/table/tavares/tavares2.png"),
             };
 
             this.Images = new()
@@ -28,8 +28,8 @@ namespace Structures
                 {"table", Bitmap.FromFile("sprites/table/table.png")},
                 {"buy_table", Bitmap.FromFile("sprites/table/buy_table.png")},
                 {"buy_table_down", Bitmap.FromFile("sprites/table/buy_table_down.png")},
-                {"table_apprentice1", Bitmap.FromFile("./sprites/apprentice/table/vini/Vini1.png")},
-                {"table_apprentice2", Bitmap.FromFile("./sprites/apprentice/table/vini/Vini2.png")},
+                {"table_apprentice1", Bitmap.FromFile("./sprites/apprentice/table/tavares/tavares1.png")},
+                {"table_apprentice2", Bitmap.FromFile("./sprites/apprentice/table/tavares/tavares2.png")},
             };
 
             this.ApprenticeAnimation = a;
@@ -68,15 +68,14 @@ namespace Structures
                 }
             }
 
-            g.DrawImage(Img, roomX, roomY, 200, 200
-            );
+            g.DrawImage(Img, roomX, roomY, 200, 200);
 
             if (this.Apprentice != null)
                 DrawText(g, this.Apprentice.Name, new PointF(roomX + 100, roomY + 30));
 
         }
 
-        public void ClickCheck(PointF point, Graphics g)
+        public bool ClickCheck(PointF point, Graphics g)
         {
             int num_vertices = this.Points.Length;
             double x = point.X, y = point.Y;
@@ -116,6 +115,8 @@ namespace Structures
                     BuyApprentice(g);
                 else BuyStructure();
             }
+
+            return inside;
         }
 
         public void BuyStructure()
@@ -145,7 +146,7 @@ namespace Structures
 
             if (Player.Money >= 300 && this.Apprentice == null)
             {
-                this.Apprentice = new("Vinícius Lima", "19", "./sprites/apprentice/table/vini/Vini1.png", 1, 300);
+                this.Apprentice = new("Tavares", "18", "./sprites/apprentice/table/tavares/tavares1.png", 1, 300);
                 Player.CoinPerSecond += this.Apprentice.CoinPerSecond;
                 Player.Money -= this.Apprentice.Salary;
             }
