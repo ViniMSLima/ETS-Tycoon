@@ -21,6 +21,7 @@ namespace EtsTycoon
         public ApprenticeStore ApStore { get; set; } = new();
         public InstructorStore InStore { get; set; } = new();
         public static List<Apprentice> Apprentices { get; set; } = new List<Apprentice>();
+        public static PointF PositionNPC { get; set; }= new(1150, -200);
 
         public Game()
         {
@@ -34,7 +35,6 @@ namespace EtsTycoon
             var timer = new Timer
             {
                 Interval = 20,
-                //20000 ticks/second
             };
 
             this.G = g;
@@ -108,14 +108,19 @@ namespace EtsTycoon
         public void Tick()
         {
             G.Clear(Color.White);
-            G.DrawImage(Bitmap.FromFile("./sprites/backgrounds/grid.jpg"), 0, 0, 2200, 1900);
+            G.DrawImage(Bitmap.FromFile("./sprites/backgrounds/grid.jpg"), 0, 0, 2500, 1900);
 
             G.DrawImage(Bitmap.FromFile("./sprites/crosswalk.png"), 350, 50, 800, 400);
             G.DrawImage(Bitmap.FromFile("./sprites/crosswalk.png"), -120, 285, 800, 400);
+            G.DrawImage(Bitmap.FromFile("./sprites/limpador.png"), PositionNPC.X, PositionNPC.Y, 200, 200);
+            
+            if(PositionNPC.X < -200)
+                Game.PositionNPC = new(1350, -300);
+
+            Game.PositionNPC = new(PositionNPC.X - 2, PositionNPC.Y + 1);
 
             foreach (Room r in Rooms)
                 r.Draw(G);
-
 
             if (OpenApprenticeStore)
                 ApStore.Draw(G);

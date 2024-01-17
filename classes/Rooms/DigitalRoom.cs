@@ -12,7 +12,7 @@ namespace Rooms
 
         public DigitalRoom()
         {
-            this.FloorImg = Bitmap.FromFile("./sprites/floor/aaa.png");
+            this.FloorImg = Bitmap.FromFile("./sprites/floor/digitalroom.png");
 
             float[] a = {
                          PositionX + 586, PositionX + 681, PositionX + 822, PositionX + 917,
@@ -46,7 +46,6 @@ namespace Rooms
 
             for (int i = 0; i < this.Structures.Count; i++)
                 this.Structures[i].Draw(g, PositionX + PositionsX[i], PositionY + PositionsY[i]);
-
         }
 
         public override void ClickCheck(PointF point)
