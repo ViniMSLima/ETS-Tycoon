@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using Structures;
 
 namespace EtsTycoon
 {
@@ -69,7 +70,7 @@ namespace EtsTycoon
 
         public virtual void Draw(Graphics g) { }
 
-        public static bool ClickCheck(PointF point, PointF[] a)
+        public static bool ClickCheck(PointF point, PointF[] a, Table b, Graphics g)
         {
             int num_vertices = a.Length;
             double x = point.X, y = point.Y;
@@ -115,16 +116,16 @@ namespace EtsTycoon
                 }
                 else if(point.X > 1224)
                 {
-                    MessageBox.Show((StoreIndex + 2).ToString());
+                    b.BuyApprentice(g, StoreIndex + 2);
                 }
                 else if(point.X > 821)
                 {
-                    MessageBox.Show((StoreIndex + 1).ToString());
+                    b.BuyApprentice(g, StoreIndex + 1);
                     
                 }
                 else if(point.X > 418)
                 {
-                    MessageBox.Show(StoreIndex.ToString());
+                    b.BuyApprentice(g, StoreIndex);
 
                 }
                 else if (point.X < 350)

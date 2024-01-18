@@ -112,7 +112,7 @@ namespace Structures
             if (inside)
             {
                 if (this.Buy)
-                    Game.OpenApprenticeStore = true;
+                    Game.OpenApprenticeStore = this;
 
                 else BuyStructure();
             }
@@ -149,6 +149,7 @@ namespace Structures
 
                 Player.CoinPerSecond += this.Apprentice.CoinPerSecond;
                 Player.Money -= this.Apprentice.Salary;
+                Game.OpenApprenticeStore = null;
             }
 
             else

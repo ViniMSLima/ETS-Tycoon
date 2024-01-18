@@ -127,7 +127,7 @@ namespace Structures
 
         public void BuyApprentice(Graphics g)
         {
-            Game.OpenApprenticeStore = true;
+            Game.OpenApprenticeStore = new();
 
             if (Player.Money >= 300 && this.Apprentice == null)
             {
