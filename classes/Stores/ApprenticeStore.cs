@@ -24,17 +24,35 @@ namespace EtsTycoon
                 Game.Pb.Width * 0.2f, 
                 Game.Pb.Height * 0.5f
             );
+            g.DrawImage(Images[0], 
+                Game.Pb.Width * 0.217f, 
+                Game.Pb.Height * 0.62f,
+                Game.Pb.Width * 0.15f, 
+                Game.Pb.Height * 0.1f
+            );
             g.DrawImage(Images[1],
                 Game.Pb.Width * 0.405f, 
                 Game.Pb.Height * 0.25f, 
                 Game.Pb.Width * 0.2f, 
                 Game.Pb.Height * 0.5f
             );
+            g.DrawImage(Images[0], 
+                Game.Pb.Width * 0.427f, 
+                Game.Pb.Height * 0.62f, 
+                Game.Pb.Width * 0.15f, 
+                Game.Pb.Height * 0.1f
+            );
             g.DrawImage(Images[1],
                 Game.Pb.Width * 0.615f,
                 Game.Pb.Height * 0.25f,
                 Game.Pb.Width * 0.2f,
                 Game.Pb.Height * 0.5f
+            );
+            g.DrawImage(Images[0], 
+                Game.Pb.Width * 0.637f, 
+                Game.Pb.Height * 0.62f, 
+                Game.Pb.Width * 0.15f, 
+                Game.Pb.Height * 0.1f
             );
             g.DrawImage(Images[RightButton], 
                 Game.Pb.Width * 0.135f,
@@ -70,8 +88,8 @@ namespace EtsTycoon
                 Game.Pb.Height * 0.4f
             );
 
-            DrawText(g, "Name: " + Game.Apprentices[StoreIndex].Name, new(Game.Pb.Width * 0.210f, Game.Pb.Height * 0.55f));
-            DrawText(g, "Age: "  + Game.Apprentices[StoreIndex].Age,  new(Game.Pb.Width * 0.210f, Game.Pb.Height * 0.60f));
+            DrawText(g, "Name: " + Game.Apprentices[StoreIndex].Name,     new(Game.Pb.Width * 0.210f, Game.Pb.Height * 0.55f));
+            DrawText(g, "Age: "  + Game.Apprentices[StoreIndex].Age,      new(Game.Pb.Width * 0.210f, Game.Pb.Height * 0.60f));
             DrawText(g, "Name: " + Game.Apprentices[StoreIndex + 1].Name, new(Game.Pb.Width * 0.420f, Game.Pb.Height * 0.55f));
             DrawText(g, "Age: "  + Game.Apprentices[StoreIndex + 1].Age,  new(Game.Pb.Width * 0.420f, Game.Pb.Height * 0.60f));
             DrawText(g, "Name: " + Game.Apprentices[StoreIndex  +2].Name, new(Game.Pb.Width * 0.630f, Game.Pb.Height * 0.55f));
@@ -79,19 +97,12 @@ namespace EtsTycoon
 
             RightButton = 2;
             LeftButton = 3;
+
+            Pen pen = new(Color.Purple);
+
+            g.DrawPolygon(pen, Btn3);
+            g.DrawPolygon(pen, Btn4);
+            g.DrawPolygon(pen, Btn5);
         }
-
-        private void DrawText(Graphics g, string text, PointF point)
-        {
-            Color textColor = Color.BlanchedAlmond;
-            SolidBrush textBrush = new(textColor);
-
-            Font font = new("Arial", 15, FontStyle.Bold);
-            SizeF textSize = g.MeasureString(text, font);
-
-            g.DrawString(text, font, textBrush, point);
-        }
-
-        
     }
 }

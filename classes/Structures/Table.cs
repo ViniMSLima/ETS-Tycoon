@@ -112,7 +112,8 @@ namespace Structures
             if (inside)
             {
                 if (this.Buy)
-                    BuyApprentice(g);
+                    Game.OpenApprenticeStore = true;
+
                 else BuyStructure();
             }
 
@@ -140,13 +141,11 @@ namespace Structures
                 this.Img = Images["table"];
         }
 
-        public void BuyApprentice(Graphics g /*, Apprentice apprentice*/)
+        public void BuyApprentice(Graphics g, int index)
         {
-            Game.OpenApprenticeStore = true;
-
             if (Player.Money >= 300 && this.Apprentice == null)
             {
-                this.Apprentice = Game.Apprentices[17];
+                this.Apprentice = Game.Apprentices[index];
 
                 Player.CoinPerSecond += this.Apprentice.CoinPerSecond;
                 Player.Money -= this.Apprentice.Salary;

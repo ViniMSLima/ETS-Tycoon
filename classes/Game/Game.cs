@@ -139,6 +139,9 @@ namespace EtsTycoon
                     ApStore.Draw(G);
                     Store.ClickCheck(e.Location, Store.Btn1);
                     Store.ClickCheck(e.Location, Store.Btn2);
+                    Store.ClickCheck(e.Location, Store.Btn3);
+                    Store.ClickCheck(e.Location, Store.Btn4);
+                    Store.ClickCheck(e.Location, Store.Btn5);
                 }
                 else
                 {
@@ -225,15 +228,15 @@ namespace EtsTycoon
             Apprentice Benhur = new("Benhur Feld", "18", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
             Apprentice Eliana = new("Eliana Almeida", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
             Apprentice Emyli = new("Emyli Quadros", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
-            Apprentice Eric = new("Eric Coutinho", "18", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
+            Apprentice Eric = new("Eric Coutinho", "18", "./sprites/apprentice/table/eric/eric1.png", "./sprites/apprentice/table/eric/eric2.png", 1, 300);
             Apprentice Felipe = new("Felipe Vieira", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
             Apprentice Guilherme = new("Guilherme Proença", "18", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
             Apprentice Tavares = new("Guilherme Tavares", "18", "./sprites/apprentice/table/tavares/tavares1.png", "./sprites/apprentice/table/tavares/tavares2.png", 1, 300);
-            Apprentice Juan = new("Juan Campos", "22", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
-            Apprentice Lander = new("Lander Gerotto", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
-            Apprentice Luis = new("Luis dos Santos", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
-            Apprentice Luiz = new("Luiz Rosa", "18", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
-            Apprentice Marcos = new("Marcos Henrique", "20", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
+            Apprentice Juan = new("Juan Campos", "22", "./sprites/apprentice/table/juan/juan1.png", "./sprites/apprentice/table/juan/juan2.png", 1, 300);
+            Apprentice Lander = new("Lander Gerotto", "19", "./sprites/apprentice/table/lander/lander1.png", "./sprites/apprentice/table/lander/lander2.png", 1, 300);
+            Apprentice Luis = new("Luis dos Santos", "19", "./sprites/apprentice/table/luis/luis1.png", "./sprites/apprentice/table/luis/luis2.png", 1, 300);
+            Apprentice Rosa = new("Luiz Rosa", "18", "./sprites/apprentice/table/rosa/rosa1.png", "./sprites/apprentice/table/rosa/rosa2.png", 1, 300);
+            Apprentice Marcos = new("Marcos Henrique", "20", "./sprites/apprentice/table/marcos/marcos1.png", "./sprites/apprentice/table/marcos/marcos2.png", 1, 300);
             Apprentice Mateus = new("Mateus Leite", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
             Apprentice Maycon = new("Maycon Bertulino", "20", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);
             Apprentice Murilo = new("Murilo Socek", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice1.png", 1, 300);

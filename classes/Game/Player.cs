@@ -18,7 +18,7 @@ namespace EtsTycoon
 
         public Player()
         {
-            Money = 400;
+            Money = 10000;
             Level = 1;
             CoinPerSecond = 1;
 

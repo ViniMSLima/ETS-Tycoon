@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
@@ -11,7 +12,7 @@ namespace EtsTycoon
         public static int StoreIndex { get; set; } = 0;
         public static int RightButton { get; set; } = 2;
         public static int LeftButton { get; set; } = 3;
-        public static PointF[] Btn1 { get; set; } = 
+        public static PointF[] Btn1 { get; set; } =
             new PointF[]{
                 new(Game.Pb.Width * 0.135f,  Game.Pb.Height * 0.4f),
                 new(Game.Pb.Width * 0.135f,  Game.Pb.Height * 0.4f + Game.Pb.Height * 0.2f),
@@ -26,6 +27,30 @@ namespace EtsTycoon
                 new(Game.Pb.Width * 0.82f + Game.Pb.Width * 0.05f,  Game.Pb.Height * 0.4f),
             };
 
+        public static PointF[] Btn3 =
+            new PointF[]{
+                new(Game.Pb.Width * 0.217f,  Game.Pb.Height * 0.62f),
+                new(Game.Pb.Width * 0.217f,  Game.Pb.Height * 0.62f + Game.Pb.Height * 0.1f),
+                new(Game.Pb.Width * 0.217f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.62f + Game.Pb.Height * 0.1f),
+                new(Game.Pb.Width * 0.217f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.62f),
+            };
+
+        public static PointF[] Btn4 =
+            new PointF[]{
+                new(Game.Pb.Width * 0.427f,  Game.Pb.Height * 0.62f),
+                new(Game.Pb.Width * 0.427f,  Game.Pb.Height * 0.62f + Game.Pb.Height * 0.1f),
+                new(Game.Pb.Width * 0.427f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.62f + Game.Pb.Height * 0.1f),
+                new(Game.Pb.Width * 0.427f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.62f),
+            };
+
+        public static PointF[] Btn5 =
+            new PointF[]{
+                new(Game.Pb.Width * 0.637f,  Game.Pb.Height * 0.62f),
+                new(Game.Pb.Width * 0.637f,  Game.Pb.Height * 0.62f + Game.Pb.Height * 0.1f),
+                new(Game.Pb.Width * 0.637f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.62f + Game.Pb.Height * 0.1f),
+                new(Game.Pb.Width * 0.637f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.62f),
+            };
+
         public List<Image> Images { get; set; } = new()
         {
             Bitmap.FromFile("./sprites/backgrounds/storeBackground.png"),
@@ -34,11 +59,12 @@ namespace EtsTycoon
             Bitmap.FromFile("./sprites/button/rightButton.png"),
             Bitmap.FromFile("./sprites/button/leftButtonClicked.png"),
             Bitmap.FromFile("./sprites/button/rightButtonClicked.png"),
+            Bitmap.FromFile("./sprites/coin/Coin.gif")
         };
 
         public Store()
         {
-            
+
         }
 
         public virtual void Draw(Graphics g) { }
@@ -77,26 +103,51 @@ namespace EtsTycoon
                 p1 = p2;
             }
 
-            if(inside)
+            if (inside)
             {
-                if(a[0].X > 500)
+                if(point.X > 1581)
                 {
                     LeftButton = 5;
-                    if(StoreIndex < 15)
+                    if (StoreIndex < 15)
                     {
                         StoreIndex++;
                     }
                 }
-                else
+                else if(point.X > 1224)
+                {
+                    MessageBox.Show((StoreIndex + 2).ToString());
+                }
+                else if(point.X > 821)
+                {
+                    MessageBox.Show((StoreIndex + 1).ToString());
+                    
+                }
+                else if(point.X > 418)
+                {
+                    MessageBox.Show(StoreIndex.ToString());
+
+                }
+                else if (point.X < 350)
                 {
                     RightButton = 4;
-                    if(StoreIndex > 0)
+                    if (StoreIndex > 0)
                     {
                         StoreIndex--;
                     }
+                    
                 }
             }
+
             return inside;
+        }
+
+        public void DrawText(Graphics g, string text, PointF point)
+        {
+            Color textColor = Color.BlanchedAlmond;
+            SolidBrush textBrush = new(textColor);
+
+            Font font = new("Arial", 15, FontStyle.Bold);
+            g.DrawString(text, font, textBrush, point);
         }
     }
 }
