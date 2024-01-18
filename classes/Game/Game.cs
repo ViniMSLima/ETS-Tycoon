@@ -135,6 +135,14 @@ namespace EtsTycoon
                         voidClick = false;
                 }
 
+                if (OpenApprenticeStore)
+                {
+                    voidClick = false;
+                    ApStore.Draw(G);
+                    Store.ClickCheck(e.Location, Store.Btn1);
+                    Store.ClickCheck(e.Location, Store.Btn2);
+                }
+
                 if(voidClick){
                     DragAndHold = true;
                     PrevMouse = e.Location;
@@ -194,6 +202,7 @@ namespace EtsTycoon
 
             if (OpenApprenticeStore)
                 ApStore.Draw(G);
+                
             if (OpenInstructorStore)
                 InStore.Draw(G);
 

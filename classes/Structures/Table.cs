@@ -42,12 +42,12 @@ namespace Structures
             Pen pen = new(Color.Red, 5f);
 
             PointF[] test = new PointF[]{
-            new(0, 0),
-            new(h, 0),
-            new(h, w),
-            new(0, w),
-            new(0, 0),
-        }.ToIsometric(roomX + 120, roomY + 145);
+                new(0, 0),
+                new(h, 0),
+                new(h, w),
+                new(0, w),
+                new(0, 0),
+            }.ToIsometric(roomX + 120, roomY + 145);
 
             this.Points = test;
 
