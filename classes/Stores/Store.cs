@@ -2,24 +2,28 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace EtsTycoon
 {
     public class Store
     {
+        public static int StoreIndex { get; set; } = 0;
+        public static int RightButton { get; set; } = 2;
+        public static int LeftButton { get; set; } = 3;
         public static PointF[] Btn1 { get; set; } = 
             new PointF[]{
-                new(Game.Pb.Width * 0.135f, Game.Pb.Height * 0.4f),
-                new(Game.Pb.Width * 0.135f, Game.Pb.Height * 0.4f + Game.Pb.Height * 0.2f),
-                new(Game.Pb.Width * 0.135f + Game.Pb.Width * 0.05f, Game.Pb.Height * 0.4f + Game.Pb.Height * 0.2f),
-                new(Game.Pb.Width * 0.135f + Game.Pb.Width * 0.05f, Game.Pb.Height * 0.4f),
+                new(Game.Pb.Width * 0.135f,  Game.Pb.Height * 0.4f),
+                new(Game.Pb.Width * 0.135f,  Game.Pb.Height * 0.4f + Game.Pb.Height * 0.2f),
+                new(Game.Pb.Width * 0.135f + Game.Pb.Width * 0.05f,  Game.Pb.Height * 0.4f + Game.Pb.Height * 0.2f),
+                new(Game.Pb.Width * 0.135f + Game.Pb.Width * 0.05f,  Game.Pb.Height * 0.4f),
             };
         public static PointF[] Btn2 { get; set; } =
             new PointF[]{
-                    new(Game.Pb.Width * 0.82f, Game.Pb.Height * 0.4f),
-                    new(Game.Pb.Width * 0.82f, Game.Pb.Height * 0.4f + Game.Pb.Height * 0.2f),
-                    new(Game.Pb.Width * 0.82f + Game.Pb.Width * 0.05f, Game.Pb.Height * 0.4f + Game.Pb.Height * 0.2f),
-                    new(Game.Pb.Width * 0.82f + Game.Pb.Width * 0.05f, Game.Pb.Height * 0.4f),
+                new(Game.Pb.Width * 0.82f,  Game.Pb.Height * 0.4f),
+                new(Game.Pb.Width * 0.82f,  Game.Pb.Height * 0.4f + Game.Pb.Height * 0.2f),
+                new(Game.Pb.Width * 0.82f + Game.Pb.Width * 0.05f,  Game.Pb.Height * 0.4f + Game.Pb.Height * 0.2f),
+                new(Game.Pb.Width * 0.82f + Game.Pb.Width * 0.05f,  Game.Pb.Height * 0.4f),
             };
 
         public List<Image> Images { get; set; } = new()
@@ -34,7 +38,7 @@ namespace EtsTycoon
 
         public Store()
         {
-
+            
         }
 
         public virtual void Draw(Graphics g) { }
@@ -74,7 +78,24 @@ namespace EtsTycoon
             }
 
             if(inside)
-                MessageBox.Show(a[0].ToString());
+            {
+                if(a[0].X > 500)
+                {
+                    LeftButton = 5;
+                    if(StoreIndex < 15)
+                    {
+                        StoreIndex++;
+                    }
+                }
+                else
+                {
+                    RightButton = 4;
+                    if(StoreIndex > 0)
+                    {
+                        StoreIndex--;
+                    }
+                }
+            }
             return inside;
         }
     }

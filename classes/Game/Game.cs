@@ -27,9 +27,9 @@ namespace EtsTycoon
 
         public Dictionary<string, Image> Images { get; set; } = new()
         {
-            {"grid", Bitmap.FromFile("./sprites/backgrounds/grid.jpg")},
+            {"grid",      Bitmap.FromFile("./sprites/backgrounds/grid.jpg")},
             {"crosswalk", Bitmap.FromFile("./sprites/crosswalk.png")},
-            {"limpador", Bitmap.FromFile("./sprites/limpador.png")},
+            {"limpador",  Bitmap.FromFile("./sprites/limpador.png")},
             {"limpador2", Bitmap.FromFile("./sprites/limpador2.png")},
         };
         public static List<Apprentice> Apprentices { get; set; } = new List<Apprentice>();
@@ -101,7 +101,10 @@ namespace EtsTycoon
                 {
                     case Keys.Escape:
                         if (Game.OpenApprenticeStore == true)
+                        {
                             Game.OpenApprenticeStore = false;
+                            Store.StoreIndex = 0;
+                        }
                         else
                             Application.Exit();
 
@@ -129,11 +132,6 @@ namespace EtsTycoon
             {
                 bool voidClick = true, ClickCheck;
 
-                foreach (Room r in Rooms){
-                    ClickCheck = r.ClickCheckAll(e.Location, G);
-                    if(ClickCheck)
-                        voidClick = false;
-                }
 
                 if (OpenApprenticeStore)
                 {
@@ -141,6 +139,14 @@ namespace EtsTycoon
                     ApStore.Draw(G);
                     Store.ClickCheck(e.Location, Store.Btn1);
                     Store.ClickCheck(e.Location, Store.Btn2);
+                }
+                else
+                {
+                    foreach (Room r in Rooms){
+                        ClickCheck = r.ClickCheckAll(e.Location, G);
+                        if(ClickCheck)
+                            voidClick = false;
+                    }
                 }
 
                 if(voidClick){
