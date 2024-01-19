@@ -132,9 +132,10 @@ namespace Structures
             {
                 this.Apprentice = Game.Apprentices[index];
 
-                Player.CoinPerSecond *= this.Apprentice.CoinPerSecond;
+                Player.CoinPerSecond += this.Apprentice.CoinPerSecond;
                 Player.Money -= this.Apprentice.Salary;
                 Game.OpenApprenticeStore = null;
+                Store.StoreIndex = 0;
             }
 
             else
