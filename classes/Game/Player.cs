@@ -15,10 +15,11 @@ namespace EtsTycoon
         public Label Label { get; set; }
         public List<Apprentice> Apprentices { get; set; }
         public List<Instructor> Instructors { get; set; }
+        public Image Back { get; set; } = Bitmap.FromFile("./sprites/backgrounds/storeCenterButton.png");
 
         public Player()
         {
-            Money = 10000;
+            Money = 600;
             Level = 1;
             CoinPerSecond = 1;
 
@@ -36,14 +37,16 @@ namespace EtsTycoon
                 Location = new Point(80, 20),
                 Text = $"${Player.Money} - {Player.CoinPerSecond} Coin/second",
                 BackColor = Color.FromArgb(0, 0, 0, 0),
+                ForeColor = Color.White,
                 Width = 1200,
                 Height = 100,
                 Font = new Font("Calibri", 40, FontStyle.Bold)
             };
         }
 
-        public void DrawInfo(PictureBox pb)
+        public void DrawInfo(PictureBox pb, Graphics g)
         {
+            g.DrawImage(Back, 0, 0, 670, 120);
             pb.Controls.Add(this.CoinImg);
             pb.Controls.Add(this.Label);
             this.Label.Text = $"${MathF.Round(Player.Money)} - {Player.CoinPerSecond} Coin/second";
@@ -58,5 +61,4 @@ namespace EtsTycoon
             last = now;
         }
     }
-
 }

@@ -84,3 +84,18 @@ C:\Users\vinis\OneDrive\Área de Trabalho\ETS-Tycoon\obj\Debug\net7.0-windows\re
 C:\Users\vinis\OneDrive\Área de Trabalho\ETS-Tycoon\obj\Debug\net7.0-windows\winformsApp.pdb
 C:\Users\vinis\OneDrive\Área de Trabalho\ETS-Tycoon\obj\Debug\net7.0-windows\winformsApp.genruntimeconfig.cache
 C:\Users\vinis\OneDrive\Área de Trabalho\ETS-Tycoon\obj\Debug\net7.0-windows\ref\winformsApp.dll
+C:\Users\disrct\Desktop\ETS-Tycoon\bin\Debug\net7.0-windows\winformsApp.exe
+C:\Users\disrct\Desktop\ETS-Tycoon\bin\Debug\net7.0-windows\winformsApp.deps.json
+C:\Users\disrct\Desktop\ETS-Tycoon\bin\Debug\net7.0-windows\winformsApp.runtimeconfig.json
+C:\Users\disrct\Desktop\ETS-Tycoon\bin\Debug\net7.0-windows\winformsApp.dll
+C:\Users\disrct\Desktop\ETS-Tycoon\bin\Debug\net7.0-windows\winformsApp.pdb
+C:\Users\disrct\Desktop\ETS-Tycoon\obj\Debug\net7.0-windows\winformsApp.csproj.AssemblyReference.cache
+C:\Users\disrct\Desktop\ETS-Tycoon\obj\Debug\net7.0-windows\winformsApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\disrct\Desktop\ETS-Tycoon\obj\Debug\net7.0-windows\winformsApp.AssemblyInfoInputs.cache
+C:\Users\disrct\Desktop\ETS-Tycoon\obj\Debug\net7.0-windows\winformsApp.AssemblyInfo.cs
+C:\Users\disrct\Desktop\ETS-Tycoon\obj\Debug\net7.0-windows\winformsApp.csproj.CoreCompileInputs.cache
+C:\Users\disrct\Desktop\ETS-Tycoon\obj\Debug\net7.0-windows\winformsApp.dll
+C:\Users\disrct\Desktop\ETS-Tycoon\obj\Debug\net7.0-windows\refint\winformsApp.dll
+C:\Users\disrct\Desktop\ETS-Tycoon\obj\Debug\net7.0-windows\winformsApp.pdb
+C:\Users\disrct\Desktop\ETS-Tycoon\obj\Debug\net7.0-windows\winformsApp.genruntimeconfig.cache
+C:\Users\disrct\Desktop\ETS-Tycoon\obj\Debug\net7.0-windows\ref\winformsApp.dll
