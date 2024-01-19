@@ -70,8 +70,9 @@ namespace EtsTycoon
 
         public virtual void Draw(Graphics g) { }
 
-        public static bool ClickCheck(PointF point, PointF[] a, Table b, Graphics g)
+        public static bool ClickCheck(PointF point, PointF[] a, Structure b, Graphics g)
         {
+
             int num_vertices = a.Length;
             double x = point.X, y = point.Y;
             bool inside = false;
@@ -104,7 +105,7 @@ namespace EtsTycoon
                 p1 = p2;
             }
 
-            if (inside)
+            if (inside && Game.OpenApprenticeStore != null)
             {
                 if(point.X > 1581)
                 {
@@ -116,16 +117,16 @@ namespace EtsTycoon
                 }
                 else if(point.X > 1224)
                 {
-                    b.BuyApprentice(g, StoreIndex + 2);
+                    b.BuyCharacter(g, StoreIndex + 2);
                 }
                 else if(point.X > 821)
                 {
-                    b.BuyApprentice(g, StoreIndex + 1);
+                    b.BuyCharacter(g, StoreIndex + 1);
                     
                 }
                 else if(point.X > 418)
                 {
-                    b.BuyApprentice(g, StoreIndex);
+                    b.BuyCharacter(g, StoreIndex);
 
                 }
                 else if (point.X < 350)
@@ -136,6 +137,37 @@ namespace EtsTycoon
                         StoreIndex--;
                     }
                     
+                }
+            }
+            else if (inside && Game.OpenInstructorStore != null)
+            {
+                if(point.X > 1581)
+                {
+                    LeftButton = 5;
+                    if (StoreIndex < 4)
+                    {
+                        StoreIndex++;
+                    }
+                }
+                else if(point.X > 1224)
+                {
+                    b.BuyCharacter(g, StoreIndex + 2);
+                }
+                else if(point.X > 821)
+                    b.BuyCharacter(g, StoreIndex + 1);
+                
+                else if(point.X > 418)
+                {
+                    b.BuyCharacter(g, StoreIndex);
+
+                }
+                else if (point.X < 350)
+                {
+                    RightButton = 4;
+                    if (StoreIndex > 0)
+                    {
+                        StoreIndex--;
+                    }
                 }
             }
 

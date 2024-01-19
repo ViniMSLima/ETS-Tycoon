@@ -21,6 +21,7 @@ namespace Rooms
                          PositionX + 326, PositionX + 421, PositionX + 562, PositionX + 657,
                          PositionX + 226, PositionX + 321, PositionX + 462, PositionX + 557,
                          PositionX + 126, PositionX + 221, PositionX + 362, PositionX + 457,
+                         PositionX + 350
                          };
 
             float[] b = {
@@ -29,14 +30,16 @@ namespace Rooms
                          PositionY +  58, PositionY + 106, PositionY + 181, PositionY + 229,
                          PositionY + 108, PositionY + 156, PositionY + 231, PositionY + 279,
                          PositionY + 158, PositionY + 206, PositionY + 281, PositionY + 329,
+                         PositionY + 370
                          };
 
             this.PositionsX = a;
             this.PositionsY = b;
 
-            for (int i = 0; i < a.Length; i++)
+            for (int i = 0; i < a.Length -1; i++)
                 this.Structures.Add(new Table());
-            
+
+            this.Structures.Add(new InstructorsTable());
         }
 
         public override void Draw(Graphics g)
@@ -89,17 +92,20 @@ namespace Rooms
 
         public override void BuyCheckAll()
         {
-            foreach (Table Tb in Structures.Cast<Table>())
-                Tb.BuyCheck();
+
+            for(int i = 0; i < Structures.Count; i++)
+            {
+                Structures[i].BuyCheck();
+            }
         }
 
         public override bool ClickCheckAll(System.Drawing.Point point, Graphics g)
         {
             bool a, b = false;
 
-            foreach (Table Tb in Structures.Cast<Table>())
+            for(int i = 0; i < Structures.Count; i++)
             {
-                a = Tb.ClickCheck(point, g);
+                a = Structures[i].ClickCheck(point, g);
                 if(a)
                     b = true;
             }

@@ -5,17 +5,18 @@ using Characters;
 
 namespace Structures
 {
-    public class Table : Structure
+    
+    public class InstructorsTable : Structure
     {
         public int Index { get; set; }
-        public Apprentice Apprentice { get; set; }
+        public Instructor Instructor { get; set; }
 
-        public Table()
+        public InstructorsTable()
         {
             Index = 0;
             this.Buy = false;
             this.Img = Bitmap.FromFile("sprites/table/buy_table.png");
-            this.Price = 20;
+            this.Price = 50;
 
             this.Images = new()
             {
@@ -43,17 +44,17 @@ namespace Structures
 
             this.Points = test;
 
-            if (this.Buy && this.Apprentice != null)
+            if (this.Buy && this.Instructor != null)
             {
                 const int speed = 3;
                 if (Index < speed)
                 {
-                    this.Img = this.Apprentice.img[0];
+                    this.Img = this.Instructor.img[0];
                     Index++;
                 }
                 else
                 {
-                    this.Img = this.Apprentice.img[1];
+                    this.Img = this.Instructor.img[1];
                     Index++;
                     if (Index > 2 * speed)
                         Index = 0;
@@ -62,8 +63,8 @@ namespace Structures
 
             g.DrawImage(Img, roomX, roomY, 200, 200);
 
-            if (this.Apprentice != null)
-                DrawText(g, this.Apprentice.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
+            if (this.Instructor != null)
+                DrawText(g, this.Instructor.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
 
         }
 
@@ -104,7 +105,7 @@ namespace Structures
             if (inside)
             {
                 if (this.Buy)
-                    Game.OpenApprenticeStore = this;
+                    Game.OpenInstructorStore = this;
 
                 else BuyStructure();
             }
@@ -126,21 +127,6 @@ namespace Structures
                 this.Img = Images["buy_table"];
             }
         }
-        public override void BuyCharacter(Graphics g, int index)
-        {
-            if (Player.Money >= 300 && this.Apprentice == null)
-            {
-                this.Apprentice = Game.Apprentices[index];
-
-                Player.CoinPerSecond *= this.Apprentice.CoinPerSecond;
-                Player.Money -= this.Apprentice.Salary;
-                Game.OpenApprenticeStore = null;
-            }
-
-            else
-                MessageBox.Show("Not enough money!");
-
-        }
 
         public override void BuyCheck()
         {
@@ -148,6 +134,20 @@ namespace Structures
                 this.Img = Images["table"];
         }
 
-        
+        public override void BuyCharacter(Graphics g, int index) {
+            if (Player.Money >= 300 && this.Instructor == null)
+            {
+                this.Instructor = Game.Instructors[index];
+
+                Player.CoinPerSecond *= this.Instructor.Boost; //CHECK OVERPOWER HERE
+                Player.Money -= this.Instructor.Salary;
+                Game.OpenInstructorStore = null;
+            }
+
+            else
+            {
+                MessageBox.Show("Not enough money!");
+            }
+         }
     }
 }

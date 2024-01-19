@@ -5,7 +5,7 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [x] First room and buttons
 - [x] Buttons turn into structure when clicked
 - [x] Structure become an animated apprentice working when clicked
-- [x] Show Player informatio (money and gain per second)
+- [x] Show Player information (money and gain per second)
 - [x] Structure and apprentice purchase affects money
 - [x] Click on table opens the store
 - [x] Money gains works correctly (per second)

@@ -19,7 +19,7 @@ namespace EtsTycoon
         public static PictureBox Pb { get; set; }
         public List<Room> Rooms { get; set; } = new();
         public static Table OpenApprenticeStore { get; set; } = null;
-        public static Table OpenInstructorStore { get; set; }
+        public static InstructorsTable OpenInstructorStore { get; set; }
         public ApprenticeStore ApStore { get; set; } = new();
         public InstructorStore InStore { get; set; } = new();
         public bool DragAndHold { get; set; } = false;
@@ -34,6 +34,7 @@ namespace EtsTycoon
             {"limpador2", Bitmap.FromFile("./sprites/limpador2.png")},
         };
         public static List<Apprentice> Apprentices { get; set; } = new List<Apprentice>();
+        public static List<Instructor> Instructors { get; set; } = new List<Instructor>();
         public static PointF GeneralPosition { get; set; }= new(0, 0);
         public static PointF PositionNPC { get; set; }= new(1150 + GeneralPosition.X, -200 + GeneralPosition.X);
         public Image Npc1 { get; set; }
@@ -101,9 +102,10 @@ namespace EtsTycoon
                 switch (e.KeyCode)
                 {
                     case Keys.Escape:
-                        if (Game.OpenApprenticeStore != null)
+                        if (Game.OpenApprenticeStore != null || Game.OpenInstructorStore != null)
                         {
                             Game.OpenApprenticeStore = null;
+                            Game.OpenInstructorStore = null;
                             Store.StoreIndex = 0;
                         }
                         else
@@ -133,7 +135,6 @@ namespace EtsTycoon
             {
                 bool voidClick = true, ClickCheck;
 
-
                 if (OpenApprenticeStore != null)
                 {
                     voidClick = false;
@@ -143,6 +144,16 @@ namespace EtsTycoon
                     Store.ClickCheck(e.Location, Store.Btn3, OpenApprenticeStore, G);
                     Store.ClickCheck(e.Location, Store.Btn4, OpenApprenticeStore, G);
                     Store.ClickCheck(e.Location, Store.Btn5, OpenApprenticeStore, G);
+                }
+                else if (OpenInstructorStore != null)
+                {
+                    voidClick = false;
+                    ApStore.Draw(G);
+                    Store.ClickCheck(e.Location, Store.Btn1, OpenInstructorStore, G);
+                    Store.ClickCheck(e.Location, Store.Btn2, OpenInstructorStore, G);
+                    Store.ClickCheck(e.Location, Store.Btn3, OpenInstructorStore, G);
+                    Store.ClickCheck(e.Location, Store.Btn4, OpenInstructorStore, G);
+                    Store.ClickCheck(e.Location, Store.Btn5, OpenInstructorStore, G);
                 }
                 else
                 {
@@ -244,6 +255,13 @@ namespace EtsTycoon
             Apprentice Renato = new("Renato Mendes", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 1, 300);
             Apprentice Vinicius = new("Vinícius Lima", "19", "./sprites/apprentice/table/vini/vini1.png", "./sprites/apprentice/table/vini/vini2.png", 1, 300);
 
+            Instructor Trevisan = new("Trevisan", "24", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 5, 300);
+            Instructor Dom = new("Dom", "24", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 5, 300);
+            Instructor Fer = new("Fer", "24", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 5, 300);
+            Instructor Alisson = new("Alisson", "24", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 5, 300);
+            Instructor Queila = new("Queila", "24", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 5, 300);
+            Instructor Moll = new("Moll", "24", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 5, 300);
+            Instructor Balem = new("Balem", "24", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 5, 300);
         }
     }
 }
