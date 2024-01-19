@@ -250,7 +250,7 @@ namespace EtsTycoon
             Apprentice Rosa = new("Rosa (Luiz)", "18", "./sprites/apprentice/table/rosa/rosa1.png", "./sprites/apprentice/table/rosa/rosa2.png", 1, 300);
             Apprentice Marcos = new("Marcos Henrique", "20", "./sprites/apprentice/table/marcos/marcos1.png", "./sprites/apprentice/table/marcos/marcos2.png", 1, 300);
             Apprentice Mateus = new("Mateus Leite", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 1, 300);
-            Apprentice Maycon = new("Maycon Bertulino", "20", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 1, 300);
+            Apprentice Maycon = new("Maycon Bertulino", "20", "./sprites/apprentice/table/maycon/maycon1.png", "./sprites/apprentice/table/maycon/maycon2.png", 1, 300);
             Apprentice Murilo = new("Murilo Socek", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 1, 300);
             Apprentice Renato = new("Renato Mendes", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 1, 300);
             Apprentice Vinicius = new("Vinícius Lima", "19", "./sprites/apprentice/table/vini/vini1.png", "./sprites/apprentice/table/vini/vini2.png", 1, 300);
