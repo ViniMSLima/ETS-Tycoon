@@ -29,7 +29,7 @@ public class Structure
             Font font = new("Arial", 12, FontStyle.Bold);
             SizeF textSize = g.MeasureString(text, font);
 
-            g.DrawImage(NameBar, point.X - 22, point.Y - 82, textSize.Width + 40, textSize.Height + 170);
+            g.DrawImage(NameBar, point.X - 25, point.Y - 82, textSize.Width + 43, textSize.Height + 170);
             g.DrawString(text, font, textBrush, point);
         }
 

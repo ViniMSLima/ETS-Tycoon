@@ -20,11 +20,11 @@ namespace Structures
 
             this.Images = new()
             {
-                {"table", Bitmap.FromFile("sprites/table/table.png")},
+                {"instructorsTable", Bitmap.FromFile("sprites/instructors/instructorsTable.png")},
                 {"buy_table", Bitmap.FromFile("sprites/table/buy_table.png")},
                 {"buy_table_down", Bitmap.FromFile("sprites/table/buy_table_down.png")},
-                {"table_apprentice1", Bitmap.FromFile("./sprites/apprentice/table/tavares/tavares1.png")},
-                {"table_apprentice2", Bitmap.FromFile("./sprites/apprentice/table/tavares/tavares2.png")},
+                {"instructor1", Bitmap.FromFile("./sprites/instructors/instructor1.png")},
+                {"instructor2", Bitmap.FromFile("./sprites/instructors/instructor2.png")},
             };
         }
 
@@ -131,7 +131,7 @@ namespace Structures
         public override void BuyCheck()
         {
             if (this.Buy)
-                this.Img = Images["table"];
+                this.Img = Images["instructorsTable"];
         }
 
         public override void BuyCharacter(Graphics g, int index) {

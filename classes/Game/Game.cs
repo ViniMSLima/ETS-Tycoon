@@ -255,13 +255,13 @@ namespace EtsTycoon
             Apprentice Renato = new("Renato Mendes", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 1, 300);
             Apprentice Vinicius = new("Vinícius Lima", "19", "./sprites/apprentice/table/vini/vini1.png", "./sprites/apprentice/table/vini/vini2.png", 1, 300);
 
-            Instructor Trevisan = new("Trevisan", "24", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 5, 300);
-            Instructor Dom = new("Dom", "24", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 5, 300);
-            Instructor Fer = new("Fer", "24", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 5, 300);
-            Instructor Alisson = new("Alisson", "24", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 5, 300);
-            Instructor Queila = new("Queila", "24", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 5, 300);
-            Instructor Moll = new("Moll", "24", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 5, 300);
-            Instructor Balem = new("Balem", "24", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 5, 300);
+            Instructor Trevisan = new("Trevisan", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 300);
+            Instructor Dom = new("Dom", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 300);
+            Instructor Fer = new("Fer", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 300);
+            Instructor Alisson = new("Alisson", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 300);
+            Instructor Queila = new("Queila", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 300);
+            Instructor Moll = new("Moll", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 300);
+            Instructor Balem = new("Balem", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 300);
         }
     }
 }
