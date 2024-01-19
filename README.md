@@ -17,10 +17,11 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [x] The selected apprentice on store really goes to the table and affects money based on its values
 - [x] Apprentices are animated when on table
 - [x] Clicking on the store and dragging doesn't move the map
-- [ ] Implement instructors
-- [ ] Implement Instructors desk and Instructors Store
-- [ ] Instructor appear working
-- [ ] Instructors boost every apprentice on the room
+- [x] Transfer table function to Structure class virtual functions and override on InstructorsTable and future structures
+- [x] Implement instructors
+- [x] Implement Instructors desk and Instructors Store
+- [x] Instructor appear working
+- [x] Instructors boost every apprentice on the room
 - [ ] Draw Instructors
 - [ ] Draw workshop structures
 - [ ] Draw workshop apprentices
