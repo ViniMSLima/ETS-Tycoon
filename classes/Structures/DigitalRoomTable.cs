@@ -5,25 +5,26 @@ using Characters;
 
 namespace Structures
 {
-    public class Machine : Structure
+    public class DigitalRoomTable : Structure
     {
         public int Index { get; set; }
         public Apprentice Apprentice { get; set; }
 
-        public Machine()
+        public DigitalRoomTable()
         {
             Index = 0;
             this.Buy = false;
+            this.Img = Bitmap.FromFile("sprites/table/buy_table.png");
             this.Price = 20;
 
             this.Images = new()
             {
-                {"structure", Bitmap.FromFile("sprites/machines/drill.png")},
-                {"buy_structure", Bitmap.FromFile("sprites/machines/buy_machine.png")},
-                {"buy_structure_down", Bitmap.FromFile("sprites/machines/buy_machine_down.png")},
+                {"table", Bitmap.FromFile("sprites/table/table.png")},
+                {"buy_table", Bitmap.FromFile("sprites/table/buy_table.png")},
+                {"buy_table_down", Bitmap.FromFile("sprites/table/buy_table_down.png")},
+                {"table_apprentice1", Bitmap.FromFile("./sprites/apprentice/table/tavares/tavares1.png")},
+                {"table_apprentice2", Bitmap.FromFile("./sprites/apprentice/table/tavares/tavares2.png")},
             };
-
-            this.Img = Images["buy_structure"];
         }
 
         public override void Draw(Graphics g, float roomX, float roomY)
@@ -63,6 +64,7 @@ namespace Structures
 
             if (this.Apprentice != null)
                 DrawText(g, this.Apprentice.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
+
         }
 
         public override bool ClickCheck(PointF point, Graphics g)
@@ -112,7 +114,7 @@ namespace Structures
 
         public override void BuyStructure()
         {
-            this.Img = Images["buy_structure_down"];
+            this.Img = Images["buy_table_down"];
             if (Player.Money >= this.Price)
             {
                 this.Buy = true;
@@ -121,7 +123,7 @@ namespace Structures
             else
             {
                 MessageBox.Show("Not enough money!");
-                this.Img = Images["buy_structure"];
+                this.Img = Images["buy_table"];
             }
         }
         public override void BuyCharacter(Graphics g, int index)
@@ -138,12 +140,15 @@ namespace Structures
 
             else
                 MessageBox.Show("Not enough money!");
+
         }
 
         public override void BuyCheck()
         {
             if (this.Buy)
-                this.Img = Images["structure"];
+                this.Img = Images["table"];
         }
+
+        
     }
 }

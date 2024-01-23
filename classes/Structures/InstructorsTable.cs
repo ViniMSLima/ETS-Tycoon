@@ -15,14 +15,14 @@ namespace Structures
         {
             Index = 0;
             this.Buy = false;
-            this.Img = Bitmap.FromFile("sprites/table/buy_table.png");
+            this.Img = Bitmap.FromFile("sprites/instructors/buy_instructor.png");
             this.Price = 50;
 
             this.Images = new()
             {
                 {"instructorsTable", Bitmap.FromFile("sprites/instructors/instructorsTable.png")},
-                {"buy_table", Bitmap.FromFile("sprites/table/buy_table.png")},
-                {"buy_table_down", Bitmap.FromFile("sprites/table/buy_table_down.png")},
+                {"buy_table", Bitmap.FromFile("sprites/instructors/buy_instructor.png")},
+                {"buy_table_down", Bitmap.FromFile("sprites/instructors/buy_instructor_down.png")},
                 {"instructor1", Bitmap.FromFile("./sprites/instructors/instructor1.png")},
                 {"instructor2", Bitmap.FromFile("./sprites/instructors/instructor2.png")},
             };
@@ -34,7 +34,7 @@ namespace Structures
 
             Pen pen = new(Color.Red, 5f);
 
-            PointF[] test = new PointF[]{
+            PointF[] points = new PointF[]{
                 new(0, 0),
                 new(h, 0),
                 new(h, w),
@@ -42,7 +42,7 @@ namespace Structures
                 new(0, 0),
             }.ToIsometric(roomX + 120, roomY + 145);
 
-            this.Points = test;
+            this.Points = points;
 
             if (this.Buy && this.Instructor != null)
             {

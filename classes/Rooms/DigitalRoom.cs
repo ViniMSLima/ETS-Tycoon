@@ -37,7 +37,7 @@ namespace Rooms
             this.PositionsY = b;
 
             for (int i = 0; i < a.Length -1; i++)
-                this.Structures.Add(new Table());
+                this.Structures.Add(new DigitalRoomTable());
 
             this.Structures.Add(new InstructorsTable());
         }

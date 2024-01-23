@@ -5,12 +5,12 @@ using Characters;
 
 namespace Structures
 {
-    public class Machine : Structure
+    public class Drill : Structure
     {
         public int Index { get; set; }
         public Apprentice Apprentice { get; set; }
 
-        public Machine()
+        public Drill()
         {
             Index = 0;
             this.Buy = false;
@@ -19,8 +19,8 @@ namespace Structures
             this.Images = new()
             {
                 {"structure", Bitmap.FromFile("sprites/machines/drill.png")},
-                {"buy_structure", Bitmap.FromFile("sprites/machines/buy_machine.png")},
-                {"buy_structure_down", Bitmap.FromFile("sprites/machines/buy_machine_down.png")},
+                {"buy_structure", Bitmap.FromFile("sprites/machines/buy_drill.png")},
+                {"buy_structure_down", Bitmap.FromFile("sprites/machines/buy_drill_down.png")},
             };
 
             this.Img = Images["buy_structure"];
@@ -28,9 +28,7 @@ namespace Structures
 
         public override void Draw(Graphics g, float roomX, float roomY)
         {
-            float h = 40, w = 90;
-
-            Pen pen = new(Color.Red, 5f);
+            float h = 80, w = 90;
 
             PointF[] points = new PointF[]{
                 new(0, 0),
@@ -59,7 +57,7 @@ namespace Structures
                 }
             }
 
-            g.DrawImage(Img, roomX, roomY, 200, 200);
+            g.DrawImage(Img, roomX + 20, roomY - 20, 200, 200);
 
             if (this.Apprentice != null)
                 DrawText(g, this.Apprentice.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));

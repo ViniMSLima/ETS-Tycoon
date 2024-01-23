@@ -5,35 +5,32 @@ using Characters;
 
 namespace Structures
 {
-    public class Table : Structure
+    public class HexagonalTable : Structure
     {
         public int Index { get; set; }
         public Apprentice Apprentice { get; set; }
 
-        public Table()
+        public HexagonalTable()
         {
             Index = 0;
             this.Buy = false;
-            this.Img = Bitmap.FromFile("sprites/table/buy_table.png");
             this.Price = 20;
 
             this.Images = new()
             {
-                {"table", Bitmap.FromFile("sprites/table/table.png")},
-                {"buy_table", Bitmap.FromFile("sprites/table/buy_table.png")},
-                {"buy_table_down", Bitmap.FromFile("sprites/table/buy_table_down.png")},
-                {"table_apprentice1", Bitmap.FromFile("./sprites/apprentice/table/tavares/tavares1.png")},
-                {"table_apprentice2", Bitmap.FromFile("./sprites/apprentice/table/tavares/tavares2.png")},
+                {"structure", Bitmap.FromFile("sprites/machines/hexagonal_table.png")},
+                {"buy_structure", Bitmap.FromFile("sprites/machines/buy_drill.png")},
+                {"buy_structure_down", Bitmap.FromFile("sprites/machines/buy_drill_down.png")},
             };
+
+            this.Img = Images["buy_structure"];
         }
 
         public override void Draw(Graphics g, float roomX, float roomY)
         {
-            float h = 40, w = 90;
+            float h = 80, w = 90;
 
-            Pen pen = new(Color.Red, 5f);
-
-            PointF[] test = new PointF[]{
+            PointF[] points = new PointF[]{
                 new(0, 0),
                 new(h, 0),
                 new(h, w),
@@ -41,7 +38,7 @@ namespace Structures
                 new(0, 0),
             }.ToIsometric(roomX + 120, roomY + 145);
 
-            this.Points = test;
+            this.Points = points;
 
             if (this.Buy && this.Apprentice != null)
             {
@@ -60,11 +57,10 @@ namespace Structures
                 }
             }
 
-            g.DrawImage(Img, roomX, roomY, 200, 200);
+            g.DrawImage(Img, roomX + 20, roomY - 20, 240, 240);
 
             if (this.Apprentice != null)
                 DrawText(g, this.Apprentice.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
-
         }
 
         public override bool ClickCheck(PointF point, Graphics g)
@@ -114,7 +110,7 @@ namespace Structures
 
         public override void BuyStructure()
         {
-            this.Img = Images["buy_table_down"];
+            this.Img = Images["buy_structure_down"];
             if (Player.Money >= this.Price)
             {
                 this.Buy = true;
@@ -123,7 +119,7 @@ namespace Structures
             else
             {
                 MessageBox.Show("Not enough money!");
-                this.Img = Images["buy_table"];
+                this.Img = Images["buy_structure"];
             }
         }
         public override void BuyCharacter(Graphics g, int index)
@@ -140,15 +136,12 @@ namespace Structures
 
             else
                 MessageBox.Show("Not enough money!");
-
         }
 
         public override void BuyCheck()
         {
             if (this.Buy)
-                this.Img = Images["table"];
+                this.Img = Images["structure"];
         }
-
-        
     }
 }

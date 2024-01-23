@@ -23,8 +23,13 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [x] Instructor appear working
 - [x] Instructors boost every apprentice on the room
 - [ ] Draw Instructors
-- [ ] Draw workshop structures
-- [ ] Draw workshop apprentices
+- [ ] Draw workshop structures 2/13
+- [ ] Implement correct apprentices stores based on each room
+- [ ] Apprentice level up (Improves c/s)
+- [ ] Draw workshop apprentices 
 - [ ] Implement Workshop with structures
 - [ ] Implement more rooms
 - [ ] Draw boss room
+- [ ] Menu (Start, Load, Settings)
+- [ ] Settings screen (Music, Language, ...)
+- [ ] Improve store with more buttons and values

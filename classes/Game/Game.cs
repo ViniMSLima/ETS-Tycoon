@@ -200,6 +200,8 @@ namespace EtsTycoon
         {
             G.Clear(Color.White);
             G.DrawImage(Images["grid"], 0, 0, 2540, 1900);
+            G.DrawImage(Images["crosswalk"],  350 + Game.GeneralPosition.X, 50 + Game.GeneralPosition.Y, 800, 400);
+            G.DrawImage(Images["crosswalk"], -120 + Game.GeneralPosition.X, 285 + Game.GeneralPosition.Y, 800, 400);
 
             const int speed = 3;
             if (Index < speed)
@@ -219,8 +221,6 @@ namespace EtsTycoon
             foreach (Room r in Rooms)
                 r.Draw(G);
 
-            G.DrawImage(Images["crosswalk"],  350 + Game.GeneralPosition.X, 50 + Game.GeneralPosition.Y, 800, 400);
-            G.DrawImage(Images["crosswalk"], -120 + Game.GeneralPosition.X, 285 + Game.GeneralPosition.Y, 800, 400);
             G.DrawImage(this.Npc1, PositionNPC.X + Game.GeneralPosition.X, PositionNPC.Y + Game.GeneralPosition.Y, 200, 200);
             
             if(PositionNPC.X < -200)
