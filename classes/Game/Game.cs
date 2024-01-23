@@ -18,7 +18,7 @@ namespace EtsTycoon
         public Player Player { get; set; }
         public static PictureBox Pb { get; set; }
         public List<Room> Rooms { get; set; } = new();
-        public static Table OpenApprenticeStore { get; set; } = null;
+        public static Structure OpenApprenticeStore { get; set; } = null;
         public static InstructorsTable OpenInstructorStore { get; set; }
         public ApprenticeStore ApStore { get; set; } = new();
         public InstructorStore InStore { get; set; } = new();
@@ -74,7 +74,14 @@ namespace EtsTycoon
                 PositionY = 200 + GeneralPosition.Y
             };
 
+            Workshop Workshop = new()
+            {
+                PositionX = -734 + GeneralPosition.X,
+                PositionY = -797 + GeneralPosition.Y
+            };
+
             Rooms.Add(SalaETS);
+            Rooms.Add(Workshop);
 
             this.Load += (o, e) =>
             {
@@ -208,18 +215,18 @@ namespace EtsTycoon
                     Index = 0;
             }
 
+
+            foreach (Room r in Rooms)
+                r.Draw(G);
+
             G.DrawImage(Images["crosswalk"],  350 + Game.GeneralPosition.X, 50 + Game.GeneralPosition.Y, 800, 400);
             G.DrawImage(Images["crosswalk"], -120 + Game.GeneralPosition.X, 285 + Game.GeneralPosition.Y, 800, 400);
             G.DrawImage(this.Npc1, PositionNPC.X + Game.GeneralPosition.X, PositionNPC.Y + Game.GeneralPosition.Y, 200, 200);
-
             
             if(PositionNPC.X < -200)
                 Game.PositionNPC = new(1350, -300);
 
             Game.PositionNPC = new(PositionNPC.X - 2, PositionNPC.Y + 1);
-
-            foreach (Room r in Rooms)
-                r.Draw(G);
 
             if (OpenApprenticeStore != null)
                 ApStore.Draw(G);
