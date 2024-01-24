@@ -32,8 +32,6 @@ namespace Structures
         {
             float h = 40, w = 90;
 
-            Pen pen = new(Color.Red, 5f);
-
             PointF[] points = new PointF[]{
                 new(0, 0),
                 new(h, 0),
