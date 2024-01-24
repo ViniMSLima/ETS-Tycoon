@@ -16,14 +16,14 @@ namespace Rooms
             this.FloorImg = Bitmap.FromFile("./sprites/floor/bossroom.png");
 
             float[] a = {
-                         PositionX + 1150, 
+                         PositionX + 1120, 
                          PositionX + 870, PositionX + 960, PositionX + 1050,
                          PositionX + 700, PositionX + 850, PositionX +  940,
                          PositionX + 590, PositionX + 740, PositionX +  830
                          };
 
             float[] b = {
-                         PositionY + 100, 
+                         PositionY + 115, 
                          PositionY +  60, PositionY + 105, PositionY + 150,
                          PositionY +  85, PositionY + 160, PositionY + 205,
                          PositionY + 140, PositionY + 215, PositionY + 260
@@ -32,7 +32,7 @@ namespace Rooms
             this.PositionsX = a;
             this.PositionsY = b;
 
-            this.Structures.Add(new InstructorsDRTable());
+            this.Structures.Add(new InstructorsBRTable());
 
             for (int i = 1; i < a.Length; i++)
                 this.Structures.Add(new DoubleChairTable());

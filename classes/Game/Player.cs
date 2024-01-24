@@ -44,12 +44,24 @@ namespace EtsTycoon
             };
         }
 
+        public string FormatMoney(double money)
+        {
+            if (money >= 1000000000)
+                return (money / 1000000000).ToString("0.00") + "G";
+            else if (money >= 1000000)
+                return (money / 1000000).ToString("0.00") + "M";
+            else if (money >= 1000)
+                return (money / 1000).ToString("0.00") + "K";
+            else
+                return money.ToString("0.00");
+        }
+
         public void DrawInfo(PictureBox pb, Graphics g)
         {
             g.DrawImage(Back, 0, 0, 670, 120);
             pb.Controls.Add(this.CoinImg);
             pb.Controls.Add(this.Label);
-            this.Label.Text = $"${MathF.Round(Player.Money)} - {Player.CoinPerSecond} Coin/second";
+            this.Label.Text = $"${FormatMoney(Player.Money)} - {Player.CoinPerSecond} Coin/second";
         }
 
         DateTime last = DateTime.Now;
