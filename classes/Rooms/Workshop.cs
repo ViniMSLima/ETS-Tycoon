@@ -15,14 +15,16 @@ namespace Rooms
             this.FloorImg = Bitmap.FromFile("./sprites/floor/workshop.png");
 
             float[] a = {
-                         PositionX + 1300, PositionX + 1200, PositionX + 1100,
+                         PositionX + 1300, PositionX + 1200, PositionX + 1100, PositionX + 1000, PositionX + 900, PositionX + 800,
+                         PositionX + 400, PositionX + 500, PositionX + 600, PositionX + 700, PositionX + 800, PositionX + 900,
                          PositionX + 1000, PositionX + 800,
                          PositionX + 350
                          };
 
             float[] b = {
                          
-                         PositionY + 750, PositionY + 700, PositionY + 650,
+                         PositionY + 750, PositionY + 700, PositionY + 650, PositionY + 600, PositionY + 550, PositionY + 500,
+                         PositionY + 700, PositionY + 750, PositionY + 800, PositionY + 850, PositionY + 900, PositionY + 950,
                          PositionY + 800, PositionY + 700,
                          PositionY + 350
                          };
@@ -30,8 +32,11 @@ namespace Rooms
             this.PositionsX = a;
             this.PositionsY = b;
 
-            for (int i = 0; i < a.Length -3; i++)
+            for (int i = 0; i < 6; i++)
                 this.Structures.Add(new Drill());
+
+            for (int i = 6; i < 12; i++)
+                this.Structures.Add(new WorkshopTable());
 
             this.Structures.Add(new HexagonalTable());
             this.Structures.Add(new HexagonalTable());
