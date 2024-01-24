@@ -52,6 +52,14 @@ namespace EtsTycoon
                 new(Game.Pb.Width * 0.637f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.62f),
             };
 
+        public static PointF[] Close =
+            new PointF[]{
+                new(Game.Pb.Width * 0.12f,  Game.Pb.Height * 0.2f),
+                new(Game.Pb.Width * 0.12f,  Game.Pb.Height * 0.2f + Game.Pb.Height * 0.05f),
+                new(Game.Pb.Width * 0.12f + Game.Pb.Width * 0.1f,  Game.Pb.Height * 0.2f + Game.Pb.Height * 0.05f),
+                new(Game.Pb.Width * 0.12f + Game.Pb.Width * 0.1f,  Game.Pb.Height * 0.2f),
+            };
+
         public List<Image> Images { get; set; } = new()
         {
             Bitmap.FromFile("./sprites/backgrounds/storeBackground.png"),
@@ -60,7 +68,8 @@ namespace EtsTycoon
             Bitmap.FromFile("./sprites/button/rightButton.png"),
             Bitmap.FromFile("./sprites/button/leftButtonClicked.png"),
             Bitmap.FromFile("./sprites/button/rightButtonClicked.png"),
-            Bitmap.FromFile("./sprites/coin/Coin.gif")
+            Bitmap.FromFile("./sprites/coin/Coin.gif"),
+            Bitmap.FromFile("./sprites/button/close_button.png")
         };
 
         public Store()
@@ -107,6 +116,10 @@ namespace EtsTycoon
 
             if (inside && Game.OpenApprenticeStore != null)
             {
+                if(point.Y < 300)
+                {
+                    Game.OpenApprenticeStore = null;
+                }
                 if(point.X > 1581)
                 {
                     LeftButton = 5;
@@ -141,10 +154,14 @@ namespace EtsTycoon
             }
             else if (inside && Game.OpenInstructorStore != null)
             {
+                if(point.Y < 300)
+                {
+                    Game.OpenInstructorStore = null;
+                }
                 if(point.X > 1581)
                 {
                     LeftButton = 5;
-                    if (StoreIndex < 4)
+                    if (StoreIndex < 6)
                     {
                         StoreIndex++;
                     }
@@ -174,12 +191,12 @@ namespace EtsTycoon
             return inside;
         }
 
-        public void DrawText(Graphics g, string text, PointF point)
+        public void DrawText(Graphics g, string text, PointF point, int Size)
         {
             Color textColor = Color.BlanchedAlmond;
             SolidBrush textBrush = new(textColor);
 
-            Font font = new("Arial", 15, FontStyle.Bold);
+            Font font = new("Arial", Size, FontStyle.Bold);
             g.DrawString(text, font, textBrush, point);
         }
     }

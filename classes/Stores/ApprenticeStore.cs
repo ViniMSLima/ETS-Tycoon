@@ -17,6 +17,10 @@ namespace EtsTycoon
                 Game.Pb.Width  * 0.8f, 
                 Game.Pb.Height * 0.8f
             );
+            g.DrawImage(Images[7], 
+                Game.Pb.Width  * 0.12f, 
+                Game.Pb.Height * 0.2f
+            );
             g.DrawImage(Images[1], 
                 Game.Pb.Width  * 0.195f, 
                 Game.Pb.Height * 0.25f, 
@@ -87,17 +91,20 @@ namespace EtsTycoon
                 Game.Pb.Height * 0.4f
             );
 
-            DrawText(g, "Name: "  + Game.Apprentices[StoreIndex].Name,              new(Game.Pb.Width * 0.210f, Game.Pb.Height * 0.550f));
-            DrawText(g, "Age: "   + Game.Apprentices[StoreIndex].Age,               new(Game.Pb.Width * 0.210f, Game.Pb.Height * 0.575f));
-            DrawText(g, "C/sec: " + Game.Apprentices[StoreIndex].CoinPerSecond,     new(Game.Pb.Width * 0.210f, Game.Pb.Height * 0.600f));
+            DrawText(g, "Name: "  + Game.Apprentices[StoreIndex].Name,              new(Game.Pb.Width * 0.210f, Game.Pb.Height * 0.550f), 15);
+            DrawText(g, "Age: "   + Game.Apprentices[StoreIndex].Age,               new(Game.Pb.Width * 0.210f, Game.Pb.Height * 0.575f), 15);
+            DrawText(g, "C/sec: " + Game.Apprentices[StoreIndex].CoinPerSecond,     new(Game.Pb.Width * 0.210f, Game.Pb.Height * 0.600f), 15);
+            DrawText(g, "R$"      + Game.Apprentices[StoreIndex].Salary,            new(Game.Pb.Width * 0.265f, Game.Pb.Height * 0.655f), 25);
 
-            DrawText(g, "Name: "  + Game.Apprentices[StoreIndex + 1].Name,          new(Game.Pb.Width * 0.420f, Game.Pb.Height * 0.550f));
-            DrawText(g, "Age: "   + Game.Apprentices[StoreIndex + 1].Age,           new(Game.Pb.Width * 0.420f, Game.Pb.Height * 0.575f));
-            DrawText(g, "C/sec: " + Game.Apprentices[StoreIndex + 1].CoinPerSecond, new(Game.Pb.Width * 0.420f, Game.Pb.Height * 0.600f));
+            DrawText(g, "Name: "  + Game.Apprentices[StoreIndex + 1].Name,          new(Game.Pb.Width * 0.420f, Game.Pb.Height * 0.550f), 15);
+            DrawText(g, "Age: "   + Game.Apprentices[StoreIndex + 1].Age,           new(Game.Pb.Width * 0.420f, Game.Pb.Height * 0.575f), 15);
+            DrawText(g, "C/sec: " + Game.Apprentices[StoreIndex + 1].CoinPerSecond, new(Game.Pb.Width * 0.420f, Game.Pb.Height * 0.600f), 15);
+            DrawText(g, "R$"      + Game.Apprentices[StoreIndex + 1].Salary,        new(Game.Pb.Width * 0.475f, Game.Pb.Height * 0.655f), 25);
 
-            DrawText(g, "Name: "  + Game.Apprentices[StoreIndex  +2].Name,          new(Game.Pb.Width * 0.630f, Game.Pb.Height * 0.550f));
-            DrawText(g, "Age: "   + Game.Apprentices[StoreIndex + 2].Age,           new(Game.Pb.Width * 0.630f, Game.Pb.Height * 0.575f));
-            DrawText(g, "C/sec: " + Game.Apprentices[StoreIndex + 2].CoinPerSecond, new(Game.Pb.Width * 0.630f, Game.Pb.Height * 0.600f));
+            DrawText(g, "Name: "  + Game.Apprentices[StoreIndex + 2].Name,          new(Game.Pb.Width * 0.630f, Game.Pb.Height * 0.550f), 15);
+            DrawText(g, "Age: "   + Game.Apprentices[StoreIndex + 2].Age,           new(Game.Pb.Width * 0.630f, Game.Pb.Height * 0.575f), 15);
+            DrawText(g, "C/sec: " + Game.Apprentices[StoreIndex + 2].CoinPerSecond, new(Game.Pb.Width * 0.630f, Game.Pb.Height * 0.600f), 15);
+            DrawText(g, "R$"      + Game.Apprentices[StoreIndex + 2].Salary,        new(Game.Pb.Width * 0.685f, Game.Pb.Height * 0.655f), 25);
 
             RightButton = 2;
             LeftButton = 3;

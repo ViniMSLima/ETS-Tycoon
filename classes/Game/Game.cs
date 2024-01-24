@@ -157,6 +157,8 @@ namespace EtsTycoon
                     Store.ClickCheck(e.Location, Store.Btn3, OpenApprenticeStore, G);
                     Store.ClickCheck(e.Location, Store.Btn4, OpenApprenticeStore, G);
                     Store.ClickCheck(e.Location, Store.Btn5, OpenApprenticeStore, G);
+                    Store.ClickCheck(e.Location, Store.Close, OpenApprenticeStore, G);
+
                 }
                 else if (OpenInstructorStore != null)
                 {
@@ -167,6 +169,8 @@ namespace EtsTycoon
                     Store.ClickCheck(e.Location, Store.Btn3, OpenInstructorStore, G);
                     Store.ClickCheck(e.Location, Store.Btn4, OpenInstructorStore, G);
                     Store.ClickCheck(e.Location, Store.Btn5, OpenInstructorStore, G);
+                    Store.ClickCheck(e.Location, Store.Close, OpenApprenticeStore, G);
+
                 }
                 else
                 {
@@ -251,32 +255,34 @@ namespace EtsTycoon
 
         public static void CreateCharacters()
         {
-            Apprentice Anabelly = new("Anabelly Montibeller", "19", "./sprites/apprentice/table/table_apprentice1.png",  "./sprites/apprentice/table/table_apprentice2.png", 1, 300);
-            Apprentice Benhur = new("Benhur Feld", "18", "./sprites/apprentice/table/benhur/benhur1.png", "./sprites/apprentice/table/benhur/benhur2.png", 1, 300);
-            Apprentice Eliana = new("Eliana Almeida", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 1, 300);
-            Apprentice Emyli = new("Emyli Quadros", "19", "./sprites/apprentice/table/emyli/emyli1.png", "./sprites/apprentice/table/emyli/emyli2.png", 1, 300);
-            Apprentice Eric = new("Eric Coutinho", "18", "./sprites/apprentice/table/eric/eric1.png", "./sprites/apprentice/table/eric/eric2.png", 1, 300);
-            Apprentice Felipe = new("Felipe Vieira", "19", "./sprites/apprentice/table/felipe/felipe1.png", "./sprites/apprentice/table/felipe/felipe2.png", 1, 300);
-            Apprentice Guilherme = new("Guilherme Proença", "18", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 1, 300);
-            Apprentice Tavares = new("Tavares (Guilherme)", "18", "./sprites/apprentice/table/tavares/tavares1.png", "./sprites/apprentice/table/tavares/tavares2.png", 1, 300);
-            Apprentice Juan = new("Juan Campos", "22", "./sprites/apprentice/table/juan/juan1.png", "./sprites/apprentice/table/juan/juan2.png", 1, 300);
-            Apprentice Lander = new("Lander Gerotto", "19", "./sprites/apprentice/table/lander/lander1.png", "./sprites/apprentice/table/lander/lander2.png", 1, 300);
-            Apprentice Luis = new("Luis dos Santos", "19", "./sprites/apprentice/table/luis/luis1.png", "./sprites/apprentice/table/luis/luis2.png", 1, 300);
-            Apprentice Rosa = new("Rosa (Luiz)", "18", "./sprites/apprentice/table/rosa/rosa1.png", "./sprites/apprentice/table/rosa/rosa2.png", 1, 300);
-            Apprentice Marcos = new("Marcos Henrique", "20", "./sprites/apprentice/table/marcos/marcos1.png", "./sprites/apprentice/table/marcos/marcos2.png", 1, 300);
-            Apprentice Mateus = new("Mateus Leite", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 1, 300);
-            Apprentice Maycon = new("Maycon Bertulino", "20", "./sprites/apprentice/table/maycon/maycon1.png", "./sprites/apprentice/table/maycon/maycon2.png", 1, 300);
-            Apprentice Murilo = new("Murilo Socek", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 1, 300);
-            Apprentice Renato = new("Renato Mendes", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 1, 300);
-            Apprentice Vinicius = new("Vinícius Lima", "19", "./sprites/apprentice/table/vini/vini1.png", "./sprites/apprentice/table/vini/vini2.png", 1, 300);
+            Apprentice Anabelly = new("Anabelly Montibeller", "19", "./sprites/apprentice/table/table_apprentice1.png",  "./sprites/apprentice/table/table_apprentice2.png", 1, 100);
+            Apprentice Benhur = new("Benhur Feld", "18", "./sprites/apprentice/table/benhur/benhur1.png", "./sprites/apprentice/table/benhur/benhur2.png", 1, 100);
+            Apprentice Eliana = new("Eliana Almeida", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 1, 100);
+            Apprentice Emyli = new("Emyli Quadros", "19", "./sprites/apprentice/table/emyli/emyli1.png", "./sprites/apprentice/table/emyli/emyli2.png", 1, 100);
+            Apprentice Eric = new("Eric Coutinho", "18", "./sprites/apprentice/table/eric/eric1.png", "./sprites/apprentice/table/eric/eric2.png", 1, 100);
+            Apprentice Felipe = new("Felipe Vieira", "19", "./sprites/apprentice/table/felipe/felipe1.png", "./sprites/apprentice/table/felipe/felipe2.png", 1, 100);
+            Apprentice Guilherme = new("Guilherme Proença", "18", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 1, 100);
+            Apprentice Tavares = new("Tavares (Guilherme)", "18", "./sprites/apprentice/table/tavares/tavares1.png", "./sprites/apprentice/table/tavares/tavares2.png", 1, 100);
+            Apprentice Juan = new("Juan Campos", "22", "./sprites/apprentice/table/juan/juan1.png", "./sprites/apprentice/table/juan/juan2.png", 1, 100);
+            Apprentice Lander = new("Lander Gerotto", "19", "./sprites/apprentice/table/lander/lander1.png", "./sprites/apprentice/table/lander/lander2.png", 1, 100);
+            Apprentice Luis = new("Luis dos Santos", "19", "./sprites/apprentice/table/luis/luis1.png", "./sprites/apprentice/table/luis/luis2.png", 1, 100);
+            Apprentice Rosa = new("Rosa (Luiz)", "18", "./sprites/apprentice/table/rosa/rosa1.png", "./sprites/apprentice/table/rosa/rosa2.png", 1, 100);
+            Apprentice Marcos = new("Marcos Henrique", "20", "./sprites/apprentice/table/marcos/marcos1.png", "./sprites/apprentice/table/marcos/marcos2.png", 1, 100);
+            Apprentice Mateus = new("Mateus Leite", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 1, 100);
+            Apprentice Maycon = new("Maycon Bertulino", "20", "./sprites/apprentice/table/maycon/maycon1.png", "./sprites/apprentice/table/maycon/maycon2.png", 1, 100);
+            Apprentice Murilo = new("Murilo Socek", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 1, 100);
+            Apprentice Renato = new("Renato Mendes", "19", "./sprites/apprentice/table/table_apprentice1.png", "./sprites/apprentice/table/table_apprentice2.png", 1, 100);
+            Apprentice Vinicius = new("Vinícius Lima", "19", "./sprites/apprentice/table/vini/vini1.png", "./sprites/apprentice/table/vini/vini2.png", 1, 100);
 
-            Instructor Trevisan = new("Trevisan", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 300);
-            Instructor Dom = new("Dom", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 300);
-            Instructor Fer = new("Fer", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 300);
-            Instructor Alisson = new("Alisson", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 300);
-            Instructor Queila = new("Queila", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 300);
-            Instructor Moll = new("Moll", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 300);
-            Instructor Balem = new("Balem", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 300);
+            Instructor Trevisan = new("Trevisan", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 200);
+            Instructor Dom = new("Dom", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 200);
+            Instructor Fer = new("Fer", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 200);
+            Instructor Alisson = new("Alisson", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 200);
+            Instructor Queila = new("Queila", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 200);
+            Instructor Moll = new("Moll", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 200);
+            Instructor Balem = new("Balem", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 200);
+            Instructor GoldemBalem = new("Balem de Ouro", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 999);
+            Instructor GoldenDom = new("Dom de Ouro", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 999);
         }
     }
 }
