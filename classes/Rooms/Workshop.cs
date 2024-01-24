@@ -1,8 +1,7 @@
 using System.Windows.Forms;
 using System.Drawing;
-using System.Linq;
-using Structures;
 using MotherClasses;
+using Structures;
 using EtsTycoon;
 
 namespace Rooms

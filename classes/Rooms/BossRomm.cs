@@ -7,45 +7,42 @@ using EtsTycoon;
 
 namespace Rooms
 {
-    public class DigitalRoom : Room
+    public class BossRoom : Room
     {
         public PointF[] Polygon { get; set; }
 
-        public DigitalRoom()
+        public BossRoom()
         {
-            this.FloorImg = Bitmap.FromFile("./sprites/floor/digitalroom.png");
+            this.FloorImg = Bitmap.FromFile("./sprites/floor/bossroom.png");
 
             float[] a = {
-                         PositionX + 586, PositionX + 681, PositionX + 822, PositionX + 917,
-                         PositionX + 486, PositionX + 581, PositionX + 722, PositionX + 817,
-                         PositionX + 326, PositionX + 421, PositionX + 562, PositionX + 657,
-                         PositionX + 226, PositionX + 321, PositionX + 462, PositionX + 557,
-                         PositionX + 126, PositionX + 221, PositionX + 362, PositionX + 457,
-                         PositionX + 350
+                         PositionX + 1150, 
+                         PositionX + 870, PositionX + 960, PositionX + 1050,
+                         PositionX + 690, PositionX + 850, PositionX +  940,
+                         PositionX + 580, PositionX + 740, PositionX +  830
                          };
 
             float[] b = {
-                         PositionY -  72, PositionY -  24, PositionY +  51, PositionY +  99,
-                         PositionY -  22, PositionY +  26, PositionY + 101, PositionY + 149,
-                         PositionY +  58, PositionY + 106, PositionY + 181, PositionY + 229,
-                         PositionY + 108, PositionY + 156, PositionY + 231, PositionY + 279,
-                         PositionY + 158, PositionY + 206, PositionY + 281, PositionY + 329,
-                         PositionY + 370
+                         PositionY + 100, 
+                         PositionY +  60, PositionY + 105, PositionY + 150,
+                         PositionY +  90, PositionY + 165, PositionY + 210,
+                         PositionY + 150, PositionY + 225, PositionY + 270
                          };
 
             this.PositionsX = a;
             this.PositionsY = b;
 
-            for (int i = 0; i < a.Length -1; i++)
-                this.Structures.Add(new DRTable());
-
             this.Structures.Add(new InstructorsDRTable());
+
+            for (int i = 1; i < a.Length; i++)
+                this.Structures.Add(new DoubleChairTable());
+
         }
 
         public override void Draw(Graphics g)
         {
             g.DrawImage(FloorImg,
-                PositionX + Game.GeneralPosition.X, PositionY + Game.GeneralPosition.Y, 800+80*4, 450+45*4
+                PositionX + Game.GeneralPosition.X, PositionY + Game.GeneralPosition.Y, 1400, 630
             );
 
             for (int i = 0; i < this.Structures.Count; i++)

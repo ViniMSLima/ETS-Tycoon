@@ -6,12 +6,12 @@ using Characters;
 namespace Structures
 {
     
-    public class InstructorsTable : Structure
+    public class InstructorsDRTable : Structure
     {
         public int Index { get; set; }
         public Instructor Instructor { get; set; }
 
-        public InstructorsTable()
+        public InstructorsDRTable()
         {
             Index = 0;
             this.Buy = false;

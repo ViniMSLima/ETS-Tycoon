@@ -5,12 +5,12 @@ using Characters;
 
 namespace Structures
 {
-    public class DigitalRoomTable : Structure
+    public class DRTable : Structure
     {
         public int Index { get; set; }
         public Apprentice Apprentice { get; set; }
 
-        public DigitalRoomTable()
+        public DRTable()
         {
             Index = 0;
             this.Buy = false;
@@ -21,9 +21,7 @@ namespace Structures
             {
                 {"table", Bitmap.FromFile("sprites/table/table.png")},
                 {"buy_table", Bitmap.FromFile("sprites/table/buy_table.png")},
-                {"buy_table_down", Bitmap.FromFile("sprites/table/buy_table_down.png")},
-                {"table_apprentice1", Bitmap.FromFile("./sprites/apprentice/table/tavares/tavares1.png")},
-                {"table_apprentice2", Bitmap.FromFile("./sprites/apprentice/table/tavares/tavares2.png")},
+                {"buy_table_down", Bitmap.FromFile("sprites/table/buy_table_down.png")}
             };
         }
 

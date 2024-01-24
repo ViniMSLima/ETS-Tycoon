@@ -2,10 +2,9 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
 using MotherClasses;
+using Structures;
 using Characters;
 using Rooms;
-using System.Runtime.CompilerServices;
-using Structures;
 
 namespace EtsTycoon
 {
@@ -19,7 +18,7 @@ namespace EtsTycoon
         public static PictureBox Pb { get; set; }
         public List<Room> Rooms { get; set; } = new();
         public static Structure OpenApprenticeStore { get; set; } = null;
-        public static InstructorsTable OpenInstructorStore { get; set; }
+        public static Structure OpenInstructorStore { get; set; }
         public ApprenticeStore ApStore { get; set; } = new();
         public InstructorStore InStore { get; set; } = new();
         public bool DragAndHold { get; set; } = false;
@@ -80,8 +79,15 @@ namespace EtsTycoon
                 PositionY = -797 + GeneralPosition.Y
             };
 
+            BossRoom BossRoom = new()
+            {
+                PositionX = -530 + GeneralPosition.X,
+                PositionY = 567 + GeneralPosition.Y
+            };
+
             Rooms.Add(SalaETS);
             Rooms.Add(Workshop);
+            Rooms.Add(BossRoom);
 
             this.Load += (o, e) =>
             {
@@ -202,6 +208,8 @@ namespace EtsTycoon
             G.DrawImage(Images["grid"], 0, 0, 2540, 1900);
             G.DrawImage(Images["crosswalk"],  350 + Game.GeneralPosition.X, 50 + Game.GeneralPosition.Y, 800, 400);
             G.DrawImage(Images["crosswalk"], -120 + Game.GeneralPosition.X, 285 + Game.GeneralPosition.Y, 800, 400);
+            G.DrawImage(Images["crosswalk"], -590 + Game.GeneralPosition.X, 520 + Game.GeneralPosition.Y, 800, 400);
+            G.DrawImage(Images["crosswalk"], -1060 + Game.GeneralPosition.X, 755 + Game.GeneralPosition.Y, 800, 400);
 
             const int speed = 3;
             if (Index < speed)
@@ -223,7 +231,7 @@ namespace EtsTycoon
 
             G.DrawImage(this.Npc1, PositionNPC.X + Game.GeneralPosition.X, PositionNPC.Y + Game.GeneralPosition.Y, 200, 200);
             
-            if(PositionNPC.X < -200)
+            if(PositionNPC.X < -1060)
                 Game.PositionNPC = new(1350, -300);
 
             Game.PositionNPC = new(PositionNPC.X - 2, PositionNPC.Y + 1);
