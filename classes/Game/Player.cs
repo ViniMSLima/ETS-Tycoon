@@ -8,22 +8,10 @@ namespace EtsTycoon
 {
     public class Player
     {
-        public static float Money { get; set; }
-        public static int CoinPerSecond { get; set; }
-        public int Level { get; set; }
-        public PictureBox CoinImg { get; set; }
-        public Label Label { get; set; }
-        public List<Apprentice> Apprentices { get; set; }
-        public List<Instructor> Instructors { get; set; }
-        public Image Back { get; set; } = Bitmap.FromFile("./sprites/backgrounds/storeCenterButton.png");
-
-        public Player()
-        {
-            Money = 1500;
-            Level = 1;
-            CoinPerSecond = 1;
-
-            this.CoinImg = new()
+        public static float Money { get; set; } = 2000;
+        public static int CoinPerSecond { get; set; } = 1;
+        public static int Level { get; set; } = 1;
+        public PictureBox CoinImg { get; set; } = new()
             {
                 Width = 80,
                 Height = 80,
@@ -31,20 +19,20 @@ namespace EtsTycoon
                 ImageLocation = "./sprites/coin/coin.gif",
                 SizeMode = PictureBoxSizeMode.StretchImage
             };
-
-            this.Label = new()
+        public Label Label { get; set; } = new()
             {
                 Location = new Point(80, 20),
-                Text = $"${Player.Money} - {Player.CoinPerSecond} Coin/second",
                 BackColor = Color.FromArgb(0, 0, 0, 0),
                 ForeColor = Color.White,
-                Width = 1200,
-                Height = 100,
-                Font = new Font("Calibri", 40, FontStyle.Bold)
+                Width = 500,
+                Height = 200,
+                Font = new Font("Calibri", 30, FontStyle.Bold)
             };
-        }
+        public static List<Apprentice> Apprentices { get; set; } = new();
+        public static List<Instructor> Instructors { get; set; } = new();
+        public Image Back { get; set; } = Bitmap.FromFile("./sprites/backgrounds/back_info.png");
 
-        public string FormatMoney(double money)
+        public static string FormatMoney(double money)
         {
             if (money >= 1000000000)
                 return (money / 1000000000).ToString("0.00") + "G";
@@ -58,10 +46,10 @@ namespace EtsTycoon
 
         public void DrawInfo(PictureBox pb, Graphics g)
         {
-            g.DrawImage(Back, 0, 0, 670, 120);
+            g.DrawImage(Back, 0, 0, 550, 260);
             pb.Controls.Add(this.CoinImg);
             pb.Controls.Add(this.Label);
-            this.Label.Text = $"${FormatMoney(Player.Money)} - {Player.CoinPerSecond} Coin/second";
+            this.Label.Text = $"${FormatMoney(Player.Money)} - {Player.CoinPerSecond} C/s\nLevel: {Player.Level}\nApprentices: {Player.Apprentices.Count}\nInstructors: {Player.Instructors.Count}";
         }
 
         DateTime last = DateTime.Now;

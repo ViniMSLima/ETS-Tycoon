@@ -91,10 +91,7 @@ namespace EtsTycoon
 
             this.Load += (o, e) =>
             {
-                bmp = new Bitmap(
-                    Pb.Width,
-                    Pb.Height
-                );
+                bmp = new Bitmap(Pb.Width, Pb.Height);
 
                 G = Graphics.FromImage(bmp);
                 G.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
@@ -152,30 +149,18 @@ namespace EtsTycoon
                 {
                     voidClick = false;
                     ApStore.Draw(G);
-                    Store.ClickCheck(e.Location, Store.Btn1, OpenApprenticeStore, G);
-                    Store.ClickCheck(e.Location, Store.Btn2, OpenApprenticeStore, G);
-                    Store.ClickCheck(e.Location, Store.Btn3, OpenApprenticeStore, G);
-                    Store.ClickCheck(e.Location, Store.Btn4, OpenApprenticeStore, G);
-                    Store.ClickCheck(e.Location, Store.Btn5, OpenApprenticeStore, G);
-                    Store.ClickCheck(e.Location, Store.Close, OpenApprenticeStore, G);
-
+                    Store.ClickCheckAll(e.Location, OpenApprenticeStore, G);
                 }
                 else if (OpenInstructorStore != null)
                 {
                     voidClick = false;
                     ApStore.Draw(G);
-                    Store.ClickCheck(e.Location, Store.Btn1, OpenInstructorStore, G);
-                    Store.ClickCheck(e.Location, Store.Btn2, OpenInstructorStore, G);
-                    Store.ClickCheck(e.Location, Store.Btn3, OpenInstructorStore, G);
-                    Store.ClickCheck(e.Location, Store.Btn4, OpenInstructorStore, G);
-                    Store.ClickCheck(e.Location, Store.Btn5, OpenInstructorStore, G);
-                    Store.ClickCheck(e.Location, Store.Close, OpenApprenticeStore, G);
-
+                    Store.ClickCheckAll(e.Location, OpenInstructorStore, G);
                 }
                 else
                 {
                     foreach (Room r in Rooms){
-                        ClickCheck = r.ClickCheckAll(e.Location, G);
+                        ClickCheck = r.ClickCheckStructures(e.Location, G);
                         if(ClickCheck)
                             voidClick = false;
                     }
@@ -281,8 +266,8 @@ namespace EtsTycoon
             Instructor Queila = new("Queila", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 200);
             Instructor Moll = new("Moll", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 200);
             Instructor Balem = new("Balem", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 200);
-            Instructor GoldemBalem = new("Balem de Ouro", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 999);
-            Instructor GoldenDom = new("Dom de Ouro", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 5, 999);
+            Instructor GoldemBalem = new("Balem de Ouro", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 20, 999);
+            Instructor GoldenDom = new("Dom de Ouro", "24", "./sprites/instructors/instructor1.png", "./sprites/instructors/instructor2.png", 20, 999);
         }
     }
 }

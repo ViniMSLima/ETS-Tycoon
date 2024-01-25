@@ -6,7 +6,6 @@ using Rooms;
 
 namespace MotherClasses
 {
-
     public class Room
     {
         public int Level { get; set; }
@@ -14,16 +13,34 @@ namespace MotherClasses
         public Instructor RoomInstructor { get; set; }
         public float PositionX { get; set; }
         public float PositionY { get; set; }
+        public int Value { get; set; } = 1000; 
         public int SizeX { get; set; }
         public int SizeY { get; set; }
+        public bool Locked { get; set; } = true;
         public Image FloorImg { get; set; }
         public Image TableImg { get; set; }
         public List<Structure> Structures { get; set; } = new();
         public float[] PositionsX { get; set; }
         public float[] PositionsY { get; set; }
         public virtual void Draw(Graphics g) { }
-        public virtual void BuyCheckAll() { }
-        public virtual void ClickCheck(PointF point) { }
-        public virtual bool ClickCheckAll(System.Drawing.Point a, Graphics g) { return false; }
+        public void BuyCheckAll() {
+            for(int i = 0; i < Structures.Count; i++)
+            {
+                Structures[i].BuyCheck();
+            }
+         }
+        public bool ClickCheckStructures(System.Drawing.Point point, Graphics g) 
+        { 
+            bool a, b = false;
+
+            for(int i = 0; i < Structures.Count; i++)
+            {
+                a = Structures[i].ClickCheck(point, g);
+                if(a)
+                    b = true;
+            }
+
+            return b;
+         }
     }
 }

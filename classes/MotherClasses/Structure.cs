@@ -17,7 +17,11 @@ public class Structure
 
     public virtual void Draw(Graphics g, float roomX, float roomY) { }
 
-    public virtual void BuyCheck() { }
+    public void BuyCheck() {
+        if (this.Buy)
+                this.Img = Images["structure"];
+     }
+
     public virtual void BuyStructure() { }
     public virtual void BuyCharacter(Graphics g, int index) { }
     public virtual bool ClickCheck(PointF point, Graphics g) {return false;}

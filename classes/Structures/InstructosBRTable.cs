@@ -20,9 +20,9 @@ namespace Structures
 
             this.Images = new()
             {
-                {"instructorsTable", Bitmap.FromFile("sprites/table/instructor_BR_table.png")},
-                {"buy_table", Bitmap.FromFile("sprites/instructors/buy_instructor.png")},
-                {"buy_table_down", Bitmap.FromFile("sprites/instructors/buy_instructor_down.png")}
+                {"structure", Bitmap.FromFile("sprites/table/instructor_BR_table.png")},
+                {"buy_structure", Bitmap.FromFile("sprites/instructors/buy_instructor.png")},
+                {"buy_structure_down", Bitmap.FromFile("sprites/instructors/buy_instructor_down.png")}
             };
         }
 
@@ -113,7 +113,7 @@ namespace Structures
 
         public override void BuyStructure()
         {
-            this.Img = Images["buy_table_down"];
+            this.Img = Images["buy_structure_down"];
             if (Player.Money >= this.Price)
             {
                 this.Buy = true;
@@ -122,14 +122,8 @@ namespace Structures
             else
             {
                 MessageBox.Show("Not enough money!");
-                this.Img = Images["buy_table"];
+                this.Img = Images["buy_structure"];
             }
-        }
-
-        public override void BuyCheck()
-        {
-            if (this.Buy)
-                this.Img = Images["instructorsTable"];
         }
 
         public override void BuyCharacter(Graphics g, int index) {
@@ -141,6 +135,7 @@ namespace Structures
                 Player.Money -= this.Instructor.Salary;
                 Game.OpenInstructorStore = null;
                 Store.StoreIndex = 0;
+                Player.Instructors.Add(this.Instructor);
             }
 
             else

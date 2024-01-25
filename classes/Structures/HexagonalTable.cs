@@ -132,16 +132,12 @@ namespace Structures
                 Player.Money -= this.Apprentice.Salary;
                 Game.OpenApprenticeStore = null;
                 Store.StoreIndex = 0;
+                Player.Apprentices.Add(this.Apprentice);
             }
 
             else
                 MessageBox.Show("Not enough money!");
         }
 
-        public override void BuyCheck()
-        {
-            if (this.Buy)
-                this.Img = Images["structure"];
-        }
     }
 }

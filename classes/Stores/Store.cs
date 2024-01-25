@@ -199,5 +199,15 @@ namespace EtsTycoon
             Font font = new("Arial", Size, FontStyle.Bold);
             g.DrawString(text, font, textBrush, point);
         }
+
+        internal static void ClickCheckAll(Point location, Structure OpenStore, Graphics g)
+        {
+            Store.ClickCheck(location, Store.Btn1, OpenStore, g);
+            Store.ClickCheck(location, Store.Btn2, OpenStore, g);
+            Store.ClickCheck(location, Store.Btn3, OpenStore, g);
+            Store.ClickCheck(location, Store.Btn4, OpenStore, g);
+            Store.ClickCheck(location, Store.Btn5, OpenStore, g);
+            Store.ClickCheck(location, Store.Close, OpenStore, g);
+        }
     }
 }
