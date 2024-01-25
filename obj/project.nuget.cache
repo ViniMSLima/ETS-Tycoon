@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "GrUv1JgCg2nbketwRQV3T/1Jb1aVGp+hPHMvuqxN9e3CfpFDLOhzb/6ZNW74iGYD/tqDFmU7zD1H7HNnRSDFJg==",
+  "dgSpecHash": "BBvDYIO3oCS4tAdiOv+fjlq3y8VAPi+fLO6/+RTbJvIS/aeHFyh2y0IiGAoWP673YFI+Q1aPFjTAAFQUkD4OMQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\disrct\\Desktop\\ETS-Tycoon\\winformsApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\disrct\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

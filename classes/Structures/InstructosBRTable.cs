@@ -1,7 +1,9 @@
 using System.Windows.Forms;
 using System.Drawing;
-using EtsTycoon;
+
+using MotherClasses;
 using Characters;
+using EtsTycoon;
 
 namespace Structures
 {
@@ -127,7 +129,7 @@ namespace Structures
         }
 
         public override void BuyCharacter(Graphics g, int index) {
-            if (Player.Money >= 300 && this.Instructor == null)
+            if (Player.Money >= Game.Instructors[index].Salary && this.Instructor == null)
             {
                 this.Instructor = Game.Instructors[index];
 

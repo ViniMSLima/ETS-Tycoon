@@ -1,5 +1,5 @@
-using System.Windows.Forms;
 using System.Drawing;
+
 using MotherClasses;
 using Structures;
 using EtsTycoon;
@@ -37,8 +37,6 @@ namespace Rooms
 
             this.Structures.Add(new HexagonalTable());
             this.Structures.Add(new HexagonalTable());
-
-            // this.Structures.Add(new InstructorsTable());
         }
 
         public override void Draw(Graphics g)

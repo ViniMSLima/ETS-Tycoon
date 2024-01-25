@@ -1,7 +1,6 @@
-using System.Windows.Forms;
 using System.Drawing;
+
 using MotherClasses;
-using System.Linq;
 using Structures;
 using EtsTycoon;
 

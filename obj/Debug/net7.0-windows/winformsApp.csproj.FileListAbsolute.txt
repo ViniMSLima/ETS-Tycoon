@@ -99,3 +99,5 @@ C:\Users\disrct\Desktop\ETS-Tycoon\obj\Debug\net7.0-windows\refint\winformsApp.d
 C:\Users\disrct\Desktop\ETS-Tycoon\obj\Debug\net7.0-windows\winformsApp.pdb
 C:\Users\disrct\Desktop\ETS-Tycoon\obj\Debug\net7.0-windows\winformsApp.genruntimeconfig.cache
 C:\Users\disrct\Desktop\ETS-Tycoon\obj\Debug\net7.0-windows\ref\winformsApp.dll
+C:\Users\disrct\Desktop\ETS-Tycoon\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
+C:\Users\disrct\Desktop\ETS-Tycoon\obj\Debug\net7.0-windows\winformsApp.csproj.CopyComplete

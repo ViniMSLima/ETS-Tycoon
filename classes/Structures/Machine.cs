@@ -1,7 +1,9 @@
 using System.Windows.Forms;
 using System.Drawing;
-using EtsTycoon;
+
+using MotherClasses;
 using Characters;
+using EtsTycoon;
 
 namespace Structures
 {
@@ -18,9 +20,9 @@ namespace Structures
 
             this.Images = new()
             {
-                {"structure", Bitmap.FromFile("sprites/machines/drill.png")},
-                {"buy_structure", Bitmap.FromFile("sprites/machines/buy_machine.png")},
-                {"buy_structure_down", Bitmap.FromFile("sprites/machines/buy_machine_down.png")},
+                {"structure", Bitmap.FromFile("sprites/machines/machine2.png")},
+                {"buy_structure", Bitmap.FromFile("sprites/button.png")},
+                {"buy_structure_down", Bitmap.FromFile("sprites/machines/button2.png")},
             };
 
             this.Img = Images["buy_structure"];
@@ -47,12 +49,12 @@ namespace Structures
                 const int speed = 3;
                 if (Index < speed)
                 {
-                    this.Img = this.Apprentice.img[0];
+                    this.Img = this.Apprentice.Img[0];
                     Index++;
                 }
                 else
                 {
-                    this.Img = this.Apprentice.img[1];
+                    this.Img = this.Apprentice.Img[1];
                     Index++;
                     if (Index > 2 * speed)
                         Index = 0;
@@ -126,7 +128,7 @@ namespace Structures
         }
         public override void BuyCharacter(Graphics g, int index)
         {
-            if (Player.Money >= 300 && this.Apprentice == null)
+            if (Player.Money >= Game.Apprentices[index].Salary && this.Apprentice == null)
             {
                 this.Apprentice = Game.Apprentices[index];
 

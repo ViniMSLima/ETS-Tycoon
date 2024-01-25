@@ -12,13 +12,13 @@ namespace Characters
         public int Boost { get; set; }
         public int Salary { get; set; }
 
-        public Instructor(string name, string age, string img1Path, string img2Path, int boost, int salary)
+        public Instructor(CharactersData characterData)
         {
-            this.Name = name;
-            this.Age = age;
-            this.Boost = boost;
-            this.Salary = salary;
-            this.img = new(){Bitmap.FromFile(img1Path), Bitmap.FromFile(img2Path)};
+            this.Name = characterData.Name;
+            this.Age = characterData.Age;
+            this.Boost = characterData.Gain;
+            this.Salary = characterData.Salary;
+            this.img = new(){Bitmap.FromFile(characterData.Img1), Bitmap.FromFile(characterData.Img2)};
             Game.Instructors.Add(this);
         }
     }

@@ -1,14 +1,15 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
-using Characters;
 using System;
+
+using Characters;
 
 namespace EtsTycoon
 {
     public class Player
     {
-        public static float Money { get; set; } = 2000;
+        public static float Money { get; set; } = 9999999999;
         public static int CoinPerSecond { get; set; } = 1;
         public static int Level { get; set; } = 1;
         public PictureBox CoinImg { get; set; } = new()
@@ -30,7 +31,11 @@ namespace EtsTycoon
             };
         public static List<Apprentice> Apprentices { get; set; } = new();
         public static List<Instructor> Instructors { get; set; } = new();
-        public Image Back { get; set; } = Bitmap.FromFile("./sprites/backgrounds/back_info.png");
+        public Dictionary<string, Image> Images { get; set; } = new(){ 
+            {"back", Bitmap.FromFile("./sprites/backgrounds/back_info3.png")},
+            {"c_config", Bitmap.FromFile("./sprites/button/c_config.png")},
+            {"b_store", Bitmap.FromFile("./sprites/button/b_store.png")}
+        };
 
         public static string FormatMoney(double money)
         {
@@ -44,12 +49,16 @@ namespace EtsTycoon
                 return money.ToString("0.00");
         }
 
-        public void DrawInfo(PictureBox pb, Graphics g)
+        public void Draw(PictureBox pb, Graphics g)
         {
-            g.DrawImage(Back, 0, 0, 550, 260);
+            g.DrawImage(Images["back"], 0, 0, 550, 260);
             pb.Controls.Add(this.CoinImg);
             pb.Controls.Add(this.Label);
+
             this.Label.Text = $"${FormatMoney(Player.Money)} - {Player.CoinPerSecond} C/s\nLevel: {Player.Level}\nApprentices: {Player.Apprentices.Count}\nInstructors: {Player.Instructors.Count}";
+            g.DrawImage(Images["c_config"], 10, pb.Height - 100, 250, 100);
+            g.DrawImage(Images["b_store"], 10, pb.Height - 180, 250, 100);
+
         }
 
         DateTime last = DateTime.Now;
