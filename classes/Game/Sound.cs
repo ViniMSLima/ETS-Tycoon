@@ -17,7 +17,7 @@ public class Sound
         "./soundtracks/OpenStore.wav"
     };
 
-    public static void InitializeSounds()
+    public static void StartMusic()
     {
         if (waveOut == null)
         {

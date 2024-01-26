@@ -13,10 +13,9 @@ namespace EtsTycoon
 {
     public class Game : Form
     {
-        public Graphics G { get; set; }
-        public Bitmap Bmp { get; set; }
+        public Graphics G { get; set; } = null;
+        public Bitmap Bmp { get; set; } = null;
         public Timer Tmr { get; set; }
-        public int TickCounter { get; set; }
         public Player Player { get; set; }
         public static PictureBox Pb { get; set; }
         public List<Room> Rooms { get; set; } = new();
@@ -39,26 +38,17 @@ namespace EtsTycoon
         public static PointF GeneralPosition { get; set; } = new(0, 0);
         public static PointF PositionNPC { get; set; } = new(1150 + GeneralPosition.X, -200 + GeneralPosition.X);
         public Image Npc1 { get; set; }
-        public int Index { get; set; }
+        public int Index { get; set; } = 0;
 
         public Game()
         {
-            Index = 0;
-            Bitmap bmp = null;
-            Graphics g = null;
-            System.Media.SoundPlayer sound = new()
-            {
-                SoundLocation = "./soundtracks/And_so_it_begins.wav"
-            };
 
             var timer = new Timer
             {
                 Interval = 20,
             };
 
-            this.G = g;
             this.Tmr = timer;
-            this.Bmp = bmp;
             this.Player = new();
 
             Pb = new()
@@ -93,17 +83,17 @@ namespace EtsTycoon
 
             this.Load += (o, e) =>
             {
-                bmp = new Bitmap(Pb.Width, Pb.Height);
+                Bmp = new Bitmap(Pb.Width, Pb.Height);
 
-                G = Graphics.FromImage(bmp);
+                G = Graphics.FromImage(Bmp);
                 G.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
                 G.Clear(Color.Black);
 
                 CreateCharacters();
 
-                Pb.Image = bmp;
+                Pb.Image = Bmp;
                 timer.Start();
-                sound.PlayLooping();
+                Sound.StartMusic();
             };
 
             Controls.Add(Pb);
@@ -114,11 +104,13 @@ namespace EtsTycoon
                 switch (e.KeyCode)
                 {
                     case Keys.Escape:
-                        if (Game.OpenApprenticeStore != null || Game.OpenInstructorStore != null || Game.OpenUpgradesStore == true)
+                        if (OpenApprenticeStore != null || 
+                            OpenInstructorStore != null ||
+                            OpenUpgradesStore == true)
                         {
-                            Game.OpenApprenticeStore = null;
-                            Game.OpenInstructorStore = null;
-                            Game.OpenUpgradesStore = false;
+                            OpenApprenticeStore = null;
+                            OpenInstructorStore = null;
+                            OpenUpgradesStore = false;
                             CharactersStore.StoreIndex = 0;
                         }
                         else
@@ -209,51 +201,18 @@ namespace EtsTycoon
         public void Tick()
         {
             G.Clear(Color.White);
-            G.DrawImage(Images["grid"], 0, 0, 2540, 1900);
-            G.DrawImage(Images["crosswalk"], 350 + Game.GeneralPosition.X, 50 + Game.GeneralPosition.Y, 800, 400);
-            G.DrawImage(Images["crosswalk"], -120 + Game.GeneralPosition.X, 285 + Game.GeneralPosition.Y, 800, 400);
-            G.DrawImage(Images["crosswalk"], -590 + Game.GeneralPosition.X, 520 + Game.GeneralPosition.Y, 800, 400);
-            G.DrawImage(Images["crosswalk"], -1060 + Game.GeneralPosition.X, 755 + Game.GeneralPosition.Y, 800, 400);
 
-            const int speed = 3;
-            if (Index < speed)
-            {
-                this.Npc1 = Images["limpador"];
-                Index++;
-            }
-            else
-            {
-                this.Npc1 = Images["limpador2"];
-                Index++;
-                if (Index > 2 * speed)
-                    Index = 0;
-            }
-
-
+            DrawRoad();
+            
             foreach (Room r in Rooms)
                 r.Draw(G);
 
-            G.DrawImage(this.Npc1, PositionNPC.X + Game.GeneralPosition.X, PositionNPC.Y + Game.GeneralPosition.Y, 200, 200);
-
-            if (PositionNPC.X < -1060)
-                Game.PositionNPC = new(1350, -300);
-
-            Game.PositionNPC = new(PositionNPC.X - 2, PositionNPC.Y + 1);
-
+            DrawNPC();
             Player.Draw(Pb, G);
 
-            if (OpenApprenticeStore != null)
-                CharactersStore.Draw(G, "Apprentice");
-
-            if (OpenInstructorStore != null)
-                CharactersStore.Draw(G, "Instructor");
-
-            if (OpenUpgradesStore)
-                CharactersStore.Draw(G, "Upgrade");
+            DrawStore();
 
             Pb.Refresh();
-
-            TickCounter = 0;
             Player.UpdateMoney();
         }
 
@@ -269,6 +228,61 @@ namespace EtsTycoon
                 else
                     _ = new Instructor(characterData);
             }
+        }
+
+        public void DrawIntro()
+        {
+
+        }
+
+        public void DrawGame()
+        {
+
+        }
+
+        public void DrawRoad()
+        {
+            G.DrawImage(Images["grid"], 0, 0, 2540, 1900);
+            G.DrawImage(Images["crosswalk"], 350 + Game.GeneralPosition.X, 50 + Game.GeneralPosition.Y, 800, 400);
+            G.DrawImage(Images["crosswalk"], -120 + Game.GeneralPosition.X, 285 + Game.GeneralPosition.Y, 800, 400);
+            G.DrawImage(Images["crosswalk"], -590 + Game.GeneralPosition.X, 520 + Game.GeneralPosition.Y, 800, 400);
+            G.DrawImage(Images["crosswalk"], -1060 + Game.GeneralPosition.X, 755 + Game.GeneralPosition.Y, 800, 400);
+        }
+
+        public void DrawStore()
+        {
+            if (OpenApprenticeStore != null)
+                CharactersStore.Draw(G, "Apprentice");
+
+            if (OpenInstructorStore != null)
+                CharactersStore.Draw(G, "Instructor");
+
+            if (OpenUpgradesStore)
+                CharactersStore.Draw(G, "Upgrade");
+        }
+
+        public void DrawNPC()
+        {
+            const int speed = 3;
+            if (Index < speed)
+            {
+                this.Npc1 = Images["limpador"];
+                Index++;
+            }
+            else
+            {
+                this.Npc1 = Images["limpador2"];
+                Index++;
+                if (Index > 2 * speed)
+                    Index = 0;
+            }
+
+            G.DrawImage(this.Npc1, PositionNPC.X + Game.GeneralPosition.X, PositionNPC.Y + Game.GeneralPosition.Y, 200, 200);
+
+            if (PositionNPC.X < -1060)
+                Game.PositionNPC = new(1350, -300);
+
+            Game.PositionNPC = new(PositionNPC.X - 2, PositionNPC.Y + 1);
         }
     }
 }
