@@ -252,13 +252,22 @@ namespace EtsTycoon
         public void DrawStore()
         {
             if (OpenApprenticeStore != null)
+            {
+                G.DrawImage(Bitmap.FromFile("./sprites/teste.png"), 0, 0);
                 CharactersStore.Draw(G, "Apprentice");
+            }
 
             if (OpenInstructorStore != null)
+            {
+                G.DrawImage(Bitmap.FromFile("./sprites/teste.png"), 0, 0);
                 CharactersStore.Draw(G, "Instructor");
+            }
 
             if (OpenUpgradesStore)
+            {
+                G.DrawImage(Bitmap.FromFile("./sprites/teste.png"), 0, 0);
                 CharactersStore.Draw(G, "Upgrade");
+            }
         }
 
         public void DrawNPC()
