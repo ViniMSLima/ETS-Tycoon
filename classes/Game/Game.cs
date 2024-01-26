@@ -143,6 +143,7 @@ namespace EtsTycoon
                         break;
 
                     case Keys.B:
+                        Sound.PlaySFX1(3);
                         OpenUpgradesStore = true;
                         break;
                 }

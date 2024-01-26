@@ -104,7 +104,10 @@ namespace Structures
             if (inside)
             {
                 if (this.Buy)
+                {
+                    Sound.PlaySFX2(3);
                     Game.OpenApprenticeStore = this;
+                }
 
                 else BuyStructure();
             }

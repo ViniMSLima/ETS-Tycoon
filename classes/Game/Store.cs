@@ -168,7 +168,7 @@ namespace EtsTycoon
                 RightButton = 2;
                 LeftButton = 3;
             }
-            else if(storeType == "Apprentice")
+            else if (storeType == "Apprentice")
             {
                 g.DrawImage(Game.Apprentices[StoreIndex].Img[0],
                 Game.Pb.Width * 0.190f,
@@ -209,7 +209,7 @@ namespace EtsTycoon
                 RightButton = 2;
                 LeftButton = 3;
             }
-            else 
+            else
             {
 
             }
@@ -267,18 +267,18 @@ namespace EtsTycoon
                 else if (point.X > 1224)
                 {
                     b.BuyCharacter(g, StoreIndex + 2);
-                    Sound.PlaySFX();
+                    Sound.PlaySFX1(0);
                 }
                 else if (point.X > 821)
                 {
                     b.BuyCharacter(g, StoreIndex + 1);
-                    Sound.PlaySFX();
+                    Sound.PlaySFX1(0);
 
                 }
                 else if (point.X > 418)
                 {
                     b.BuyCharacter(g, StoreIndex);
-                    Sound.PlaySFX();
+                    Sound.PlaySFX1(0);
 
                 }
                 else if (point.X < 350)
@@ -308,13 +308,28 @@ namespace EtsTycoon
                 else if (point.X > 1224)
                 {
                     b.BuyCharacter(g, StoreIndex + 2);
+                    Game.OpenApprenticeStore = null;
+                    Game.OpenInstructorStore = null;
+                    Game.OpenUpgradesStore = false;
+                    CharactersStore.StoreIndex = 0;
                 }
                 else if (point.X > 821)
+                {
                     b.BuyCharacter(g, StoreIndex + 1);
+                    Game.OpenApprenticeStore = null;
+                    Game.OpenInstructorStore = null;
+                    Game.OpenUpgradesStore = false;
+                    CharactersStore.StoreIndex = 0;
+                }
+
 
                 else if (point.X > 418)
                 {
                     b.BuyCharacter(g, StoreIndex);
+                    Game.OpenApprenticeStore = null;
+                    Game.OpenInstructorStore = null;
+                    Game.OpenUpgradesStore = false;
+                    CharactersStore.StoreIndex = 0;
 
                 }
                 else if (point.X < 350)

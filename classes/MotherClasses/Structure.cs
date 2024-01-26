@@ -22,9 +22,8 @@ namespace MotherClasses
 
         public void BuyCheck()
         {
-            if (this.Buy)
+            if (this.Buy && this.Img != Images["structure"])
             {
-                Sound.PlaySFX();
                 this.Img = Images["structure"];
             }
         }

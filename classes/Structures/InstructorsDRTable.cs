@@ -105,8 +105,10 @@ namespace Structures
             if (inside)
             {
                 if (this.Buy)
+                {
+                    Sound.PlaySFX2(3);
                     Game.OpenInstructorStore = this;
-
+                }
                 else BuyStructure();
             }
 
@@ -140,6 +142,7 @@ namespace Structures
                 Game.OpenInstructorStore = null;
                 CharactersStore.StoreIndex = 0;
                 Player.Instructors.Add(this.Instructor);
+                Sound.PlaySFX1(0);
             }
 
             else

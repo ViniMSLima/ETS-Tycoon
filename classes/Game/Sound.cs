@@ -1,12 +1,21 @@
+using System;
 using System.Windows.Forms;
 using NAudio.Wave;
 
 public class Sound
 {
     private static WaveOut waveOut;
-    private static WaveOutEvent MusicOutputDevice;
-    private static WaveOutEvent SFXOutputDevice;
+    private static WaveOutEvent SFX1OutputDevice;
+    private static WaveOutEvent SFX2OutputDevice;
     private static AudioFileReader audioFile;
+    private static AudioFileReader audioFile2;
+
+    public static String[] Audios { get; set; }= {
+        "./soundtracks/Cash.wav",
+        "./soundtracks/Rizz.wav",
+        "./soundtracks/Horn.wav",
+        "./soundtracks/OpenStore.wav"
+    };
 
     public static void InitializeSounds()
     {
@@ -26,28 +35,53 @@ public class Sound
         }
     }
 
-    public static void PlaySFX()
+    public static void PlaySFX1(int a)
     {
-        if (SFXOutputDevice == null)
+        if (SFX1OutputDevice == null)
         {
-            SFXOutputDevice = new WaveOutEvent();
-            SFXOutputDevice.PlaybackStopped += OnPlaybackStopped;
+            SFX1OutputDevice = new WaveOutEvent();
+            SFX1OutputDevice.PlaybackStopped += OnPlaybackStopped1;
         }
 
         if (audioFile == null)
         {
-            audioFile = new AudioFileReader("./soundtracks/Cash.wav");
-            SFXOutputDevice.Init(audioFile);
+            audioFile = new(Audios[a]);
+            SFX1OutputDevice.Init(audioFile);
         }
 
-        SFXOutputDevice.Play();
+        SFX1OutputDevice.Play();
     }
 
-    public static void OnPlaybackStopped(object sender, StoppedEventArgs args)
+    public static void OnPlaybackStopped1(object sender, StoppedEventArgs args)
     {
-        SFXOutputDevice.Dispose();
-        SFXOutputDevice = null;
+        SFX1OutputDevice.Dispose();
+        SFX1OutputDevice = null;
         audioFile.Dispose();
         audioFile = null;
+    }
+
+    public static void PlaySFX2(int a)
+    {
+        if (SFX2OutputDevice == null)
+        {
+            SFX2OutputDevice = new WaveOutEvent();
+            SFX2OutputDevice.PlaybackStopped += OnPlaybackStopped2;
+        }
+
+        if (audioFile2 == null)
+        {
+            audioFile2 = new(Audios[a]);
+            SFX2OutputDevice.Init(audioFile2);
+        }
+
+        SFX2OutputDevice.Play();
+    }
+
+    public static void OnPlaybackStopped2(object sender, StoppedEventArgs args)
+    {
+        SFX2OutputDevice.Dispose();
+        SFX2OutputDevice = null;
+        audioFile2.Dispose();
+        audioFile2 = null;
     }
 }
