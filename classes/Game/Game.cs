@@ -56,6 +56,7 @@ namespace EtsTycoon
                 Dock = DockStyle.Fill,
             };
 
+
             WindowState = FormWindowState.Maximized;
             FormBorderStyle = FormBorderStyle.None;
 
@@ -83,6 +84,7 @@ namespace EtsTycoon
 
             this.Load += (o, e) =>
             {
+                this.Cursor = new Cursor("./sprites/cursor.cur");
                 Bmp = new Bitmap(Pb.Width, Pb.Height);
 
                 G = Graphics.FromImage(Bmp);
@@ -200,6 +202,7 @@ namespace EtsTycoon
 
         public void Tick()
         {
+            
             G.Clear(Color.White);
 
             DrawRoad();

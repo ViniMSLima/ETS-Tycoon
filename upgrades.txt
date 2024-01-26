@@ -9,7 +9,6 @@ Better workspace: An upgrade that improves the player's physical workspace, prov
 Increased productivity: An upgrade that improves the player's overall productivity, allowing them to generate more clicks (or "cookies") in less time.
 Recognition and awards: An upgrade that recognizes the player's achievements and accomplishments, such as awards, certificates, and other forms of recognition.
 
-"Furiously Fingering" - increases typing speed
 "Code-a-mania" - improves coding skills
 "Programmer Posse" - allows hiring of more programmers
 "Auto-Magic" - automates certain tasks
@@ -20,7 +19,6 @@ Recognition and awards: An upgrade that recognizes the player's achievements and
 "Productivity Potion" - improves overall productivity
 "Achievement Acclaim" - recognizes player's achievements and accomplishments
 
-"Java Jolt" - increases click (or "cookie") production
 "Python Power" - automates certain tasks
 "Ruby Rush" - allows hiring of more programmers
 "C++ Crunch" - provides better computers and servers
