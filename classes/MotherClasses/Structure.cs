@@ -23,7 +23,10 @@ namespace MotherClasses
         public void BuyCheck()
         {
             if (this.Buy)
+            {
+                Sound.PlaySFX();
                 this.Img = Images["structure"];
+            }
         }
 
         public virtual void BuyStructure() { }

@@ -267,15 +267,18 @@ namespace EtsTycoon
                 else if (point.X > 1224)
                 {
                     b.BuyCharacter(g, StoreIndex + 2);
+                    Sound.PlaySFX();
                 }
                 else if (point.X > 821)
                 {
                     b.BuyCharacter(g, StoreIndex + 1);
+                    Sound.PlaySFX();
 
                 }
                 else if (point.X > 418)
                 {
                     b.BuyCharacter(g, StoreIndex);
+                    Sound.PlaySFX();
 
                 }
                 else if (point.X < 350)
