@@ -136,7 +136,7 @@ namespace Structures
                 Player.CoinPerSecond *= this.Instructor.Boost; //CHECK OVERPOWER HERE
                 Player.Money -= this.Instructor.Salary;
                 Game.OpenInstructorStore = null;
-                Store.StoreIndex = 0;
+                CharactersStore.StoreIndex = 0;
                 Player.Instructors.Add(this.Instructor);
             }
 

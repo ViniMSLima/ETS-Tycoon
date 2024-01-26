@@ -132,7 +132,7 @@ namespace Structures
                 Player.CoinPerSecond += this.Apprentice.CoinPerSecond;
                 Player.Money -= this.Apprentice.Salary;
                 Game.OpenApprenticeStore = null;
-                Store.StoreIndex = 0;
+                CharactersStore.StoreIndex = 0;
                 Player.Apprentices.Add(this.Apprentice);
             }
 

@@ -119,7 +119,7 @@ namespace EtsTycoon
                             Game.OpenApprenticeStore = null;
                             Game.OpenInstructorStore = null;
                             Game.OpenUpgradesStore = false;
-                            Store.StoreIndex = 0;
+                            CharactersStore.StoreIndex = 0;
                         }
                         else
                             Application.Exit();
@@ -150,19 +150,19 @@ namespace EtsTycoon
 
             Pb.MouseDown += (o, e) =>
             {
-                Player.Money += 1;
+                Player.Money += Player.ClickValue;
 
                 bool voidClick = true, ClickCheck;
 
                 if (OpenApprenticeStore != null)
                 {
                     voidClick = false;
-                    Store.ClickCheckAll(e.Location, OpenApprenticeStore, G);
+                    CharactersStore.ClickCheckAll(e.Location, OpenApprenticeStore, G);
                 }
                 else if (OpenInstructorStore != null)
                 {
                     voidClick = false;
-                    Store.ClickCheckAll(e.Location, OpenInstructorStore, G);
+                    CharactersStore.ClickCheckAll(e.Location, OpenInstructorStore, G);
                 }
                 else if (OpenUpgradesStore)
                 {
@@ -242,13 +242,13 @@ namespace EtsTycoon
             Player.Draw(Pb, G);
 
             if (OpenApprenticeStore != null)
-                Store.Draw(G, "Apprentice");
+                CharactersStore.Draw(G, "Apprentice");
 
             if (OpenInstructorStore != null)
-                Store.Draw(G, "Instructor");
+                CharactersStore.Draw(G, "Instructor");
 
             if (OpenUpgradesStore)
-                Store.Draw(G, "Upgrade");
+                CharactersStore.Draw(G, "Upgrade");
 
             Pb.Refresh();
 

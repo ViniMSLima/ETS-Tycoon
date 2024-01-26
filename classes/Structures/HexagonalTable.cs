@@ -23,6 +23,8 @@ namespace Structures
                 {"structure", Bitmap.FromFile("sprites/machines/hexagonal_table.png")},
                 {"buy_structure", Bitmap.FromFile("sprites/button.png")},
                 {"buy_structure_down", Bitmap.FromFile("sprites/button2.png")},
+                {"apprentice1", Bitmap.FromFile("sprites/machines/hexagonal_table1.png")},
+                {"apprentice2", Bitmap.FromFile("sprites/machines/hexagonal_table2.png")},
             };
 
             this.Img = Images["buy_structure"];
@@ -47,12 +49,12 @@ namespace Structures
                 const int speed = 3;
                 if (Index < speed)
                 {
-                    this.Img = this.Apprentice.Img[0];
+                    this.Img = Images["apprentice1"];
                     Index++;
                 }
                 else
                 {
-                    this.Img = this.Apprentice.Img[1];
+                    this.Img = Images["apprentice2"];
                     Index++;
                     if (Index > 2 * speed)
                         Index = 0;
@@ -133,7 +135,7 @@ namespace Structures
                 Player.CoinPerSecond += this.Apprentice.CoinPerSecond;
                 Player.Money -= this.Apprentice.Salary;
                 Game.OpenApprenticeStore = null;
-                Store.StoreIndex = 0;
+                CharactersStore.StoreIndex = 0;
                 Player.Apprentices.Add(this.Apprentice);
             }
 

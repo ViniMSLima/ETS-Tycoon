@@ -5,7 +5,7 @@ using MotherClasses;
 
 namespace EtsTycoon
 {
-    public class Store
+    public class CharactersStore
     {
         public static int StoreIndex { get; set; } = 0;
         public static int RightButton { get; set; } = 2;
@@ -338,12 +338,12 @@ namespace EtsTycoon
 
         internal static void ClickCheckAll(Point location, Structure OpenStore, Graphics g)
         {
-            Store.ClickCheck(location, Store.Btn1, OpenStore, g);
-            Store.ClickCheck(location, Store.Btn2, OpenStore, g);
-            Store.ClickCheck(location, Store.Btn3, OpenStore, g);
-            Store.ClickCheck(location, Store.Btn4, OpenStore, g);
-            Store.ClickCheck(location, Store.Btn5, OpenStore, g);
-            Store.ClickCheck(location, Store.Close, OpenStore, g);
+            ClickCheck(location, Btn1, OpenStore, g);
+            ClickCheck(location, Btn2, OpenStore, g);
+            ClickCheck(location, Btn3, OpenStore, g);
+            ClickCheck(location, Btn4, OpenStore, g);
+            ClickCheck(location, Btn5, OpenStore, g);
+            ClickCheck(location, Close, OpenStore, g);
         }
     }
 }

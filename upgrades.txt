@@ -1,0 +1,54 @@
+Faster typing speed: An upgrade that increases the player's typing speed, allowing them to generate clicks (or "cookies") faster.
+Better coding skills: An upgrade that improves the player's coding abilities, resulting in more efficient code and higher click (or "cookie") production.
+Larger team: An upgrade that allows the player to hire more programmers, increasing the overall click (or "cookie") output of the team.
+Automated processes: An upgrade that automates certain tasks, such as testing and debugging, freeing up the player's time to focus on clicking and generating more clicks (or "cookies").
+Improved hardware: An upgrade that provides the player with better computers, servers, and other hardware, resulting in faster and more efficient code execution.
+Advanced training: An upgrade that provides the player with access to advanced training programs, allowing them to learn new programming languages and techniques.
+Networking opportunities: An upgrade that allows the player to connect with other programmers and industry professionals, opening up new opportunities for collaboration and advancement.
+Better workspace: An upgrade that improves the player's physical workspace, providing them with a more comfortable and productive environment.
+Increased productivity: An upgrade that improves the player's overall productivity, allowing them to generate more clicks (or "cookies") in less time.
+Recognition and awards: An upgrade that recognizes the player's achievements and accomplishments, such as awards, certificates, and other forms of recognition.
+
+"Furiously Fingering" - increases typing speed
+"Code-a-mania" - improves coding skills
+"Programmer Posse" - allows hiring of more programmers
+"Auto-Magic" - automates certain tasks
+"Hardware Harmony" - provides better computers and servers
+"Syntax Sorcery" - provides access to advanced training programs
+"Networking Ninja" - allows connection with other programmers and industry professionals
+"Cubicle Comfort" - improves physical workspace
+"Productivity Potion" - improves overall productivity
+"Achievement Acclaim" - recognizes player's achievements and accomplishments
+
+"Java Jolt" - increases click (or "cookie") production
+"Python Power" - automates certain tasks
+"Ruby Rush" - allows hiring of more programmers
+"C++ Crunch" - provides better computers and servers
+"JavaScript Jubilee" - provides access to advanced training programs
+"Git Gud" - allows connection with other programmers and industry professionals
+"Agile Advantage" - improves physical workspace
+"Scrum Speed" - improves overall productivity
+"DevOps Delight" - recognizes player's achievements and accomplishments
+"Test-Driven Triumph" - provides better quality control processes.
+
+"C# Crusade" - increases typing speed
+"Sharp Syntax" - improves coding skills
+"Code Crew" - allows hiring of more programmers
+"Automated Assembly" - automates certain tasks
+"Hardware Haul" - provides better computers and servers
+"Syntax Sensei" - provides access to advanced training programs
+"Networking Nerd" - allows connection with other programmers and industry professionals
+"Cubicle Comfort" - improves physical workspace
+"Productivity Push" - improves overall productivity
+"Achievement Acknowledgement" - recognizes player's achievements and accomplishments
+
+"LINQ Link" - increases click (or "cookie") production
+"Delegate Delight" - automates certain tasks
+"Event Extravaganza" - allows hiring of more programmers
+"Garbage Collection Genius" - provides better computers and servers
+"Lambda Lunacy" - provides access to advanced training programs
+"Reflection Rampage" - allows connection with other programmers and industry professionals
+"Concurrency Conquest" - improves physical workspace
+"Multithreaded Marvel" - improves overall productivity
+"Exceptional Execution" - recognizes player's achievements and accomplishments
+"Debugging Dynamo" - provides better quality control processes.
