@@ -259,7 +259,7 @@ namespace EtsTycoon
             Color textColor = Color.BlanchedAlmond;
             SolidBrush textBrush = new(textColor);
 
-            Font font = new("Arial", Size * Game.Pb.Width * 0.0006f, FontStyle.Bold);
+            Font font = new("Arial", Size * Game.Pb.Width * 0.0005f, FontStyle.Bold);
             g.DrawString(text, font, textBrush, point);
         }
 

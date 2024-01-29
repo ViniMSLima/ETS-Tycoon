@@ -29,10 +29,10 @@ namespace Rooms
             this.PositionsX = a;
             this.PositionsY = b;
 
-            // this.Structures.Add(new InstructorsBRTable());
+            this.Structures.Add(new InstructorsBRTable());
 
-            // for (int i = 1; i < a.Length; i++)
-            //     this.Structures.Add(new DoubleChairTable());
+            for (int i = 1; i < a.Length; i++)
+                this.Structures.Add(new DoubleChairTable());
 
         }
 

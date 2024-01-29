@@ -1,9 +1,6 @@
-using System.Windows.Forms;
 using System.Drawing;
 
 using MotherClasses;
-using Characters;
-using EtsTycoon;
 
 namespace Structures
 {

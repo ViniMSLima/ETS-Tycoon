@@ -42,7 +42,6 @@ namespace EtsTycoon
 
         public Game()
         {
-
             var timer = new Timer
             {
                 Interval = 20,
@@ -92,6 +91,7 @@ namespace EtsTycoon
                 G.Clear(Color.Black);
 
                 CreateCharacters();
+                Upgrade.GenerateUpgrades();
 
                 Pb.Image = Bmp;
                 timer.Start();

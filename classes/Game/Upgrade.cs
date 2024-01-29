@@ -24,9 +24,7 @@ namespace EtsTycoon
         };
 
         public Upgrade()
-        {
-            Upgrades.Add(this);
-        }
+            => Upgrades.Add(this);
 
         public static void DrawUpgradesStore(Graphics g)
         {
@@ -38,6 +36,33 @@ namespace EtsTycoon
                 Game.Pb.Width * 0.8f,
                 Game.Pb.Height * 0.8f
             );
+
+            float pX = 0.1f;
+            float pY = 0.1f;
+
+            foreach (Upgrade up in Upgrades)
+            {
+                g.DrawImage(Images[7],
+                Game.Pb.Width * pX,
+                Game.Pb.Height * pY,
+                Game.Pb.Width * 0.1f,
+                Game.Pb.Height * 0.1f
+                );
+
+                pY += 0.1f;
+            }
+        }
+
+        public static void GenerateUpgrades()
+        {
+            Upgrade up1 = new();
+            Upgrade up2 = new();
+            Upgrade up3 = new();
+            Upgrade up4 = new();
+            Upgrade up5 = new();
+            Upgrade up6 = new();
+            Upgrade up7 = new();
+            Upgrade up8 = new();
         }
     }
 
