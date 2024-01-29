@@ -31,13 +31,25 @@ namespace MotherClasses
         public void BuyCheck()
         {
             if (this.Buy && this.Img != Images["structure"])
-                this.Img = Images["structure"];
-            
+                this.Img = Images["structure"];  
         }
 
-        public virtual void BuyStructure() { }
+        public void BuyStructure() 
+        {
+            this.Img = Images["buy_structure_down"];
+            if (Player.Money >= this.Price)
+            {
+                this.Buy = true;
+                Player.Money -= this.Price;
+            }
+            else
+            {
+                MessageBox.Show("Not enough money!");
+                this.Img = Images["buy_structure"];
+            }
+         }
 
-        public void BuyCharacter(Graphics g, int index)
+        public void BuyCharacter(int index)
         {
             if (StructureType == "Apprentice")
             {
@@ -76,7 +88,57 @@ namespace MotherClasses
         }
 
 
-        public virtual bool ClickCheck(PointF point, Graphics g) { return false; }
+        public bool ClickCheck(PointF point, Graphics g)
+        {
+            int num_vertices = this.Points.Length;
+            double x = point.X, y = point.Y;
+            bool inside = false;
+
+            PointF p1 = this.Points[0], p2;
+
+            for (int i = 1; i <= num_vertices; i++)
+            {
+                p2 = this.Points[i % num_vertices];
+
+                float miny = p1.Y;
+                if (p2.Y < p1.Y) miny = p2.Y;
+
+                float maxy = p1.Y;
+                if (p2.Y > p1.Y) maxy = p2.Y;
+
+                float maxx = p1.X;
+                if (p2.X > p1.X) maxx = p2.X;
+
+                if (y > miny && y <= maxy && x <= maxx)
+                {
+                    double x_intersection =
+                    (y - p1.Y) * (p2.X - p1.X) /
+                    (p2.Y - p1.Y) + p1.X;
+
+                    if (p1.X == p2.X || x <= x_intersection)
+                        inside = !inside;
+                }
+
+                p1 = p2;
+            }
+
+            if (inside)
+            {
+                if (this.Buy)
+                {
+                    Sound.PlaySFX2(3);
+
+                    if(StructureType == "Apprentice")
+                        Game.OpenApprenticeStore = this;
+                    else 
+                        Game.OpenInstructorStore = this;
+                }   
+
+                else BuyStructure();
+            }
+
+            return inside;
+        }  
 
         public void DrawText(Graphics g, string text, PointF point)
         {

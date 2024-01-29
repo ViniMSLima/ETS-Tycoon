@@ -229,18 +229,18 @@ namespace EtsTycoon
                 }
                 else if (point.X > Game.Pb.Width * 0.635417)
                 {
-                    b.BuyCharacter(g, StoreIndex + 2);
+                    b.BuyCharacter(StoreIndex + 2);
                     Sound.PlaySFX1(0);
                 }
                 else if (point.X > Game.Pb.Width * 0.42760417)
                 {
-                    b.BuyCharacter(g, StoreIndex + 1);
+                    b.BuyCharacter(StoreIndex + 1);
                     Sound.PlaySFX1(0);
 
                 }
                 else if (point.X > Game.Pb.Width * 0.2177083)
                 {
-                    b.BuyCharacter(g, StoreIndex);
+                    b.BuyCharacter(StoreIndex);
                     Sound.PlaySFX1(0);
                 }
                 else if (point.X < Game.Pb.Width * 0.1822917)
