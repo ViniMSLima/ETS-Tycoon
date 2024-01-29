@@ -17,11 +17,13 @@ namespace MotherClasses
         public Apprentice Apprentice { get; set; }
         public Instructor Instructor { get; set; }
 
+        public int Index { get; set; } = 0;
+
 
         public Image Img { get; set; }
         public PointF[] Points { get; set; }
         public int Price { get; set; }
-        public bool Buy { get; set; }
+        public bool Buy { get; set; } = false;
         public Image[] ApprenticeAnimation { get; set; }
         public Dictionary<string, Image> Images { get; set; }
         public Bitmap NameBar { get; set; } = new("./sprites/A.png");

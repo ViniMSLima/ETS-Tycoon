@@ -8,15 +8,12 @@ namespace Structures
 {
     public class DoubleChairTable : Structure
     {
-        public int Index { get; set; }
 
         public DoubleChairTable()
         {
             StructureType = "Apprentice";
 
-            Index = 0;
-            this.Buy = false;
-            this.Img = Bitmap.FromFile("sprites/table/buy_table.png");
+            this.Img = Images["buy_structure"];
             this.Price = 20;
 
             this.Images = new()

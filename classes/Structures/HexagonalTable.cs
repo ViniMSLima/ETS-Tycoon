@@ -7,16 +7,17 @@ using EtsTycoon;
 
 namespace Structures
 {
+
     public class HexagonalTable : Structure
     {
-        public int Index { get; set; }
-
         public HexagonalTable()
         {
             StructureType = "Apprentice";
 
-            Index = 0;
-            this.Buy = false;
+            H = 80;
+            W = 90;
+
+            this.Img = Images["buy_structure"];
             this.Price = 20;
 
             this.Images = new()
@@ -27,19 +28,16 @@ namespace Structures
                 {"apprentice1", Bitmap.FromFile("sprites/machines/hexagonal_table1.png")},
                 {"apprentice2", Bitmap.FromFile("sprites/machines/hexagonal_table2.png")},
             };
-
-            this.Img = Images["buy_structure"];
         }
 
         public override void Draw(Graphics g, float roomX, float roomY)
         {
-            float h = 80, w = 90;
 
             PointF[] points = new PointF[]{
                 new(0, 0),
-                new(h, 0),
-                new(h, w),
-                new(0, w),
+                new(H, 0),
+                new(H, W),
+                new(0, W),
                 new(0, 0),
             }.ToIsometric(roomX + 120, roomY + 145);
 

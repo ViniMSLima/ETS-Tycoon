@@ -10,15 +10,14 @@ namespace Structures
     
     public class InstructorsDRTable : Structure
     {
-        public int Index { get; set; }
-
         public InstructorsDRTable()
         {
             StructureType = "Instructor";
 
-            Index = 0;
-            this.Buy = false;
-            this.Img = Bitmap.FromFile("sprites/instructors/buy_instructor.png");
+            H = 40;
+            W = 90;
+
+            this.Img = Images["buy_structure"];
             this.Price = 50;
 
             this.Images = new()
@@ -33,13 +32,12 @@ namespace Structures
 
         public override void Draw(Graphics g, float roomX, float roomY)
         {
-            float h = 40, w = 90;
 
             PointF[] points = new PointF[]{
                 new(0, 0),
-                new(h, 0),
-                new(h, w),
-                new(0, w),
+                new(H, 0),
+                new(H, W),
+                new(0, W),
                 new(0, 0),
             }.ToIsometric(roomX + 120, roomY + 145);
 
