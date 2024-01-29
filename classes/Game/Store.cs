@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Runtime.Serialization;
 using System.Windows.Forms;
 using Characters;
 using MotherClasses;
@@ -51,8 +52,8 @@ namespace EtsTycoon
             new PointF[]{
                 new(Game.Pb.Width * 0.12f,  Game.Pb.Height * 0.2f),
                 new(Game.Pb.Width * 0.12f,  Game.Pb.Height * 0.2f + Game.Pb.Height * 0.05f),
-                new(Game.Pb.Width * 0.12f + Game.Pb.Width * 0.1f,  Game.Pb.Height * 0.2f + Game.Pb.Height * 0.05f),
-                new(Game.Pb.Width * 0.12f + Game.Pb.Width * 0.1f,  Game.Pb.Height * 0.2f),
+                new(Game.Pb.Width * 0.12f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.2f + Game.Pb.Height * 0.05f),
+                new(Game.Pb.Width * 0.12f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.2f),
             };
 
         public static List<Image> Images { get; set; } = new()
@@ -69,6 +70,8 @@ namespace EtsTycoon
 
         public static void Draw(Graphics g, string storeType)
         {
+            g.DrawImage(Bitmap.FromFile("./sprites/black_filter.png"), 0, 0);
+
             g.DrawImage(Images[0],
                 Game.Pb.Width * 0.1f,
                 Game.Pb.Height * 0.1f,
@@ -150,7 +153,7 @@ namespace EtsTycoon
 
                 DrawText(g, "Name: " + character.Name, new(Game.Pb.Width * position1, Game.Pb.Height * 0.550f), 15);
                 DrawText(g, "Age: " + character.Age, new(Game.Pb.Width * position1, Game.Pb.Height * 0.575f), 15);
-                DrawText(g, "C/sec: " + character.Gain, new(Game.Pb.Width * position1, Game.Pb.Height * 0.600f), 15);
+                DrawText(g, character.GainType + ": " + character.Gain, new(Game.Pb.Width * position1, Game.Pb.Height * 0.600f), 15);
                 DrawText(g, "R$" + character.Salary, new(Game.Pb.Width * (position1 + 0.0475f), Game.Pb.Height * 0.655f), 25);
 
                 position1 += 0.210f;
@@ -197,27 +200,32 @@ namespace EtsTycoon
             }
 
             var list = new Structure();
+            int storeSize = 0;
 
             if(Game.OpenApprenticeStore != null)
+            {
                 list = Game.OpenApprenticeStore;
+                storeSize = Game.Apprentices.Count;
+            }
             else if(Game.OpenInstructorStore != null)
+            {
                 list = Game.OpenInstructorStore;
+                storeSize = Game.Instructors.Count;
+            }
 
             if (inside && list != null)
             {
                 if (point.Y < Game.Pb.Height * 0.3)
                 {
-                    list = null;
                     Game.OpenApprenticeStore = null;
                     Game.OpenInstructorStore = null;
                 }
                 else if (point.X > Game.Pb.Width * 0.8234375)
                 {
                     LeftButton = 5;
-                    if (StoreIndex < 15)
-                    {
+                    if (StoreIndex < storeSize - 3)
                         StoreIndex++;
-                    }
+                    
                 }
                 else if (point.X > Game.Pb.Width * 0.635417)
                 {
@@ -234,16 +242,12 @@ namespace EtsTycoon
                 {
                     b.BuyCharacter(g, StoreIndex);
                     Sound.PlaySFX1(0);
-
                 }
                 else if (point.X < Game.Pb.Width * 0.1822917)
                 {
                     RightButton = 4;
                     if (StoreIndex > 0)
-                    {
                         StoreIndex--;
-                    }
-
                 }
             }
 

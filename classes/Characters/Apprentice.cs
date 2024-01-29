@@ -11,9 +11,10 @@ namespace Characters
         {
             this.Name = characterData.Name;
             this.Age = characterData.Age;
-            this.CoinPerSecond = characterData.Gain;
+            this.Gain = characterData.Gain;
             this.Salary = characterData.Salary;
             this.Img = new(){Bitmap.FromFile(characterData.Img1), Bitmap.FromFile(characterData.Img2)};
+            this.GainType = characterData.GainType;
             Game.Apprentices.Add(this);
         }
     }

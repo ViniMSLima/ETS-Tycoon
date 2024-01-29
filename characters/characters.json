@@ -6,7 +6,8 @@
     "Img2": "./sprites/apprentice/table/table_apprentice2.png",
     "Gain": 1,
     "Salary": 100,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Benhur Feld",
@@ -15,7 +16,8 @@
     "Img2": "./sprites/apprentice/table/benhur/benhur2.png",
     "Gain": 1,
     "Salary": 200,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Eliana Almeida",
@@ -24,7 +26,8 @@
     "Img2": "./sprites/apprentice/table/table_apprentice2.png",
     "Gain": 1,
     "Salary": 300,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Emyli Quadros",
@@ -33,7 +36,8 @@
     "Img2": "./sprites/apprentice/table/emyli/emyli2.png",
     "Gain": 1,
     "Salary": 400,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Eric Coutinho",
@@ -42,7 +46,8 @@
     "Img2": "./sprites/apprentice/table/eric/eric2.png",
     "Gain": 1,
     "Salary": 500,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Felipe Vieira",
@@ -51,7 +56,8 @@
     "Img2": "./sprites/apprentice/table/felipe/felipe2.png",
     "Gain": 1,
     "Salary": 600,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Guilherme Proença",
@@ -60,7 +66,8 @@
     "Img2": "./sprites/apprentice/table/table_apprentice2.png",
     "Gain": 1,
     "Salary": 700,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Tavares (Guilherme)",
@@ -69,7 +76,8 @@
     "Img2": "./sprites/apprentice/table/tavares/tavares2.png",
     "Gain": 1,
     "Salary": 800,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Juan Campos",
@@ -78,7 +86,8 @@
     "Img2": "./sprites/apprentice/table/juan/juan2.png",
     "Gain": 1,
     "Salary": 900,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Lander Gerotto",
@@ -87,7 +96,8 @@
     "Img2": "./sprites/apprentice/table/lander/lander2.png",
     "Gain": 1,
     "Salary": 1000,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Luis dos Santos",
@@ -96,7 +106,8 @@
     "Img2": "./sprites/apprentice/table/luis/luis2.png",
     "Gain": 1,
     "Salary": 1100,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Rosa (Luiz)",
@@ -105,7 +116,8 @@
     "Img2": "./sprites/apprentice/table/rosa/rosa2.png",
     "Gain": 1,
     "Salary": 1200,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Marcos Henrique",
@@ -114,7 +126,8 @@
     "Img2": "./sprites/apprentice/table/marcos/marcos2.png",
     "Gain": 1,
     "Salary": 1300,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Mateus Leite",
@@ -123,7 +136,8 @@
     "Img2": "./sprites/apprentice/table/table_apprentice2.png",
     "Gain": 1,
     "Salary": 1400,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Maycon Bertulino",
@@ -132,7 +146,8 @@
     "Img2": "./sprites/apprentice/table/maycon/maycon2.png",
     "Gain": 1,
     "Salary": 1500,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Murilo Socek",
@@ -141,7 +156,8 @@
     "Img2": "./sprites/apprentice/table/table_apprentice2.png",
     "Gain": 1,
     "Salary": 1600,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Renato Mendes",
@@ -150,7 +166,8 @@
     "Img2": "./sprites/apprentice/table/table_apprentice2.png",
     "Gain": 1,
     "Salary": 1700,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Vinícius Lima",
@@ -159,7 +176,8 @@
     "Img2": "./sprites/apprentice/table/vini/vini2.png",
     "Gain": 1,
     "Salary": 1800,
-    "Type": "Apprentice"
+    "Type": "Apprentice",
+    "GainType": "C/sec"
   },
   {
     "Name": "Trevisan",
@@ -168,7 +186,8 @@
     "Img2": "./sprites/instructors/instructor2.png",
     "Gain": 5,
     "Salary": 200,
-    "Type": "Instructor"
+    "Type": "Instructor",
+    "GainType": "Boost"
   },
   {
     "Name": "Marcão",
@@ -177,7 +196,8 @@
     "Img2": "./sprites/instructors/instructor2.png",
     "Gain": 5,
     "Salary": 200,
-    "Type": "Instructor"
+    "Type": "Instructor",
+    "GainType": "Boost"
   },
   {
     "Name": "Dom",
@@ -186,7 +206,8 @@
     "Img2": "./sprites/instructors/instructor2.png",
     "Gain": 5,
     "Salary": 200,
-    "Type": "Instructor"
+    "Type": "Instructor",
+    "GainType": "Boost"
   },
   {
     "Name": "Fer",
@@ -195,7 +216,8 @@
     "Img2": "./sprites/instructors/instructor2.png",
     "Gain": 5,
     "Salary": 200,
-    "Type": "Instructor"
+    "Type": "Instructor",
+    "GainType": "Boost"
   },
   {
     "Name": "Alisson",
@@ -204,7 +226,8 @@
     "Img2": "./sprites/instructors/instructor2.png",
     "Gain": 5,
     "Salary": 200,
-    "Type": "Instructor"
+    "Type": "Instructor",
+    "GainType": "Boost"
   },
   {
     "Name": "Queila",
@@ -213,7 +236,8 @@
     "Img2": "./sprites/instructors/instructor2.png",
     "Gain": 5,
     "Salary": 200,
-    "Type": "Instructor"
+    "Type": "Instructor",
+    "GainType": "Boost"
   },
   {
     "Name": "Moll",
@@ -222,7 +246,8 @@
     "Img2": "./sprites/instructors/instructor2.png",
     "Gain": 5,
     "Salary": 200,
-    "Type": "Instructor"
+    "Type": "Instructor",
+    "GainType": "Boost"
   },
   {
     "Name": "Balem",
@@ -231,7 +256,8 @@
     "Img2": "./sprites/instructors/instructor2.png",
     "Gain": 5,
     "Salary": 200,
-    "Type": "Instructor"
+    "Type": "Instructor",
+    "GainType": "Boost"
   },
   {
     "Name": "Balem de Ouro",
@@ -240,7 +266,8 @@
     "Img2": "./sprites/instructors/instructor2.png",
     "Gain": 20,
     "Salary": 999,
-    "Type": "Instructor"
+    "Type": "Instructor",
+    "GainType": "Boost"
   },
   {
     "Name": "Dom de Ouro",
@@ -249,6 +276,7 @@
     "Img2": "./sprites/instructors/instructor2.png",
     "Gain": 20,
     "Salary": 999,
-    "Type": "Instructor"
+    "Type": "Instructor",
+    "GainType": "Boost"
   }
 ]

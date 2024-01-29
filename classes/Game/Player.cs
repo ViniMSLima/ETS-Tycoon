@@ -52,7 +52,7 @@ namespace EtsTycoon
 
         public void Draw(PictureBox pb, Graphics g)
         {
-            g.DrawImage(Images["back"], 0, 0, 550, 260);
+            g.DrawImage(Images["back"], 0, 0, Game.Pb.Width * 0.25f, Game.Pb.Height * 0.25f);
             pb.Controls.Add(this.CoinImg);
             pb.Controls.Add(this.Label);
 
