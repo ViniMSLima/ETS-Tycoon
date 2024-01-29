@@ -10,10 +10,11 @@ namespace Structures
     public class WorkshopTable : Structure
     {
         public int Index { get; set; }
-        public Apprentice Apprentice { get; set; }
 
         public WorkshopTable()
         {
+            StructureType = "Apprentice";
+
             Index = 0;
             this.Buy = false;
             this.Img = Bitmap.FromFile("sprites/table/buy_table.png");
@@ -130,26 +131,6 @@ namespace Structures
                 MessageBox.Show("Not enough money!");
                 this.Img = Images["buy_structure"];
             }
-        }
-        public override void BuyCharacter(Graphics g, int index)
-        {
-            if (Player.Money >= Game.Apprentices[index].Salary && this.Apprentice == null)
-            {
-                this.Apprentice = Game.Apprentices[index];
-
-                Player.CoinPerSecond += this.Apprentice.CoinPerSecond;
-                Player.Money -= this.Apprentice.Salary;
-                Game.OpenApprenticeStore = null;
-                CharactersStore.StoreIndex = 0;
-                Player.Apprentices.Add(this.Apprentice);
-            }
-
-            else
-                MessageBox.Show("Not enough money!");
-
-        }
-
-
-        
+        }        
     }
 }

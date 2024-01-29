@@ -11,10 +11,11 @@ namespace Structures
     public class InstructorsBRTable : Structure
     {
         public int Index { get; set; }
-        public Instructor Instructor { get; set; }
 
         public InstructorsBRTable()
         {
+            StructureType = "Instructor";
+
             Index = 0;
             this.Buy = false;
             this.Img = Bitmap.FromFile("sprites/instructors/buy_instructor.png");
@@ -130,26 +131,5 @@ namespace Structures
                 this.Img = Images["buy_structure"];
             }
         }
-
-        public override void BuyCharacter(Graphics g, int index) {
-            if (Player.Money >= Game.Instructors[index].Salary && this.Instructor == null)
-            {
-                this.Instructor = Game.Instructors[index];
-
-                Player.CoinPerSecond *= this.Instructor.Boost; //CHECK OVERPOWER HERE
-                Player.Money -= this.Instructor.Salary;
-                Game.OpenInstructorStore = null;
-                CharactersStore.StoreIndex = 0;
-                Player.Instructors.Add(this.Instructor);
-                Sound.PlaySFX1(0);
-                
-
-            }
-
-            else
-            {
-                MessageBox.Show("Not enough money!");
-            }
-         }
     }
 }

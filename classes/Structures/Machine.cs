@@ -10,10 +10,11 @@ namespace Structures
     public class Machine : Structure
     {
         public int Index { get; set; }
-        public Apprentice Apprentice { get; set; }
 
         public Machine()
         {
+            StructureType = "Apprentice";
+
             Index = 0;
             this.Buy = false;
             this.Price = 20;
@@ -129,22 +130,5 @@ namespace Structures
                 this.Img = Images["buy_structure"];
             }
         }
-        public override void BuyCharacter(Graphics g, int index)
-        {
-            if (Player.Money >= Game.Apprentices[index].Salary && this.Apprentice == null)
-            {
-                this.Apprentice = Game.Apprentices[index];
-
-                Player.CoinPerSecond += this.Apprentice.CoinPerSecond;
-                Player.Money -= this.Apprentice.Salary;
-                Game.OpenApprenticeStore = null;
-                CharactersStore.StoreIndex = 0;
-                Player.Apprentices.Add(this.Apprentice);
-            }
-
-            else
-                MessageBox.Show("Not enough money!");
-        }
-
     }
 }
