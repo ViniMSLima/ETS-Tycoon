@@ -84,7 +84,7 @@ namespace EtsTycoon
 
             this.Load += (o, e) =>
             {
-                this.Cursor = new Cursor("./sprites/cursor.cur");
+                this.Cursor = new Cursor("./sprites/cursor2.cur");
                 Bmp = new Bitmap(Pb.Width, Pb.Height);
 
                 G = Graphics.FromImage(Bmp);

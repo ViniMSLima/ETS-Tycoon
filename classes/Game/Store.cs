@@ -168,7 +168,7 @@ namespace EtsTycoon
                 RightButton = 2;
                 LeftButton = 3;
             }
-            else if (storeType == "Apprentice")
+            else
             {
                 g.DrawImage(Game.Apprentices[StoreIndex].Img[0],
                 Game.Pb.Width * 0.190f,
@@ -208,10 +208,6 @@ namespace EtsTycoon
 
                 RightButton = 2;
                 LeftButton = 3;
-            }
-            else
-            {
-
             }
         }
 
