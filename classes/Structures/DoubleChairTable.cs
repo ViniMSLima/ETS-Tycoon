@@ -13,7 +13,9 @@ namespace Structures
         {
             StructureType = "Apprentice";
 
-            this.Img = Images["buy_structure"];
+            H = 80;
+            W = 90;
+
             this.Price = 20;
 
             this.Images = new()
@@ -22,19 +24,20 @@ namespace Structures
                 {"buy_structure", Bitmap.FromFile("sprites/table/buy_table.png")},
                 {"buy_structure_down", Bitmap.FromFile("sprites/table/buy_table_down.png")}
             };
+
+            this.Img = Images["buy_structure"];
         }
 
         public override void Draw(Graphics g, float roomX, float roomY)
         {
-            float h = 40, w = 90;
 
             Pen pen = new(Color.Red, 5f);
 
             PointF[] points = new PointF[]{
                 new(0, 0),
-                new(h, 0),
-                new(h, w),
-                new(0, w),
+                new(H, 0),
+                new(H, W),
+                new(0, W),
                 new(0, 0),
             }.ToIsometric(roomX + 120, roomY + 145);
 

@@ -17,7 +17,6 @@ namespace Structures
             H = 40;
             W = 90;
 
-            this.Img = Images["buy_structure"];
             this.Price = 20;
 
             this.Images = new()
@@ -26,6 +25,8 @@ namespace Structures
                 {"buy_structure", Bitmap.FromFile("sprites/button.png")},
                 {"buy_structure_down", Bitmap.FromFile("sprites/machines/button2.png")},
             };
+            
+            this.Img = Images["buy_structure"];
 
         }
 

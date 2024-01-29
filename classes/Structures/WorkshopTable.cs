@@ -17,7 +17,6 @@ namespace Structures
             H = 40;
             W = 90;
 
-            this.Img = Images["buy_structure"];
             this.Price = 20;
 
             this.Images = new()
@@ -28,6 +27,8 @@ namespace Structures
                 {"animation1", Bitmap.FromFile("sprites/table/workshop_table1.png")},
                 {"animation2", Bitmap.FromFile("sprites/table/workshop_table2.png")},
             };
+            
+            this.Img = Images["buy_structure"];
         }
 
         public override void Draw(Graphics g, float roomX, float roomY)
