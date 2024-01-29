@@ -4,13 +4,8 @@ using EtsTycoon;
 
 namespace Characters
 {
-    public class Apprentice
+    public class Apprentice : CharactersData
     {
-        public string Name { get; set; }
-        public string Age { get; set; }
-        public List<Image> Img { get; set; }
-        public int CoinPerSecond { get; set; }
-        public int Salary { get; set; }
 
         public Apprentice(CharactersData characterData)
         {

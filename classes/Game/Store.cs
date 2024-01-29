@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Drawing;
-
+using System.Windows.Forms;
+using Characters;
 using MotherClasses;
 
 namespace EtsTycoon
@@ -126,89 +128,37 @@ namespace EtsTycoon
                 Game.Pb.Height * 0.2f
             );
 
-            if (storeType == "Instructor")
+            if (storeType == "Instructor") DrawCharacters(g, Game.Instructors);
+            else DrawCharacters(g, Game.Apprentices); 
+        }
+
+        public static void DrawCharacters<T>(Graphics g, List<T> list) where T : CharactersData
+        {
+            float position1 = 0.210f;
+            float position2 = 0.190f;
+
+            for (int i = 0; i < 3; i++)
             {
+                CharactersData character = list[StoreIndex + i];
 
-                g.DrawImage(Game.Instructors[StoreIndex].img[0],
-                    Game.Pb.Width * 0.190f,
+                g.DrawImage(character.Img[0],
+                    Game.Pb.Width * position2,
                     Game.Pb.Height * 0.2f,
                     Game.Pb.Width * 0.2f,
                     Game.Pb.Height * 0.4f
                 );
 
-                g.DrawImage(Game.Instructors[StoreIndex + 1].img[0],
-                    Game.Pb.Width * 0.400f,
-                    Game.Pb.Height * 0.2f,
-                    Game.Pb.Width * 0.2f,
-                    Game.Pb.Height * 0.4f
-                );
+                DrawText(g, "Name: " + character.Name, new(Game.Pb.Width * position1, Game.Pb.Height * 0.550f), 15);
+                DrawText(g, "Age: " + character.Age, new(Game.Pb.Width * position1, Game.Pb.Height * 0.575f), 15);
+                DrawText(g, "C/sec: " + character.Gain, new(Game.Pb.Width * position1, Game.Pb.Height * 0.600f), 15);
+                DrawText(g, "R$" + character.Salary, new(Game.Pb.Width * (position1 + 0.0475f), Game.Pb.Height * 0.655f), 25);
 
-                g.DrawImage(Game.Instructors[StoreIndex + 2].img[0],
-                    Game.Pb.Width * 0.610f,
-                    Game.Pb.Height * 0.2f,
-                    Game.Pb.Width * 0.2f,
-                    Game.Pb.Height * 0.4f
-                );
-
-                DrawText(g, "Name: " + Game.Instructors[StoreIndex].Name, new(Game.Pb.Width * 0.210f, Game.Pb.Height * 0.550f), 15);
-                DrawText(g, "Age: " + Game.Instructors[StoreIndex].Age, new(Game.Pb.Width * 0.210f, Game.Pb.Height * 0.575f), 15);
-                DrawText(g, "Boost: " + Game.Instructors[StoreIndex].Boost, new(Game.Pb.Width * 0.210f, Game.Pb.Height * 0.600f), 15);
-                DrawText(g, "R$" + Game.Instructors[StoreIndex].Salary, new(Game.Pb.Width * 0.265f, Game.Pb.Height * 0.655f), 25);
-
-                DrawText(g, "Name: " + Game.Instructors[StoreIndex + 1].Name, new(Game.Pb.Width * 0.420f, Game.Pb.Height * 0.550f), 15);
-                DrawText(g, "Age: " + Game.Instructors[StoreIndex + 1].Age, new(Game.Pb.Width * 0.420f, Game.Pb.Height * 0.575f), 15);
-                DrawText(g, "Boost: " + Game.Instructors[StoreIndex + 1].Boost, new(Game.Pb.Width * 0.420f, Game.Pb.Height * 0.600f), 15);
-                DrawText(g, "R$" + Game.Instructors[StoreIndex + 1].Salary, new(Game.Pb.Width * 0.475f, Game.Pb.Height * 0.655f), 25);
-
-                DrawText(g, "Name: " + Game.Instructors[StoreIndex + 2].Name, new(Game.Pb.Width * 0.630f, Game.Pb.Height * 0.550f), 15);
-                DrawText(g, "Age: " + Game.Instructors[StoreIndex + 2].Age, new(Game.Pb.Width * 0.630f, Game.Pb.Height * 0.575f), 15);
-                DrawText(g, "Boost: " + Game.Instructors[StoreIndex + 2].Boost, new(Game.Pb.Width * 0.630f, Game.Pb.Height * 0.600f), 15);
-                DrawText(g, "R$" + Game.Instructors[StoreIndex + 2].Salary, new(Game.Pb.Width * 0.685f, Game.Pb.Height * 0.655f), 25);
-
-                RightButton = 2;
-                LeftButton = 3;
+                position1 += 0.210f;
+                position2 += 0.210f;
             }
-            else
-            {
-                g.DrawImage(Game.Apprentices[StoreIndex].Img[0],
-                Game.Pb.Width * 0.190f,
-                Game.Pb.Height * 0.2f,
-                Game.Pb.Width * 0.2f,
-                Game.Pb.Height * 0.4f
-            );
 
-                g.DrawImage(Game.Apprentices[StoreIndex + 1].Img[0],
-                    Game.Pb.Width * 0.400f,
-                    Game.Pb.Height * 0.2f,
-                    Game.Pb.Width * 0.2f,
-                    Game.Pb.Height * 0.4f
-                );
-
-                g.DrawImage(Game.Apprentices[StoreIndex + 2].Img[0],
-                    Game.Pb.Width * 0.610f,
-                    Game.Pb.Height * 0.2f,
-                    Game.Pb.Width * 0.2f,
-                    Game.Pb.Height * 0.4f
-                );
-
-                DrawText(g, "Name: " + Game.Apprentices[StoreIndex].Name, new(Game.Pb.Width * 0.210f, Game.Pb.Height * 0.550f), 15);
-                DrawText(g, "Age: " + Game.Apprentices[StoreIndex].Age, new(Game.Pb.Width * 0.210f, Game.Pb.Height * 0.575f), 15);
-                DrawText(g, "C/sec: " + Game.Apprentices[StoreIndex].CoinPerSecond, new(Game.Pb.Width * 0.210f, Game.Pb.Height * 0.600f), 15);
-                DrawText(g, "R$" + Game.Apprentices[StoreIndex].Salary, new(Game.Pb.Width * 0.265f, Game.Pb.Height * 0.655f), 25);
-
-                DrawText(g, "Name: " + Game.Apprentices[StoreIndex + 1].Name, new(Game.Pb.Width * 0.420f, Game.Pb.Height * 0.550f), 15);
-                DrawText(g, "Age: " + Game.Apprentices[StoreIndex + 1].Age, new(Game.Pb.Width * 0.420f, Game.Pb.Height * 0.575f), 15);
-                DrawText(g, "C/sec: " + Game.Apprentices[StoreIndex + 1].CoinPerSecond, new(Game.Pb.Width * 0.420f, Game.Pb.Height * 0.600f), 15);
-                DrawText(g, "R$" + Game.Apprentices[StoreIndex + 1].Salary, new(Game.Pb.Width * 0.475f, Game.Pb.Height * 0.655f), 25);
-
-                DrawText(g, "Name: " + Game.Apprentices[StoreIndex + 2].Name, new(Game.Pb.Width * 0.630f, Game.Pb.Height * 0.550f), 15);
-                DrawText(g, "Age: " + Game.Apprentices[StoreIndex + 2].Age, new(Game.Pb.Width * 0.630f, Game.Pb.Height * 0.575f), 15);
-                DrawText(g, "C/sec: " + Game.Apprentices[StoreIndex + 2].CoinPerSecond, new(Game.Pb.Width * 0.630f, Game.Pb.Height * 0.600f), 15);
-                DrawText(g, "R$" + Game.Apprentices[StoreIndex + 2].Salary, new(Game.Pb.Width * 0.685f, Game.Pb.Height * 0.655f), 25);
-
-                RightButton = 2;
-                LeftButton = 3;
-            }
+            RightButton = 2;
+            LeftButton = 3;
         }
 
         public static bool ClickCheck(PointF point, PointF[] a, Structure b, Graphics g)
@@ -246,13 +196,22 @@ namespace EtsTycoon
                 p1 = p2;
             }
 
-            if (inside && Game.OpenApprenticeStore != null)
+            var list = new Structure();
+
+            if(Game.OpenApprenticeStore != null)
+                list = Game.OpenApprenticeStore;
+            else if(Game.OpenInstructorStore != null)
+                list = Game.OpenInstructorStore;
+
+            if (inside && list != null)
             {
-                if (point.Y < 300)
+                if (point.Y < Game.Pb.Height * 0.3)
                 {
+                    list = null;
                     Game.OpenApprenticeStore = null;
+                    Game.OpenInstructorStore = null;
                 }
-                if (point.X > 1581)
+                else if (point.X > Game.Pb.Width * 0.8234375)
                 {
                     LeftButton = 5;
                     if (StoreIndex < 15)
@@ -260,24 +219,24 @@ namespace EtsTycoon
                         StoreIndex++;
                     }
                 }
-                else if (point.X > 1224)
+                else if (point.X > Game.Pb.Width * 0.635417)
                 {
                     b.BuyCharacter(g, StoreIndex + 2);
                     Sound.PlaySFX1(0);
                 }
-                else if (point.X > 821)
+                else if (point.X > Game.Pb.Width * 0.42760417)
                 {
                     b.BuyCharacter(g, StoreIndex + 1);
                     Sound.PlaySFX1(0);
 
                 }
-                else if (point.X > 418)
+                else if (point.X > Game.Pb.Width * 0.2177083)
                 {
                     b.BuyCharacter(g, StoreIndex);
                     Sound.PlaySFX1(0);
 
                 }
-                else if (point.X < 350)
+                else if (point.X < Game.Pb.Width * 0.1822917)
                 {
                     RightButton = 4;
                     if (StoreIndex > 0)
@@ -285,56 +244,6 @@ namespace EtsTycoon
                         StoreIndex--;
                     }
 
-                }
-            }
-            else if (inside && Game.OpenInstructorStore != null)
-            {
-                if (point.Y < 300)
-                {
-                    Game.OpenInstructorStore = null;
-                }
-                if (point.X > 1581)
-                {
-                    LeftButton = 5;
-                    if (StoreIndex < 6)
-                    {
-                        StoreIndex++;
-                    }
-                }
-                else if (point.X > 1224)
-                {
-                    b.BuyCharacter(g, StoreIndex + 2);
-                    Game.OpenApprenticeStore = null;
-                    Game.OpenInstructorStore = null;
-                    Game.OpenUpgradesStore = false;
-                    CharactersStore.StoreIndex = 0;
-                }
-                else if (point.X > 821)
-                {
-                    b.BuyCharacter(g, StoreIndex + 1);
-                    Game.OpenApprenticeStore = null;
-                    Game.OpenInstructorStore = null;
-                    Game.OpenUpgradesStore = false;
-                    CharactersStore.StoreIndex = 0;
-                }
-
-
-                else if (point.X > 418)
-                {
-                    b.BuyCharacter(g, StoreIndex);
-                    Game.OpenApprenticeStore = null;
-                    Game.OpenInstructorStore = null;
-                    Game.OpenUpgradesStore = false;
-                    CharactersStore.StoreIndex = 0;
-
-                }
-                else if (point.X < 350)
-                {
-                    RightButton = 4;
-                    if (StoreIndex > 0)
-                    {
-                        StoreIndex--;
-                    }
                 }
             }
 
@@ -346,7 +255,7 @@ namespace EtsTycoon
             Color textColor = Color.BlanchedAlmond;
             SolidBrush textBrush = new(textColor);
 
-            Font font = new("Arial", Size, FontStyle.Bold);
+            Font font = new("Arial", Size * Game.Pb.Width * 0.0006f, FontStyle.Bold);
             g.DrawString(text, font, textBrush, point);
         }
 

@@ -95,7 +95,7 @@ namespace EtsTycoon
 
                 Pb.Image = Bmp;
                 timer.Start();
-                Sound.StartMusic();
+                // Sound.StartMusic();
             };
 
             Controls.Add(Pb);
@@ -162,7 +162,6 @@ namespace EtsTycoon
                 else if (OpenUpgradesStore)
                 {
                     voidClick = false;
-                    // Store.ClickCheckAll(e.Location, OpenUpgradesStore, G);
                 }
                 else
                 {

@@ -49,12 +49,12 @@ namespace Structures
                 const int speed = 3;
                 if (Index < speed)
                 {
-                    this.Img = this.Instructor.img[0];
+                    this.Img = this.Instructor.Img[0];
                     Index++;
                 }
                 else
                 {
-                    this.Img = this.Instructor.img[1];
+                    this.Img = this.Instructor.Img[1];
                     Index++;
                     if (Index > 2 * speed)
                         Index = 0;
