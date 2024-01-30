@@ -1,10 +1,10 @@
 using System.Drawing;
 
 using MotherClasses;
+using Extension;
 
 namespace Structures
 {
-
     public class DRTable : Structure
     {
         public DRTable()

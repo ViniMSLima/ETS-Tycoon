@@ -52,11 +52,11 @@ namespace EtsTycoon
 
         public void Draw(PictureBox pb, Graphics g)
         {
-            g.DrawImage(Images["back"], 0, 0, Game.Pb.Width * 0.25f, Game.Pb.Height * 0.25f);
+            g.DrawImage(Images["back"], 0, 0, Game.Pb.Width * 0.25f, Game.Pb.Height * 0.22f);
             pb.Controls.Add(this.CoinImg);
             pb.Controls.Add(this.Label);
 
-            this.Label.Font = new Font("Arial", 20, FontStyle.Bold);
+            this.Label.Font = new Font("Arial", 0.013f * Game.Pb.Width, FontStyle.Bold);
 
             this.Label.Text = $"${FormatMoney(Player.Money)} - {Player.CoinPerSecond} C/s\nLevel: {Player.Level}\nApprentices: {Player.Apprentices.Count}\nInstructors: {Player.Instructors.Count}";
             g.DrawImage(Images["c_config"], 10, pb.Height - 100, 250, 100);

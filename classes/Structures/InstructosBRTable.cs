@@ -1,13 +1,10 @@
-using System.Windows.Forms;
 using System.Drawing;
 
 using MotherClasses;
-using Characters;
-using EtsTycoon;
+using Extension;
 
 namespace Structures
 {
-    
     public class InstructorsBRTable : Structure
     {
         public InstructorsBRTable()
@@ -31,7 +28,6 @@ namespace Structures
 
         public override void Draw(Graphics g, float roomX, float roomY)
         {
-
             PointF[] points = new PointF[]{
                 new(0, 0),
                 new(H, 0),

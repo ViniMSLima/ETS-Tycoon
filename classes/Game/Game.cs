@@ -138,7 +138,7 @@ namespace EtsTycoon
 
                     case Keys.B:
                         Sound.PlaySFX1(3);
-                        OpenUpgradesStore = true;
+                        OpenUpgradesStore = !OpenUpgradesStore;
                         break;
                 }
             };
@@ -226,7 +226,7 @@ namespace EtsTycoon
 
         public static void CreateCharacters()
         {
-            string json = File.ReadAllText("characters/characters.json");
+            string json = File.ReadAllText("json/characters.json");
             List<CharactersData> characterDataList1 = JsonConvert.DeserializeObject<List<CharactersData>>(json);
 
             foreach (CharactersData characterData in characterDataList1)

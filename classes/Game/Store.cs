@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Runtime.Serialization;
 using System.Windows.Forms;
 using Characters;
+using Extension;
 using MotherClasses;
 
 namespace EtsTycoon
@@ -151,10 +152,10 @@ namespace EtsTycoon
                     Game.Pb.Height * 0.4f
                 );
 
-                DrawText(g, "Name: " + character.Name, new(Game.Pb.Width * position1, Game.Pb.Height * 0.550f), 15);
-                DrawText(g, "Age: " + character.Age, new(Game.Pb.Width * position1, Game.Pb.Height * 0.575f), 15);
-                DrawText(g, character.GainType + ": " + character.Gain, new(Game.Pb.Width * position1, Game.Pb.Height * 0.600f), 15);
-                DrawText(g, "R$" + character.Salary, new(Game.Pb.Width * (position1 + 0.0475f), Game.Pb.Height * 0.655f), 25);
+                Text.DrawText(g, "Name: " + character.Name, new(Game.Pb.Width * position1, Game.Pb.Height * 0.550f), 15);
+                Text.DrawText(g, "Age: " + character.Age, new(Game.Pb.Width * position1, Game.Pb.Height * 0.575f), 15);
+                Text.DrawText(g, character.GainType + ": " + character.Gain, new(Game.Pb.Width * position1, Game.Pb.Height * 0.600f), 15);
+                Text.DrawText(g, "R$" + character.Salary, new(Game.Pb.Width * (position1 + 0.0475f), Game.Pb.Height * 0.655f), 25);
 
                 position1 += 0.210f;
                 position2 += 0.210f;
@@ -252,15 +253,6 @@ namespace EtsTycoon
             }
 
             return inside;
-        }
-
-        public static void DrawText(Graphics g, string text, PointF point, int Size)
-        {
-            Color textColor = Color.BlanchedAlmond;
-            SolidBrush textBrush = new(textColor);
-
-            Font font = new("Arial", Size * Game.Pb.Width * 0.0005f, FontStyle.Bold);
-            g.DrawString(text, font, textBrush, point);
         }
 
         internal static void ClickCheckAll(Point location, Structure OpenStore, Graphics g)

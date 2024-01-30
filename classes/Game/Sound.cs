@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using Extension;
 using NAudio.Wave;
 
 public class Sound

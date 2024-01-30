@@ -1,14 +1,12 @@
-using System.Windows.Forms;
 using System.Drawing;
+
 using MotherClasses;
-using Characters;
-using EtsTycoon;
+using Extension;
 
 namespace Structures
 {
     public class DoubleChairTable : Structure
     {
-
         public DoubleChairTable()
         {
             StructureType = "Apprentice";
@@ -30,9 +28,6 @@ namespace Structures
 
         public override void Draw(Graphics g, float roomX, float roomY)
         {
-
-            Pen pen = new(Color.Red, 5f);
-
             PointF[] points = new PointF[]{
                 new(0, 0),
                 new(H, 0),
