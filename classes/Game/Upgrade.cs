@@ -63,6 +63,8 @@ namespace EtsTycoon
             Upgrade up6 = new();
             Upgrade up7 = new();
             Upgrade up8 = new();
+
+            //Click upgrades based on programming languages from ETS
         }
     }
 
