@@ -52,12 +52,12 @@ namespace EtsTycoon
             {
                 g.DrawImage(Images[2],
                 Game.Pb.Width * pX,
-                Game.Pb.Height * pY,
+                Game.Pb.Height * pY + Game.ScrollDelta,
                 Game.Pb.Width * 0.8f,
                 Game.Pb.Height * 0.8f
                 );
 
-                PointF a = new(Game.Pb.Width * (pX + 0.1f), Game.Pb.Height * (pY + 0.225f));
+                PointF a = new(Game.Pb.Width * (pX + 0.1f), Game.Pb.Height * (pY + 0.225f + Game.ScrollDelta / 1000));
 
                 Text.DrawText(g, up.Name, a, 20);
 

@@ -8,6 +8,7 @@ using Characters;
 using Rooms;
 
 using Newtonsoft.Json;
+using System.Reflection;
 
 namespace EtsTycoon
 {
@@ -39,6 +40,8 @@ namespace EtsTycoon
         public static PointF PositionNPC { get; set; } = new(1150 + GeneralPosition.X, -200 + GeneralPosition.X);
         public Image Npc1 { get; set; }
         public int Index { get; set; } = 0;
+
+        public static int ScrollDelta { get; set; } = 0;
 
         public Game()
         {
@@ -196,6 +199,12 @@ namespace EtsTycoon
 
                     PrevMouse = e.Location;
                 }
+            };
+
+            Pb.MouseWheel += (o, e) =>
+            {
+                // MessageBox.Show(e.Delta.ToString());
+                ScrollDelta += e.Delta / 10;
             };
         }
 
