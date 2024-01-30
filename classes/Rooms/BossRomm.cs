@@ -42,8 +42,11 @@ namespace Rooms
                 PositionX + Game.GeneralPosition.X, PositionY + Game.GeneralPosition.Y, 1400, 630
             );
 
-            for (int i = 0; i < this.Structures.Count; i++)
+            if(Game.OpenUpgradesStore == false)
+            {
+               for (int i = 0; i < this.Structures.Count; i++)
                 this.Structures[i].Draw(g, PositionX + PositionsX[i] + Game.GeneralPosition.X, PositionY + PositionsY[i] + Game.GeneralPosition.Y);
+            }
         }
 
     }

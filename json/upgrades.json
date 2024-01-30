@@ -4,27 +4,41 @@
         "Description": "Improves click by 2",
         "Type": "click",
         "Value": 2,
-        "Img": "./sprites/cursor.png"
+        "Path": "./sprites/cursor.png"
     },
     {
         "Name": "Click + 3",
         "Description": "Improves click by 3",
         "Type": "click",
         "Value": 3,
-        "Img": "./sprites/cursor.png"
+        "Path": "./sprites/cursor.png"
     },
     {
         "Name": "Click + 4",
         "Description": "Improves click by 4",
         "Type": "click",
         "Value": 4,
-        "Img": "./sprites/cursor.png"
+        "Path": "./sprites/cursor.png"
     },
     {
         "Name": "Click + 5",
         "Description": "Improves click by 5",
         "Type": "click",
         "Value": 5,
-        "Img": "./sprites/cursor.png"
+        "Path": "./sprites/cursor.png"
+    },
+    {
+        "Name": "Click + 5",
+        "Description": "Improves click by 5",
+        "Type": "click",
+        "Value": 5,
+        "Path": "./sprites/cursor.png"
+    },
+    {
+        "Name": "Click + 5",
+        "Description": "Improves click by 5",
+        "Type": "click",
+        "Value": 5,
+        "Path": "./sprites/cursor.png"
     }
 ]

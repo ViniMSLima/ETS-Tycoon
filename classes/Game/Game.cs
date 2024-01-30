@@ -8,7 +8,7 @@ using Characters;
 using Rooms;
 
 using Newtonsoft.Json;
-using System.Reflection;
+using System.Drawing.Drawing2D;
 
 namespace EtsTycoon
 {
@@ -90,7 +90,11 @@ namespace EtsTycoon
                 Bmp = new Bitmap(Pb.Width, Pb.Height);
 
                 G = Graphics.FromImage(Bmp);
-                G.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+                G.InterpolationMode = InterpolationMode.NearestNeighbor;
+                G.PixelOffsetMode = PixelOffsetMode.HighSpeed;
+                G.SmoothingMode = SmoothingMode.HighSpeed;
+                G.CompositingQuality = CompositingQuality.AssumeLinear;
+
                 G.Clear(Color.Black);
 
                 CreateCharacters();
@@ -203,8 +207,7 @@ namespace EtsTycoon
 
             Pb.MouseWheel += (o, e) =>
             {
-                // MessageBox.Show(e.Delta.ToString());
-                ScrollDelta += e.Delta / 10;
+                ScrollDelta += e.Delta / 10; //FUTURE ZOOMING DEVELOPMENT
             };
         }
 
@@ -222,6 +225,7 @@ namespace EtsTycoon
             Player.Draw(Pb, G);
 
             DrawStore();
+
             if(OpenUpgradesStore)
             {
                 OpenApprenticeStore = null;

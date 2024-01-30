@@ -7,7 +7,6 @@ using NAudio.Wave;
 
 namespace Extension
 {
-
     public class LoopStream : WaveStream
     {
         WaveStream sourceStream;

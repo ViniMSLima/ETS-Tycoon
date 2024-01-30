@@ -38,7 +38,7 @@ namespace Rooms
             this.PositionsX = a;
             this.PositionsY = b;
 
-            for (int i = 0; i < a.Length -1; i++)
+            for (int i = 0; i < a.Length - 1; i++)
                 this.Structures.Add(new DRTable());
 
             this.Structures.Add(new InstructorsDRTable());
@@ -50,9 +50,12 @@ namespace Rooms
                 PositionX + Game.GeneralPosition.X, PositionY + Game.GeneralPosition.Y, 1120, 630
             );
 
-            for (int i = 0; i < this.Structures.Count; i++)
-                this.Structures[i].Draw(g, PositionX + PositionsX[i] + Game.GeneralPosition.X, PositionY + PositionsY[i] + Game.GeneralPosition.Y);
-        
+            if (Game.OpenUpgradesStore == false)
+            {
+                for (int i = 0; i < this.Structures.Count; i++)
+                    this.Structures[i].Draw(g, PositionX + PositionsX[i] + Game.GeneralPosition.X, PositionY + PositionsY[i] + Game.GeneralPosition.Y);
+            }
+
         }
     }
 }

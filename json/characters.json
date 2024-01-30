@@ -152,8 +152,8 @@
   {
     "Name": "Murilo Socek",
     "Age": "19",
-    "Img1": "./sprites/apprentice/table/table_apprentice1.png",
-    "Img2": "./sprites/apprentice/table/table_apprentice2.png",
+    "Img1": "./sprites/apprentice/table/murilo/murilo1.png",
+    "Img2": "./sprites/apprentice/table/murilo/murilo2.png",
     "Gain": 1,
     "Salary": 1600,
     "Type": "Apprentice",

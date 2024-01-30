@@ -9,7 +9,7 @@ namespace EtsTycoon
 {
     public class Player
     {
-        public static float Money { get; set; } = 1500;
+        public static float Money { get; set; } = 2000;
         public static int CoinPerSecond { get; set; } = 1;
         public static int Level { get; set; } = 1;
         public static int ClickValue { get; set; } = 1;
