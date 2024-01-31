@@ -28,7 +28,7 @@ namespace MotherClasses
                 Structures[i].BuyCheck();
             }
          }
-        public bool ClickCheckStructures(System.Drawing.Point point, Graphics g) 
+        public bool ClickCheckStructures(Point point, Graphics g) 
         { 
             bool a, b = false;
 

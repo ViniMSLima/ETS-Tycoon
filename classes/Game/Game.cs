@@ -33,6 +33,7 @@ namespace EtsTycoon
             {"crosswalk", Bitmap.FromFile("./sprites/crosswalk.png")},
             {"limpador",  Bitmap.FromFile("./sprites/limpador.png")},
             {"limpador2", Bitmap.FromFile("./sprites/limpador2.png")},
+            {"start_screen", Bitmap.FromFile("./sprites/backgrounds/start_screen.png")},
         };
         public static List<Apprentice> Apprentices { get; set; } = new List<Apprentice>();
         public static List<Instructor> Instructors { get; set; } = new List<Instructor>();
@@ -42,6 +43,7 @@ namespace EtsTycoon
         public int Index { get; set; } = 0;
 
         public static int ScrollDelta { get; set; } = 0;
+        public static bool GameStart { get; private set; } = false;
 
         public Game()
         {
@@ -113,7 +115,7 @@ namespace EtsTycoon
                 switch (e.KeyCode)
                 {
                     case Keys.Escape:
-                        if (OpenApprenticeStore != null || 
+                        if (OpenApprenticeStore != null ||
                             OpenInstructorStore != null ||
                             OpenUpgradesStore == true)
                         {
@@ -152,38 +154,45 @@ namespace EtsTycoon
 
             Pb.MouseDown += (o, e) =>
             {
-                Player.Money += Player.ClickValue;
+                if (!GameStart)
+                    GameStart = true;
 
-                bool voidClick = true, ClickCheck;
-
-                if (OpenApprenticeStore != null)
-                {
-                    voidClick = false;
-                    CharactersStore.ClickCheckAll(e.Location, OpenApprenticeStore, G);
-                }
-                else if (OpenInstructorStore != null)
-                {
-                    voidClick = false;
-                    CharactersStore.ClickCheckAll(e.Location, OpenInstructorStore, G);
-                }
-                else if (OpenUpgradesStore)
-                {
-                    voidClick = false;
-                }
                 else
                 {
-                    foreach (Room r in Rooms)
-                    {
-                        ClickCheck = r.ClickCheckStructures(e.Location, G);
-                        if (ClickCheck)
-                            voidClick = false;
-                    }
-                }
 
-                if (voidClick)
-                {
-                    DragAndHold = true;
-                    PrevMouse = e.Location;
+                    Player.Money += Player.ClickValue;
+
+                    bool voidClick = true, ClickCheck;
+
+                    if (OpenApprenticeStore != null)
+                    {
+                        voidClick = false;
+                        CharactersStore.ClickCheckAll(e.Location, OpenApprenticeStore, G);
+                    }
+                    else if (OpenInstructorStore != null)
+                    {
+                        voidClick = false;
+                        CharactersStore.ClickCheckAll(e.Location, OpenInstructorStore, G);
+                    }
+                    else if (OpenUpgradesStore)
+                    {
+                        voidClick = false;
+                    }
+                    else
+                    {
+                        foreach (Room r in Rooms)
+                        {
+                            ClickCheck = r.ClickCheckStructures(e.Location, G);
+                            if (ClickCheck)
+                                voidClick = false;
+                        }
+                    }
+
+                    if (voidClick)
+                    {
+                        DragAndHold = true;
+                        PrevMouse = e.Location;
+                    }
                 }
             };
 
@@ -213,20 +222,17 @@ namespace EtsTycoon
 
         public void Tick()
         {
-            
+
             G.Clear(Color.White);
 
-            DrawRoad();
-            
-            foreach (Room r in Rooms)
-                r.Draw(G);
-
-            DrawNPC();
-            Player.Draw(Pb, G);
+            if (Game.GameStart)
+                DrawGame();
+            else
+                DrawIntro();
 
             DrawStore();
 
-            if(OpenUpgradesStore)
+            if (OpenUpgradesStore)
             {
                 OpenApprenticeStore = null;
                 OpenInstructorStore = null;
@@ -252,13 +258,18 @@ namespace EtsTycoon
         }
 
         public void DrawIntro()
-        {
+            => G.DrawImage(Images["start_screen"], 0, 0, Pb.Width, Pb.Height);
 
-        }
 
         public void DrawGame()
         {
+            DrawRoad();
 
+            foreach (Room r in Rooms)
+                r.Draw(G);
+
+            DrawNPC();
+            Player.Draw(Pb, G);
         }
 
         public void DrawRoad()
