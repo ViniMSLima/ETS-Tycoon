@@ -45,6 +45,12 @@ namespace EtsTycoon
         public static int ScrollDelta { get; set; } = 0;
         public static bool GameStart { get; private set; } = false;
 
+        public static string[] CursorPath { get; set; } = {
+            "./sprites/cursor/cur/cs_cursor.cur"
+        };
+
+        public static int CursorIndex { get; set; } = 0;
+
         public Game()
         {
             var timer = new Timer
@@ -88,7 +94,6 @@ namespace EtsTycoon
 
             this.Load += (o, e) =>
             {
-                this.Cursor = new Cursor("./sprites/cursor/cur/cs_cursor.cur");
                 Bmp = new Bitmap(Pb.Width, Pb.Height);
 
                 G = Graphics.FromImage(Bmp);
@@ -221,6 +226,11 @@ namespace EtsTycoon
 
         public void Tick()
         {
+            this.Cursor = new Cursor(CursorPath[CursorIndex]);
+            CursorIndex++;
+
+            if(CursorIndex > CursorPath.Length - 1)
+                CursorIndex = 0;
 
             G.Clear(Color.White);
 

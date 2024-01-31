@@ -28,6 +28,8 @@ namespace EtsTycoon
 
         [JsonProperty("Path")]
         public string Path { get; set; }
+        [JsonProperty("Cur_Path")]
+        public string[] Cur_Path { get; set; }
         public Image Img { get; set; }
         public static List<Upgrade> Upgrades { get; set; } = new();
 
@@ -78,13 +80,14 @@ namespace EtsTycoon
             Bitmap.FromFile("./sprites/button/esc_button.png")
         };
 
-        public Upgrade(string name, int value, string desc, string type, string path, int cost)
+        public Upgrade(string name, int value, string desc, string type, string path, int cost, string[] cur_path)
         {
             this.Name = name;
             this.Value = value;
             this.Descritpion = desc;
             this.Type = type;
             this.Cost = cost;
+            this.Cur_Path = cur_path;
             this.Img = Bitmap.FromFile(path);
 
             Upgrades.Add(this);
@@ -172,6 +175,7 @@ namespace EtsTycoon
             {
                 Player.ClickValue = Upgrades[UpgradeIndex].Value;
                 Player.Money -= Upgrades[UpgradeIndex].Cost;
+                Game.CursorPath = Upgrades[UpgradeIndex].Cur_Path;
             }
 
             Upgrades.Remove(Upgrades[UpgradeIndex]);
@@ -227,8 +231,7 @@ namespace EtsTycoon
                 pY += 0.12f;
             }
 
-
-            Pen pen = new(Color.Red, 5f);
+            // Pen pen = new(Color.Red, 5f);
 
             // g.DrawPolygon(pen, Buttons[0]);
             // g.DrawPolygon(pen, Buttons[1]);
@@ -247,7 +250,7 @@ namespace EtsTycoon
             {
                 if (!string.IsNullOrEmpty(up.Path))
                 {
-                    _ = new Upgrade(up.Name, up.Value, up.Descritpion, up.Type, up.Path, up.Cost);
+                    _ = new Upgrade(up.Name, up.Value, up.Descritpion, up.Type, up.Path, up.Cost, up.Cur_Path);
                 }
             }
         }

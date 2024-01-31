@@ -4,48 +4,54 @@
         "Description": "Python",
         "Type": "click",
         "Cost": 1000,
-        "Value": 2,
+        "Value": 10,
         "Path": "./sprites/cursor/png/python_cursor.png"
+        ,"Cur_Path": ["./sprites/cursor/cur/python_cursor.cur"]
     },
     {
         "Name": "Click + 3",
         "Description": "Git",
         "Type": "click",
         "Cost": 5000,
-        "Value": 3,
+        "Value": 50,
         "Path": "./sprites/cursor/png/git_cursor.png"
+        ,"Cur_Path": ["./sprites/cursor/cur/git_cursor.cur"]
     },
     {
         "Name": "Click + 4",
         "Description": "C",
         "Type": "click",
         "Cost": 10000,
-        "Value": 4,
+        "Value": 100,
         "Path": "./sprites/cursor/png/c_cursor.png"
+        ,"Cur_Path": ["./sprites/cursor/cur/c_cursor.cur"]
     },
     {
         "Name": "Click + 5",
         "Description": "JavaScript",
         "Type": "click",
         "Cost": 20000,
-        "Value": 5,
+        "Value": 200,
         "Path": "./sprites/cursor/png/js_cursor.png"
+        ,"Cur_Path": ["./sprites/cursor/cur/js_cursor.cur"]
     },
     {
         "Name": "Click + 5",
         "Description": "C#",
         "Type": "click",
         "Cost": 50000,
-        "Value": 5,
+        "Value": 500,
         "Path": "./sprites/cursor/png/cs_cursor.png"
+        ,"Cur_Path": ["./sprites/cursor/cur/cs_cursor.cur"]
     },
     {
         "Name": "Click + 5",
         "Description": "C++",
         "Type": "click",
-        "Cost": 7000,
-        "Value": 5,
+        "Cost": 70000,
+        "Value": 700,
         "Path": "./sprites/cursor/png/cpp_cursor.png"
+        ,"Cur_Path": ["./sprites/cursor/cur/cpp_cursor.cur"]
     }
     ,
     {
@@ -53,7 +59,8 @@
         "Description": "React",
         "Type": "click",
         "Cost": 100000,
-        "Value": 5,
+        "Value": 1000,
         "Path": "./sprites/cursor/png/react_cursor.png"
+        ,"Cur_Path": ["./sprites/cursor/cur/react1.cur", "./sprites/cursor/cur/react2.cur", "./sprites/cursor/cur/react3.cur", "./sprites/cursor/cur/react4.cur"]
     }
 ]
