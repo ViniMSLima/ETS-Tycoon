@@ -58,7 +58,7 @@ namespace EtsTycoon
 
             this.Label.Font = new Font("Arial", 0.013f * Game.Pb.Width, FontStyle.Bold);
 
-            this.Label.Text = $"${FormatMoney(Player.Money)} - {Player.CoinPerSecond} C/s\nLevel: {Player.Level}\nApprentices: {Player.Apprentices.Count}\nInstructors: {Player.Instructors.Count}";
+            this.Label.Text = $"${FormatMoney(Player.Money)} - {Player.CoinPerSecond} C/s\nClick Value: {Player.ClickValue}\nApprentices: {Player.Apprentices.Count}\nInstructors: {Player.Instructors.Count}";
             g.DrawImage(Images["c_config"], 10, pb.Height - 100, 250, 100);
             g.DrawImage(Images["b_store"], 10, pb.Height - 180, 250, 100);
 

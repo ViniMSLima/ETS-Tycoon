@@ -88,7 +88,7 @@ namespace EtsTycoon
 
             this.Load += (o, e) =>
             {
-                this.Cursor = new Cursor("./sprites/python_cursor2.cur");
+                this.Cursor = new Cursor("./sprites/cursor/cur/cs_cursor.cur");
                 Bmp = new Bitmap(Pb.Width, Pb.Height);
 
                 G = Graphics.FromImage(Bmp);
@@ -215,10 +215,8 @@ namespace EtsTycoon
                 }
             };
 
-            Pb.MouseWheel += (o, e) =>
-            {
-                ScrollDelta += e.Delta / 10; //FUTURE ZOOMING DEVELOPMENT
-            };
+            Pb.MouseWheel += (o, e) => ScrollDelta += e.Delta / 10; //FUTURE ZOOMING DEVELOPMENT
+            
         }
 
         public void Tick()

@@ -9,8 +9,7 @@ namespace EtsTycoon
 {
     public class Upgrade
     {
-        public static int StoreIndex { get; set; } = 0;
-
+        public static int UpgradeIndex { get; set; } = 0;
 
         [JsonProperty("Name")]
         public string Name { get; set; }
@@ -23,6 +22,9 @@ namespace EtsTycoon
 
         [JsonProperty("Value")]
         public int Value { get; set; }
+
+        [JsonProperty("Cost")]
+        public int Cost { get; set; }
 
         [JsonProperty("Path")]
         public string Path { get; set; }
@@ -53,10 +55,16 @@ namespace EtsTycoon
                 new(Game.Pb.Width * 0.18f,  Game.Pb.Height * 0.64f + Game.Pb.Height * 0.08f),
                 new(Game.Pb.Width * 0.18f + Game.Pb.Width * 0.65f,  Game.Pb.Height * 0.64f + Game.Pb.Height * 0.08f),
                 new(Game.Pb.Width * 0.18f + Game.Pb.Width * 0.65f,  Game.Pb.Height * 0.64f),
+            },
+            new PointF[]{
+                new(Game.Pb.Width * 0.12f,  Game.Pb.Height * 0.2f),
+                new(Game.Pb.Width * 0.12f,  Game.Pb.Height * 0.2f + Game.Pb.Height * 0.05f),
+                new(Game.Pb.Width * 0.12f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.2f + Game.Pb.Height * 0.05f),
+                new(Game.Pb.Width * 0.12f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.2f),
             }
-            };
+    };
 
-        public static List<Image> Images { get; set; } = new()
+    public static List<Image> Images { get; set; } = new()
         {
             Bitmap.FromFile("./sprites/backgrounds/storeBackground.png"),
             Bitmap.FromFile("./sprites/backgrounds/storeCard.png"),
@@ -70,162 +78,174 @@ namespace EtsTycoon
             Bitmap.FromFile("./sprites/button/esc_button.png")
         };
 
-        public Upgrade(string name, int value, string desc, string type, string path)
+    public Upgrade(string name, int value, string desc, string type, string path, int cost)
+    {
+        this.Name = name;
+        this.Value = value;
+        this.Descritpion = desc;
+        this.Type = type;
+        this.Cost = cost;
+        this.Img = Bitmap.FromFile(path);
+
+        Upgrades.Add(this);
+    }
+
+    public static bool ClickCheck(PointF point, PointF[] a)
+    {
+        int num_vertices = a.Length;
+        double x = point.X, y = point.Y;
+        bool inside = false;
+
+        PointF p1 = a[0], p2;
+
+        for (int i = 1; i <= num_vertices; i++)
         {
-            this.Name = name;
-            this.Value = value;
-            this.Descritpion = desc;
-            this.Type = type;
-            this.Img = Bitmap.FromFile(path);
+            p2 = a[i % num_vertices];
 
-            Upgrades.Add(this);
-        }
+            float miny = p1.Y;
+            if (p2.Y < p1.Y) miny = p2.Y;
 
-        public static bool ClickCheck(PointF point, PointF[] a)
-        {
-            int num_vertices = a.Length;
-            double x = point.X, y = point.Y;
-            bool inside = false;
+            float maxy = p1.Y;
+            if (p2.Y > p1.Y) maxy = p2.Y;
 
-            PointF p1 = a[0], p2;
+            float maxx = p1.X;
+            if (p2.X > p1.X) maxx = p2.X;
 
-            for (int i = 1; i <= num_vertices; i++)
+            if (y > miny && y <= maxy && x <= maxx)
             {
-                p2 = a[i % num_vertices];
+                double x_intersection =
+                (y - p1.Y) * (p2.X - p1.X) /
+                (p2.Y - p1.Y) + p1.X;
 
-                float miny = p1.Y;
-                if (p2.Y < p1.Y) miny = p2.Y;
-
-                float maxy = p1.Y;
-                if (p2.Y > p1.Y) maxy = p2.Y;
-
-                float maxx = p1.X;
-                if (p2.X > p1.X) maxx = p2.X;
-
-                if (y > miny && y <= maxy && x <= maxx)
-                {
-                    double x_intersection =
-                    (y - p1.Y) * (p2.X - p1.X) /
-                    (p2.Y - p1.Y) + p1.X;
-
-                    if (p1.X == p2.X || x <= x_intersection)
-                        inside = !inside;
-                }
-
-                p1 = p2;
+                if (p1.X == p2.X || x <= x_intersection)
+                    inside = !inside;
             }
 
-            int storeSize = 0;
+            p1 = p2;
+        }
 
-            if (inside)
+        if (inside)
+        {
+            if (point.Y < Game.Pb.Height * 0.26)
             {
-                if (point.Y < Game.Pb.Height * 0.3)
-                {
-                    Game.OpenApprenticeStore = null;
-                    Game.OpenInstructorStore = null;
-                }
-                else if (point.X > Game.Pb.Width * 0.8234375)
-                {
-                    if (StoreIndex < storeSize - 3)
-                        StoreIndex++;
-                }
-                else if (point.X > Game.Pb.Width * 0.635417)
-                {
-                    Sound.PlaySFX1(0);
-                }
-                else if (point.X > Game.Pb.Width * 0.42760417)
-                {
-                    Sound.PlaySFX1(0);
-                }
-                else if (point.X > Game.Pb.Width * 0.2177083)
-                {
-                    Sound.PlaySFX1(0);
-                }
-                else if (point.X < Game.Pb.Width * 0.1822917)
-                {
-                    if (StoreIndex > 0)
-                        StoreIndex--;
-                }
+                Game.OpenUpgradesStore = false;
+            }
+            else if (point.Y < Game.Pb.Height * 0.38)
+            {
+                UpgradeIndex = 0;
+            }
+            else if (point.Y < Game.Pb.Height * 0.50)
+            {
+                UpgradeIndex = 1;
+                Sound.PlaySFX1(0);
+            }
+            else if (point.Y < Game.Pb.Height * 0.63)
+            {
+                UpgradeIndex = 2;
+                Sound.PlaySFX1(0);
+            }
+            else 
+            {
+                UpgradeIndex = 3;
+                Sound.PlaySFX1(0);
             }
 
-            MessageBox.Show(inside.ToString());
-            return inside;
+            if(Player.Money > Upgrades[UpgradeIndex].Cost)
+                BuyUpgrade();
+            
+            else
+                MessageBox.Show("Not enough money!!!");
         }
 
-        public static void ClickCheckAll(Point location)
+        return inside;
+    }
+
+    public static void ClickCheckAll(Point location)
+    {
+        foreach(PointF[] btn in Buttons)
+            ClickCheck(location, btn);
+    }
+
+    public static void BuyUpgrade()
+    {
+        if(Upgrades[UpgradeIndex].Type == "click")
         {
-            ClickCheck(location, Buttons[0]);
-            ClickCheck(location, Buttons[1]);
-            ClickCheck(location, Buttons[2]);
-            ClickCheck(location, Buttons[3]);
+            Player.ClickValue = Upgrades[UpgradeIndex].Value;
+            Player.Money -= Upgrades[UpgradeIndex].Cost;
         }
 
+        Upgrades.Remove(Upgrades[UpgradeIndex]);
+    }
 
-        public static void DrawUpgradesStore(Graphics g)
+
+    public static void DrawUpgradesStore(Graphics g)
+    {
+        g.DrawImage(Bitmap.FromFile("./sprites/black_filter.png"), 0, 0, Game.Pb.Width, Game.Pb.Height);
+
+        g.DrawImage(Images[0],
+            Game.Pb.Width * 0.1f,
+            Game.Pb.Height * 0.1f,
+            Game.Pb.Width * 0.8f,
+            Game.Pb.Height * 0.8f
+        );
+
+        float pX = 0.1f;
+        float pY = 0.08f;
+
+        var index = 4;
+        if (Upgrades.Count < 4)
+            index = Upgrades.Count;
+
+        for (int i = 0; i < index; i++)
         {
-            g.DrawImage(Bitmap.FromFile("./sprites/black_filter.png"), 0, 0, Game.Pb.Width, Game.Pb.Height);
-
-            g.DrawImage(Images[0],
-                Game.Pb.Width * 0.1f,
-                Game.Pb.Height * 0.1f,
+            g.DrawImage(Images[2],
+                Game.Pb.Width * pX,
+                Game.Pb.Height * pY,
                 Game.Pb.Width * 0.8f,
                 Game.Pb.Height * 0.8f
             );
 
-            float pX = 0.1f;
-            float pY = 0.08f;
+            g.DrawImage(Upgrades[i].Img,
+                Game.Pb.Width * (pX + 0.1f),
+                Game.Pb.Height * (pY + 0.19f),
+                Game.Pb.Width * 0.05f,
+                Game.Pb.Height * 0.09f
+            );
 
-            var index = 4;
-            if (Upgrades.Count < 4)
-                index = Upgrades.Count;
+            PointF a = new(Game.Pb.Width * (pX + 0.15f), Game.Pb.Height * (pY + 0.235f));
+            PointF b = new(Game.Pb.Width * (pX + 0.3f), Game.Pb.Height * (pY + 0.235f));
+            PointF c = new(Game.Pb.Width * (pX + 0.6f), Game.Pb.Height * (pY + 0.235f));
 
-            for (int i = 0; i < index; i++)
-            {
-                g.DrawImage(Images[2],
-                    Game.Pb.Width * pX,
-                    Game.Pb.Height * pY,
-                    Game.Pb.Width * 0.8f,
-                    Game.Pb.Height * 0.8f
-                );
+            Text.DrawText(g, Upgrades[i].Name, a, 20);
+            Text.DrawText(g, Upgrades[i].Descritpion, b, 20);
+            Text.DrawText(g, Upgrades[i].Cost.ToString(), c, 20);
 
-                g.DrawImage(Upgrades[i].Img,
-                    Game.Pb.Width * (pX + 0.1f),
-                    Game.Pb.Height * (pY + 0.185f),
-                    Game.Pb.Width * 0.06f,
-                    Game.Pb.Height * 0.11f
-                );
-
-                PointF a = new(Game.Pb.Width * (pX + 0.15f), Game.Pb.Height * (pY + 0.235f));
-                PointF b = new(Game.Pb.Width * (pX + 0.3f), Game.Pb.Height * (pY + 0.235f));
-
-                Text.DrawText(g, Upgrades[i].Name, a, 20);
-                Text.DrawText(g, Upgrades[i].Descritpion, b, 20);
-
-                pY += 0.12f;
-            }
-
-
-            Pen pen = new(Color.Red, 5f);
-
-            g.DrawPolygon(pen, Buttons[0]);
-            g.DrawPolygon(pen, Buttons[1]);
-            g.DrawPolygon(pen, Buttons[2]);
-            g.DrawPolygon(pen, Buttons[3]);
-
+            pY += 0.12f;
         }
 
-        public static void GenerateUpgrades()
-        {
-            string json = File.ReadAllText("json/upgrades.json");
-            List<Upgrade> upgradesList = JsonConvert.DeserializeObject<List<Upgrade>>(json);
 
-            foreach (Upgrade up in upgradesList)
+        Pen pen = new(Color.Red, 5f);
+
+        g.DrawPolygon(pen, Buttons[0]);
+        g.DrawPolygon(pen, Buttons[1]);
+        g.DrawPolygon(pen, Buttons[2]);
+        g.DrawPolygon(pen, Buttons[3]);
+        g.DrawPolygon(pen, Buttons[4]);
+
+    }
+
+    public static void GenerateUpgrades()
+    {
+        string json = File.ReadAllText("json/upgrades.json");
+        List<Upgrade> upgradesList = JsonConvert.DeserializeObject<List<Upgrade>>(json);
+
+        foreach (Upgrade up in upgradesList)
+        {
+            if (!string.IsNullOrEmpty(up.Path))
             {
-                if (!string.IsNullOrEmpty(up.Path))
-                {
-                    _ = new Upgrade(up.Name, up.Value, up.Descritpion, up.Type, up.Path);
-                }
+                _ = new Upgrade(up.Name, up.Value, up.Descritpion, up.Type, up.Path, up.Cost);
             }
         }
     }
+}
 }

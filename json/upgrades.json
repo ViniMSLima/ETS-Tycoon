@@ -1,44 +1,59 @@
 [
     {
         "Name": "Click + 2",
-        "Description": "Improves click by 2",
+        "Description": "Python",
         "Type": "click",
+        "Cost": 1000,
         "Value": 2,
-        "Path": "./sprites/python_cursor.png"
+        "Path": "./sprites/cursor/png/python_cursor.png"
     },
     {
         "Name": "Click + 3",
-        "Description": "Improves click by 3",
+        "Description": "Git",
         "Type": "click",
+        "Cost": 5000,
         "Value": 3,
-        "Path": "./sprites/cursor.png"
+        "Path": "./sprites/cursor/png/git_cursor.png"
     },
     {
         "Name": "Click + 4",
-        "Description": "Improves click by 4",
+        "Description": "C",
         "Type": "click",
+        "Cost": 10000,
         "Value": 4,
-        "Path": "./sprites/cursor.png"
+        "Path": "./sprites/cursor/png/c_cursor.png"
     },
     {
         "Name": "Click + 5",
-        "Description": "Improves click by 5",
+        "Description": "JavaScript",
         "Type": "click",
+        "Cost": 20000,
         "Value": 5,
-        "Path": "./sprites/cursor.png"
+        "Path": "./sprites/cursor/png/js_cursor.png"
     },
     {
         "Name": "Click + 5",
-        "Description": "Improves click by 5",
+        "Description": "C#",
         "Type": "click",
+        "Cost": 50000,
         "Value": 5,
-        "Path": "./sprites/cursor.png"
+        "Path": "./sprites/cursor/png/cs_cursor.png"
     },
     {
         "Name": "Click + 5",
-        "Description": "Improves click by 5",
+        "Description": "C++",
         "Type": "click",
+        "Cost": 7000,
         "Value": 5,
-        "Path": "./sprites/cursor.png"
+        "Path": "./sprites/cursor/png/cpp_cursor.png"
+    }
+    ,
+    {
+        "Name": "Click + 5",
+        "Description": "React",
+        "Type": "click",
+        "Cost": 100000,
+        "Value": 5,
+        "Path": "./sprites/cursor/png/react_cursor.png"
     }
 ]
