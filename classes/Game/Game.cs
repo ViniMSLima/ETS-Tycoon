@@ -7,8 +7,8 @@ using MotherClasses;
 using Characters;
 using Rooms;
 
-using Newtonsoft.Json;
 using System.Drawing.Drawing2D;
+using Newtonsoft.Json;
 
 namespace EtsTycoon
 {
@@ -88,7 +88,7 @@ namespace EtsTycoon
 
             this.Load += (o, e) =>
             {
-                this.Cursor = new Cursor("./sprites/cursor2.cur");
+                this.Cursor = new Cursor("./sprites/python_cursor2.cur");
                 Bmp = new Bitmap(Pb.Width, Pb.Height);
 
                 G = Graphics.FromImage(Bmp);
@@ -177,6 +177,7 @@ namespace EtsTycoon
                     else if (OpenUpgradesStore)
                     {
                         voidClick = false;
+                        Upgrade.ClickCheckAll(e.Location);
                     }
                     else
                     {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-
+using System.Windows.Forms;
 using Extension;
 using Newtonsoft.Json;
 
@@ -9,6 +9,9 @@ namespace EtsTycoon
 {
     public class Upgrade
     {
+        public static int StoreIndex { get; set; } = 0;
+
+
         [JsonProperty("Name")]
         public string Name { get; set; }
 
@@ -27,30 +30,30 @@ namespace EtsTycoon
         public static List<Upgrade> Upgrades { get; set; } = new();
 
         public static List<PointF[]> Buttons { get; set; } = new(){
-                new PointF[]{
-                    new(Game.Pb.Width * 0.135f,  Game.Pb.Height * 0.4f),
-                    new(Game.Pb.Width * 0.135f,  Game.Pb.Height * 0.4f + Game.Pb.Height * 0.2f),
-                    new(Game.Pb.Width * 0.135f + Game.Pb.Width * 0.05f,  Game.Pb.Height * 0.4f + Game.Pb.Height * 0.2f),
-                    new(Game.Pb.Width * 0.135f + Game.Pb.Width * 0.05f,  Game.Pb.Height * 0.4f),
-                },
-                new PointF[]{
-                new(Game.Pb.Width * 0.82f,  Game.Pb.Height * 0.4f),
-                new(Game.Pb.Width * 0.82f,  Game.Pb.Height * 0.4f + Game.Pb.Height * 0.2f),
-                new(Game.Pb.Width * 0.82f + Game.Pb.Width * 0.05f,  Game.Pb.Height * 0.4f + Game.Pb.Height * 0.2f),
-                new(Game.Pb.Width * 0.82f + Game.Pb.Width * 0.05f,  Game.Pb.Height * 0.4f),
+            new PointF[]{
+                new(Game.Pb.Width * 0.18f,  Game.Pb.Height * 0.28f),
+                new(Game.Pb.Width * 0.18f,  Game.Pb.Height * 0.28f + Game.Pb.Height * 0.08f),
+                new(Game.Pb.Width * 0.18f + Game.Pb.Width * 0.65f,  Game.Pb.Height * 0.28f + Game.Pb.Height * 0.08f),
+                new(Game.Pb.Width * 0.18f + Game.Pb.Width * 0.65f,  Game.Pb.Height * 0.28f),
             },
-                new PointF[]{
-                new(Game.Pb.Width * 0.217f,  Game.Pb.Height * 0.62f),
-                new(Game.Pb.Width * 0.217f,  Game.Pb.Height * 0.62f + Game.Pb.Height * 0.1f),
-                new(Game.Pb.Width * 0.217f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.62f + Game.Pb.Height * 0.1f),
-                new(Game.Pb.Width * 0.217f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.62f),
-              },
-                new PointF[]{
-                new(Game.Pb.Width * 0.427f,  Game.Pb.Height * 0.62f),
-                new(Game.Pb.Width * 0.427f,  Game.Pb.Height * 0.62f + Game.Pb.Height * 0.1f),
-                new(Game.Pb.Width * 0.427f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.62f + Game.Pb.Height * 0.1f),
-                new(Game.Pb.Width * 0.427f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.62f),
-               }
+            new PointF[]{
+                new(Game.Pb.Width * 0.18f,  Game.Pb.Height * 0.40f),
+                new(Game.Pb.Width * 0.18f,  Game.Pb.Height * 0.40f + Game.Pb.Height * 0.08f),
+                new(Game.Pb.Width * 0.18f + Game.Pb.Width * 0.65f,  Game.Pb.Height * 0.40f + Game.Pb.Height * 0.08f),
+                new(Game.Pb.Width * 0.18f + Game.Pb.Width * 0.65f,  Game.Pb.Height * 0.40f),
+            },
+            new PointF[]{
+                new(Game.Pb.Width * 0.18f,  Game.Pb.Height * 0.52f),
+                new(Game.Pb.Width * 0.18f,  Game.Pb.Height * 0.52f + Game.Pb.Height * 0.08f),
+                new(Game.Pb.Width * 0.18f + Game.Pb.Width * 0.65f,  Game.Pb.Height * 0.52f + Game.Pb.Height * 0.08f),
+                new(Game.Pb.Width * 0.18f + Game.Pb.Width * 0.65f,  Game.Pb.Height * 0.52f),
+            },
+            new PointF[]{
+                new(Game.Pb.Width * 0.18f,  Game.Pb.Height * 0.64f),
+                new(Game.Pb.Width * 0.18f,  Game.Pb.Height * 0.64f + Game.Pb.Height * 0.08f),
+                new(Game.Pb.Width * 0.18f + Game.Pb.Width * 0.65f,  Game.Pb.Height * 0.64f + Game.Pb.Height * 0.08f),
+                new(Game.Pb.Width * 0.18f + Game.Pb.Width * 0.65f,  Game.Pb.Height * 0.64f),
+            }
             };
 
         public static List<Image> Images { get; set; } = new()
@@ -77,6 +80,86 @@ namespace EtsTycoon
 
             Upgrades.Add(this);
         }
+
+        public static bool ClickCheck(PointF point, PointF[] a)
+        {
+            int num_vertices = a.Length;
+            double x = point.X, y = point.Y;
+            bool inside = false;
+
+            PointF p1 = a[0], p2;
+
+            for (int i = 1; i <= num_vertices; i++)
+            {
+                p2 = a[i % num_vertices];
+
+                float miny = p1.Y;
+                if (p2.Y < p1.Y) miny = p2.Y;
+
+                float maxy = p1.Y;
+                if (p2.Y > p1.Y) maxy = p2.Y;
+
+                float maxx = p1.X;
+                if (p2.X > p1.X) maxx = p2.X;
+
+                if (y > miny && y <= maxy && x <= maxx)
+                {
+                    double x_intersection =
+                    (y - p1.Y) * (p2.X - p1.X) /
+                    (p2.Y - p1.Y) + p1.X;
+
+                    if (p1.X == p2.X || x <= x_intersection)
+                        inside = !inside;
+                }
+
+                p1 = p2;
+            }
+
+            int storeSize = 0;
+
+            if (inside)
+            {
+                if (point.Y < Game.Pb.Height * 0.3)
+                {
+                    Game.OpenApprenticeStore = null;
+                    Game.OpenInstructorStore = null;
+                }
+                else if (point.X > Game.Pb.Width * 0.8234375)
+                {
+                    if (StoreIndex < storeSize - 3)
+                        StoreIndex++;
+                }
+                else if (point.X > Game.Pb.Width * 0.635417)
+                {
+                    Sound.PlaySFX1(0);
+                }
+                else if (point.X > Game.Pb.Width * 0.42760417)
+                {
+                    Sound.PlaySFX1(0);
+                }
+                else if (point.X > Game.Pb.Width * 0.2177083)
+                {
+                    Sound.PlaySFX1(0);
+                }
+                else if (point.X < Game.Pb.Width * 0.1822917)
+                {
+                    if (StoreIndex > 0)
+                        StoreIndex--;
+                }
+            }
+
+            MessageBox.Show(inside.ToString());
+            return inside;
+        }
+
+        public static void ClickCheckAll(Point location)
+        {
+            ClickCheck(location, Buttons[0]);
+            ClickCheck(location, Buttons[1]);
+            ClickCheck(location, Buttons[2]);
+            ClickCheck(location, Buttons[3]);
+        }
+
 
         public static void DrawUpgradesStore(Graphics g)
         {

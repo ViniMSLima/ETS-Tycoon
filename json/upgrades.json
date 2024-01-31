@@ -4,7 +4,7 @@
         "Description": "Improves click by 2",
         "Type": "click",
         "Value": 2,
-        "Path": "./sprites/cursor.png"
+        "Path": "./sprites/python_cursor.png"
     },
     {
         "Name": "Click + 3",
