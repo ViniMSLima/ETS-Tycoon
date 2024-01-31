@@ -133,31 +133,32 @@ namespace EtsTycoon
                 {
                     Game.OpenUpgradesStore = false;
                 }
-                else if (point.Y < Game.Pb.Height * 0.38)
+                else if (point.Y < Game.Pb.Height * 0.38 && Upgrades.Count > 0)
                 {
                     UpgradeIndex = 0;
+                    BuyUpgrade();
                 }
-                else if (point.Y < Game.Pb.Height * 0.50)
+                else if (point.Y < Game.Pb.Height * 0.50 && Upgrades.Count > 1)
                 {
                     UpgradeIndex = 1;
                     Sound.PlaySFX1(0);
+                    BuyUpgrade();
                 }
-                else if (point.Y < Game.Pb.Height * 0.63)
+                else if (point.Y < Game.Pb.Height * 0.63 && Upgrades.Count > 2)
                 {
                     UpgradeIndex = 2;
                     Sound.PlaySFX1(0);
+                    BuyUpgrade();
                 }
-                else
+                else if (Upgrades.Count > 3)
                 {
                     UpgradeIndex = 3;
                     Sound.PlaySFX1(0);
-                }
-
-                if (Player.Money > Upgrades[UpgradeIndex].Cost)
                     BuyUpgrade();
 
-                else
-                    MessageBox.Show("Not enough money!!!");
+                }
+
+
             }
 
             return inside;
@@ -173,9 +174,15 @@ namespace EtsTycoon
         {
             if (Upgrades[UpgradeIndex].Type == "click")
             {
-                Player.ClickValue = Upgrades[UpgradeIndex].Value;
-                Player.Money -= Upgrades[UpgradeIndex].Cost;
-                Game.CursorPath = Upgrades[UpgradeIndex].Cur_Path;
+                if (Player.Money > Upgrades[UpgradeIndex].Cost)
+                {
+
+                    Player.ClickValue = Upgrades[UpgradeIndex].Value;
+                    Player.Money -= Upgrades[UpgradeIndex].Cost;
+                    Game.CursorPath = Upgrades[UpgradeIndex].Cur_Path;
+                }
+                else
+                    MessageBox.Show("Not enough money!!!");
             }
 
             Upgrades.Remove(Upgrades[UpgradeIndex]);
