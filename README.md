@@ -41,7 +41,7 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [X] Intro Screen
 - [X] Add store and configs buttons to the screen
 - [X] Close store button
-- [Z] Draw Intro Screen buttons
+- [X] Draw Intro Screen buttons
 - [ ] Intro Screen buttons work
 - [X] Buy upgrade changes the cursor sprite
 - [X] Animated Cursor
