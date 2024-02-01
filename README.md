@@ -23,10 +23,10 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [x] Instructor appear working
 - [x] Instructors boost every apprentice on the room
 - [x] Now it's a clicker
-- [ ] Fix sounds and add more SFX 
+- [X] Fix sounds and add more SFX 
 - [ ] Boss room is the click's spot
-- [ ] Upgrades store
-- [ ] Upgrades that change the characters or click gains
+- [X] Upgrades store
+- [X] Upgrades that change the characters or click gains
 - [ ] Draw Instructors
 - [ ] Draw workshop structures 3/13
 - [ ] Implement correct apprentices stores based on each room
@@ -37,6 +37,14 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [ ] Draw boss room
 - [ ] Menu (Start, Load, Settings)
 - [ ] Settings screen (Music, Language, ...)
-- [ ] Intro Screen
-- [ ] Add store and configs buttons to the screen
+- [X] Intro Screen
+- [X] Add store and configs buttons to the screen
 - [X] Close store button
+- [ ] Draw Intro Screen buttons
+- [ ] Intro Screen buttons work
+- [X] Buy upgrade changes the cursor sprite
+- [X] Animated Cursor
+- [ ] Improve game performance
+- [ ] Zoom
+- [ ] Game 100% responsive
+- [ ] Done
