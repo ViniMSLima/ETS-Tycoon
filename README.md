@@ -45,5 +45,7 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [X] Buy upgrade changes the cursor sprite
 - [X] Animated Cursor
 - [ ] Game 100% responsive
-=====================================================
+
+
+
 - [ ] Done 33/43
