@@ -33,7 +33,11 @@ namespace EtsTycoon
             {"crosswalk", Bitmap.FromFile("./sprites/crosswalk.png")},
             {"limpador",  Bitmap.FromFile("./sprites/limpador.png")},
             {"limpador2", Bitmap.FromFile("./sprites/limpador2.png")},
-            {"start_screen", Bitmap.FromFile("./sprites/backgrounds/start_screen.png")},
+            {"start_screen", Bitmap.FromFile("./sprites/backgrounds/start_screen2.png")},
+            {"start_btn", Bitmap.FromFile("./sprites/btn_start1.png")},
+            {"load_btn", Bitmap.FromFile("./sprites/btn_load1.png")},
+            {"settings_btn", Bitmap.FromFile("./sprites/btn_settings1.png")},
+            {"exit_btn", Bitmap.FromFile("./sprites/btn_exit1.png")},
         };
         public static List<Apprentice> Apprentices { get; set; } = new List<Apprentice>();
         public static List<Instructor> Instructors { get; set; } = new List<Instructor>();
@@ -267,8 +271,13 @@ namespace EtsTycoon
         }
 
         public void DrawIntro()
-            => G.DrawImage(Images["start_screen"], 0, 0, Pb.Width, Pb.Height);
-
+        {
+            G.DrawImage(Images["start_screen"], 0, 0, Pb.Width, Pb.Height);
+            G.DrawImage(Images["start_btn"], Pb.Width * 0.265f, Pb.Height * 0.43f, Pb.Width * 0.16f, Pb.Height * 0.2f);
+            G.DrawImage(Images["load_btn"], Pb.Width * 0.265f, Pb.Height * 0.475f, Pb.Width * 0.16f, Pb.Height * 0.2f);
+            G.DrawImage(Images["settings_btn"], Pb.Width * 0.265f, Pb.Height * 0.52f, Pb.Width * 0.16f, Pb.Height * 0.2f);
+            G.DrawImage(Images["exit_btn"], Pb.Width * 0.265f, Pb.Height * 0.562f, Pb.Width * 0.16f, Pb.Height * 0.2f);
+        }
 
         public void DrawGame()
         {
