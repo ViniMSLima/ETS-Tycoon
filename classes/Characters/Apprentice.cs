@@ -6,7 +6,7 @@ namespace Characters
 {
     public class Apprentice : CharactersData
     {
-
+        public static List<Apprentice> ApprenticeList { get; set; } = new();
         public Apprentice(CharactersData characterData)
         {
             this.Name = characterData.Name;
@@ -15,7 +15,7 @@ namespace Characters
             this.Salary = characterData.Salary;
             this.Img = new(){Bitmap.FromFile(characterData.Img1), Bitmap.FromFile(characterData.Img2)};
             this.GainType = characterData.GainType;
-            Game.Apprentices.Add(this);
+            ApprenticeList.Add(this);
         }
     }
 }

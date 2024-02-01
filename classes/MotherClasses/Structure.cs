@@ -43,6 +43,8 @@ namespace MotherClasses
             {
                 this.Buy = true;
                 Player.Money -= this.Price;
+                Sound.PlaySFX1(0);
+
             }
             else
             {
@@ -65,7 +67,7 @@ namespace MotherClasses
                     Game.OpenApprenticeStore = null;
                     CharactersStore.StoreIndex = 0;
                     Player.Apprentices.Add(this.Apprentice);
-                    // Game.Apprentices.Remove(Game.Apprentices[index]);
+                    Game.Apprentices.Remove(Game.Apprentices[index]);
                 }
 
                 else

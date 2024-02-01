@@ -9,6 +9,7 @@ using Rooms;
 
 using System.Drawing.Drawing2D;
 using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace EtsTycoon
 {
@@ -51,7 +52,7 @@ namespace EtsTycoon
         public static bool GameStart { get; private set; } = false;
 
         public static string[] CursorPath { get; set; } = {
-            "./sprites/cursor/cur/cs_cursor.cur"
+            "./sprites/cursor/cur/cursor.cur"
         };
 
         public static int CursorIndex { get; set; } = 0;
@@ -91,6 +92,7 @@ namespace EtsTycoon
                 G.Clear(Color.Black);
 
                 CreateCharacters();
+                
                 Upgrade.GenerateUpgrades();
 
                 Pb.Image = Bmp;
@@ -234,7 +236,7 @@ namespace EtsTycoon
                 Upgrade.DrawUpgradesStore(G);
             }
 
-            if(Player.Apprentices.Count > 17 && PlayerRooms.Count == 1)
+            if(Player.Apprentices.Count > 8 && PlayerRooms.Count == 1)
                 PlayerRooms.Add(Rooms[1]);
 
             if(Player.Apprentices.Count > 26 && PlayerRooms.Count == 2)
@@ -256,23 +258,25 @@ namespace EtsTycoon
                 else
                     _ = new Instructor(characterData);
             }
+
+            Apprentices = Apprentice.ApprenticeList;
         }
 
         public static void CreateRooms()
         {
-            DigitalRoom SalaETS = new()
+            _ = new BossRoom()
+            {
+                PositionX = -530 + GeneralPosition.X,
+                PositionY = 567 + GeneralPosition.Y
+            };
+
+            _ = new DigitalRoom()
             {
                 PositionX = 450 + GeneralPosition.X,
                 PositionY = 200 + GeneralPosition.Y
             };
 
-            BossRoom BossRoom = new()
-            {
-                PositionX = -530 + GeneralPosition.X,
-                PositionY = 567 + GeneralPosition.Y
-            };
-            
-            Workshop Workshop = new()
+            _ = new Workshop()
             {
                 PositionX = -734 + GeneralPosition.X,
                 PositionY = -797 + GeneralPosition.Y
@@ -303,10 +307,10 @@ namespace EtsTycoon
         public void DrawRoad()
         {
             G.DrawImage(Images["grid"], 0, 0, 2540, 1900);
-            G.DrawImage(Images["crosswalk"], 350 + Game.GeneralPosition.X, 50 + Game.GeneralPosition.Y, 800, 400);
-            G.DrawImage(Images["crosswalk"], -120 + Game.GeneralPosition.X, 285 + Game.GeneralPosition.Y, 800, 400);
-            G.DrawImage(Images["crosswalk"], -590 + Game.GeneralPosition.X, 520 + Game.GeneralPosition.Y, 800, 400);
-            G.DrawImage(Images["crosswalk"], -1060 + Game.GeneralPosition.X, 755 + Game.GeneralPosition.Y, 800, 400);
+            G.DrawImage(Images["crosswalk"], 350 + GeneralPosition.X, 50 + GeneralPosition.Y, 800, 400);
+            G.DrawImage(Images["crosswalk"], -120 + GeneralPosition.X, 285 + GeneralPosition.Y, 800, 400);
+            G.DrawImage(Images["crosswalk"], -590 + GeneralPosition.X, 520 + GeneralPosition.Y, 800, 400);
+            G.DrawImage(Images["crosswalk"], -1060 + GeneralPosition.X, 755 + GeneralPosition.Y, 800, 400);
         }
 
         public void DrawStore()
@@ -334,12 +338,12 @@ namespace EtsTycoon
                     Index = 0;
             }
 
-            G.DrawImage(this.Npc1, PositionNPC.X + Game.GeneralPosition.X, PositionNPC.Y + Game.GeneralPosition.Y, 200, 200);
+            G.DrawImage(Npc1, PositionNPC.X + GeneralPosition.X, PositionNPC.Y + GeneralPosition.Y, 200, 200);
 
             if (PositionNPC.X < -1060)
-                Game.PositionNPC = new(1350, -300);
+                PositionNPC = new(1350, -300);
 
-            Game.PositionNPC = new(PositionNPC.X - 2, PositionNPC.Y + 1);
+            PositionNPC = new(PositionNPC.X - 2, PositionNPC.Y + 1);
         }
     }
 }

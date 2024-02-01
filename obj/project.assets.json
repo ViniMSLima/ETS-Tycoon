@@ -531,19 +531,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vinis\\.nuget\\packages\\": {}
+    "C:\\Users\\disrct\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vinis\\OneDrive\\Área de Trabalho\\ETS-Tycoon\\winformsApp.csproj",
+      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ETS-Tycoon\\winformsApp.csproj",
       "projectName": "winformsApp",
-      "projectPath": "C:\\Users\\vinis\\OneDrive\\Área de Trabalho\\ETS-Tycoon\\winformsApp.csproj",
-      "packagesPath": "C:\\Users\\vinis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vinis\\OneDrive\\Área de Trabalho\\ETS-Tycoon\\obj\\",
+      "projectPath": "C:\\Users\\disrct\\Desktop\\ETS-Tycoon\\winformsApp.csproj",
+      "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\disrct\\Desktop\\ETS-Tycoon\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\vinis\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0-windows"
@@ -595,7 +595,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.405\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.312\\RuntimeIdentifierGraph.json"
       }
     }
   }

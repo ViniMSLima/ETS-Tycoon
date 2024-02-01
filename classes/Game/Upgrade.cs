@@ -157,8 +157,6 @@ namespace EtsTycoon
                     BuyUpgrade();
 
                 }
-
-
             }
 
             return inside;
@@ -187,7 +185,6 @@ namespace EtsTycoon
             }
 
         }
-
 
         public static void DrawUpgradesStore(Graphics g)
         {
@@ -237,15 +234,6 @@ namespace EtsTycoon
 
                 pY += 0.12f;
             }
-
-            // Pen pen = new(Color.Red, 5f);
-
-            // g.DrawPolygon(pen, Buttons[0]);
-            // g.DrawPolygon(pen, Buttons[1]);
-            // g.DrawPolygon(pen, Buttons[2]);
-            // g.DrawPolygon(pen, Buttons[3]);
-            // g.DrawPolygon(pen, Buttons[4]);
-
         }
 
         public static void GenerateUpgrades()

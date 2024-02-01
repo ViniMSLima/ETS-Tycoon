@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Runtime.Serialization;
 using System.Windows.Forms;
 using Characters;
@@ -83,42 +85,6 @@ namespace EtsTycoon
                 Game.Pb.Width * 0.12f,
                 Game.Pb.Height * 0.2f
             );
-            g.DrawImage(Images[1],
-                Game.Pb.Width * 0.195f,
-                Game.Pb.Height * 0.25f,
-                Game.Pb.Width * 0.2f,
-                Game.Pb.Height * 0.5f
-            );
-            g.DrawImage(Images[0],
-                Game.Pb.Width * 0.217f,
-                Game.Pb.Height * 0.62f,
-                Game.Pb.Width * 0.15f,
-                Game.Pb.Height * 0.1f
-            );
-            g.DrawImage(Images[1],
-                Game.Pb.Width * 0.405f,
-                Game.Pb.Height * 0.25f,
-                Game.Pb.Width * 0.2f,
-                Game.Pb.Height * 0.5f
-            );
-            g.DrawImage(Images[0],
-                Game.Pb.Width * 0.427f,
-                Game.Pb.Height * 0.62f,
-                Game.Pb.Width * 0.15f,
-                Game.Pb.Height * 0.1f
-            );
-            g.DrawImage(Images[1],
-                Game.Pb.Width * 0.615f,
-                Game.Pb.Height * 0.25f,
-                Game.Pb.Width * 0.2f,
-                Game.Pb.Height * 0.5f
-            );
-            g.DrawImage(Images[0],
-                Game.Pb.Width * 0.637f,
-                Game.Pb.Height * 0.62f,
-                Game.Pb.Width * 0.15f,
-                Game.Pb.Height * 0.1f
-            );
             g.DrawImage(Images[RightButton],
                 Game.Pb.Width * 0.135f,
                 Game.Pb.Height * 0.4f,
@@ -133,7 +99,7 @@ namespace EtsTycoon
             );
 
             if (storeType == "Instructor") DrawCharacters(g, Game.Instructors);
-            else DrawCharacters(g, Game.Apprentices); 
+            else DrawCharacters(g, Game.Apprentices);
         }
 
         public static void DrawCharacters<T>(Graphics g, List<T> list) where T : CharactersData
@@ -141,9 +107,30 @@ namespace EtsTycoon
             float position1 = 0.210f;
             float position2 = 0.190f;
 
-            for (int i = 0; i < 3; i++)
+            float cardPosition = 0.195f;
+            float cardPosition2 = 0.217f;
+
+            int j = 3;
+            if (list.Count < 3)
+                j = list.Count;
+
+            for (int i = 0; i < j; i++)
             {
                 CharactersData character = list[StoreIndex + i];
+
+                g.DrawImage(Images[1],
+                Game.Pb.Width * cardPosition,
+                Game.Pb.Height * 0.25f,
+                Game.Pb.Width * 0.2f,
+                Game.Pb.Height * 0.5f
+                );
+
+                g.DrawImage(Images[0],
+                    Game.Pb.Width * cardPosition2,
+                    Game.Pb.Height * 0.62f,
+                    Game.Pb.Width * 0.15f,
+                    Game.Pb.Height * 0.1f
+                );
 
                 g.DrawImage(character.Img[0],
                     Game.Pb.Width * position2,
@@ -159,6 +146,9 @@ namespace EtsTycoon
 
                 position1 += 0.210f;
                 position2 += 0.210f;
+
+                cardPosition += 0.210f;
+                cardPosition2 += 0.210f;
             }
 
             RightButton = 2;
@@ -203,12 +193,12 @@ namespace EtsTycoon
             var list = new Structure();
             int storeSize = 0;
 
-            if(Game.OpenApprenticeStore != null)
+            if (Game.OpenApprenticeStore != null)
             {
                 list = Game.OpenApprenticeStore;
                 storeSize = Game.Apprentices.Count;
             }
-            else if(Game.OpenInstructorStore != null)
+            else if (Game.OpenInstructorStore != null)
             {
                 list = Game.OpenInstructorStore;
                 storeSize = Game.Instructors.Count;
@@ -226,32 +216,46 @@ namespace EtsTycoon
                     LeftButton = 5;
                     if (StoreIndex < storeSize - 3)
                         StoreIndex++;
-                    
+                    else
+                        StoreIndex = 0;
                 }
                 else if (point.X > Game.Pb.Width * 0.635417)
                 {
-                    b.BuyCharacter(StoreIndex + 2);
-                    Sound.PlaySFX1(0);
+                    if(storeSize > 2)
+                    {
+                        b.BuyCharacter(StoreIndex + 2);
+                        Sound.PlaySFX1(0); 
+                    }
                 }
                 else if (point.X > Game.Pb.Width * 0.42760417)
                 {
+                    if(storeSize > 1){
+
                     b.BuyCharacter(StoreIndex + 1);
-                    Sound.PlaySFX1(0);
+                    Sound.PlaySFX1(0); 
+                    }
 
                 }
                 else if (point.X > Game.Pb.Width * 0.2177083)
                 {
+                    if(storeSize > 0)
+                    {
+
                     b.BuyCharacter(StoreIndex);
                     Sound.PlaySFX1(0);
+                    }
                 }
                 else if (point.X < Game.Pb.Width * 0.1822917)
                 {
                     RightButton = 4;
                     if (StoreIndex > 0)
                         StoreIndex--;
+                    else
+                        StoreIndex = storeSize - 3;
                 }
             }
 
+            
             return inside;
         }
 
