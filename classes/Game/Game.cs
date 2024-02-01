@@ -19,7 +19,8 @@ namespace EtsTycoon
         public Timer Tmr { get; set; }
         public Player Player { get; set; }
         public static PictureBox Pb { get; set; }
-        public List<Room> Rooms { get; set; } = new();
+        public static List<Room> Rooms { get; set; } = new();
+        public List<Room> PlayerRooms { get; set; } = new();
         public static Structure OpenApprenticeStore { get; set; } = null;
         public static Structure OpenInstructorStore { get; set; }
         public static bool OpenUpgradesStore { get; set; }
@@ -70,31 +71,12 @@ namespace EtsTycoon
                 Dock = DockStyle.Fill,
             };
 
-
             WindowState = FormWindowState.Maximized;
             FormBorderStyle = FormBorderStyle.None;
 
-            DigitalRoom SalaETS = new()
-            {
-                PositionX = 450 + GeneralPosition.X,
-                PositionY = 200 + GeneralPosition.Y
-            };
+            CreateRooms();
 
-            Workshop Workshop = new()
-            {
-                PositionX = -734 + GeneralPosition.X,
-                PositionY = -797 + GeneralPosition.Y
-            };
-
-            BossRoom BossRoom = new()
-            {
-                PositionX = -530 + GeneralPosition.X,
-                PositionY = 567 + GeneralPosition.Y
-            };
-
-            Rooms.Add(SalaETS);
-            Rooms.Add(Workshop);
-            Rooms.Add(BossRoom);
+            PlayerRooms.Add(Rooms[0]);
 
             this.Load += (o, e) =>
             {
@@ -190,7 +172,7 @@ namespace EtsTycoon
                     }
                     else
                     {
-                        foreach (Room r in Rooms)
+                        foreach (Room r in PlayerRooms)
                         {
                             ClickCheck = r.ClickCheckStructures(e.Location, G);
                             if (ClickCheck)
@@ -238,7 +220,7 @@ namespace EtsTycoon
 
             G.Clear(Color.White);
 
-            if (Game.GameStart)
+            if (GameStart)
                 DrawGame();
             else
                 DrawIntro();
@@ -251,6 +233,12 @@ namespace EtsTycoon
                 OpenInstructorStore = null;
                 Upgrade.DrawUpgradesStore(G);
             }
+
+            if(Player.Apprentices.Count > 17 && PlayerRooms.Count == 1)
+                PlayerRooms.Add(Rooms[1]);
+
+            if(Player.Apprentices.Count > 26 && PlayerRooms.Count == 2)
+                PlayerRooms.Add(Rooms[2]);
 
             Pb.Refresh();
             Player.UpdateMoney();
@@ -270,6 +258,28 @@ namespace EtsTycoon
             }
         }
 
+        public static void CreateRooms()
+        {
+            DigitalRoom SalaETS = new()
+            {
+                PositionX = 450 + GeneralPosition.X,
+                PositionY = 200 + GeneralPosition.Y
+            };
+
+            BossRoom BossRoom = new()
+            {
+                PositionX = -530 + GeneralPosition.X,
+                PositionY = 567 + GeneralPosition.Y
+            };
+            
+            Workshop Workshop = new()
+            {
+                PositionX = -734 + GeneralPosition.X,
+                PositionY = -797 + GeneralPosition.Y
+            };
+
+        }
+
         public void DrawIntro()
         {
             G.DrawImage(Images["start_screen"], 0, 0, Pb.Width, Pb.Height);
@@ -283,7 +293,7 @@ namespace EtsTycoon
         {
             DrawRoad();
 
-            foreach (Room r in Rooms)
+            foreach (Room r in PlayerRooms)
                 r.Draw(G);
 
             DrawNPC();

@@ -37,6 +37,8 @@ namespace Rooms
 
             this.Structures.Add(new HexagonalTable());
             this.Structures.Add(new HexagonalTable());
+
+            Game.Rooms.Add(this);
         }
 
         public override void Draw(Graphics g)

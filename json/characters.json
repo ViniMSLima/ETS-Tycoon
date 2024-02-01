@@ -14,7 +14,7 @@
     "Age": "18",
     "Img1": "./sprites/apprentice/table/benhur/benhur1.png",
     "Img2": "./sprites/apprentice/table/benhur/benhur2.png",
-    "Gain": 1,
+    "Gain": 2,
     "Salary": 200,
     "Type": "Apprentice",
     "GainType": "C/sec"
@@ -24,7 +24,7 @@
     "Age": "19",
     "Img1": "./sprites/apprentice/table/table_apprentice1.png",
     "Img2": "./sprites/apprentice/table/table_apprentice2.png",
-    "Gain": 1,
+    "Gain": 3,
     "Salary": 300,
     "Type": "Apprentice",
     "GainType": "C/sec"
@@ -34,7 +34,7 @@
     "Age": "19",
     "Img1": "./sprites/apprentice/table/emyli/emyli1.png",
     "Img2": "./sprites/apprentice/table/emyli/emyli2.png",
-    "Gain": 1,
+    "Gain": 4,
     "Salary": 400,
     "Type": "Apprentice",
     "GainType": "C/sec"
@@ -44,7 +44,7 @@
     "Age": "18",
     "Img1": "./sprites/apprentice/table/eric/eric1.png",
     "Img2": "./sprites/apprentice/table/eric/eric2.png",
-    "Gain": 1,
+    "Gain": 5,
     "Salary": 500,
     "Type": "Apprentice",
     "GainType": "C/sec"
@@ -54,7 +54,7 @@
     "Age": "19",
     "Img1": "./sprites/apprentice/table/felipe/felipe1.png",
     "Img2": "./sprites/apprentice/table/felipe/felipe2.png",
-    "Gain": 1,
+    "Gain": 6,
     "Salary": 600,
     "Type": "Apprentice",
     "GainType": "C/sec"
@@ -64,7 +64,7 @@
     "Age": "18",
     "Img1": "./sprites/apprentice/table/table_apprentice1.png",
     "Img2": "./sprites/apprentice/table/table_apprentice2.png",
-    "Gain": 1,
+    "Gain": 7,
     "Salary": 700,
     "Type": "Apprentice",
     "GainType": "C/sec"
@@ -74,7 +74,7 @@
     "Age": "18",
     "Img1": "./sprites/apprentice/table/tavares/tavares1.png",
     "Img2": "./sprites/apprentice/table/tavares/tavares2.png",
-    "Gain": 1,
+    "Gain": 8,
     "Salary": 800,
     "Type": "Apprentice",
     "GainType": "C/sec"
@@ -84,7 +84,7 @@
     "Age": "22",
     "Img1": "./sprites/apprentice/table/juan/juan1.png",
     "Img2": "./sprites/apprentice/table/juan/juan2.png",
-    "Gain": 1,
+    "Gain": 9,
     "Salary": 900,
     "Type": "Apprentice",
     "GainType": "C/sec"
@@ -94,7 +94,7 @@
     "Age": "19",
     "Img1": "./sprites/apprentice/table/lander/lander1.png",
     "Img2": "./sprites/apprentice/table/lander/lander2.png",
-    "Gain": 1,
+    "Gain": 10,
     "Salary": 1000,
     "Type": "Apprentice",
     "GainType": "C/sec"
@@ -104,7 +104,7 @@
     "Age": "19",
     "Img1": "./sprites/apprentice/table/luis/luis1.png",
     "Img2": "./sprites/apprentice/table/luis/luis2.png",
-    "Gain": 1,
+    "Gain": 11,
     "Salary": 1100,
     "Type": "Apprentice",
     "GainType": "C/sec"
@@ -114,7 +114,7 @@
     "Age": "18",
     "Img1": "./sprites/apprentice/table/rosa/rosa1.png",
     "Img2": "./sprites/apprentice/table/rosa/rosa2.png",
-    "Gain": 1,
+    "Gain": 12,
     "Salary": 1200,
     "Type": "Apprentice",
     "GainType": "C/sec"
@@ -124,7 +124,7 @@
     "Age": "20",
     "Img1": "./sprites/apprentice/table/marcos/marcos1.png",
     "Img2": "./sprites/apprentice/table/marcos/marcos2.png",
-    "Gain": 1,
+    "Gain": 13,
     "Salary": 1300,
     "Type": "Apprentice",
     "GainType": "C/sec"
@@ -134,7 +134,7 @@
     "Age": "19",
     "Img1": "./sprites/apprentice/table/table_apprentice1.png",
     "Img2": "./sprites/apprentice/table/table_apprentice2.png",
-    "Gain": 1,
+    "Gain": 14,
     "Salary": 1400,
     "Type": "Apprentice",
     "GainType": "C/sec"
@@ -144,7 +144,7 @@
     "Age": "20",
     "Img1": "./sprites/apprentice/table/maycon/maycon1.png",
     "Img2": "./sprites/apprentice/table/maycon/maycon2.png",
-    "Gain": 1,
+    "Gain": 15,
     "Salary": 1500,
     "Type": "Apprentice",
     "GainType": "C/sec"
@@ -154,7 +154,7 @@
     "Age": "19",
     "Img1": "./sprites/apprentice/table/murilo/murilo1.png",
     "Img2": "./sprites/apprentice/table/murilo/murilo2.png",
-    "Gain": 1,
+    "Gain": 16,
     "Salary": 1600,
     "Type": "Apprentice",
     "GainType": "C/sec"
@@ -164,7 +164,7 @@
     "Age": "19",
     "Img1": "./sprites/apprentice/table/table_apprentice1.png",
     "Img2": "./sprites/apprentice/table/table_apprentice2.png",
-    "Gain": 1,
+    "Gain": 17,
     "Salary": 1700,
     "Type": "Apprentice",
     "GainType": "C/sec"
@@ -174,7 +174,7 @@
     "Age": "19",
     "Img1": "./sprites/apprentice/table/vini/vini1.png",
     "Img2": "./sprites/apprentice/table/vini/vini2.png",
-    "Gain": 1,
+    "Gain": 18,
     "Salary": 1800,
     "Type": "Apprentice",
     "GainType": "C/sec"

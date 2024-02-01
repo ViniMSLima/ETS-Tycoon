@@ -180,12 +180,12 @@ namespace EtsTycoon
                     Player.ClickValue = Upgrades[UpgradeIndex].Value;
                     Player.Money -= Upgrades[UpgradeIndex].Cost;
                     Game.CursorPath = Upgrades[UpgradeIndex].Cur_Path;
+                    Upgrades.Remove(Upgrades[UpgradeIndex]);
                 }
                 else
                     MessageBox.Show("Not enough money!!!");
             }
 
-            Upgrades.Remove(Upgrades[UpgradeIndex]);
         }
 
 

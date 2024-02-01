@@ -19,8 +19,8 @@ namespace Structures
             this.Images = new()
             {
                 {"structure", Bitmap.FromFile("sprites/table/workshop_table.png")},
-                {"buy_structure", Bitmap.FromFile("sprites/table/buy_table.png")},
-                {"buy_structure_down", Bitmap.FromFile("sprites/table/buy_table_down.png")},
+                {"buy_structure", Bitmap.FromFile("sprites/btn_table1.png")},
+                {"buy_structure_down", Bitmap.FromFile("sprites/btn_table2.png")},
                 {"animation1", Bitmap.FromFile("sprites/table/workshop_table1.png")},
                 {"animation2", Bitmap.FromFile("sprites/table/workshop_table2.png")},
             };

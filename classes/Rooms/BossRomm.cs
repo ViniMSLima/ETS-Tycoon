@@ -34,6 +34,7 @@ namespace Rooms
             for (int i = 1; i < a.Length; i++)
                 this.Structures.Add(new DoubleChairTable());
 
+            Game.Rooms.Add(this);
         }
 
         public override void Draw(Graphics g)

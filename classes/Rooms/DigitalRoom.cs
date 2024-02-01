@@ -42,6 +42,8 @@ namespace Rooms
                 this.Structures.Add(new DRTable());
 
             this.Structures.Add(new InstructorsDRTable());
+
+            Game.Rooms.Add(this);
         }
 
         public override void Draw(Graphics g)

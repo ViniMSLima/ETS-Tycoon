@@ -9,8 +9,8 @@ namespace EtsTycoon
 {
     public class Player
     {
-        public static float Money { get; set; } = 9999999999999999999;
-        public static int CoinPerSecond { get; set; } = 1;
+        public static float Money { get; set; } = 999999999999999999;
+        public static int CoinPerSecond { get; set; } = 0;
         public static int Level { get; set; } = 1;
         public static int ClickValue { get; set; } = 1;
         public PictureBox CoinImg { get; set; } = new()
@@ -59,8 +59,8 @@ namespace EtsTycoon
             this.Label.Font = new Font("Arial", 0.013f * Game.Pb.Width, FontStyle.Bold);
 
             this.Label.Text = $"${FormatMoney(Player.Money)} - {Player.CoinPerSecond} C/s\nClick Value: {Player.ClickValue}\nApprentices: {Player.Apprentices.Count}\nInstructors: {Player.Instructors.Count}";
-            g.DrawImage(Images["c_config"], 10, pb.Height - 100, 250, 100);
-            g.DrawImage(Images["b_store"], 10, pb.Height - 180, 250, 100);
+            g.DrawImage(Images["c_config"], 10, pb.Height - 100, Game.Pb.Width * 0.14f, Game.Pb.Height * 0.1f);
+            g.DrawImage(Images["b_store"], 10, pb.Height - 180, Game.Pb.Width * 0.14f, Game.Pb.Height * 0.1f);
 
         }
 

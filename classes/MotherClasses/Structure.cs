@@ -65,6 +65,7 @@ namespace MotherClasses
                     Game.OpenApprenticeStore = null;
                     CharactersStore.StoreIndex = 0;
                     Player.Apprentices.Add(this.Apprentice);
+                    // Game.Apprentices.Remove(Game.Apprentices[index]);
                 }
 
                 else
@@ -81,6 +82,8 @@ namespace MotherClasses
                     Game.OpenInstructorStore = null;
                     CharactersStore.StoreIndex = 0;
                     Player.Instructors.Add(this.Instructor);
+                    Game.Instructors.Remove(Game.Instructors[index]);
+
                     Sound.PlaySFX1(0);
                 }
 
