@@ -34,7 +34,7 @@ namespace MotherClasses
 
             for(int i = 0; i < Structures.Count; i++)
             {
-                a = Structures[i].ClickCheck(point, g);
+                a = Structures[i].ClickCheck(point);
                 if(a)
                     b = true;
             }

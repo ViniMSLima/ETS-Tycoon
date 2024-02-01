@@ -10,6 +10,7 @@ using Rooms;
 using System.Drawing.Drawing2D;
 using Newtonsoft.Json;
 using System.Runtime.Serialization;
+using System.Reflection;
 
 namespace EtsTycoon
 {
@@ -152,10 +153,7 @@ namespace EtsTycoon
 
                 else
                 {
-
-                    Player.Money += Player.ClickValue;
-
-                    bool voidClick = true, ClickCheck;
+                    bool voidClick = true, ClickCheck, ClickCheckBR;
 
                     if (OpenApprenticeStore != null)
                     {
@@ -179,6 +177,13 @@ namespace EtsTycoon
                             ClickCheck = r.ClickCheckStructures(e.Location, G);
                             if (ClickCheck)
                                 voidClick = false;
+                        }
+
+                        ClickCheckBR = Clicker.Clicks(e.Location);
+                        if(ClickCheckBR)
+                        {
+                            Player.Money += Player.ClickValue;
+                            voidClick = false;
                         }
                     }
 
@@ -242,6 +247,7 @@ namespace EtsTycoon
             if(Player.Apprentices.Count > 26 && PlayerRooms.Count == 2)
                 PlayerRooms.Add(Rooms[2]);
 
+
             Pb.Refresh();
             Player.UpdateMoney();
         }
@@ -302,6 +308,7 @@ namespace EtsTycoon
 
             DrawNPC();
             Player.Draw(Pb, G);
+            Clicker.Draw(G, Rooms[0].PositionX + Game.GeneralPosition.X + 600, Rooms[0].PositionY + Game.GeneralPosition.Y + 650);
         }
 
         public void DrawRoad()

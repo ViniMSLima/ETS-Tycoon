@@ -95,7 +95,7 @@ namespace MotherClasses
         }
 
 
-        public bool ClickCheck(PointF point, Graphics g)
+        public bool ClickCheck(PointF point)
         {
             int num_vertices = this.Points.Length;
             double x = point.X, y = point.Y;

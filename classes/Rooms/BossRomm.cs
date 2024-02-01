@@ -3,24 +3,31 @@ using System.Drawing;
 using MotherClasses;
 using Structures;
 using EtsTycoon;
+using Extension;
 
 namespace Rooms
 {
     public class BossRoom : Room
     {
+        public static PointF[] Points { get; set; }
+        public static int H { get; set; }
+        public static int W { get; set; }
         public BossRoom()
         {
+            H = 40;
+            W = 90;
+
             this.FloorImg = Bitmap.FromFile("./sprites/floor/bossroom.png");
 
             float[] a = {
-                         PositionX + 1120, 
+                         PositionX + 1120,
                          PositionX + 870, PositionX + 960, PositionX + 1050,
                          PositionX + 700, PositionX + 850, PositionX +  940,
                          PositionX + 590, PositionX + 740, PositionX +  830
                          };
 
             float[] b = {
-                         PositionY + 115, 
+                         PositionY + 115,
                          PositionY +  60, PositionY + 105, PositionY + 150,
                          PositionY +  85, PositionY + 160, PositionY + 205,
                          PositionY + 140, PositionY + 215, PositionY + 260
@@ -43,12 +50,11 @@ namespace Rooms
                 PositionX + Game.GeneralPosition.X, PositionY + Game.GeneralPosition.Y, 1400, 630
             );
 
-            if(Game.OpenUpgradesStore == false)
+            if (Game.OpenUpgradesStore == false)
             {
-               for (int i = 0; i < this.Structures.Count; i++)
-                this.Structures[i].Draw(g, PositionX + PositionsX[i] + Game.GeneralPosition.X, PositionY + PositionsY[i] + Game.GeneralPosition.Y);
+                for (int i = 0; i < this.Structures.Count; i++)
+                    this.Structures[i].Draw(g, PositionX + PositionsX[i] + Game.GeneralPosition.X, PositionY + PositionsY[i] + Game.GeneralPosition.Y);
             }
-        }
-
+        } 
     }
 }
