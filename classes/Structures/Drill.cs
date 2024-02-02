@@ -11,8 +11,8 @@ namespace Structures
         {
             StructureType = "Apprentice";
 
-            H = 80;
-            W = 90;
+            H = 90;
+            W = 100;
 
             this.Price = 20;
 
@@ -31,7 +31,7 @@ namespace Structures
             if(this.Buy)
             {
                 H = 90;
-                W = 110;
+                W = 100;
             }
             PointF[] points = new PointF[]{
                 new(0, 0),

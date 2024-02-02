@@ -27,25 +27,27 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [X] Boss room is the click spot
 - [X] Upgrades store
 - [X] Upgrades that changes click value
-- [ ] Draw Instructors
-- [ ] Draw workshop structures 3/13
+- [X] ClickBox adapts to size of structure
 - [X] Include DTA
-- [ ] Draw workshop apprentices
-- [ ] Implement Workshop with structures
-- [ ] Implement more rooms
-- [ ] Draw boss room
-- [ ] Menu (Start, Load, Settings)
-- [ ] Settings screen (Music, Language, ...)
-- [ ] Tutorial / Help
 - [X] Intro Screen
 - [X] Add store and configs buttons to the screen
 - [X] Close store button
 - [X] Draw Intro Screen buttons
-- [ ] Intro Screen buttons work
 - [X] Buy upgrade changes the cursor sprite
 - [X] Animated Cursor
+- [ ] Menu (Start, Load, Settings)
+- [ ] Draw boss room
+- [ ] Draw Instructors
+- [ ] Settings screen (Music, Language, ...)
+- [ ] Tutorial / Help
+- [ ] Draw workshop structures 3/13
+- [ ] Draw workshop apprentices
+- [ ] Implement Workshop with structures
+- [ ] Draw new room structures
+- [ ] Implement new room
+- [ ] Intro Screen buttons work
 - [ ] Game 100% responsive
+- [ ] Detail each room
 
 
-
-- [ ] Done 33/43
+- [ ] Done 33/46

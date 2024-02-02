@@ -41,7 +41,7 @@ namespace Structures
                 new(H, W),
                 new(0, W),
                 new(0, 0),
-            }.ToIsometric(roomX + 120, roomY + 145);
+            }.ToIsometric(roomX + 150, roomY + 165);
 
             this.Points = points;
 
