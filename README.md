@@ -35,6 +35,7 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [X] Draw Intro Screen buttons
 - [X] Buy upgrade changes the cursor sprite
 - [X] Animated Cursor
+- [ ] Npc goes beep beep
 - [ ] Menu (Start, Load, Settings)
 - [ ] Draw boss room
 - [ ] Draw Instructors

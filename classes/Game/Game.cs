@@ -11,6 +11,7 @@ using System.Drawing.Drawing2D;
 using Newtonsoft.Json;
 using System.Runtime.Serialization;
 using System.Reflection;
+using Microsoft.VisualBasic.Devices;
 
 namespace EtsTycoon
 {
@@ -147,12 +148,15 @@ namespace EtsTycoon
                         OpenUpgradesStore = !OpenUpgradesStore;
                         break;
                 }
-            };
+            };   
+            
 
             Pb.MouseDown += (o, e) =>
             {
                 if (!GameStart)
-                    GameStart = true;
+                {
+                    Menu.ClickCheckAll(e.Location);
+                }
 
                 else
                 {
@@ -215,9 +219,6 @@ namespace EtsTycoon
                     PrevMouse = e.Location;
                 }
             };
-
-            Pb.MouseWheel += (o, e) => ScrollDelta += e.Delta / 10; //FUTURE ZOOMING DEVELOPMENT
-            
         }
 
         public void Tick()
@@ -233,7 +234,10 @@ namespace EtsTycoon
             if (GameStart)
                 DrawGame();
             else
+            {
                 DrawIntro();
+                Menu.ClickCheckAll(MousePosition);
+            }
 
             DrawStore();
 
@@ -253,6 +257,7 @@ namespace EtsTycoon
 
             Pb.Refresh();
             Player.UpdateMoney();
+            
         }
 
         public static void CreateCharacters()
@@ -300,6 +305,8 @@ namespace EtsTycoon
             G.DrawImage(Images["load_btn"], Pb.Width * 0.265f, Pb.Height * 0.475f, Pb.Width * 0.16f, Pb.Height * 0.2f);
             G.DrawImage(Images["settings_btn"], Pb.Width * 0.265f, Pb.Height * 0.52f, Pb.Width * 0.16f, Pb.Height * 0.2f);
             G.DrawImage(Images["exit_btn"], Pb.Width * 0.265f, Pb.Height * 0.562f, Pb.Width * 0.16f, Pb.Height * 0.2f);
+
+            Menu.Draw(G);
         }
 
         public void DrawGame()

@@ -332,8 +332,8 @@
   {
     "Name": "Zago (Vitória)",
     "Age": "19",
-    "Img1": "./sprites/apprentice/table/table_apprentice1.png",
-    "Img2": "./sprites/apprentice/table/table_apprentice2.png",
+    "Img1": "./sprites/apprentice/table/zago/zago1.png",
+    "Img2": "./sprites/apprentice/table/zago/zago2.png",
     "Gain": 4,
     "Salary": 400,
     "Type": "Apprentice",

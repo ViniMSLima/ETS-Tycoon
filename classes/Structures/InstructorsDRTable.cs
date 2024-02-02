@@ -62,8 +62,7 @@ namespace Structures
                 }
             }
 
-            g.DrawImage(Img, roomX, roomY, 200, 200);Pen pen = new(Color.Red, 5f);
-            g.DrawPolygon(pen, points);
+            g.DrawImage(Img, roomX, roomY, 200, 200);
 
             if (this.Instructor != null)
                 DrawText(g, this.Instructor.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
