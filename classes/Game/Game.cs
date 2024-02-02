@@ -93,6 +93,9 @@ namespace EtsTycoon
                 G.Clear(Color.Black);
 
                 CreateCharacters();
+                PlayerRooms.Add(Rooms[1]);
+                PlayerRooms.Add(Rooms[2]);
+
                 
                 Upgrade.GenerateUpgrades();
 
@@ -241,11 +244,11 @@ namespace EtsTycoon
                 Upgrade.DrawUpgradesStore(G);
             }
 
-            if(Player.Apprentices.Count > 8 && PlayerRooms.Count == 1)
-                PlayerRooms.Add(Rooms[1]);
+            // if(Player.Apprentices.Count > 8 && PlayerRooms.Count == 1)
+                // PlayerRooms.Add(Rooms[1]);
 
-            if(Player.Apprentices.Count > 26 && PlayerRooms.Count == 2)
-                PlayerRooms.Add(Rooms[2]);
+            // if(Player.Apprentices.Count > 26 && PlayerRooms.Count == 2)
+                // PlayerRooms.Add(Rooms[2]);
 
 
             Pb.Refresh();

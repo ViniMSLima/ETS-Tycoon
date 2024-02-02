@@ -30,6 +30,11 @@ namespace Structures
 
         public override void Draw(Graphics g, float roomX, float roomY)
         {
+            if(this.Buy)
+            {
+                H = 90;
+                W = 110;
+            }
             PointF[] points = new PointF[]{
                 new(0, 0),
                 new(H, 0),
@@ -57,7 +62,8 @@ namespace Structures
                 }
             }
 
-            g.DrawImage(Img, roomX, roomY, 200, 200);
+            g.DrawImage(Img, roomX, roomY, 200, 200);Pen pen = new(Color.Red, 5f);
+            g.DrawPolygon(pen, points);
 
             if (this.Instructor != null)
                 DrawText(g, this.Instructor.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));

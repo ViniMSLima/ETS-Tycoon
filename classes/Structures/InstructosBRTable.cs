@@ -20,7 +20,9 @@ namespace Structures
             {
                 {"structure", Bitmap.FromFile("sprites/table/instructor_BR_table.png")},
                 {"buy_structure", Bitmap.FromFile("sprites/instructors/buy_instructor.png")},
-                {"buy_structure_down", Bitmap.FromFile("sprites/instructors/buy_instructor_down.png")}
+                {"buy_structure_down", Bitmap.FromFile("sprites/instructors/buy_instructor_down.png")},
+                {"instructor1", Bitmap.FromFile("sprites/instructors/BR_instructor_table1.png")},
+                {"instructor2", Bitmap.FromFile("sprites/instructors/BR_instructor_table2.png")},
             };
             
             this.Img = Images["buy_structure"];
@@ -28,6 +30,11 @@ namespace Structures
 
         public override void Draw(Graphics g, float roomX, float roomY)
         {
+            if(this.Buy)
+            {
+                H = 90;
+                W = 110;
+            }
             PointF[] points = new PointF[]{
                 new(0, 0),
                 new(H, 0),
@@ -43,12 +50,12 @@ namespace Structures
                 const int speed = 3;
                 if (Index < speed)
                 {
-                    this.Img = this.Instructor.Img[0];
+                    this.Img = this.Images["instructor1"];
                     Index++;
                 }
                 else
                 {
-                    this.Img = this.Instructor.Img[1];
+                    this.Img = this.Images["instructor2"];
                     Index++;
                     if (Index > 2 * speed)
                         Index = 0;

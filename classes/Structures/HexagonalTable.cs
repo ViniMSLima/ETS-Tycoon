@@ -11,8 +11,8 @@ namespace Structures
         {
             StructureType = "Apprentice";
 
-            H = 80;
-            W = 90;
+            H = 130;
+            W = 130;
 
             this.Price = 20;
 
@@ -30,6 +30,11 @@ namespace Structures
 
         public override void Draw(Graphics g, float roomX, float roomY)
         {
+            if(this.Buy)
+            {
+                H = 170;
+                W = 170;
+            }
             PointF[] points = new PointF[]{
                 new(0, 0),
                 new(H, 0),
@@ -57,7 +62,8 @@ namespace Structures
                 }
             }
 
-            g.DrawImage(Img, roomX + 20, roomY - 20, 240, 240);
+            g.DrawImage(Img, roomX + 20, roomY - 20, 240, 240);Pen pen = new(Color.Red, 5f);
+            g.DrawPolygon(pen, points);
 
             if (this.Apprentice != null)
                 DrawText(g, this.Apprentice.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
