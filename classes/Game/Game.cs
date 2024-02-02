@@ -9,9 +9,6 @@ using Rooms;
 
 using System.Drawing.Drawing2D;
 using Newtonsoft.Json;
-using System.Runtime.Serialization;
-using System.Reflection;
-using Microsoft.VisualBasic.Devices;
 
 namespace EtsTycoon
 {
@@ -36,12 +33,8 @@ namespace EtsTycoon
             {"grid",      Bitmap.FromFile("./sprites/backgrounds/grid.jpg")},
             {"crosswalk", Bitmap.FromFile("./sprites/crosswalk.png")},
             {"limpador",  Bitmap.FromFile("./sprites/limpador.png")},
-            {"limpador2", Bitmap.FromFile("./sprites/limpador2.png")},
-            {"start_screen", Bitmap.FromFile("./sprites/backgrounds/start_screen2.png")},
-            {"start_btn", Bitmap.FromFile("./sprites/btn_start1.png")},
-            {"load_btn", Bitmap.FromFile("./sprites/btn_load1.png")},
-            {"settings_btn", Bitmap.FromFile("./sprites/btn_settings1.png")},
-            {"exit_btn", Bitmap.FromFile("./sprites/btn_exit1.png")},
+            {"limpador2", Bitmap.FromFile("./sprites/limpador2.png")}
+
         };
         public static List<Apprentice> Apprentices { get; set; } = new List<Apprentice>();
         public static List<Instructor> Instructors { get; set; } = new List<Instructor>();
@@ -51,7 +44,7 @@ namespace EtsTycoon
         public int Index { get; set; } = 0;
 
         public static int ScrollDelta { get; set; } = 0;
-        public static bool GameStart { get; private set; } = false;
+        public static bool GameStart { get; set; } = false;
 
         public static string[] CursorPath { get; set; } = {
             "./sprites/cursor/cur/cursor.cur"
@@ -94,9 +87,6 @@ namespace EtsTycoon
                 G.Clear(Color.Black);
 
                 CreateCharacters();
-                PlayerRooms.Add(Rooms[1]);
-                PlayerRooms.Add(Rooms[2]);
-
                 
                 Upgrade.GenerateUpgrades();
 
@@ -235,8 +225,8 @@ namespace EtsTycoon
                 DrawGame();
             else
             {
-                DrawIntro();
-                Menu.ClickCheckAll(MousePosition);
+                Menu.Draw(G);
+                Menu.HoverAll(MousePosition);
             }
 
             DrawStore();
@@ -248,11 +238,11 @@ namespace EtsTycoon
                 Upgrade.DrawUpgradesStore(G);
             }
 
-            // if(Player.Apprentices.Count > 8 && PlayerRooms.Count == 1)
-                // PlayerRooms.Add(Rooms[1]);
+            if(Player.Apprentices.Count > 8 && PlayerRooms.Count == 1)
+                PlayerRooms.Add(Rooms[1]);
 
-            // if(Player.Apprentices.Count > 26 && PlayerRooms.Count == 2)
-                // PlayerRooms.Add(Rooms[2]);
+            if(Player.Apprentices.Count > 26 && PlayerRooms.Count == 2)
+                PlayerRooms.Add(Rooms[2]);
 
 
             Pb.Refresh();
@@ -298,16 +288,6 @@ namespace EtsTycoon
 
         }
 
-        public void DrawIntro()
-        {
-            G.DrawImage(Images["start_screen"], 0, 0, Pb.Width, Pb.Height);
-            G.DrawImage(Images["start_btn"], Pb.Width * 0.265f, Pb.Height * 0.43f, Pb.Width * 0.16f, Pb.Height * 0.2f);
-            G.DrawImage(Images["load_btn"], Pb.Width * 0.265f, Pb.Height * 0.475f, Pb.Width * 0.16f, Pb.Height * 0.2f);
-            G.DrawImage(Images["settings_btn"], Pb.Width * 0.265f, Pb.Height * 0.52f, Pb.Width * 0.16f, Pb.Height * 0.2f);
-            G.DrawImage(Images["exit_btn"], Pb.Width * 0.265f, Pb.Height * 0.562f, Pb.Width * 0.16f, Pb.Height * 0.2f);
-
-            Menu.Draw(G);
-        }
 
         public void DrawGame()
         {

@@ -35,20 +35,23 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [X] Draw Intro Screen buttons
 - [X] Buy upgrade changes the cursor sprite
 - [X] Animated Cursor
+- [X] Menu screen with buttons working
+- [X] Hover
+- [ ] Settings screen
+- [ ] Load game screen
+- [ ] Load game
 - [ ] Npc goes beep beep
-- [ ] Menu (Start, Load, Settings)
 - [ ] Draw boss room
 - [ ] Draw Instructors
-- [ ] Settings screen (Music, Language, ...)
+- [ ] In game settings screen (Music, Language, ...)
 - [ ] Tutorial / Help
 - [ ] Draw workshop structures 3/13
 - [ ] Draw workshop apprentices
 - [ ] Implement Workshop with structures
 - [ ] Draw new room structures
 - [ ] Implement new room
-- [ ] Intro Screen buttons work
 - [ ] Game 100% responsive
 - [ ] Detail each room
 
 
-- [ ] Done 33/46
+- [ ] Done ?/46
