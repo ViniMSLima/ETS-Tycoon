@@ -1,13 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Globalization;
-using System.Runtime.Serialization;
-using System.Windows.Forms;
+
+using MotherClasses;
 using Characters;
 using Extension;
-using MotherClasses;
 
 namespace EtsTycoon
 {
@@ -71,6 +67,8 @@ namespace EtsTycoon
             Bitmap.FromFile("./sprites/button/esc_button.png")
         };
 
+        public static bool Double { get; set; } = false;
+
         public static void Draw(Graphics g, string storeType)
         {
             g.DrawImage(Bitmap.FromFile("./sprites/black_filter.png"), 0, 0);
@@ -100,6 +98,16 @@ namespace EtsTycoon
 
             if (storeType == "Instructor") DrawCharacters(g, Game.Instructors);
             else DrawCharacters(g, Game.Apprentices);
+
+            if (Double)
+            {
+                g.DrawImage(Images[0],
+                    Game.Pb.Width * 0.1f,
+                    Game.Pb.Height * 0.8f,
+                    Game.Pb.Width * 0.8f,
+                    Game.Pb.Height * 0.2f
+                );
+            }
         }
 
         public static void DrawCharacters<T>(Graphics g, List<T> list) where T : CharactersData
@@ -221,28 +229,29 @@ namespace EtsTycoon
                 }
                 else if (point.X > Game.Pb.Width * 0.635417)
                 {
-                    if(storeSize > 2)
+                    if (storeSize > 2)
                     {
                         b.BuyCharacter(StoreIndex + 2);
-                        Sound.PlaySFX1(0); 
+                        Sound.PlaySFX1(0);
                     }
                 }
                 else if (point.X > Game.Pb.Width * 0.42760417)
                 {
-                    if(storeSize > 1){
+                    if (storeSize > 1)
+                    {
 
-                    b.BuyCharacter(StoreIndex + 1);
-                    Sound.PlaySFX1(0); 
+                        b.BuyCharacter(StoreIndex + 1);
+                        Sound.PlaySFX1(0);
                     }
 
                 }
                 else if (point.X > Game.Pb.Width * 0.2177083)
                 {
-                    if(storeSize > 0)
+                    if (storeSize > 0)
                     {
 
-                    b.BuyCharacter(StoreIndex);
-                    Sound.PlaySFX1(0);
+                        b.BuyCharacter(StoreIndex);
+                        Sound.PlaySFX1(0);
                     }
                 }
                 else if (point.X < Game.Pb.Width * 0.1822917)
@@ -255,7 +264,7 @@ namespace EtsTycoon
                 }
             }
 
-            
+
             return inside;
         }
 

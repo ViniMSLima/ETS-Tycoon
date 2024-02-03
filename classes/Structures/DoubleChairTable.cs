@@ -10,6 +10,7 @@ namespace Structures
         public DoubleChairTable()
         {
             StructureType = "Apprentice";
+            Amount = 2;
 
             H = 40;
             W = 90;

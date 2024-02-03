@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Drawing;
-using System.Formats.Tar;
+
 using System.Windows.Forms;
 using Characters;
 using EtsTycoon;
+using MotherClasses;
 
 namespace MotherClasses
 {
@@ -13,6 +14,7 @@ namespace MotherClasses
         public float W { get; set; }
 
         public string StructureType { get; set; }
+        public int Amount { get; set; } = 1;
 
         public Apprentice Apprentice { get; set; }
         public Instructor Instructor { get; set; }
@@ -136,7 +138,13 @@ namespace MotherClasses
                     Sound.PlaySFX2(3);
 
                     if(StructureType == "Apprentice")
+                    {
                         Game.OpenApprenticeStore = this;
+                        if(Amount > 1)
+                            CharactersStore.Double = true;
+                        else
+                            CharactersStore.Double = false;
+                    }
                     else 
                         Game.OpenInstructorStore = this;
                 }   
