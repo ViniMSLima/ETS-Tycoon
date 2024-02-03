@@ -34,6 +34,7 @@ namespace Structures
                 H = 70;
                 W = 110;
             }
+
             PointF[] points = new PointF[]{
                 new(0, 0),
                 new(H, 0),

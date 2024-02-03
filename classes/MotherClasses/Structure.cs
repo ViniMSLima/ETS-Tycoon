@@ -1,10 +1,9 @@
 using System.Collections.Generic;
+using System.Windows.Forms;
 using System.Drawing;
 
-using System.Windows.Forms;
 using Characters;
 using EtsTycoon;
-using MotherClasses;
 
 namespace MotherClasses
 {
@@ -20,7 +19,7 @@ namespace MotherClasses
         public Instructor Instructor { get; set; }
 
         public int Index { get; set; } = 0;
-
+        public List<Apprentice> Duo { get; set; } = new();
 
         public Image Img { get; set; }
         public PointF[] Points { get; set; }
@@ -35,10 +34,10 @@ namespace MotherClasses
         public void BuyCheck()
         {
             if (this.Buy && this.Img != Images["structure"])
-                this.Img = Images["structure"];  
+                this.Img = Images["structure"];
         }
 
-        public void BuyStructure() 
+        public void BuyStructure()
         {
             this.Img = Images["buy_structure_down"];
             if (Player.Money >= this.Price)
@@ -53,13 +52,46 @@ namespace MotherClasses
                 MessageBox.Show("Not enough money!");
                 this.Img = Images["buy_structure"];
             }
-         }
+        }
 
         public void BuyCharacter(int index)
         {
-            if (StructureType == "Apprentice")
+            if (CharactersStore.Cart.Count > 0)
             {
+                var Price = Game.Apprentices[CharactersStore.Cart[0]].Salary +
+                            Game.Apprentices[CharactersStore.Cart[1]].Salary;
 
+                if (Player.Money < Price)
+                {
+                    MessageBox.Show("Not enough money!");
+                    Game.OpenApprenticeStore = null;
+                    CharactersStore.Cart = new() { };
+                }
+                else
+                {
+                    Player.Money -= Price;
+                    if (this.Duo.Count < 1)
+                    {
+                        this.Duo = new()
+                {
+                    Game.Apprentices[CharactersStore.Cart[0]],
+                    Game.Apprentices[CharactersStore.Cart[1]],
+                };
+                        Game.Apprentices.Remove(this.Duo[0]);
+                        Game.Apprentices.Remove(this.Duo[1]);
+
+                        CharactersStore.Cart = new() { };
+
+                        MessageBox.Show(this.Duo[0].Name + " && " + this.Duo[1].Name);
+                        Game.OpenApprenticeStore = null;
+                    }
+                    else
+                        MessageBox.Show("Apprentices working here!!!");
+                }
+            }
+
+            else if (StructureType == "Apprentice")
+            {
                 if (Player.Money >= Game.Apprentices[index].Salary && this.Apprentice == null)
                 {
                     this.Apprentice = Game.Apprentices[index];
@@ -137,23 +169,26 @@ namespace MotherClasses
                 {
                     Sound.PlaySFX2(3);
 
-                    if(StructureType == "Apprentice")
+                    if (StructureType == "Apprentice")
                     {
                         Game.OpenApprenticeStore = this;
-                        if(Amount > 1)
+                        if (this.Amount != 1)
                             CharactersStore.Double = true;
                         else
                             CharactersStore.Double = false;
                     }
-                    else 
+                    else
+                    {
                         Game.OpenInstructorStore = this;
-                }   
+                        CharactersStore.Double = false;
+                    }
+                }
 
                 else BuyStructure();
             }
 
             return inside;
-        }  
+        }
 
         public void DrawText(Graphics g, string text, PointF point)
         {
@@ -166,7 +201,5 @@ namespace MotherClasses
             g.DrawImage(NameBar, point.X - 25, point.Y - 82, textSize.Width + 43, textSize.Height + 170);
             g.DrawString(text, font, textBrush, point);
         }
-
     }
-
 }

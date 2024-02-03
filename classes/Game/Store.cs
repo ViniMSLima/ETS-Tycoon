@@ -4,6 +4,10 @@ using System.Drawing;
 using MotherClasses;
 using Characters;
 using Extension;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Linq;
+using System.Windows.Markup;
 
 namespace EtsTycoon
 {
@@ -54,7 +58,13 @@ namespace EtsTycoon
                 new(Game.Pb.Width * 0.12f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.2f + Game.Pb.Height * 0.05f),
                 new(Game.Pb.Width * 0.12f + Game.Pb.Width * 0.15f,  Game.Pb.Height * 0.2f),
             };
-
+        public static PointF[] BuyCart { get; set; } =
+            new PointF[]{
+                new(Game.Pb.Width * 0.687f,  Game.Pb.Height * 0.86f),
+                new(Game.Pb.Width * 0.687f,  Game.Pb.Height * 0.86f + Game.Pb.Height * 0.08f),
+                new(Game.Pb.Width * 0.687f + Game.Pb.Width * 0.12f,  Game.Pb.Height * 0.86f + Game.Pb.Height * 0.08f),
+                new(Game.Pb.Width * 0.687f + Game.Pb.Width * 0.12f,  Game.Pb.Height * 0.86f),
+            };
         public static List<Image> Images { get; set; } = new()
         {
             Bitmap.FromFile("./sprites/backgrounds/storeBackground.png"),
@@ -68,6 +78,7 @@ namespace EtsTycoon
         };
 
         public static bool Double { get; set; } = false;
+        public static List<int> Cart { get; set; } = new();
 
         public static void Draw(Graphics g, string storeType)
         {
@@ -107,6 +118,21 @@ namespace EtsTycoon
                     Game.Pb.Width * 0.8f,
                     Game.Pb.Height * 0.2f
                 );
+
+                var cartPosition = Game.Pb.Width * 0.2f;
+                var Price = 0;
+
+                foreach (int CartItem in Cart)
+                {
+                    Text.DrawText(g, Game.Apprentices[CartItem].Name, new(cartPosition, Game.Pb.Height * 0.88f), 20);
+                    cartPosition += Game.Pb.Width * 0.3f; ;
+                    Price += Game.Apprentices[CartItem].Salary;
+                }
+
+                Text.DrawText(g, "R$ " + Price.ToString(), new(Game.Pb.Width * 0.72f, Game.Pb.Height * 0.88f), 20);
+
+                Pen pen = new(Color.Red, 5f);
+                g.DrawPolygon(pen, BuyCart);
             }
         }
 
@@ -127,10 +153,10 @@ namespace EtsTycoon
                 CharactersData character = list[StoreIndex + i];
 
                 g.DrawImage(Images[1],
-                Game.Pb.Width * cardPosition,
-                Game.Pb.Height * 0.25f,
-                Game.Pb.Width * 0.2f,
-                Game.Pb.Height * 0.5f
+                    Game.Pb.Width * cardPosition,
+                    Game.Pb.Height * 0.25f,
+                    Game.Pb.Width * 0.2f,
+                    Game.Pb.Height * 0.5f
                 );
 
                 g.DrawImage(Images[0],
@@ -163,9 +189,8 @@ namespace EtsTycoon
             LeftButton = 3;
         }
 
-        public static bool ClickCheck(PointF point, PointF[] a, Structure b, Graphics g)
+        public static bool ClickCheck(PointF point, PointF[] a, Structure b)
         {
-
             int num_vertices = a.Length;
             double x = point.X, y = point.Y;
             bool inside = false;
@@ -214,7 +239,14 @@ namespace EtsTycoon
 
             if (inside && list != null)
             {
-                if (point.Y < Game.Pb.Height * 0.3)
+                if (point.Y > 0.8f * Game.Pb.Height)
+                {
+                    if (Cart.Count < 2)
+                        MessageBox.Show("Select more apprentices, need two");
+                    else
+                        b.BuyCharacter(0);
+                }
+                else if (point.Y < Game.Pb.Height * 0.3)
                 {
                     Game.OpenApprenticeStore = null;
                     Game.OpenInstructorStore = null;
@@ -222,6 +254,7 @@ namespace EtsTycoon
                 else if (point.X > Game.Pb.Width * 0.8234375)
                 {
                     LeftButton = 5;
+
                     if (StoreIndex < storeSize - 3)
                         StoreIndex++;
                     else
@@ -231,17 +264,36 @@ namespace EtsTycoon
                 {
                     if (storeSize > 2)
                     {
-                        b.BuyCharacter(StoreIndex + 2);
-                        Sound.PlaySFX1(0);
+                        if (Double)
+                        {
+                            if (Cart.Count < 2)
+                                Cart.Add(StoreIndex + 2);
+                            else
+                                MessageBox.Show("Cart is full, buy or close the store");
+                        }
+                        else
+                        {
+                            b.BuyCharacter(StoreIndex + 2);
+                            Sound.PlaySFX1(0);
+                        }
                     }
                 }
                 else if (point.X > Game.Pb.Width * 0.42760417)
                 {
                     if (storeSize > 1)
                     {
-
-                        b.BuyCharacter(StoreIndex + 1);
-                        Sound.PlaySFX1(0);
+                        if (Double)
+                        {
+                            if (Cart.Count < 2)
+                                Cart.Add(StoreIndex + 1);
+                            else
+                                MessageBox.Show("Cart is full, buy or close the store");
+                        }
+                        else
+                        {
+                            b.BuyCharacter(StoreIndex + 1);
+                            Sound.PlaySFX1(0);
+                        }
                     }
 
                 }
@@ -249,9 +301,18 @@ namespace EtsTycoon
                 {
                     if (storeSize > 0)
                     {
-
-                        b.BuyCharacter(StoreIndex);
-                        Sound.PlaySFX1(0);
+                        if (Double)
+                        {
+                            if (Cart.Count < 2)
+                                Cart.Add(StoreIndex);
+                            else
+                                MessageBox.Show("Cart is full, buy or close the store");
+                        }
+                        else
+                        {
+                            b.BuyCharacter(StoreIndex);
+                            Sound.PlaySFX1(0);
+                        }
                     }
                 }
                 else if (point.X < Game.Pb.Width * 0.1822917)
@@ -264,18 +325,20 @@ namespace EtsTycoon
                 }
             }
 
-
             return inside;
         }
 
-        internal static void ClickCheckAll(Point location, Structure OpenStore, Graphics g)
+        internal static void ClickCheckAll(Point location, Structure OpenStore)
         {
-            ClickCheck(location, Btn1, OpenStore, g);
-            ClickCheck(location, Btn2, OpenStore, g);
-            ClickCheck(location, Btn3, OpenStore, g);
-            ClickCheck(location, Btn4, OpenStore, g);
-            ClickCheck(location, Btn5, OpenStore, g);
-            ClickCheck(location, Close, OpenStore, g);
+            ClickCheck(location, Btn1, OpenStore);
+            ClickCheck(location, Btn2, OpenStore);
+            ClickCheck(location, Btn3, OpenStore);
+            ClickCheck(location, Btn4, OpenStore);
+            ClickCheck(location, Btn5, OpenStore);
+            ClickCheck(location, Close, OpenStore);
+
+            if (Double)
+                ClickCheck(location, BuyCart, OpenStore);
         }
     }
 }

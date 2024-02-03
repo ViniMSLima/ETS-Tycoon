@@ -145,9 +145,7 @@ namespace EtsTycoon
             Pb.MouseDown += (o, e) =>
             {
                 if (!GameStart)
-                {
                     Menu.ClickCheckAll(e.Location);
-                }
 
                 else
                 {
@@ -156,12 +154,12 @@ namespace EtsTycoon
                     if (OpenApprenticeStore != null)
                     {
                         voidClick = false;
-                        CharactersStore.ClickCheckAll(e.Location, OpenApprenticeStore, G);
+                        CharactersStore.ClickCheckAll(e.Location, OpenApprenticeStore);
                     }
                     else if (OpenInstructorStore != null)
                     {
                         voidClick = false;
-                        CharactersStore.ClickCheckAll(e.Location, OpenInstructorStore, G);
+                        CharactersStore.ClickCheckAll(e.Location, OpenInstructorStore);
                     }
                     else if (OpenUpgradesStore)
                     {
