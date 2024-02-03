@@ -64,7 +64,6 @@ namespace Structures
 
             if (this.Apprentice != null)
                 DrawText(g, this.Apprentice.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
-
         }
     }
 }

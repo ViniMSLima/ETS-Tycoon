@@ -37,19 +37,33 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [X] Animated Cursor
 - [X] Menu screen with buttons working
 - [X] Hover
+- [ ] Draw boss room
 - [ ] Settings screen
 - [ ] Load game screen
 - [ ] Load game
 - [ ] Npc goes beep beep
-- [ ] Draw boss room
 - [ ] Draw Instructors
 - [ ] In game settings screen (Music, Language, ...)
 - [ ] Tutorial / Help
-- [ ] Draw workshop structures 3/13
+- [ ] Draw workshop structures 3/10
+    - [X] pc_table1
+    - [ ] pc_table2
+    - [X] drill
+    - [X] hexagonal_table
+    - [ ] kuka
+    - [ ] big_table
+    - [ ] machine1
+    - [ ] machine2
+    - [ ] machine3
+    - [ ] machine4
 - [ ] Draw workshop apprentices
 - [ ] Implement Workshop with structures
 - [ ] Draw new room structures
+    - [ ] apprentice_table
+    - [ ] Instructors_table
+    - [ ] floor
 - [ ] Implement new room
+- [ ] Draw characters from a different angle
 - [ ] Game 100% responsive
 - [ ] Detail each room
 

@@ -4,12 +4,13 @@ using System.Drawing;
 using System;
 
 using Characters;
+using Rooms;
 
 namespace EtsTycoon
 {
     public class Player
     {
-        public static float Money { get; set; } = 0;
+        public static float Money { get; set; } = 9999;
         public static int CoinPerSecond { get; set; } = 0;
         public static int Level { get; set; } = 1;
         public static int ClickValue { get; set; } = 1;
@@ -38,6 +39,7 @@ namespace EtsTycoon
             {"b_store", Bitmap.FromFile("./sprites/button/b_store.png")}
         };
 
+        public float secondCounter { get; set; } = 0;
         public static string FormatMoney(double money)
         {
             if (money >= 1000000000)
@@ -71,6 +73,15 @@ namespace EtsTycoon
             var time = (float)(now - last).TotalSeconds;
             Money += CoinPerSecond * time;
             last = now;
+
+            secondCounter += time;
+            if(secondCounter >= 0.25)
+            {
+                BossRoom.Index++;
+                secondCounter = 0;
+                if(BossRoom.Index > 1)
+                    BossRoom.Index = 0;
+            }
         }
     }
 }

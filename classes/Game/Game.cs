@@ -73,6 +73,7 @@ namespace EtsTycoon
             CreateRooms();
 
             PlayerRooms.Add(Rooms[0]);
+                PlayerRooms.Add(Rooms[1]);
 
             this.Load += (o, e) =>
             {
@@ -270,8 +271,8 @@ namespace EtsTycoon
         {
             _ = new BossRoom()
             {
-                PositionX = -530 + GeneralPosition.X,
-                PositionY = 567 + GeneralPosition.Y
+                PositionX = -547 + GeneralPosition.X,
+                PositionY = 500 + GeneralPosition.Y
             };
 
             _ = new DigitalRoom()
@@ -298,7 +299,7 @@ namespace EtsTycoon
 
             DrawNPC();
             Player.Draw(Pb, G);
-            Clicker.Draw(G, Rooms[0].PositionX + Game.GeneralPosition.X + 600, Rooms[0].PositionY + Game.GeneralPosition.Y + 650);
+            Clicker.UpdateClickBox(Rooms[0].PositionX + GeneralPosition.X + 590, Rooms[0].PositionY + GeneralPosition.Y + 720);
         }
 
         public void DrawRoad()

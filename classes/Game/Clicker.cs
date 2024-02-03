@@ -57,7 +57,7 @@ public class Clicker
         return inside;
     }
 
-    public static void Draw(Graphics g, float roomX, float roomY)
+    public static void UpdateClickBox(float roomX, float roomY)
     {
         H = 400;
         W = 625;
@@ -71,9 +71,6 @@ public class Clicker
             }.ToIsometric(roomX, roomY);
 
         Points = points;
-
-        Pen pen = new(Color.Red, 5f);
-        g.DrawPolygon(pen, points);
     }
 }
 
