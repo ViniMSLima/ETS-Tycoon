@@ -74,7 +74,8 @@ namespace EtsTycoon
             Bitmap.FromFile("./sprites/button/leftButtonClicked.png"),
             Bitmap.FromFile("./sprites/button/rightButtonClicked.png"),
             Bitmap.FromFile("./sprites/coin/Coin.gif"),
-            Bitmap.FromFile("./sprites/button/esc_button.png")
+            Bitmap.FromFile("./sprites/button/esc_button.png"),
+            Bitmap.FromFile("./sprites/backgrounds/cart.png")
         };
 
         public static bool Double { get; set; } = false;
@@ -112,11 +113,11 @@ namespace EtsTycoon
 
             if (Double)
             {
-                g.DrawImage(Images[0],
+                g.DrawImage(Images[8],
                     Game.Pb.Width * 0.1f,
-                    Game.Pb.Height * 0.8f,
+                    Game.Pb.Height * 0.72f,
                     Game.Pb.Width * 0.8f,
-                    Game.Pb.Height * 0.2f
+                    Game.Pb.Height * 0.7f
                 );
 
                 var cartPosition = Game.Pb.Width * 0.2f;
