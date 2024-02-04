@@ -12,6 +12,7 @@ namespace Structures
             StructureType = "Apprentice";
             Amount = 2;
 
+            
             H = 40;
             W = 90;
 
@@ -64,8 +65,8 @@ namespace Structures
 
             g.DrawImage(Img, roomX, roomY, 200, 200);
 
-            if (this.Apprentice != null)
-                DrawText(g, this.Apprentice.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
+            if (this.Duo.Count > 0)
+                DrawText(g, "default", new PointF(roomX + 100, roomY + 30));
         }
     }
 }

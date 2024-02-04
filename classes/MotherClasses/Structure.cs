@@ -45,7 +45,6 @@ namespace MotherClasses
                 this.Buy = true;
                 Player.Money -= this.Price;
                 Sound.PlaySFX1(0);
-
             }
             else
             {
@@ -70,20 +69,23 @@ namespace MotherClasses
                 else
                 {
                     Player.Money -= Price;
+                    Game.OpenApprenticeStore = null;
+
                     if (this.Duo.Count < 1)
                     {
                         this.Duo = new()
-                {
-                    Game.Apprentices[CharactersStore.Cart[0]],
-                    Game.Apprentices[CharactersStore.Cart[1]],
-                };
+                        {
+                            Game.Apprentices[CharactersStore.Cart[0]],
+                            Game.Apprentices[CharactersStore.Cart[1]],
+                        };
+
                         Game.Apprentices.Remove(this.Duo[0]);
                         Game.Apprentices.Remove(this.Duo[1]);
+                        CharactersStore.StoreIndex = 0;
 
                         CharactersStore.Cart = new() { };
 
                         MessageBox.Show(this.Duo[0].Name + " && " + this.Duo[1].Name);
-                        Game.OpenApprenticeStore = null;
                     }
                     else
                         MessageBox.Show("Apprentices working here!!!");
@@ -165,28 +167,35 @@ namespace MotherClasses
 
             if (inside)
             {
-                if (this.Buy)
+                if (this.Duo.Count > 0)
                 {
-                    Sound.PlaySFX2(3);
+                    MessageBox.Show("Can't add apprentices to the structure");
+                }
+                else
+                {
+                    if (this.Buy)
+                    {
+                        Sound.PlaySFX2(3);
 
-                    if (StructureType == "Apprentice")
-                    {
-                        Game.OpenApprenticeStore = this;
-                        if (this.Amount != 1)
-                            CharactersStore.Double = true;
+                        if (StructureType == "Apprentice")
+                        {
+                            Game.OpenApprenticeStore = this;
+                            if (this.Amount != 1)
+                                CharactersStore.Double = true;
+                            else
+                                CharactersStore.Double = false;
+                        }
                         else
+                        {
+                            Game.OpenInstructorStore = this;
                             CharactersStore.Double = false;
+                        }
                     }
-                    else
-                    {
-                        Game.OpenInstructorStore = this;
-                        CharactersStore.Double = false;
-                    }
+
+                    else BuyStructure();
                 }
 
-                else BuyStructure();
             }
-
             return inside;
         }
 
@@ -194,12 +203,26 @@ namespace MotherClasses
         {
             Color textColor = Color.Black;
             SolidBrush textBrush = new(textColor);
-
             Font font = new("Arial", 12, FontStyle.Bold);
-            SizeF textSize = g.MeasureString(text, font);
 
-            g.DrawImage(NameBar, point.X - 25, point.Y - 82, textSize.Width + 43, textSize.Height + 170);
-            g.DrawString(text, font, textBrush, point);
+            if (this.Duo.Count > 0)
+            {
+                SizeF textSize = g.MeasureString(this.Duo[0].Name.Split(" ")[0], font);
+
+                g.DrawImage(NameBar, point.X - 25, point.Y - 82, textSize.Width + 43, textSize.Height + 170);
+                g.DrawString(this.Duo[0].Name.Split(" ")[0], font, textBrush, point);
+
+                textSize = g.MeasureString(this.Duo[1].Name.Split(" ")[0], font);
+                g.DrawImage(NameBar, point.X - 25, point.Y - 60, textSize.Width + 43, textSize.Height + 170);
+                PointF point2 = new(point.X, point.Y + 20);
+                g.DrawString(this.Duo[1].Name.Split(" ")[0], font, textBrush, point2);
+            }
+            else
+            {
+                SizeF textSize = g.MeasureString(text, font);
+                g.DrawImage(NameBar, point.X - 25, point.Y - 82, textSize.Width + 43, textSize.Height + 170);
+                g.DrawString(text, font, textBrush, point);
+            }
         }
     }
 }
