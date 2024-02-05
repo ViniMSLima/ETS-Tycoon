@@ -70,7 +70,7 @@ namespace Rooms
             {
                 for (int i = 0; i < this.Structures.Count; i++)
                     this.Structures[i].Draw(g, PositionX + PositionsX[i] + Game.GeneralPosition.X, PositionY + PositionsY[i] + Game.GeneralPosition.Y);
-            }
+            } //Change here to draw structures after every room is drawn or maybe change rooms position or instructor name position
         }
     }
 }

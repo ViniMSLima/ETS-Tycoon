@@ -37,7 +37,9 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [X] Animated Cursor
 - [X] Menu screen with buttons working
 - [X] Hover
-- [ ] Draw boss room
+- [x] Draw boss room
+- [x] Structures with two apprentices open store cart and buy two at the same time
+- [ ] Draw double chair table apprentices working 
 - [ ] Settings screen
 - [ ] Load game screen
 - [ ] Load game
