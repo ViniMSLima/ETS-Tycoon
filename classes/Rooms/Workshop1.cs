@@ -6,9 +6,9 @@ using EtsTycoon;
 
 namespace Rooms
 {
-    public class Workshop : Room
+    public class Workshop1 : Room
     {
-        public Workshop()
+        public Workshop1()
         {
             this.FloorImg = Bitmap.FromFile("./sprites/floor/workshop.png");
 

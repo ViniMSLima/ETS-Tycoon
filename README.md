@@ -40,12 +40,12 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [x] Draw boss room
 - [x] Structures with two apprentices open store cart and buy two at the same time
 - [ ] Draw double chair table apprentices working 
-- [ ] Settings screen
-- [ ] Load game screen
-- [ ] Load game
-- [ ] Npc goes beep beep
+- [ ] Settings screen 
+- [ ] Load game screen 
+- [ ] Load game 
+- [ ] Npc goes beep beep 
 - [ ] Draw Instructors
-- [ ] In game settings screen (Music, Language, ...)
+- [ ] In game settings screen (Music, Language, ...) O
 - [ ] Tutorial / Help
 - [ ] Draw workshop structures 3/10
     - [X] pc_table1
@@ -59,15 +59,50 @@ An Engineering Technical School Simulator where your mission is to develop appre
     - [ ] machine3
     - [ ] machine4
 - [ ] Draw workshop apprentices
-- [ ] Implement Workshop with structures
+- [ ] Implement Workshop with structures 
+- [ ] Draw new room structures O
+    - [ ] apprentice_table
+    - [ ] Instructors_table
+    - [ ] floor
+- [ ] Implement new room O
+- [ ] Draw characters from a different angle
+- [ ] Game 100% responsive
+- [ ] Detail each room O
+
+- [ ] Done ?/46
+
+
+Monday
+
+- [x] Draw double chair table apprentices working 
+- [ ] pc_table2
+- [x] kuka
+- [ ] big_table
+- [ ] machine1
+
+- [ ] Tutorial screen
+- [ ] Settings screen
+- [ ] Npc goes beep beep
+- [ ] Load game screen 
+- [ ] Load game
+
+Tuesday
+
 - [ ] Draw new room structures
     - [ ] apprentice_table
     - [ ] Instructors_table
     - [ ] floor
+
+Wednesday
+
 - [ ] Implement new room
-- [ ] Draw characters from a different angle
-- [ ] Game 100% responsive
+- [ ] Implement Workshop with structures 
+- [ ] In game settings screen (Music, Language, ...)
+
+Thursday
+
 - [ ] Detail each room
 
+Friday
 
-- [ ] Done ?/46
+- [ ] Presentation

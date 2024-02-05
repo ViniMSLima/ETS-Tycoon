@@ -212,8 +212,8 @@
   {
     "Name": "Gabriela Laureano",
     "Age": "19",
-    "Img1": "./sprites/apprentice/table/table_apprentice1.png",
-    "Img2": "./sprites/apprentice/table/table_apprentice2.png",
+    "Img1": "./sprites/apprentice/gabriela/gabi1.png",
+    "Img2": "./sprites/apprentice/gabriela/gabi2.png",
     "Gain": 4,
     "Salary": 400,
     "Type": "Apprentice",
@@ -222,8 +222,8 @@
   {
     "Name": "Isabelle Janecki",
     "Age": "19",
-    "Img1": "./sprites/apprentice/table/table_apprentice1.png",
-    "Img2": "./sprites/apprentice/table/table_apprentice2.png",
+    "Img1": "./sprites/apprentice/isabelle/isabelle1.png",
+    "Img2": "./sprites/apprentice/isabelle/isabelle2.png",
     "Gain": 4,
     "Salary": 400,
     "Type": "Apprentice",
@@ -272,8 +272,8 @@
   {
     "Name": "Maria Carolina",
     "Age": "19",
-    "Img1": "./sprites/apprentice/table/table_apprentice1.png",
-    "Img2": "./sprites/apprentice/table/table_apprentice2.png",
+    "Img1": "./sprites/apprentice/maria_carolina/maria_carolina1.png",
+    "Img2": "./sprites/apprentice/maria_carolina/maria_carolina2.png",
     "Gain": 4,
     "Salary": 400,
     "Type": "Apprentice",
@@ -320,10 +320,10 @@
     "GainType": "C/sec"
   },
   {
-    "Name": "Saladino",
+    "Name": "Saladino (Murylo)",
     "Age": "19",
-    "Img1": "./sprites/apprentice/table/table_apprentice1.png",
-    "Img2": "./sprites/apprentice/table/table_apprentice2.png",
+    "Img1": "./sprites/apprentice/murylo/murylo1.png",
+    "Img2": "./sprites/apprentice/murylo/murylo2.png",
     "Gain": 4,
     "Salary": 400,
     "Type": "Apprentice",

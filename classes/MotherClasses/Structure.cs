@@ -79,13 +79,14 @@ namespace MotherClasses
                             Game.Apprentices[CharactersStore.Cart[1]],
                         };
 
+                        Player.CoinPerSecond += this.Duo[0].Gain;
+                        Player.CoinPerSecond += this.Duo[1].Gain;
+
                         Game.Apprentices.Remove(this.Duo[0]);
                         Game.Apprentices.Remove(this.Duo[1]);
                         CharactersStore.StoreIndex = 0;
 
                         CharactersStore.Cart = new() { };
-
-                        MessageBox.Show(this.Duo[0].Name + " && " + this.Duo[1].Name);
                     }
                     else
                         MessageBox.Show("Apprentices working here!!!");
@@ -94,8 +95,11 @@ namespace MotherClasses
 
             else if (StructureType == "Apprentice")
             {
-                if (Player.Money >= Game.Apprentices[index].Salary && this.Apprentice == null)
+                if (this.Apprentice == null)
                 {
+                    if(Player.Money >= Game.Apprentices[index].Salary)
+                    {
+
                     this.Apprentice = Game.Apprentices[index];
 
                     Player.CoinPerSecond += this.Apprentice.Gain;
@@ -104,15 +108,20 @@ namespace MotherClasses
                     CharactersStore.StoreIndex = 0;
                     Player.Apprentices.Add(this.Apprentice);
                     Game.Apprentices.Remove(Game.Apprentices[index]);
+                    }
+                    else
+                        MessageBox.Show("Not enough money!");
                 }
-
                 else
-                    MessageBox.Show("Not enough money!");
+                    MessageBox.Show("FULL!");
             }
             else
             {
-                if (Player.Money >= Game.Instructors[index].Salary && this.Instructor == null)
+                if (this.Instructor == null)
                 {
+                    if(Player.Money >= Game.Instructors[index].Salary )
+                    {
+
                     this.Instructor = Game.Instructors[index];
 
                     Player.CoinPerSecond *= this.Instructor.Gain;
@@ -123,10 +132,13 @@ namespace MotherClasses
                     Game.Instructors.Remove(Game.Instructors[index]);
 
                     Sound.PlaySFX1(0);
+                    }
+                    else
+                    MessageBox.Show("Not enough money!");
                 }
 
                 else
-                    MessageBox.Show("Not enough money!");
+                    MessageBox.Show("FULL!");
             }
         }
 

@@ -73,7 +73,9 @@ namespace EtsTycoon
             CreateRooms();
 
             PlayerRooms.Add(Rooms[0]);
-                PlayerRooms.Add(Rooms[1]);
+            PlayerRooms.Add(Rooms[1]);
+            PlayerRooms.Add(Rooms[2]);
+            PlayerRooms.Add(Rooms[3]);
 
             this.Load += (o, e) =>
             {
@@ -88,7 +90,7 @@ namespace EtsTycoon
                 G.Clear(Color.Black);
 
                 CreateCharacters();
-                
+
                 Upgrade.GenerateUpgrades();
 
                 Pb.Image = Bmp;
@@ -139,8 +141,8 @@ namespace EtsTycoon
                         OpenUpgradesStore = !OpenUpgradesStore;
                         break;
                 }
-            };   
-            
+            };
+
 
             Pb.MouseDown += (o, e) =>
             {
@@ -176,7 +178,7 @@ namespace EtsTycoon
                         }
 
                         ClickCheckBR = Clicker.Clicks(e.Location);
-                        if(ClickCheckBR)
+                        if (ClickCheckBR)
                         {
                             Player.Money += Player.ClickValue;
                             voidClick = false;
@@ -215,7 +217,7 @@ namespace EtsTycoon
             this.Cursor = new Cursor(CursorPath[CursorIndex]);
             CursorIndex++;
 
-            if(CursorIndex > CursorPath.Length - 1)
+            if (CursorIndex > CursorPath.Length - 1)
                 CursorIndex = 0;
 
             G.Clear(Color.White);
@@ -237,16 +239,16 @@ namespace EtsTycoon
                 Upgrade.DrawUpgradesStore(G);
             }
 
-            if(Player.Apprentices.Count > 8 && PlayerRooms.Count == 1)
-                PlayerRooms.Add(Rooms[1]);
+            // if(Player.Apprentices.Count > 8 && PlayerRooms.Count == 1)
+            //     PlayerRooms.Add(Rooms[1]);
 
-            if(Player.Apprentices.Count > 26 && PlayerRooms.Count == 2)
-                PlayerRooms.Add(Rooms[2]);
+            // if(Player.Apprentices.Count > 26 && PlayerRooms.Count == 2)
+            //     PlayerRooms.Add(Rooms[2]);
 
 
             Pb.Refresh();
             Player.UpdateMoney();
-            
+
         }
 
         public static void CreateCharacters()
@@ -279,10 +281,16 @@ namespace EtsTycoon
                 PositionY = 200 + GeneralPosition.Y
             };
 
-            _ = new Workshop()
+            _ = new Workshop1()
             {
-                PositionX = -734 + GeneralPosition.X,
+                PositionX = -834 + GeneralPosition.X,
                 PositionY = -797 + GeneralPosition.Y
+            };
+
+            _ = new Workshop2()
+            {
+                PositionX = -1619 + GeneralPosition.X,
+                PositionY = -405 + GeneralPosition.Y
             };
 
         }

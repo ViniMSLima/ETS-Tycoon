@@ -22,7 +22,10 @@ namespace Structures
             {
                 {"structure", Bitmap.FromFile("sprites/table/double_chair_table.png")},
                 {"buy_structure", Bitmap.FromFile("sprites/btn_table1.png")},
-                {"buy_structure_down", Bitmap.FromFile("sprites/btn_table2.png")}
+                {"buy_structure_down", Bitmap.FromFile("sprites/btn_table2.png")},
+                {"animation1", Bitmap.FromFile("./sprites/table/doublechair_apprentice1.png")},
+                {"animation2", Bitmap.FromFile("./sprites/table/doublechair_apprentice2.png")}
+
             };
 
             this.Img = Images["buy_structure"];
@@ -46,17 +49,17 @@ namespace Structures
 
             this.Points = points;
 
-            if (this.Buy && this.Apprentice != null)
+            if (this.Buy && this.Duo.Count > 0)
             {
                 const int speed = 3;
                 if (Index < speed)
                 {
-                    this.Img = this.Apprentice.Img[0];
+                    this.Img = this.Images["animation1"];
                     Index++;
                 }
                 else
                 {
-                    this.Img = this.Apprentice.Img[1];
+                    this.Img = this.Images["animation2"];
                     Index++;
                     if (Index > 2 * speed)
                         Index = 0;
