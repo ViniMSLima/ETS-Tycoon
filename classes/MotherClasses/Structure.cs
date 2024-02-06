@@ -57,8 +57,7 @@ namespace MotherClasses
         {
             if (CharactersStore.Cart.Count > 0)
             {
-                var Price = Game.Apprentices[CharactersStore.Cart[0]].Salary +
-                            Game.Apprentices[CharactersStore.Cart[1]].Salary;
+                var Price = Game.Apprentices[CharactersStore.Cart[0]].Salary + Game.Apprentices[CharactersStore.Cart[1]].Salary;
 
                 if (Player.Money < Price)
                 {

@@ -251,6 +251,7 @@ namespace EtsTycoon
                 {
                     Game.OpenApprenticeStore = null;
                     Game.OpenInstructorStore = null;
+                    Cart = new() { };
                 }
                 else if (point.X > Game.Pb.Width * 0.8234375)
                 {
@@ -343,3 +344,14 @@ namespace EtsTycoon
         }
     }
 }
+
+
+//SQL
+//lowcode
+//html
+//css
+//devops
+//mongoDB
+//powerBI
+//Angular
+//github

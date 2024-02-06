@@ -136,7 +136,6 @@ public class Menu
 
     public static void Draw(Graphics g)
     {
-        Pen pen = new(Color.Red, 5f);
 
         g.DrawImage(Images["start_screen"], 0, 0, Game.Pb.Width, Game.Pb.Height);
         g.DrawImage(ImageButtons["start_btn"], Game.Pb.Width * 0.265f, Game.Pb.Height * 0.43f, Game.Pb.Width * 0.16f, Game.Pb.Height * 0.2f);

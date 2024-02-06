@@ -16,14 +16,14 @@ namespace Rooms
                          PositionX + 800, PositionX + 900, PositionX + 1000, PositionX + 1100, PositionX + 1200, PositionX + 1300,
                          PositionX + 400, PositionX + 500, PositionX + 600, PositionX + 700, PositionX + 800, PositionX + 900,
                          PositionX + 1000, PositionX + 800,
-                         PositionX + 350
+                         PositionX + 200, PositionX + 300, PositionX + 400, PositionX + 500, PositionX + 600, PositionX + 700,
                          };
 
             float[] b = {   
                             PositionY + 500, PositionY + 550, PositionY + 600, PositionY + 650, PositionY + 700, PositionY + 750,
                             PositionY + 700, PositionY + 750, PositionY + 800, PositionY + 850, PositionY + 900, PositionY + 950,
                             PositionY + 800, PositionY + 700,
-                            PositionY + 350
+                            PositionY + 800, PositionY + 850, PositionY + 900, PositionY + 950, PositionY + 1000, PositionY + 1050,
                          };
 
             this.PositionsX = a;
@@ -33,10 +33,13 @@ namespace Rooms
                 this.Structures.Add(new Drill());
 
             for (int i = 6; i < 12; i++)
-                this.Structures.Add(new WorkshopTable());
+                this.Structures.Add(new GridingMachine());
 
             this.Structures.Add(new HexagonalTable());
             this.Structures.Add(new HexagonalTable());
+
+            for (int i = 6; i < 12; i++)
+                this.Structures.Add(new WorkshopTable());
 
             Game.Rooms.Add(this);
         }

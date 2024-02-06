@@ -9,6 +9,7 @@ using Rooms;
 
 using System.Drawing.Drawing2D;
 using Newtonsoft.Json;
+using System;
 
 namespace EtsTycoon
 {
@@ -56,6 +57,8 @@ namespace EtsTycoon
         };
 
         public static int CursorIndex { get; set; } = 0;
+
+        public static Random RandNpcHorn { get; set; } = new();
 
         public Game()
         {
@@ -119,6 +122,7 @@ namespace EtsTycoon
                             OpenInstructorStore = null;
                             OpenUpgradesStore = false;
                             CharactersStore.StoreIndex = 0;
+                            CharactersStore.Cart = new() { };
                         }
                         else if(Tutorial2)
                         {
@@ -244,6 +248,12 @@ namespace EtsTycoon
                 
                 if(Tutorial2)
                     G.DrawImage(Images["tutorial2"], Pb.Width * 0.3f, Pb.Height * 0.2f, Pb.Width * 0.4f, Pb.Height * 0.8f);
+
+
+                var a = RandNpcHorn.Next(100);
+
+                if(a == 2)
+                    Sound.PlaySFX3(2);
             }
             else
             {

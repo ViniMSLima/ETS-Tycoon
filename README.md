@@ -43,31 +43,31 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [ ] Settings screen 
 - [ ] Load game screen 
 - [ ] Load game 
-- [ ] Npc goes beep beep 
+- [x] Npc goes beep beep 
 - [ ] Draw Instructors
 - [ ] In game settings screen (Music, Language, ...) O
-- [ ] Tutorial / Help
-- [ ] Draw workshop structures 3/10
+- [x] Tutorial / Help
+- [ ] Draw workshop structures 7/10
     - [X] pc_table1
     - [x] pc_table2
     - [X] drill
     - [X] hexagonal_table
     - [x] kuka
     - [ ] big_table
-    - [ ] machine1
-    - [ ] machine2
+    - [x] machine1
+    - [x] machine2
     - [ ] machine3
     - [ ] machine4
 - [ ] Draw workshop apprentices
 - [ ] Implement Workshop with structures 
-- [ ] Draw new room structures O
+- [ ] Draw new room structures
     - [ ] apprentice_table
     - [ ] Instructors_table
     - [ ] floor
-- [ ] Implement new room O
+- [ ] Implement new room 
 - [ ] Draw characters from a different angle
 - [ ] Game 100% responsive
-- [ ] Detail each room O
+- [ ] Detail each room
 
 - [ ] Done ?/46
 
@@ -77,16 +77,15 @@ Monday
 - [x] Draw double chair table apprentices working 
 - [x] pc_table2
 - [x] kuka
-- [ ] big_table
 - [X] machine1
 
-- [ ] Tutorial screen
-- [ ] Settings screen
-- [ ] Npc goes beep beep
-- [ ] Load game screen 
-- [ ] Load game
 
 Tuesday
+
+- [x] machine2
+- [x] Tutorial screen 1 and 2
+- [x] Npc goes beep beep
+- [ ] big_table
 
 - [ ] Draw new room structures
     - [ ] apprentice_table
@@ -95,13 +94,17 @@ Tuesday
 
 Wednesday
 
+- [ ] Settings screen
 - [ ] Implement new room
 - [ ] Implement Workshop with structures 
 - [ ] In game settings screen (Music, Language, ...)
 
 Thursday
 
+- [ ] Load game screen 
+- [ ] Load game
 - [ ] Detail each room
+- [ ] Prepare the presentation
 
 Friday
 

@@ -51,7 +51,7 @@ namespace EtsTycoon
                 audioFile = new(Audios[a]);
                 SFX1OutputDevice.Init(audioFile);
             }
-
+            audioFile.Position = 0;
             SFX1OutputDevice.Play();
         }
 
@@ -76,11 +76,36 @@ namespace EtsTycoon
                 audioFile2 = new(Audios[a]);
                 SFX2OutputDevice.Init(audioFile2);
             }
-
+            audioFile2.Position = 0;
             SFX2OutputDevice.Play();
         }
 
         public static void OnPlaybackStopped2(object sender, StoppedEventArgs args)
+        {
+            SFX2OutputDevice.Dispose();
+            SFX2OutputDevice = null;
+            audioFile2.Dispose();
+            audioFile2 = null;
+        }
+
+        public static void PlaySFX3(int a)
+        {
+            if (SFX2OutputDevice == null)
+            {
+                SFX2OutputDevice = new WaveOutEvent();
+                SFX2OutputDevice.PlaybackStopped += OnPlaybackStopped3;
+            }
+
+            if (audioFile2 == null)
+            {
+                audioFile2 = new(Audios[a]);
+                SFX2OutputDevice.Init(audioFile2);
+            }
+            audioFile2.Position = 0;
+            SFX2OutputDevice.Play();
+        }
+
+        public static void OnPlaybackStopped3(object sender, StoppedEventArgs args)
         {
             SFX2OutputDevice.Dispose();
             SFX2OutputDevice = null;
