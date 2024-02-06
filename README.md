@@ -85,7 +85,6 @@ Tuesday
 - [x] machine2
 - [x] Tutorial screen 1 and 2
 - [x] Npc goes beep beep
-- [ ] big_table
 
 - [ ] Draw new room structures
     - [ ] apprentice_table
@@ -94,6 +93,7 @@ Tuesday
 
 Wednesday
 
+- [ ] big_table
 - [ ] Settings screen
 - [ ] Implement new room
 - [ ] Implement Workshop with structures 

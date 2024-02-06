@@ -84,6 +84,7 @@ namespace EtsTycoon
             PlayerRooms.Add(Rooms[1]);
             PlayerRooms.Add(Rooms[2]);
             PlayerRooms.Add(Rooms[3]);
+            PlayerRooms.Add(Rooms[4]);
 
             this.Load += (o, e) =>
             {
@@ -202,6 +203,9 @@ namespace EtsTycoon
                             voidClick = false;
                         }
                     }
+
+                    if(Tutorial1 || Tutorial2)
+                        voidClick = false;
 
                     if (voidClick)
                     {
@@ -326,6 +330,12 @@ namespace EtsTycoon
                 PositionY = -405 + GeneralPosition.Y
             };
 
+            _ = new NewRoom()
+            {
+                PositionX = -1375 + GeneralPosition.X,
+                PositionY = 662 + GeneralPosition.Y
+            };
+
         }
 
 
@@ -348,6 +358,8 @@ namespace EtsTycoon
             G.DrawImage(Images["crosswalk"], -120 + GeneralPosition.X, 285 + GeneralPosition.Y, 800, 400);
             G.DrawImage(Images["crosswalk"], -590 + GeneralPosition.X, 520 + GeneralPosition.Y, 800, 400);
             G.DrawImage(Images["crosswalk"], -1060 + GeneralPosition.X, 755 + GeneralPosition.Y, 800, 400);
+            G.DrawImage(Images["crosswalk"], -1530 + GeneralPosition.X, 990 + GeneralPosition.Y, 800, 400);
+            G.DrawImage(Images["crosswalk"], -2000 + GeneralPosition.X, 1225 + GeneralPosition.Y, 800, 400);
         }
 
         public void DrawStore()
