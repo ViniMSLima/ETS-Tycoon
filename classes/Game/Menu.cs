@@ -99,6 +99,7 @@ public class Menu
             if (point.Y < Game.Pb.Height * 0.545)
             {
                 Game.GameStart = true;
+                Game.Tutorial1 = true;
             }
             else if (point.Y < Game.Pb.Height * 0.59)
             {

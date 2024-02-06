@@ -28,12 +28,17 @@ namespace EtsTycoon
         public PointF dMouse { get; set; } = new(0, 0);
         public PointF PrevMouse { get; set; }
 
+        public static bool Tutorial1 { get; set; } = false;
+        public static bool Tutorial2 { get; set; } = false;
+
         public Dictionary<string, Image> Images { get; set; } = new()
         {
             {"grid",      Bitmap.FromFile("./sprites/backgrounds/grid.jpg")},
             {"crosswalk", Bitmap.FromFile("./sprites/crosswalk.png")},
             {"limpador",  Bitmap.FromFile("./sprites/limpador.png")},
-            {"limpador2", Bitmap.FromFile("./sprites/limpador2.png")}
+            {"limpador2", Bitmap.FromFile("./sprites/limpador2.png")},
+            {"tutorial1", Bitmap.FromFile("./sprites/menu/tutorial1.png")},
+            {"tutorial2", Bitmap.FromFile("./sprites/menu/tutorial2.png")},
 
         };
         public static List<Apprentice> Apprentices { get; set; } = new List<Apprentice>();
@@ -114,6 +119,15 @@ namespace EtsTycoon
                             OpenInstructorStore = null;
                             OpenUpgradesStore = false;
                             CharactersStore.StoreIndex = 0;
+                        }
+                        else if(Tutorial2)
+                        {
+                            Tutorial2= false;
+                        }
+                        else if(Tutorial1)
+                        {
+                            Tutorial1 = false;
+                            Tutorial2 = true;
                         }
                         else
                             Application.Exit();
@@ -223,12 +237,21 @@ namespace EtsTycoon
             G.Clear(Color.White);
 
             if (GameStart)
+            {
                 DrawGame();
+                if(Tutorial1)
+                    G.DrawImage(Images["tutorial1"], Pb.Width * 0.3f, Pb.Height * 0.2f, Pb.Width * 0.4f, Pb.Height * 0.8f);
+                
+                if(Tutorial2)
+                    G.DrawImage(Images["tutorial2"], Pb.Width * 0.3f, Pb.Height * 0.2f, Pb.Width * 0.4f, Pb.Height * 0.8f);
+            }
             else
             {
                 Menu.Draw(G);
                 Menu.HoverAll(MousePosition);
             }
+
+
 
             DrawStore();
 
