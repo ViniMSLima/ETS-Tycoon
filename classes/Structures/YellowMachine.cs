@@ -11,20 +11,18 @@ namespace Structures
         {
             StructureType = "Apprentice";
 
-            H = 110;
-            W = 110;
+            H = 90;
+            W = 90;
 
             this.Price = 20;
 
             this.Images = new()
             {
-                {"structure", Bitmap.FromFile("sprites/machines/kuka/kuka1.png")},
+                {"structure", Bitmap.FromFile("sprites/machines/yellow_machine.png")},
                 {"buy_structure", Bitmap.FromFile("sprites/btn1.png")},
                 {"buy_structure_down", Bitmap.FromFile("sprites/btn2.png")},
-                {"animation1", Bitmap.FromFile("sprites/machines/kuka/kuka1.png")},
-                {"animation2", Bitmap.FromFile("sprites/machines/kuka/kuka2.png")},
-                {"animation3", Bitmap.FromFile("sprites/machines/kuka/kuka3.png")},
-                {"animation4", Bitmap.FromFile("sprites/machines/kuka/kuka4.png")},
+                {"animation1", Bitmap.FromFile("sprites/machines/yellow_machine.png")},
+                {"animation2", Bitmap.FromFile("sprites/machines/yellow_machine.png")},
             };
             
             this.Img = Images["buy_structure"];
@@ -34,8 +32,8 @@ namespace Structures
         {
             if(this.Buy)
             {
-                H = 90;
-                W = 110;
+                H = 150;
+                W = 150;
             }
             PointF[] points = new PointF[]{
                 new(0, 0),
@@ -43,7 +41,7 @@ namespace Structures
                 new(H, W),
                 new(0, W),
                 new(0, 0),
-            }.ToIsometric(roomX + 120, roomY + 145);
+            }.ToIsometric(roomX + 100, roomY + 145);
 
             this.Points = points;
 
@@ -68,6 +66,8 @@ namespace Structures
             
             if (this.Apprentice != null)
                 DrawText(g, this.Apprentice.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
+
+            
 
         } 
     }

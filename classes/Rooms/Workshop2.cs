@@ -15,12 +15,14 @@ namespace Rooms
 
             float[] a = {
                             PositionX + 775, 
-                            PositionX + 300, PositionX + 390, PositionX + 490, PositionX + 585, PositionX + 680,
+                            PositionX + 300, PositionX + 390, PositionX + 490,
+                            PositionX + 1200
                         };
 
             float[] b = {   
                             PositionY + 1000, 
-                            PositionY + 893, PositionY + 941, PositionY + 989, PositionY + 1037, PositionY + 1085, 
+                            PositionY + 893, PositionY + 941, PositionY + 989,
+                            PositionY + 750
                         };
 
             this.PositionsX = a;
@@ -36,8 +38,7 @@ namespace Rooms
             this.Structures.Add(new WorkshopTable2());
             this.Structures.Add(new WorkshopTable2());
             this.Structures.Add(new WorkshopTable2());
-            this.Structures.Add(new WorkshopTable2());
-            this.Structures.Add(new WorkshopTable2());
+            this.Structures.Add(new YellowMachine());
 
             Game.Rooms.Add(this);
         }
@@ -57,6 +58,7 @@ namespace Rooms
             g.DrawImage(Glass,
                 PositionX + Game.GeneralPosition.X, PositionY + Game.GeneralPosition.Y, 1600, 1600 
             );
+
         }
 
     }
