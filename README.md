@@ -39,7 +39,7 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [X] Hover
 - [x] Draw boss room
 - [x] Structures with two apprentices open store cart and buy two at the same time
-- [ ] Draw double chair table apprentices working 
+- [x] Draw double chair table apprentices working 
 - [ ] Settings screen 
 - [ ] Load game screen 
 - [ ] Load game 
@@ -49,10 +49,10 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [ ] Tutorial / Help
 - [ ] Draw workshop structures 3/10
     - [X] pc_table1
-    - [ ] pc_table2
+    - [x] pc_table2
     - [X] drill
     - [X] hexagonal_table
-    - [ ] kuka
+    - [x] kuka
     - [ ] big_table
     - [ ] machine1
     - [ ] machine2
@@ -75,10 +75,10 @@ An Engineering Technical School Simulator where your mission is to develop appre
 Monday
 
 - [x] Draw double chair table apprentices working 
-- [ ] pc_table2
+- [x] pc_table2
 - [x] kuka
 - [ ] big_table
-- [ ] machine1
+- [X] machine1
 
 - [ ] Tutorial screen
 - [ ] Settings screen
