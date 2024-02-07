@@ -9,7 +9,7 @@ namespace WorkStations
     {
         public WorkshopTable2()
         {
-            StructureType = "Apprentice";
+            StructureType = "Instructor";
 
             H = 40;
             W = 90;
@@ -19,8 +19,8 @@ namespace WorkStations
             this.Images = new()
             {
                 {"structure", Bitmap.FromFile("sprites/table/workshop_PCtable2.png")},
-                {"buy_structure", Bitmap.FromFile("sprites/btn_table1.png")},
-                {"buy_structure_down", Bitmap.FromFile("sprites/btn_table2.png")},
+                {"buy_structure", Bitmap.FromFile("sprites/btn_instructor_table1.png")},
+                {"buy_structure_down", Bitmap.FromFile("sprites/btn_instructor_table2.png")},
                 {"animation1", Bitmap.FromFile("sprites/table/workshop_PCtable2_1.png")},
                 {"animation2", Bitmap.FromFile("sprites/table/workshop_PCtable2_2.png")},
             };
@@ -45,7 +45,7 @@ namespace WorkStations
 
             this.Points = points;
 
-            if (this.Buy && this.Apprentice != null)
+            if (this.Buy && this.Instructor != null)
             {
                 const int speed = 3;
                 if (Index < speed)

@@ -560,6 +560,26 @@
     "GainType": "Boost"
   },
   {
+    "Name": "Queila",
+    "Age": "24",
+    "Img1": "./sprites/instructors/instructor1.png",
+    "Img2": "./sprites/instructors/instructor2.png",
+    "Gain": 5,
+    "Salary": 200,
+    "Type": "Instructor",
+    "GainType": "Boost"
+  },
+  {
+    "Name": "Andressa",
+    "Age": "24",
+    "Img1": "./sprites/instructors/instructor1.png",
+    "Img2": "./sprites/instructors/instructor2.png",
+    "Gain": 5,
+    "Salary": 200,
+    "Type": "Instructor",
+    "GainType": "Boost"
+  },
+  {
     "Name": "Dom",
     "Age": "24",
     "Img1": "./sprites/instructors/instructor1.png",
@@ -590,16 +610,6 @@
     "GainType": "Boost"
   },
   {
-    "Name": "Queila",
-    "Age": "24",
-    "Img1": "./sprites/instructors/instructor1.png",
-    "Img2": "./sprites/instructors/instructor2.png",
-    "Gain": 5,
-    "Salary": 200,
-    "Type": "Instructor",
-    "GainType": "Boost"
-  },
-  {
     "Name": "Moll",
     "Age": "24",
     "Img1": "./sprites/instructors/instructor1.png",
@@ -611,6 +621,16 @@
   },
   {
     "Name": "Balem",
+    "Age": "24",
+    "Img1": "./sprites/instructors/instructor1.png",
+    "Img2": "./sprites/instructors/instructor2.png",
+    "Gain": 5,
+    "Salary": 200,
+    "Type": "Instructor",
+    "GainType": "Boost"
+  },
+  {
+    "Name": "Fernandinho",
     "Age": "24",
     "Img1": "./sprites/instructors/instructor1.png",
     "Img2": "./sprites/instructors/instructor2.png",

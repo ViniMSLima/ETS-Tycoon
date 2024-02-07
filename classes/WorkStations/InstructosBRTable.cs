@@ -19,8 +19,8 @@ namespace WorkStations
             this.Images = new()
             {
                 {"structure", Bitmap.FromFile("sprites/table/instructor_BR_table.png")},
-                {"buy_structure", Bitmap.FromFile("sprites/instructors/buy_instructor.png")},
-                {"buy_structure_down", Bitmap.FromFile("sprites/instructors/buy_instructor_down.png")},
+                {"buy_structure", Bitmap.FromFile("sprites/btn_instructor_table1.png")},
+                {"buy_structure_down", Bitmap.FromFile("sprites/btn_instructor_table2.png")},
                 {"instructor1", Bitmap.FromFile("sprites/instructors/BR_instructor_table1.png")},
                 {"instructor2", Bitmap.FromFile("sprites/instructors/BR_instructor_table2.png")},
             };

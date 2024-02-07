@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Windows.Forms; 
+using System.Windows.Forms;
 using System.Drawing;
 
 using Structures;
@@ -238,8 +238,16 @@ namespace EtsTycoon
             {
                 if (Double)
                 {
-                    if (Cart.Count < 2)
+                    if(Cart.Count == 1)
+                    {
+                        if (StoreIndex + index == Cart[0])
+                            MessageBox.Show("Can't buy the same apprentice twice");
+                        else
+                            Cart.Add(StoreIndex + index);
+                    }
+                    else if (Cart.Count < 2)
                         Cart.Add(StoreIndex + index);
+                    
                     else
                         MessageBox.Show("Cart is full, buy or close the store");
                 }
