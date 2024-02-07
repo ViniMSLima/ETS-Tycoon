@@ -342,9 +342,7 @@ namespace EtsTycoon
                 PositionX = -1375 + GeneralPosition.X,
                 PositionY = 662 + GeneralPosition.Y
             };
-
         }
-
 
         public void DrawGame()
         {

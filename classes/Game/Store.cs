@@ -1,13 +1,11 @@
 using System.Collections.Generic;
+using System.Windows.Forms; 
 using System.Drawing;
 
 using Structures;
 using Characters;
 using Extension;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Linq;
-using System.Windows.Markup;
+
 
 namespace EtsTycoon
 {
@@ -137,7 +135,7 @@ namespace EtsTycoon
             }
         }
 
-        public static void DrawCharacters<T>(Graphics g, List<T> list) where T : CharactersData
+        private static void DrawCharacters<T>(Graphics g, List<T> list) where T : CharactersData
         {
             float position1 = 0.210f;
             float position2 = 0.190f;
@@ -192,38 +190,7 @@ namespace EtsTycoon
 
         public static bool ClickCheck(PointF point, PointF[] a, Structure b)
         {
-            int num_vertices = a.Length;
-            double x = point.X, y = point.Y;
-            bool inside = false;
-
-            PointF p1 = a[0], p2;
-
-            for (int i = 1; i <= num_vertices; i++)
-            {
-                p2 = a[i % num_vertices];
-
-                float miny = p1.Y;
-                if (p2.Y < p1.Y) miny = p2.Y;
-
-                float maxy = p1.Y;
-                if (p2.Y > p1.Y) maxy = p2.Y;
-
-                float maxx = p1.X;
-                if (p2.X > p1.X) maxx = p2.X;
-
-                if (y > miny && y <= maxy && x <= maxx)
-                {
-                    double x_intersection =
-                    (y - p1.Y) * (p2.X - p1.X) /
-                    (p2.Y - p1.Y) + p1.X;
-
-                    if (p1.X == p2.X || x <= x_intersection)
-                        inside = !inside;
-                }
-
-                p1 = p2;
-            }
-
+            bool inside = Clicker.InsideClick(point, a);
             var list = new Structure();
             int storeSize = 0;
 
@@ -241,92 +208,81 @@ namespace EtsTycoon
             if (inside && list != null)
             {
                 if (point.Y > 0.8f * Game.Pb.Height)
-                {
-                    if (Cart.Count < 2)
-                        MessageBox.Show("Select more apprentices, need two");
-                    else
-                        b.BuyCharacter(0);
-                }
-                else if (point.Y < Game.Pb.Height * 0.3)
-                {
-                    Game.OpenApprenticeStore = null;
-                    Game.OpenInstructorStore = null;
-                    Cart = new() { };
-                }
-                else if (point.X > Game.Pb.Width * 0.8234375)
-                {
-                    LeftButton = 5;
+                    BuyCartButton(b);
 
-                    if (StoreIndex < storeSize - 3)
-                        StoreIndex++;
-                    else
-                        StoreIndex = 0;
-                }
+                else if (point.Y < Game.Pb.Height * 0.3)
+                    CloseStore();
+
+                else if (point.X > Game.Pb.Width * 0.8234375)
+                    ClickLeftButton(storeSize);
+
                 else if (point.X > Game.Pb.Width * 0.635417)
-                {
-                    if (storeSize > 2)
-                    {
-                        if (Double)
-                        {
-                            if (Cart.Count < 2)
-                                Cart.Add(StoreIndex + 2);
-                            else
-                                MessageBox.Show("Cart is full, buy or close the store");
-                        }
-                        else
-                        {
-                            b.BuyCharacter(StoreIndex + 2);
-                            Sound.PlaySFX1(0);
-                        }
-                    }
-                }
+                    BuyStoreItem(storeSize, 2, b);
+
                 else if (point.X > Game.Pb.Width * 0.42760417)
-                {
-                    if (storeSize > 1)
-                    {
-                        if (Double)
-                        {
-                            if (Cart.Count < 2)
-                                Cart.Add(StoreIndex + 1);
-                            else
-                                MessageBox.Show("Cart is full, buy or close the store");
-                        }
-                        else
-                        {
-                            b.BuyCharacter(StoreIndex + 1);
-                            Sound.PlaySFX1(0);
-                        }
-                    }
-                }
+                    BuyStoreItem(storeSize, 1, b);
+
                 else if (point.X > Game.Pb.Width * 0.2177083)
-                {
-                    if (storeSize > 0)
-                    {
-                        if (Double)
-                        {
-                            if (Cart.Count < 2)
-                                Cart.Add(StoreIndex);
-                            else
-                                MessageBox.Show("Cart is full, buy or close the store");
-                        }
-                        else
-                        {
-                            b.BuyCharacter(StoreIndex);
-                            Sound.PlaySFX1(0);
-                        }
-                    }
-                }
+                    BuyStoreItem(storeSize, 0, b);
+
                 else if (point.X < Game.Pb.Width * 0.1822917)
-                {
-                    RightButton = 4;
-                    if (StoreIndex > 0)
-                        StoreIndex--;
-                    else
-                        StoreIndex = storeSize - 3;
-                }
+                    ClickRightButton(storeSize);
             }
 
             return inside;
+        }
+
+        private static void BuyStoreItem(int size, int index, Structure b)
+        {
+            if (size > index)
+            {
+                if (Double)
+                {
+                    if (Cart.Count < index)
+                        Cart.Add(StoreIndex + index);
+                    else
+                        MessageBox.Show("Cart is full, buy or close the store");
+                }
+                else
+                {
+                    b.BuyCharacter(StoreIndex + index);
+                    Sound.PlaySFX1(0);
+                }
+            }
+        }
+
+        private static void CloseStore()
+        {
+            Game.OpenApprenticeStore = null;
+            Game.OpenInstructorStore = null;
+            Cart = new() { };
+        }
+
+        private static void ClickRightButton(int size)
+        {
+            RightButton = 4;
+            if (StoreIndex > 0)
+                StoreIndex--;
+            else
+                StoreIndex = size - 3;
+        }
+
+        private static void ClickLeftButton(int size)
+        {
+            LeftButton = 5;
+
+            if (StoreIndex < size - 3)
+                StoreIndex++;
+            else
+                StoreIndex = 0;
+        }
+
+        private static void BuyCartButton(Structure b)
+        {
+            if (Cart.Count < 2)
+                MessageBox.Show("Select more apprentices, need two");
+            else
+                b.BuyCharacter(0);
         }
 
         internal static void ClickCheckAll(Point location, Structure OpenStore)

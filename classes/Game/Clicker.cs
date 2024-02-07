@@ -7,23 +7,40 @@ namespace EtsTycoon
     public class Clicker
     {
         public static PointF[] Points { get; set; }
-
         public static int H { get; set; }
         public static int W { get; set; }
 
-        public Clicker() { }
-
         public static bool Clicks(PointF point)
+            => InsideClick(point, Points);
+        
+        public static void UpdateClickBox(float roomX, float roomY)
         {
-            int num_vertices = Points.Length;
+            H = 400;
+            W = 625;
+
+            PointF[] points = new PointF[]{
+                new(0, 0),
+                new(H, 0),
+                new(H, W),
+                new(0, W),
+                new(0, 0),
+            }.ToIsometric(roomX, roomY);
+
+            Points = points;
+        }
+    
+        public static bool InsideClick(PointF point, PointF[] area)
+        {
+            int num_vertices = area.Length;
+
             double x = point.X, y = point.Y;
             bool inside = false;
 
-            PointF p1 = Points[0], p2;
+            PointF p1 = area[0], p2;
 
             for (int i = 1; i <= num_vertices; i++)
             {
-                p2 = Points[i % num_vertices];
+                p2 = area[i % num_vertices];
 
                 float miny = p1.Y;
                 if (p2.Y < p1.Y) miny = p2.Y;
@@ -46,24 +63,8 @@ namespace EtsTycoon
 
                 p1 = p2;
             }
-            
+
             return inside;
-        }
-
-        public static void UpdateClickBox(float roomX, float roomY)
-        {
-            H = 400;
-            W = 625;
-
-            PointF[] points = new PointF[]{
-                new(0, 0),
-                new(H, 0),
-                new(H, W),
-                new(0, W),
-                new(0, 0),
-            }.ToIsometric(roomX, roomY);
-
-            Points = points;
         }
     }
 }
