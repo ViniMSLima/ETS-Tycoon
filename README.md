@@ -61,9 +61,9 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [ ] Draw workshop apprentices
 - [ ] Implement Workshop with structures 
 - [ ] Draw new room structures
-    - [ ] apprentice_table
+    - [x] apprentice_table
     - [ ] Instructors_table
-    - [ ] floor
+    - [x] floor
 - [ ] Implement new room 
 - [ ] Draw characters from a different angle
 - [ ] Game 100% responsive
@@ -86,16 +86,17 @@ Tuesday
 - [x] Tutorial screen 1 and 2
 - [x] Npc goes beep beep
 
-- [ ] Draw new room structures
-    - [ ] apprentice_table
-    - [ ] Instructors_table
-    - [ ] floor
-
 Wednesday
+
+- [ ] Draw new room structures
+    - [x] apprentice_table
+    - [ ] Instructors_table
+    - [x] floor
+    
+- [ ] Implement new room
 
 - [ ] big_table
 - [ ] Settings screen
-- [ ] Implement new room
 - [ ] Implement Workshop with structures 
 - [ ] In game settings screen (Music, Language, ...)
 
