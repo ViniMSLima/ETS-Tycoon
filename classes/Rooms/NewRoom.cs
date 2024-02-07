@@ -17,30 +17,30 @@ namespace Rooms
             this.FloorImg = Images[0];
 
             float[] a = {
-                         PositionX + 586, PositionX + 681, PositionX + 822, PositionX + 917,
-                         PositionX + 486, PositionX + 581, PositionX + 722, PositionX + 817,
-                         PositionX + 326, PositionX + 421, PositionX + 562, PositionX + 657,
-                         PositionX + 226, PositionX + 321, PositionX + 462, PositionX + 557,
-                         PositionX + 126, PositionX + 221, PositionX + 362, PositionX + 457,
-                         PositionX + 350
+                            PositionX + 619, PositionX + 714, PositionX + 855, PositionX + 950,
+                            PositionX + 519, PositionX + 614, PositionX + 755, PositionX + 850,
+                            PositionX + 419, PositionX + 514, PositionX + 655, PositionX + 750,
+                            PositionX + 319, PositionX + 414, PositionX + 555, PositionX + 650,
+                            PositionX + 219, PositionX + 314, PositionX + 455, PositionX + 550,
+                            PositionX + 119
                          };
 
             float[] b = {
-                         PositionY -  72, PositionY -  24, PositionY +  51, PositionY +  99,
-                         PositionY -  22, PositionY +  26, PositionY + 101, PositionY + 149,
-                         PositionY +  58, PositionY + 106, PositionY + 181, PositionY + 229,
-                         PositionY + 108, PositionY + 156, PositionY + 231, PositionY + 279,
-                         PositionY + 158, PositionY + 206, PositionY + 281, PositionY + 329,
-                         PositionY + 370
+                            PositionY +  358, PositionY + 406, PositionY +  481, PositionY +  529,
+                            PositionY + 408, PositionY +  456, PositionY + 531, PositionY + 579,
+                            PositionY + 458, PositionY + 506, PositionY + 581, PositionY + 629,
+                            PositionY + 508, PositionY + 556, PositionY + 631, PositionY + 679,
+                            PositionY + 558, PositionY + 606, PositionY + 681, PositionY + 729,
+                            PositionY + 870
                          };
 
             this.PositionsX = a;
             this.PositionsY = b;
 
-            // for (int i = 0; i < a.Length - 1; i++)
-            //     this.Structures.Add(new DRTable());
+            for (int i = 0; i < a.Length - 1; i++)
+                this.Structures.Add(new NewRoomTable());
 
-            // this.Structures.Add(new InstructorsDRTable());
+            this.Structures.Add(new InstructorsDRTable());
 
             Game.Rooms.Add(this);
         }
