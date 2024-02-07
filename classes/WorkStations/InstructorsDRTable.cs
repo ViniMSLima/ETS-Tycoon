@@ -1,30 +1,31 @@
 using System.Drawing;
 
-using MotherClasses;
+using Structures;
 using Extension;
 
-namespace Structures
+namespace WorkStations
 {
-    public class Machine : Structure
+    public class InstructorsDRTable : Structure
     {
-        public Machine()
+        public InstructorsDRTable()
         {
-            StructureType = "Apprentice";
+            StructureType = "Instructor";
 
             H = 40;
             W = 90;
 
-            this.Price = 20;
+            this.Price = 50;
 
             this.Images = new()
             {
-                {"structure", Bitmap.FromFile("sprites/machines/machine2.png")},
-                {"buy_structure", Bitmap.FromFile("sprites/button.png")},
-                {"buy_structure_down", Bitmap.FromFile("sprites/machines/button2.png")},
+                {"structure", Bitmap.FromFile("sprites/instructors/instructorsTable.png")},
+                {"buy_structure", Bitmap.FromFile("sprites/instructors/buy_instructor.png")},
+                {"buy_structure_down", Bitmap.FromFile("sprites/instructors/buy_instructor_down.png")},
+                {"instructor1", Bitmap.FromFile("./sprites/instructors/instructor1.png")},
+                {"instructor2", Bitmap.FromFile("./sprites/instructors/instructor2.png")},
             };
             
             this.Img = Images["buy_structure"];
-
         }
 
         public override void Draw(Graphics g, float roomX, float roomY)
@@ -44,17 +45,17 @@ namespace Structures
 
             this.Points = points;
 
-            if (this.Buy && this.Apprentice != null)
+            if (this.Buy && this.Instructor != null)
             {
                 const int speed = 3;
                 if (Index < speed)
                 {
-                    this.Img = this.Apprentice.Img[0];
+                    this.Img = this.Instructor.Img[0];
                     Index++;
                 }
                 else
                 {
-                    this.Img = this.Apprentice.Img[1];
+                    this.Img = this.Instructor.Img[1];
                     Index++;
                     if (Index > 2 * speed)
                         Index = 0;
@@ -63,8 +64,9 @@ namespace Structures
 
             g.DrawImage(Img, roomX, roomY, 200, 200);
 
-            if (this.Apprentice != null)
-                DrawText(g, this.Apprentice.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
+            if (this.Instructor != null)
+                DrawText(g, this.Instructor.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
+
         }
     }
 }

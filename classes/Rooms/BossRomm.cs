@@ -1,10 +1,9 @@
+using System.Collections.Generic;
 using System.Drawing;
 
-using MotherClasses;
+using WorkStations;
 using Structures;
 using EtsTycoon;
-using Extension;
-using System.Collections.Generic;
 
 namespace Rooms
 {

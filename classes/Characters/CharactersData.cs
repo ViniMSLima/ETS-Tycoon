@@ -16,7 +16,5 @@ namespace Characters
         public int CoinPerSecond { get; set; }
         public int Boost { get; set; }
         public List<Image> Img { get; set; }
-
-
     }
 }

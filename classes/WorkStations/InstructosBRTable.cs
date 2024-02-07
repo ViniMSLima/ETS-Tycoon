@@ -1,28 +1,28 @@
 using System.Drawing;
 
-using MotherClasses;
+using Structures;
 using Extension;
 
-namespace Structures
+namespace WorkStations
 {
-    public class WorkshopTable : Structure
+    public class InstructorsBRTable : Structure
     {
-        public WorkshopTable()
+        public InstructorsBRTable()
         {
-            StructureType = "Apprentice";
+            StructureType = "Instructor";
 
             H = 40;
             W = 90;
 
-            this.Price = 20;
+            this.Price = 50;
 
             this.Images = new()
             {
-                {"structure", Bitmap.FromFile("sprites/table/workshop_table.png")},
-                {"buy_structure", Bitmap.FromFile("sprites/btn_table1.png")},
-                {"buy_structure_down", Bitmap.FromFile("sprites/btn_table2.png")},
-                {"animation1", Bitmap.FromFile("sprites/table/workshop_table1.png")},
-                {"animation2", Bitmap.FromFile("sprites/table/workshop_table2.png")},
+                {"structure", Bitmap.FromFile("sprites/table/instructor_BR_table.png")},
+                {"buy_structure", Bitmap.FromFile("sprites/instructors/buy_instructor.png")},
+                {"buy_structure_down", Bitmap.FromFile("sprites/instructors/buy_instructor_down.png")},
+                {"instructor1", Bitmap.FromFile("sprites/instructors/BR_instructor_table1.png")},
+                {"instructor2", Bitmap.FromFile("sprites/instructors/BR_instructor_table2.png")},
             };
             
             this.Img = Images["buy_structure"];
@@ -45,17 +45,17 @@ namespace Structures
 
             this.Points = points;
 
-            if (this.Buy && this.Apprentice != null)
+            if (this.Buy && this.Instructor != null)
             {
                 const int speed = 3;
                 if (Index < speed)
                 {
-                    this.Img = this.Images["animation1"];
+                    this.Img = this.Images["instructor1"];
                     Index++;
                 }
                 else
                 {
-                    this.Img = this.Images["animation2"];
+                    this.Img = this.Images["instructor2"];
                     Index++;
                     if (Index > 2 * speed)
                         Index = 0;
@@ -63,10 +63,10 @@ namespace Structures
             }
 
             g.DrawImage(Img, roomX, roomY, 200, 200);
-            
-            if (this.Apprentice != null)
-                DrawText(g, this.Apprentice.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
 
-        }   
+            if (this.Instructor != null)
+                DrawText(g, this.Instructor.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
+
+        }
     }
 }

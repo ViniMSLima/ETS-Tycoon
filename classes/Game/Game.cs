@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
 
-using MotherClasses;
+using Structures;
 using Characters;
 using Rooms;
 
@@ -60,7 +60,18 @@ namespace EtsTycoon
 
         public static Random RandNpcHorn { get; set; } = new();
 
-        public Game()
+        private static Game _instance;
+
+        public static Game GetInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new Game();
+            }
+            return _instance;
+        }
+
+        private Game()
         {
             var timer = new Timer
             {
@@ -265,8 +276,6 @@ namespace EtsTycoon
                 Menu.HoverAll(MousePosition);
             }
 
-
-
             DrawStore();
 
             if (OpenUpgradesStore)
@@ -282,10 +291,8 @@ namespace EtsTycoon
             // if(Player.Apprentices.Count > 26 && PlayerRooms.Count == 2)
             //     PlayerRooms.Add(Rooms[2]);
 
-
             Pb.Refresh();
             Player.UpdateMoney();
-
         }
 
         public static void CreateCharacters()

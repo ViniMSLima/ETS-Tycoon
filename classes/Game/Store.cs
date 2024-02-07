@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-using MotherClasses;
+using Structures;
 using Characters;
 using Extension;
 using System.ComponentModel;
@@ -297,7 +297,6 @@ namespace EtsTycoon
                             Sound.PlaySFX1(0);
                         }
                     }
-
                 }
                 else if (point.X > Game.Pb.Width * 0.2177083)
                 {

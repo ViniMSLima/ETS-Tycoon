@@ -3,7 +3,7 @@ using System.Drawing;
 
 using Characters;
 
-namespace MotherClasses
+namespace Structures
 {
     public class Room
     {

@@ -5,7 +5,7 @@ using System.Drawing;
 using Characters;
 using EtsTycoon;
 
-namespace MotherClasses
+namespace Structures
 {
     public class Structure
     {
@@ -140,7 +140,6 @@ namespace MotherClasses
                     MessageBox.Show("FULL!");
             }
         }
-
 
         public bool ClickCheck(PointF point)
         {

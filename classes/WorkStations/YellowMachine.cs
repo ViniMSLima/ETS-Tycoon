@@ -1,33 +1,30 @@
 using System.Drawing;
 
-using MotherClasses;
+using Structures;
 using Extension;
 
-namespace Structures
+namespace WorkStations
 {
-    public class DoubleChairTable : Structure
+    public class YellowMachine : Structure
     {
-        public DoubleChairTable()
+        public YellowMachine()
         {
             StructureType = "Apprentice";
-            Amount = 2;
 
-            
-            H = 40;
+            H = 90;
             W = 90;
 
             this.Price = 20;
 
             this.Images = new()
             {
-                {"structure", Bitmap.FromFile("sprites/table/double_chair_table.png")},
-                {"buy_structure", Bitmap.FromFile("sprites/btn_table1.png")},
-                {"buy_structure_down", Bitmap.FromFile("sprites/btn_table2.png")},
-                {"animation1", Bitmap.FromFile("./sprites/table/doublechair_apprentice1.png")},
-                {"animation2", Bitmap.FromFile("./sprites/table/doublechair_apprentice2.png")}
-
+                {"structure", Bitmap.FromFile("sprites/machines/yellow_machine.png")},
+                {"buy_structure", Bitmap.FromFile("sprites/btn1.png")},
+                {"buy_structure_down", Bitmap.FromFile("sprites/btn2.png")},
+                {"animation1", Bitmap.FromFile("sprites/machines/yellow_machine.png")},
+                {"animation2", Bitmap.FromFile("sprites/machines/yellow_machine.png")},
             };
-
+            
             this.Img = Images["buy_structure"];
         }
 
@@ -35,21 +32,20 @@ namespace Structures
         {
             if(this.Buy)
             {
-                H = 70;
-                W = 110;
+                H = 150;
+                W = 150;
             }
-
             PointF[] points = new PointF[]{
                 new(0, 0),
                 new(H, 0),
                 new(H, W),
                 new(0, W),
                 new(0, 0),
-            }.ToIsometric(roomX + 120, roomY + 145);
+            }.ToIsometric(roomX + 100, roomY + 145);
 
             this.Points = points;
 
-            if (this.Buy && this.Duo.Count > 0)
+            if (this.Buy && this.Apprentice != null)
             {
                 const int speed = 3;
                 if (Index < speed)
@@ -67,9 +63,12 @@ namespace Structures
             }
 
             g.DrawImage(Img, roomX, roomY, 200, 200);
+            
+            if (this.Apprentice != null)
+                DrawText(g, this.Apprentice.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
 
-            if (this.Duo.Count > 0)
-                DrawText(g, "default", new PointF(roomX + 100, roomY + 30));
-        }
+            
+
+        } 
     }
 }

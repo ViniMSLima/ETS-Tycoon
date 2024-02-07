@@ -1,9 +1,9 @@
 using System.Drawing;
 
-using MotherClasses;
+using Structures;
 using Extension;
 
-namespace Structures
+namespace WorkStations
 {
     public class Kuka : Structure
     {

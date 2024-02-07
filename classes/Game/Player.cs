@@ -42,12 +42,12 @@ namespace EtsTycoon
         public float secondCounter { get; set; } = 0;
         public static string FormatMoney(double money)
         {
-            if (money >= 1000000000)
-                return (money / 1000000000).ToString("0.00") + "G";
-            else if (money >= 1000000)
-                return (money / 1000000).ToString("0.00") + "M";
-            else if (money >= 1000)
-                return (money / 1000).ToString("0.00") + "K";
+            if (money >= 1e9)
+                return (money / 1e9).ToString("0.00") + "G";
+            else if (money >= 1e6)
+                return (money / 1e6).ToString("0.00") + "M";
+            else if (money >= 1e3)
+                return (money / 1e3).ToString("0.00") + "K";
             else
                 return money.ToString("0.00");
         }

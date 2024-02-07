@@ -3,5 +3,6 @@ using System.Windows.Forms;
 using EtsTycoon;
 
 ApplicationConfiguration.Initialize();
-Game game = new();
+Game game = Game.GetInstance();
 Application.Run(game);
+
