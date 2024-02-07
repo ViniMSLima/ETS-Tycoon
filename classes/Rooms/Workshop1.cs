@@ -32,14 +32,18 @@ namespace Rooms
             for (int i = 0; i < 6; i++)
                 this.Structures.Add(new Drill());
 
-            for (int i = 6; i < 12; i++)
+            for (int i = 0; i < 6; i++)
                 this.Structures.Add(new GridingMachine());
 
             this.Structures.Add(new HexagonalTable());
             this.Structures.Add(new HexagonalTable());
 
-            for (int i = 6; i < 12; i++)
+            for (int i = 0; i < 3; i++)
                 this.Structures.Add(new WorkshopTable());
+
+            this.Structures.Add(new WorkshopInstructorsTable());
+            this.Structures.Add(new WorkshopTable());
+            this.Structures.Add(new WorkshopTable());
 
             Game.Rooms.Add(this);
         }

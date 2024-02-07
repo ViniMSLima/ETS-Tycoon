@@ -238,7 +238,7 @@ namespace EtsTycoon
             {
                 if (Double)
                 {
-                    if (Cart.Count < index)
+                    if (Cart.Count < 2)
                         Cart.Add(StoreIndex + index);
                     else
                         MessageBox.Show("Cart is full, buy or close the store");

@@ -40,7 +40,7 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [x] Draw boss room
 - [x] Structures with two apprentices open store cart and buy two at the same time
 - [x] Draw double chair table apprentices working 
-- [ ] Split game's constructor into private methods
+- [x] Split game's constructor into private methods
 - [x] Create a method for click in store item
 - [x] Method for click check
 - [ ] Settings screen 
@@ -98,7 +98,7 @@ Wednesday
     
 - [ ] Implement new room
 
-- [ ] Split game's constructor into private methods
+- [x] Split game's constructor into private methods
 - [x] Create a method for click in store item
 - [x] Method for click check
 

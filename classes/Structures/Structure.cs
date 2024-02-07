@@ -81,6 +81,9 @@ namespace Structures
                         Player.CoinPerSecond += this.Duo[0].Gain;
                         Player.CoinPerSecond += this.Duo[1].Gain;
 
+                        Player.Apprentices.Add(this.Duo[0]);
+                        Player.Apprentices.Add(this.Duo[1]);
+
                         Game.Apprentices.Remove(this.Duo[0]);
                         Game.Apprentices.Remove(this.Duo[1]);
                         CharactersStore.StoreIndex = 0;

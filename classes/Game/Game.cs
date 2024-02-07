@@ -10,24 +10,25 @@ using Rooms;
 using System.Drawing.Drawing2D;
 using Newtonsoft.Json;
 using System;
+using Microsoft.VisualBasic.Devices;
 
 namespace EtsTycoon
 {
     public class Game : Form
     {
-        public Graphics G { get; set; } = null;
+        public static Graphics G { get; set; } = null;
         public Bitmap Bmp { get; set; } = null;
         public Timer Tmr { get; set; }
         public Player Player { get; set; }
         public static PictureBox Pb { get; set; }
         public static List<Room> Rooms { get; set; } = new();
-        public List<Room> PlayerRooms { get; set; } = new();
+        public static List<Room> PlayerRooms { get; set; } = new();
         public static Structure OpenApprenticeStore { get; set; } = null;
         public static Structure OpenInstructorStore { get; set; }
         public static bool OpenUpgradesStore { get; set; }
-        public bool DragAndHold { get; set; } = false;
-        public PointF dMouse { get; set; } = new(0, 0);
-        public PointF PrevMouse { get; set; }
+        public static bool DragAndHold { get; set; } = false;
+        public static PointF dMouse { get; set; } = new(0, 0);
+        public static PointF PrevMouse { get; set; }
 
         public static bool Tutorial1 { get; set; } = false;
         public static bool Tutorial2 { get; set; } = false;
@@ -48,49 +49,31 @@ namespace EtsTycoon
         public static PointF PositionNPC { get; set; } = new(1150 + GeneralPosition.X, -200 + GeneralPosition.X);
         public Image Npc1 { get; set; }
         public int Index { get; set; } = 0;
-
-        public static int ScrollDelta { get; set; } = 0;
         public static bool GameStart { get; set; } = false;
 
         public static string[] CursorPath { get; set; } = {
             "./sprites/cursor/cur/cursor.cur"
         };
-
         public static int CursorIndex { get; set; } = 0;
-
         public static Random RandNpcHorn { get; set; } = new();
 
         private static Game _instance;
-
         public static Game GetInstance()
-        {
-            if (_instance == null)
-            {
-                _instance = new Game();
-            }
-            return _instance;
-        }
+            => _instance ??= new Game();
 
         private Game()
         {
-            var timer = new Timer
-            {
-                Interval = 20,
-            };
+            var timer = new Timer { Interval = 20 };
 
             this.Tmr = timer;
             this.Player = new();
 
-            Pb = new()
-            {
-                Dock = DockStyle.Fill,
-            };
+            Pb = new() { Dock = DockStyle.Fill };
 
             WindowState = FormWindowState.Maximized;
             FormBorderStyle = FormBorderStyle.None;
 
             CreateRooms();
-
             PlayerRooms.Add(Rooms[0]);
             PlayerRooms.Add(Rooms[1]);
             PlayerRooms.Add(Rooms[2]);
@@ -106,11 +89,9 @@ namespace EtsTycoon
                 G.PixelOffsetMode = PixelOffsetMode.HighSpeed;
                 G.SmoothingMode = SmoothingMode.HighSpeed;
                 G.CompositingQuality = CompositingQuality.AssumeLinear;
-
                 G.Clear(Color.Black);
 
                 CreateCharacters();
-
                 Upgrade.GenerateUpgrades();
 
                 Pb.Image = Bmp;
@@ -121,130 +102,129 @@ namespace EtsTycoon
             Controls.Add(Pb);
             timer.Tick += (o, e) => this.Tick();
 
-            KeyDown += (o, e) =>
-            {
-                switch (e.KeyCode)
-                {
-                    case Keys.Escape:
-                        if (OpenApprenticeStore != null ||
-                            OpenInstructorStore != null ||
-                            OpenUpgradesStore == true)
-                        {
-                            OpenApprenticeStore = null;
-                            OpenInstructorStore = null;
-                            OpenUpgradesStore = false;
-                            CharactersStore.StoreIndex = 0;
-                            CharactersStore.Cart = new() { };
-                        }
-                        else if(Tutorial2)
-                        {
-                            Tutorial2= false;
-                        }
-                        else if(Tutorial1)
-                        {
-                            Tutorial1 = false;
-                            Tutorial2 = true;
-                        }
-                        else
-                            Application.Exit();
-
-                        break;
-
-                    case Keys.W:
-                        GeneralPosition = new(GeneralPosition.X, GeneralPosition.Y - 25);
-                        break;
-
-                    case Keys.A:
-                        GeneralPosition = new(GeneralPosition.X - 25, GeneralPosition.Y);
-                        break;
-
-                    case Keys.S:
-                        GeneralPosition = new(GeneralPosition.X, GeneralPosition.Y + 25);
-                        break;
-
-                    case Keys.D:
-                        GeneralPosition = new(GeneralPosition.X + 25, GeneralPosition.Y);
-                        break;
-
-                    case Keys.B:
-                        Sound.PlaySFX1(3);
-                        OpenUpgradesStore = !OpenUpgradesStore;
-                        break;
-                }
-            };
-
-
-            Pb.MouseDown += (o, e) =>
-            {
-                if (!GameStart)
-                    Menu.ClickCheckAll(e.Location);
-
-                else
-                {
-                    bool voidClick = true, ClickCheck, ClickCheckBR;
-
-                    if (OpenApprenticeStore != null)
-                    {
-                        voidClick = false;
-                        CharactersStore.ClickCheckAll(e.Location, OpenApprenticeStore);
-                    }
-                    else if (OpenInstructorStore != null)
-                    {
-                        voidClick = false;
-                        CharactersStore.ClickCheckAll(e.Location, OpenInstructorStore);
-                    }
-                    else if (OpenUpgradesStore)
-                    {
-                        voidClick = false;
-                        Upgrade.ClickCheckAll(e.Location);
-                    }
-                    else
-                    {
-                        foreach (Room r in PlayerRooms)
-                        {
-                            ClickCheck = r.ClickCheckStructures(e.Location, G);
-                            if (ClickCheck)
-                                voidClick = false;
-                        }
-
-                        ClickCheckBR = Clicker.Clicks(e.Location);
-                        if (ClickCheckBR)
-                        {
-                            Player.Money += Player.ClickValue;
-                            voidClick = false;
-                        }
-                    }
-
-                    if(Tutorial1 || Tutorial2)
-                        voidClick = false;
-
-                    if (voidClick)
-                    {
-                        DragAndHold = true;
-                        PrevMouse = e.Location;
-                    }
-                }
-            };
-
-            Pb.MouseUp += (o, e) =>
-            {
-                DragAndHold = false;
-                foreach (Room r in Rooms)
-                    r.BuyCheckAll();
-            };
-
-            Pb.MouseMove += (o, e) =>
-            {
-                if (DragAndHold)
-                {
-                    dMouse = new((PrevMouse.X - e.Location.X) * (-1), (PrevMouse.Y - e.Location.Y) * (-1));
-                    GeneralPosition = new(GeneralPosition.X + dMouse.X, GeneralPosition.Y + dMouse.Y);
-
-                    PrevMouse = e.Location;
-                }
-            };
+            KeyDown += KeyBoardDown;
+            Pb.MouseDown += MouseClickDown;
+            Pb.MouseUp += MouseClickUp;
+            Pb.MouseMove += MouseMoved;
         }
 
+        private static void KeyBoardDown(object o, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    if (OpenApprenticeStore != null ||
+                        OpenInstructorStore != null ||
+                        OpenUpgradesStore == true)
+                    {
+                        OpenApprenticeStore = null;
+                        OpenInstructorStore = null;
+                        OpenUpgradesStore = false;
+                        CharactersStore.StoreIndex = 0;
+                        CharactersStore.Cart = new() { };
+                    }
+                    else if (Tutorial2)
+                        Tutorial2 = false;
+
+                    else if (Tutorial1)
+                    {
+                        Tutorial1 = false;
+                        Tutorial2 = true;
+                    }
+                    else
+                        Application.Exit();
+
+                    break;
+
+                case Keys.W:
+                    GeneralPosition = new(GeneralPosition.X, GeneralPosition.Y - 25);
+                    break;
+
+                case Keys.A:
+                    GeneralPosition = new(GeneralPosition.X - 25, GeneralPosition.Y);
+                    break;
+
+                case Keys.S:
+                    GeneralPosition = new(GeneralPosition.X, GeneralPosition.Y + 25);
+                    break;
+
+                case Keys.D:
+                    GeneralPosition = new(GeneralPosition.X + 25, GeneralPosition.Y);
+                    break;
+
+                case Keys.B:
+                    Sound.PlaySFX1(3);
+                    OpenUpgradesStore = !OpenUpgradesStore;
+                    break;
+            }
+        }
+        private static void MouseClickDown(object o, MouseEventArgs e)
+        {
+            if (!GameStart)
+                Menu.ClickCheckAll(e.Location);
+
+            else
+            {
+                bool voidClick = true, ClickCheck, ClickCheckBR;
+
+                if (OpenApprenticeStore != null)
+                {
+                    voidClick = false;
+                    CharactersStore.ClickCheckAll(e.Location, OpenApprenticeStore);
+                }
+                else if (OpenInstructorStore != null)
+                {
+                    voidClick = false;
+                    CharactersStore.ClickCheckAll(e.Location, OpenInstructorStore);
+                }
+                else if (OpenUpgradesStore)
+                {
+                    voidClick = false;
+                    Upgrade.ClickCheckAll(e.Location);
+                }
+                else
+                {
+                    foreach (Room r in PlayerRooms)
+                    {
+                        ClickCheck = r.ClickCheckStructures(e.Location, G);
+                        if (ClickCheck)
+                            voidClick = false;
+                    }
+
+                    ClickCheckBR = Clicker.Clicks(e.Location);
+                    if (ClickCheckBR)
+                    {
+                        Player.Money += Player.ClickValue;
+                        voidClick = false;
+                    }
+                }
+
+                if (Tutorial1 || Tutorial2)
+                    voidClick = false;
+
+                if (voidClick)
+                {
+                    DragAndHold = true;
+                    PrevMouse = e.Location;
+                }
+            }
+        }
+        private static void MouseClickUp(object o, MouseEventArgs e)
+        {
+            DragAndHold = false;
+            foreach (Room r in Rooms)
+                r.BuyCheckAll();
+        }
+        private static void MouseMoved(object o, MouseEventArgs e)
+        {
+            if (DragAndHold)
+            {
+                dMouse = new((PrevMouse.X - e.Location.X) * (-1), (PrevMouse.Y - e.Location.Y) * (-1));
+                GeneralPosition = new(GeneralPosition.X + dMouse.X, GeneralPosition.Y + dMouse.Y);
+
+                PrevMouse = e.Location;
+            }
+        }
         public void Tick()
         {
             this.Cursor = new Cursor(CursorPath[CursorIndex]);
@@ -258,16 +238,16 @@ namespace EtsTycoon
             if (GameStart)
             {
                 DrawGame();
-                if(Tutorial1)
+                if (Tutorial1)
                     G.DrawImage(Images["tutorial1"], Pb.Width * 0.3f, Pb.Height * 0.2f, Pb.Width * 0.4f, Pb.Height * 0.8f);
-                
-                if(Tutorial2)
+
+                if (Tutorial2)
                     G.DrawImage(Images["tutorial2"], Pb.Width * 0.3f, Pb.Height * 0.2f, Pb.Width * 0.4f, Pb.Height * 0.8f);
 
 
                 var a = RandNpcHorn.Next(100);
 
-                if(a == 2)
+                if (a == 2)
                     Sound.PlaySFX3(2);
             }
             else
@@ -285,11 +265,18 @@ namespace EtsTycoon
                 Upgrade.DrawUpgradesStore(G);
             }
 
-            // if(Player.Apprentices.Count > 8 && PlayerRooms.Count == 1)
-            //     PlayerRooms.Add(Rooms[1]);
+            if(Player.Apprentices.Count > 9 && Player.Instructors.Count > 0 && PlayerRooms.Count == 1)
+                PlayerRooms.Add(Rooms[1]);
 
-            // if(Player.Apprentices.Count > 26 && PlayerRooms.Count == 2)
-            //     PlayerRooms.Add(Rooms[2]);
+            if(Player.Apprentices.Count > 19 && Player.Instructors.Count > 1 && PlayerRooms.Count == 2)
+                PlayerRooms.Add(Rooms[2]);
+
+            if(Player.Apprentices.Count > 29 && Player.Instructors.Count > 2 && PlayerRooms.Count == 3)
+                PlayerRooms.Add(Rooms[3]);
+
+            if(Player.Apprentices.Count > 39 && Player.Instructors.Count > 3 && PlayerRooms.Count == 4)
+                PlayerRooms.Add(Rooms[4]);
+
 
             Pb.Refresh();
             Player.UpdateMoney();
