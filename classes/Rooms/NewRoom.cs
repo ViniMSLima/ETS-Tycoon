@@ -22,7 +22,7 @@ namespace Rooms
                             PositionX + 419, PositionX + 514, PositionX + 655, PositionX + 750,
                             PositionX + 319, PositionX + 414, PositionX + 555, PositionX + 650,
                             PositionX + 219, PositionX + 314, PositionX + 455, PositionX + 550,
-                            PositionX + 119
+                            PositionX + 1050
                          };
 
             float[] b = {
@@ -31,7 +31,7 @@ namespace Rooms
                             PositionY + 458, PositionY + 506, PositionY + 581, PositionY + 629,
                             PositionY + 508, PositionY + 556, PositionY + 631, PositionY + 679,
                             PositionY + 558, PositionY + 606, PositionY + 681, PositionY + 729,
-                            PositionY + 870
+                            PositionY + 429
                          };
 
             this.PositionsX = a;

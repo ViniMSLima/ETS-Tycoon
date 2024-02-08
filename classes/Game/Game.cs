@@ -75,9 +75,9 @@ namespace EtsTycoon
 
             CreateRooms();
             PlayerRooms.Add(Rooms[0]);
-            PlayerRooms.Add(Rooms[1]);
-            PlayerRooms.Add(Rooms[2]);
-            PlayerRooms.Add(Rooms[3]);
+            // PlayerRooms.Add(Rooms[1]);
+            // PlayerRooms.Add(Rooms[2]);
+            // PlayerRooms.Add(Rooms[3]);
             PlayerRooms.Add(Rooms[4]);
 
             this.Load += (o, e) =>

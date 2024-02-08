@@ -14,30 +14,29 @@ namespace Rooms
             this.FloorImg = Bitmap.FromFile("./sprites/floor/workshop.png");
 
             float[] a = {
-                            PositionX + 775, 
-                            PositionX + 300, PositionX + 390, PositionX + 490,
+                            PositionX + 425, PositionX + 615, PositionX + 805,
+                            PositionX + 395, PositionX + 495, PositionX + 595,
                             PositionX + 1200
                         };
 
             float[] b = {   
-                            PositionY + 1000, 
-                            PositionY + 893, PositionY + 941, PositionY + 989,
+                            PositionY + 725, PositionX + 820, PositionX + 950,
+                            PositionY + 989, PositionY + 1037, PositionY + 1085,
                             PositionY + 750
                         };
 
             this.PositionsX = a;
             this.PositionsY = b;
 
-            // for (int i = 0; i < 6; i++)
-            //     this.Structures.Add(new Drill());
-
-            // for (int i = 6; i < 12; i++)
-            //     this.Structures.Add(new WorkshopTable());
-
+            this.Structures.Add(new Machine2());
+            this.Structures.Add(new Machine2());
+            
             this.Structures.Add(new Kuka());
+
             this.Structures.Add(new WorkshopTable2());
             this.Structures.Add(new WorkshopTable2());
             this.Structures.Add(new WorkshopTable2());
+
             this.Structures.Add(new YellowMachine());
 
             Game.Rooms.Add(this);

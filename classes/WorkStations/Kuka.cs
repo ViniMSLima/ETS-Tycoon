@@ -93,7 +93,7 @@ namespace WorkStations
                 }
             }
 
-            g.DrawImage(Img, roomX + 20, roomY - 20);
+            g.DrawImage(Img, roomX + 20, roomY - 20, 250, 250);
 
             if (this.Apprentice != null)
                 DrawText(g, this.Apprentice.Name.Split(" ")[0], new PointF(roomX + 85, roomY + 100));
