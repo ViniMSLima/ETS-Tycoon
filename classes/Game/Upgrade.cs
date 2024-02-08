@@ -95,7 +95,7 @@ namespace EtsTycoon
 
         public static bool ClickCheck(PointF point, PointF[] a)
         {
-            bool inside = Clicker.InsideClick(point, a);
+            bool inside = Clicker.ContainsClick(point, a);
 
             if (inside)
             {
@@ -111,20 +111,23 @@ namespace EtsTycoon
                 else if (point.Y < Game.Pb.Height * 0.50 && Upgrades.Count > 1)
                 {
                     UpgradeIndex = 1;
-                    Sound.PlaySFX1(0);
-                    BuyUpgrade();
+                    MessageBox.Show("Can't buy this upgrade before " + Upgrades[0].Descritpion);
+                    // Sound.PlaySFX1(0);
+                    // BuyUpgrade();
                 }
                 else if (point.Y < Game.Pb.Height * 0.63 && Upgrades.Count > 2)
                 {
                     UpgradeIndex = 2;
-                    Sound.PlaySFX1(0);
-                    BuyUpgrade();
+                    MessageBox.Show("Can't buy this upgrade before " + Upgrades[1].Descritpion);
+                    // Sound.PlaySFX1(0);
+                    // BuyUpgrade();
                 }
                 else if (Upgrades.Count > 3)
                 {
                     UpgradeIndex = 3;
-                    Sound.PlaySFX1(0);
-                    BuyUpgrade();
+                    MessageBox.Show("Can't buy this upgrade before " + Upgrades[2].Descritpion);
+                    // Sound.PlaySFX1(0);
+                    // BuyUpgrade();
 
                 }
             }

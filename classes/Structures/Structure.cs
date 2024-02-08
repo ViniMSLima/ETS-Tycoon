@@ -146,7 +146,7 @@ namespace Structures
 
         public bool ClickCheck(PointF point)
         {
-            bool inside = Clicker.InsideClick(point, this.Points);
+            bool inside = Clicker.ContainsClick(point, this.Points);
 
             if (inside)
             {

@@ -5,24 +5,24 @@ using Extension;
 
 namespace WorkStations
 {
-    public class Drill : Structure
+    public class NRInstructorsTable : Structure
     {
-        public Drill()
+        public NRInstructorsTable()
         {
-            StructureType = "Apprentice";
+            StructureType = "Instructor";
 
-            H = 90;
-            W = 100;
+            H = 40;
+            W = 90;
 
-            this.Price = 20;
+            this.Price = 50;
 
             this.Images = new()
             {
-                {"structure", Bitmap.FromFile("sprites/machines/drill.png")},
-                {"buy_structure", Bitmap.FromFile("sprites/btn1.png")},
-                {"buy_structure_down", Bitmap.FromFile("sprites/btn2.png")},
-                {"animation1", Bitmap.FromFile("sprites/machines/drill.png")},
-                {"animation2", Bitmap.FromFile("sprites/machines/drill_2.png")},
+                {"structure", Bitmap.FromFile("sprites/table/NR_instructors_table.png")},
+                {"buy_structure", Bitmap.FromFile("sprites/btn_instructor_table1.png")},
+                {"buy_structure_down", Bitmap.FromFile("sprites/btn_instructor_table2.png")},
+                {"animation1", Bitmap.FromFile("./sprites/table/NR_instructors_table1.png")},
+                {"animation2", Bitmap.FromFile("./sprites/table/NR_instructors_table2.png")},
             };
             
             this.Img = Images["buy_structure"];
@@ -33,7 +33,7 @@ namespace WorkStations
             if(this.Buy)
             {
                 H = 90;
-                W = 100;
+                W = 110;
             }
             PointF[] points = new PointF[]{
                 new(0, 0),
@@ -45,7 +45,7 @@ namespace WorkStations
 
             this.Points = points;
 
-            if (this.Buy && this.Apprentice != null)
+            if (this.Buy && this.Instructor != null)
             {
                 const int speed = 3;
                 if (Index < speed)
@@ -62,10 +62,11 @@ namespace WorkStations
                 }
             }
 
-            g.DrawImage(Img, roomX + 20, roomY - 20, 200, 200);
+            g.DrawImage(Img, roomX, roomY, 200, 200);
 
-            if (this.Apprentice != null)
-                DrawText(g, this.Apprentice.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
+            if (this.Instructor != null)
+                DrawText(g, this.Instructor.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
+
         }
     }
 }

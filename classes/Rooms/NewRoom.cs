@@ -40,7 +40,7 @@ namespace Rooms
             for (int i = 0; i < a.Length - 1; i++)
                 this.Structures.Add(new NewRoomTable());
 
-            this.Structures.Add(new InstructorsDRTable());
+            this.Structures.Add(new NRInstructorsTable());
 
             Game.Rooms.Add(this);
         }

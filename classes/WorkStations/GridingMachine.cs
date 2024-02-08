@@ -7,6 +7,7 @@ namespace WorkStations
 {
     public class GridingMachine : Structure
     {
+        public int pos { get; set; } = 150;
         public GridingMachine()
         {
             StructureType = "Apprentice";
@@ -18,11 +19,11 @@ namespace WorkStations
 
             this.Images = new()
             {
-                {"structure", Bitmap.FromFile("sprites/machines/griding_machine.png")},
+                {"structure", Bitmap.FromFile("sprites/machines/grinding_machine.png")},
                 {"buy_structure", Bitmap.FromFile("sprites/btn1.png")},
                 {"buy_structure_down", Bitmap.FromFile("sprites/btn2.png")},
-                {"animation1", Bitmap.FromFile("sprites/machines/griding_machine.png")},
-                {"animation2", Bitmap.FromFile("sprites/machines/griding_machine.png")},
+                {"animation1", Bitmap.FromFile("sprites/machines/grinding_machine.png")},
+                {"animation2", Bitmap.FromFile("sprites/machines/grinding_machine_2.png")},
             };
             
             this.Img = Images["buy_structure"];
@@ -34,6 +35,7 @@ namespace WorkStations
             {
                 H = 150;
                 W = 150;
+                pos = 170;
             }
             PointF[] points = new PointF[]{
                 new(0, 0),
@@ -41,7 +43,7 @@ namespace WorkStations
                 new(H, W),
                 new(0, W),
                 new(0, 0),
-            }.ToIsometric(roomX + 100, roomY + 145);
+            }.ToIsometric(roomX + 100, roomY + pos);
 
             this.Points = points;
 
@@ -66,9 +68,6 @@ namespace WorkStations
             
             if (this.Apprentice != null)
                 DrawText(g, this.Apprentice.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
-
-            
-
         } 
     }
 }

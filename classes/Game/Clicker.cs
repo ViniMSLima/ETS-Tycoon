@@ -11,7 +11,7 @@ namespace EtsTycoon
         public static int W { get; set; }
 
         public static bool Clicks(PointF point)
-            => InsideClick(point, Points);
+            => ContainsClick(point, Points);
         
         public static void UpdateClickBox(float roomX, float roomY)
         {
@@ -29,7 +29,7 @@ namespace EtsTycoon
             Points = points;
         }
     
-        public static bool InsideClick(PointF point, PointF[] area)
+        public static bool ContainsClick(PointF point, PointF[] area)
         {
             int num_vertices = area.Length;
 

@@ -62,7 +62,7 @@ public class Menu
 
     public static bool Clicks(PointF point, PointF[] button)
     {
-        bool inside = Clicker.InsideClick(point, button);
+        bool inside = Clicker.ContainsClick(point, button);
 
         if (inside)
         {
@@ -116,7 +116,7 @@ public class Menu
 
     public static bool Hover(PointF point, PointF[] button)
     {
-        bool inside = Clicker.InsideClick(point, button);
+        bool inside = Clicker.ContainsClick(point, button);
 
         if (inside)
         {

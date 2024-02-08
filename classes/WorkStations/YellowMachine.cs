@@ -11,8 +11,8 @@ namespace WorkStations
         {
             StructureType = "Apprentice";
 
-            H = 90;
-            W = 90;
+            H = 150;
+            W = 150;
 
             this.Price = 20;
 
@@ -22,7 +22,7 @@ namespace WorkStations
                 {"buy_structure", Bitmap.FromFile("sprites/btn1.png")},
                 {"buy_structure_down", Bitmap.FromFile("sprites/btn2.png")},
                 {"animation1", Bitmap.FromFile("sprites/machines/yellow_machine.png")},
-                {"animation2", Bitmap.FromFile("sprites/machines/yellow_machine.png")},
+                {"animation2", Bitmap.FromFile("sprites/machines/yellow_machine_2.png")},
             };
             
             this.Img = Images["buy_structure"];
@@ -32,8 +32,8 @@ namespace WorkStations
         {
             if(this.Buy)
             {
-                H = 150;
-                W = 150;
+                H = 200;
+                W = 200;
             }
             PointF[] points = new PointF[]{
                 new(0, 0),
@@ -41,7 +41,7 @@ namespace WorkStations
                 new(H, W),
                 new(0, W),
                 new(0, 0),
-            }.ToIsometric(roomX + 100, roomY + 145);
+            }.ToIsometric(roomX + 150, roomY + 225);
 
             this.Points = points;
 
@@ -62,13 +62,10 @@ namespace WorkStations
                 }
             }
 
-            g.DrawImage(Img, roomX, roomY, 200, 200);
+            g.DrawImage(Img, roomX, roomY, 280, 280);
             
             if (this.Apprentice != null)
                 DrawText(g, this.Apprentice.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
-
-            
-
         } 
     }
 }

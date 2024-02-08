@@ -5,24 +5,24 @@ using Extension;
 
 namespace WorkStations
 {
-    public class Drill : Structure
+    public class Machine3 : Structure
     {
-        public Drill()
+        public Machine3()
         {
             StructureType = "Apprentice";
 
-            H = 90;
-            W = 100;
+            H = 110;
+            W = 110;
 
             this.Price = 20;
 
             this.Images = new()
             {
-                {"structure", Bitmap.FromFile("sprites/machines/drill.png")},
+                {"structure", Bitmap.FromFile("sprites/machines/machine3.png")},
                 {"buy_structure", Bitmap.FromFile("sprites/btn1.png")},
                 {"buy_structure_down", Bitmap.FromFile("sprites/btn2.png")},
-                {"animation1", Bitmap.FromFile("sprites/machines/drill.png")},
-                {"animation2", Bitmap.FromFile("sprites/machines/drill_2.png")},
+                {"animation1", Bitmap.FromFile("sprites/machines/machine3.png")},
+                {"animation2", Bitmap.FromFile("sprites/machines/machine3_2.png")},
             };
             
             this.Img = Images["buy_structure"];
@@ -32,8 +32,8 @@ namespace WorkStations
         {
             if(this.Buy)
             {
-                H = 90;
-                W = 100;
+                H = 150;
+                W = 150;
             }
             PointF[] points = new PointF[]{
                 new(0, 0),
@@ -41,7 +41,7 @@ namespace WorkStations
                 new(H, W),
                 new(0, W),
                 new(0, 0),
-            }.ToIsometric(roomX + 120, roomY + 145);
+            }.ToIsometric(roomX + 125, roomY + 175);
 
             this.Points = points;
 
@@ -62,10 +62,13 @@ namespace WorkStations
                 }
             }
 
-            g.DrawImage(Img, roomX + 20, roomY - 20, 200, 200);
-
+            g.DrawImage(Img, roomX, roomY, 250, 250);
+            
             if (this.Apprentice != null)
                 DrawText(g, this.Apprentice.Name.Split(" ")[0], new PointF(roomX + 100, roomY + 30));
-        }
+
+            
+
+        } 
     }
 }

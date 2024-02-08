@@ -10,7 +10,6 @@ using Rooms;
 using System.Drawing.Drawing2D;
 using Newtonsoft.Json;
 using System;
-using Microsoft.VisualBasic.Devices;
 
 namespace EtsTycoon
 {
@@ -75,10 +74,6 @@ namespace EtsTycoon
 
             CreateRooms();
             PlayerRooms.Add(Rooms[0]);
-            // PlayerRooms.Add(Rooms[1]);
-            // PlayerRooms.Add(Rooms[2]);
-            // PlayerRooms.Add(Rooms[3]);
-            PlayerRooms.Add(Rooms[4]);
 
             this.Load += (o, e) =>
             {
@@ -96,7 +91,7 @@ namespace EtsTycoon
 
                 Pb.Image = Bmp;
                 timer.Start();
-                // Sound.StartMusic();
+                Sound.StartMusic();
             };
 
             Controls.Add(Pb);
@@ -265,16 +260,16 @@ namespace EtsTycoon
                 Upgrade.DrawUpgradesStore(G);
             }
 
-            if(Player.Apprentices.Count > 9 && Player.Instructors.Count > 0 && PlayerRooms.Count == 1)
+            if(Player.Apprentices.Count > 9 && PlayerRooms.Count == 1)
                 PlayerRooms.Add(Rooms[1]);
 
-            if(Player.Apprentices.Count > 19 && Player.Instructors.Count > 1 && PlayerRooms.Count == 2)
+            if(Player.Apprentices.Count > 19 && PlayerRooms.Count == 2)
                 PlayerRooms.Add(Rooms[2]);
 
-            if(Player.Apprentices.Count > 29 && Player.Instructors.Count > 2 && PlayerRooms.Count == 3)
+            if(Player.Apprentices.Count > 29 && PlayerRooms.Count == 3)
                 PlayerRooms.Add(Rooms[3]);
 
-            if(Player.Apprentices.Count > 39 && Player.Instructors.Count > 3 && PlayerRooms.Count == 4)
+            if(Player.Apprentices.Count > 39 && PlayerRooms.Count == 4)
                 PlayerRooms.Add(Rooms[4]);
 
 

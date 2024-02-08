@@ -190,7 +190,7 @@ namespace EtsTycoon
 
         public static bool ClickCheck(PointF point, PointF[] a, Structure b)
         {
-            bool inside = Clicker.InsideClick(point, a);
+            bool inside = Clicker.ContainsClick(point, a);
             var list = new Structure();
             int storeSize = 0;
 

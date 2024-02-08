@@ -43,77 +43,32 @@ An Engineering Technical School Simulator where your mission is to develop appre
 - [x] Split game's constructor into private methods
 - [x] Create a method for click in store item
 - [x] Method for click check
-- [ ] Settings screen 
-- [ ] Load game screen 
-- [ ] Load game 
 - [x] Npc goes beep beep 
-- [ ] Draw Instructors
-- [ ] In game settings screen (Music, Language, ...) O
 - [x] Tutorial / Help
-- [ ] Draw workshop structures 7/10
+- [x] Draw workshop structures 9/9
     - [X] pc_table1
     - [x] pc_table2
     - [X] drill
     - [X] hexagonal_table
     - [x] kuka
-    - [ ] big_table
     - [x] machine1
     - [x] machine2
-    - [ ] machine3
-    - [ ] machine4
-- [ ] Draw workshop apprentices
-- [ ] Implement Workshop with structures 
-- [ ] Draw new room structures
+    - [x] machine3
+    - [x] machine4
+- [x] Implement Workshop with structures 
+- [x] Draw new room structures
     - [x] apprentice_table
-    - [ ] Instructors_table
+    - [x] Instructors_table
     - [x] floor
-- [ ] Implement new room 
+- [x] Implement new room 
+- [x] Game 98% responsive
+- [ ] Draw workshop apprentices
+- [ ] Settings screen 
+- [ ] Load game screen 
+- [ ] Load game 
+- [ ] Draw Instructors
+- [ ] In game settings screen (Music, Language, ...)
 - [ ] Draw characters from a different angle
-- [ ] Game 100% responsive
 - [ ] Detail each room
 
 - [ ] Done ?/46
-
-
-Monday
-
-- [x] Draw double chair table apprentices working 
-- [x] pc_table2
-- [x] kuka
-- [X] machine1
-
-
-Tuesday
-
-- [x] machine2
-- [x] Tutorial screen 1 and 2
-- [x] Npc goes beep beep
-
-Wednesday
-
-- [ ] Draw new room structures
-    - [x] apprentice_table
-    - [ ] Instructors_table
-    - [x] floor
-    
-- [ ] Implement new room
-
-- [x] Split game's constructor into private methods
-- [x] Create a method for click in store item
-- [x] Method for click check
-
-- [ ] big_table
-- [ ] Settings screen
-- [ ] Implement Workshop with structures 
-- [ ] In game settings screen (Music, Language, ...)
-
-Thursday
-
-- [ ] Load game screen
-- [ ] Load game
-- [ ] Detail each room
-- [ ] Prepare the presentation
-
-Friday
-
-- [ ] Presentation
